@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0A1628;
+  --green: #00E676;
+  --amber: #FF8F00;
+  --bg: #F8F9FA;
+  --text: #1A1A2E;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float 3s ease-in-out 1s infinite;
+}
+
+.animate-float-delay2 {
+  animation: float 3s ease-in-out 2s infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00E676, #00BCD4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-grid {
+  background-image: 
+    linear-gradient(rgba(0, 230, 118, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 230, 118, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom slider styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: #e2e8f0;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #00E676;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 230, 118, 0.4);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #00E676;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 230, 118, 0.4);
+}
+
+.section-observe {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-observe.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
