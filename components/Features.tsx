@@ -57,9 +57,9 @@ const features = [
   },
   {
     icon: "👨‍⚕️",
-    title: "National Telehealth Doctor Network",
+    title: "Real Doctors from Day One",
     description:
-      "All programs include access to our nationwide network of telehealth doctors. Get expert medical opinions, early intervention support, and injury assessments without the wait.",
+      "Access real doctors immediately when any injury occurs. Our nationwide telehealth network provides expert medical opinions, injury assessments, and early intervention support from day one — no waiting, no delays.",
     color: "from-cyan-400/10 to-teal-400/5",
     border: "border-cyan-400/20",
   },
