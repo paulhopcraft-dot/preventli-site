@@ -4,16 +4,16 @@ import { useEffect, useRef, useState } from "react";
 
 const testimonials = [
   {
-    name: "Vicky Kos",
-    role: "Facility Manager",
-    company: "St Basils Aged Care",
-    industry: "Aged Care",
-    size: "120 employees",
+    name: "George Tahan",
+    role: "Managing Director",
+    company: "IKON Cleaning Services",
+    industry: "Cleaning Services",
+    size: "200 employees",
     quote:
-      "We halved our premium in just two years…we had seen claims rising 20% one year and 30% the next, which was alarming to say the least. We engaged Preventia and within the first twelve months claims had fallen by 30% and our premium also began to decline. Since working with Preventia, we now understand that it's the internal management that counts.",
+      "The preVentia approach has taught us how to block exposure to potential claims and at the same time look after our workforce better. Through improvements in awareness by our supervisors, we are now more proactively managing our cleaners and all have a clear process to follow across our company which is consistent. This has resulted in a premium which is significantly below the industry standard.",
     rating: 5,
-    initials: "VK",
-    color: "bg-blue-500",
+    initials: "GT",
+    color: "bg-indigo-500",
   },
   {
     name: "Malcolm Ross-Gilder",
@@ -40,16 +40,16 @@ const testimonials = [
     color: "bg-emerald-500",
   },
   {
-    name: "George Tahan",
-    role: "Managing Director",
-    company: "IKON Cleaning Services",
-    industry: "Cleaning Services",
-    size: "200 employees",
+    name: "Sue Rolland",
+    role: "General Manager People, Culture & Quality",
+    company: "Wallara Australia",
+    industry: "Disability Services",
+    size: "160 employees",
     quote:
-      "The preVentia approach has taught us how to block exposure to potential claims and at the same time look after our workforce better. Through improvements in awareness by our supervisors, we are now more proactively managing our cleaners and all have a clear process to follow across our company which is consistent. This has resulted in a premium which is significantly below the industry standard.",
+      "preVentia have made a significant positive impact on how we deal with our prevention in the workplace. We have adopted the proactive approach recommended and have reduced the number of claims and the overall premium cost significantly. Would highly recommend this approach for any organisation and would be happy to discuss with anyone.",
     rating: 5,
-    initials: "GT",
-    color: "bg-indigo-500",
+    initials: "SR",
+    color: "bg-blue-500",
   },
   {
     name: "Anthony Raffa",
