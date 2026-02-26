@@ -11,6 +11,7 @@ const plans = [
     employees: "Up to 20 employees",
     popular: false,
     features: [
+      "National telehealth doctor network",
       "Monthly compliance reports",
       "WHS documentation templates",
       "Incident reporting tool",
@@ -30,6 +31,7 @@ const plans = [
     employees: "Up to 100 employees",
     popular: true,
     features: [
+      "National telehealth doctor network",
       "Weekly compliance reports",
       "WorkCover premium liaison",
       "Dedicated phone support",
@@ -52,6 +54,7 @@ const plans = [
     popular: false,
     features: [
       "Everything in Business",
+      "Priority telehealth doctor access",
       "Dedicated safety consultant",
       "On-site audits & training",
       "SLA guarantee (4hr response)",
