@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const testimonials = [
   {
     name: "Vicky Kos",
     role: "Facility Manager",
     company: "St Basils Aged Care",
+    industry: "Aged Care",
     size: "120 employees",
     quote:
       "We halved our premium in just two years…we had seen claims rising 20% one year and 30% the next, which was alarming to say the least. We engaged Preventia and within the first twelve months claims had fallen by 30% and our premium also began to decline. Since working with Preventia, we now understand that it's the internal management that counts.",
@@ -15,9 +16,22 @@ const testimonials = [
     color: "bg-blue-500",
   },
   {
+    name: "Malcolm Ross-Gilder",
+    role: "Plant Manager",
+    company: "H.B. Fuller Australia",
+    industry: "Manufacturing",
+    size: "150 employees",
+    quote:
+      "The team at preVentia was engaged at the time when our organisation did not have a good culture. They supported us in providing a framework to improve our processes from being reactive to proactive, specifically in the management of potential claims. Outside of improving our claims experiences during the time they were engaged, the culture of openness between management and worker improved and continues to do so.",
+    rating: 5,
+    initials: "MR",
+    color: "bg-orange-500",
+  },
+  {
     name: "Tony Fitzgerald",
     role: "CEO",
     company: "Outlook Disability Services Victoria",
+    industry: "Disability Services",
     size: "180 employees",
     quote:
       "What Preventia taught us to do was an entirely new approach to be more proactive in the way we manage our people and block exposure. Through improved hiring and management practices, we have seen costs fall dramatically and this is now to the point where we are now one of the best performers in disability services in Victoria.",
@@ -26,15 +40,76 @@ const testimonials = [
     color: "bg-emerald-500",
   },
   {
-    name: "Fiona Kool",
-    role: "Director of Care",
-    company: "Assisi Centre Aged Care",
-    size: "95 employees",
+    name: "George Tahan",
+    role: "Managing Director",
+    company: "IKON Cleaning Services",
+    industry: "Cleaning Services",
+    size: "200 employees",
     quote:
-      "Last year I was appointed the Director of Care with little knowledge of the finer details of the health of our workforce. I can't thank preVentia enough for empowering my team and introducing a robust process for monitoring our employee's health. It has been helpful for me and the organisation in providing a better workplace for all. As a result, we are definitely taking a more proactive approach to absence management, and preventative claims. As a result our premium has also reduced by 30%.",
+      "The preVentia approach has taught us how to block exposure to potential claims and at the same time look after our workforce better. Through improvements in awareness by our supervisors, we are now more proactively managing our cleaners and all have a clear process to follow across our company which is consistent. This has resulted in a premium which is significantly below the industry standard.",
     rating: 5,
-    initials: "FK",
-    color: "bg-purple-500",
+    initials: "GT",
+    color: "bg-indigo-500",
+  },
+  {
+    name: "Anthony Raffa",
+    role: "General Manager",
+    company: "Allseps Confectionary",
+    industry: "Food Manufacturing",
+    size: "110 employees",
+    quote:
+      "preVentia has been a part of Allseps over 10 years, Allseps has dramatically reduced our workcover levies to become one of the lowest contributers in the food industry. We have also understood clearly how to prevent claims with the help and guidance from preVentia.",
+    rating: 5,
+    initials: "AR",
+    color: "bg-pink-500",
+  },
+  {
+    name: "Ellen Flint",
+    role: "General Manager People Development",
+    company: "BENETAS",
+    industry: "Healthcare",
+    size: "300 employees",
+    quote:
+      "Although our Workers Compensation premium was under control it was the exposure we were facing that preVentia helped us with. The application of the preVentia program produced outstanding results in terms of how we managed our staff from pre-employment through to post-exit. Our managers were already overworked so having a framework in place we could apply consistently made all the difference. We engaged preVentia with our worst performing site against our benchmarks which over a short period of became one of best performing sites!",
+    rating: 5,
+    initials: "EF",
+    color: "bg-teal-500",
+  },
+  {
+    name: "Martin Day",
+    role: "CEO",
+    company: "St Vincent's Private Hospitals",
+    industry: "Healthcare",
+    size: "500 employees",
+    quote:
+      "The introduction of the Preventia Program into our Private Hospitals has seen a vast turnaround in our culture and performance of our people management in particular in relation to the management aspects of our staff Health and Wellbeing. The preVentia program is not a theory. It works",
+    rating: 5,
+    initials: "MD",
+    color: "bg-red-500",
+  },
+  {
+    name: "Graham Church",
+    role: "CEO",
+    company: "Alpine MDF Industries",
+    industry: "Manufacturing",
+    size: "140 employees",
+    quote:
+      "Alpine MDF has been working with preVentia for a number of years now. The goal has always been to get 'win win' outcomes for both the business and the employee and I can say we have been delighted with the outcomes.",
+    rating: 5,
+    initials: "GC",
+    color: "bg-amber-500",
+  },
+  {
+    name: "Peter Vero",
+    role: "Managing Director",
+    company: "CMR Personnel",
+    industry: "Labor Hire",
+    size: "250 employees",
+    quote:
+      "Working with preVentia has allowed us to manage the health and safety of our workforce with greater efficiency. This has led to far less claims over the past 3 years, which in turn has had a dramatic reduction of our Workcover premium!",
+    rating: 5,
+    initials: "PV",
+    color: "bg-cyan-500",
   },
 ];
 
@@ -59,6 +134,19 @@ function StarRating({ count }: { count: number }) {
 
 export default function Testimonials() {
   const ref = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-scroll carousel
+  useEffect(() => {
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 3 >= testimonials.length ? 0 : prev + 3));
+    }, 5000); // Change every 5 seconds
+    
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -75,6 +163,10 @@ export default function Testimonials() {
     if (el) observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + 3);
+  const totalPages = Math.ceil(testimonials.length / 3);
+  const currentPage = Math.floor(currentIndex / 3);
 
   return (
     <section className="py-20 bg-[#0A1628]">
@@ -95,8 +187,12 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((t, i) => (
+        <div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {visibleTestimonials.map((t, i) => (
             <div
               key={i}
               className="card-hover bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col"
@@ -134,6 +230,22 @@ export default function Testimonials() {
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Pagination dots */}
+        <div className="flex justify-center items-center gap-2 mt-8">
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i * 3)}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${
+                currentPage === i
+                  ? "bg-[#00E676] w-8"
+                  : "bg-white/20 hover:bg-white/40"
+              }`}
+              aria-label={`Go to page ${i + 1}`}
+            />
           ))}
         </div>
 
