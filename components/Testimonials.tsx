@@ -4,36 +4,36 @@ import { useEffect, useRef } from "react";
 
 const testimonials = [
   {
-    name: "Sarah M.",
-    role: "Operations Manager",
-    company: "Apex Construction Group",
-    size: "85 employees",
+    name: "Vicky Kos",
+    role: "Facility Manager",
+    company: "St Basils Aged Care",
+    size: "120 employees",
     quote:
-      "We cut our WorkCover premium by $43,000 in the first year. Preventli identified risks we didn't even know existed and gave us a clear roadmap. The ROI was immediate.",
+      "We halved our premium in just two years…we had seen claims rising 20% one year and 30% the next, which was alarming to say the least. We engaged Preventia and within the first twelve months claims had fallen by 30% and our premium also began to decline. Since working with Preventia, we now understand that it's the internal management that counts.",
     rating: 5,
-    initials: "SM",
+    initials: "VK",
     color: "bg-blue-500",
   },
   {
-    name: "David K.",
+    name: "Tony Fitzgerald",
     role: "CEO",
-    company: "Horizon Healthcare",
-    size: "220 employees",
+    company: "Outlook Disability Services Victoria",
+    size: "180 employees",
     quote:
-      "After three serious incidents in two years, our premiums were through the roof. Preventli turned things around. Zero incidents last year, and our premium dropped 38%. Couldn't recommend them more.",
+      "What Preventia taught us to do was an entirely new approach to be more proactive in the way we manage our people and block exposure. Through improved hiring and management practices, we have seen costs fall dramatically and this is now to the point where we are now one of the best performers in disability services in Victoria.",
     rating: 5,
-    initials: "DK",
+    initials: "TF",
     color: "bg-emerald-500",
   },
   {
-    name: "Michelle T.",
-    role: "HR Director",
-    company: "Coastal Hospitality Group",
-    size: "140 employees",
+    name: "Fiona Kool",
+    role: "Director of Care",
+    company: "Assisi Centre Aged Care",
+    size: "95 employees",
     quote:
-      "The compliance management tool alone saved my team 8 hours a week. Having everything in one place, plus a dedicated consultant who actually knows WorkCover inside out — it's a game changer.",
+      "Last year I was appointed the Director of Care with little knowledge of the finer details of the health of our workforce. I can't thank preVentia enough for empowering my team and introducing a robust process for monitoring our employee's health. It has been helpful for me and the organisation in providing a better workplace for all. As a result, we are definitely taking a more proactive approach to absence management, and preventative claims. As a result our premium has also reduced by 30%.",
     rating: 5,
-    initials: "MT",
+    initials: "FK",
     color: "bg-purple-500",
   },
 ];
