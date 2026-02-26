@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import PainPoints from "@/components/PainPoints";
 import HowItWorks from "@/components/HowItWorks";
 import Features from "@/components/Features";
+import RiskAssessment from "@/components/RiskAssessment";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Calculator from "@/components/Calculator";
@@ -17,6 +18,7 @@ export default function Home() {
       <PainPoints />
       <HowItWorks />
       <Features />
+      <RiskAssessment />
       <Testimonials />
       <Pricing />
       <Calculator />
