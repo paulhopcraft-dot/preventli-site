@@ -56,6 +56,14 @@ const features = [
     aiFeature: true,
   },
   {
+    icon: "👨‍⚕️",
+    title: "National Telehealth Doctor Network",
+    description:
+      "All programs include access to our nationwide network of telehealth doctors. Get expert medical opinions, early intervention support, and injury assessments without the wait.",
+    color: "from-cyan-400/10 to-teal-400/5",
+    border: "border-cyan-400/20",
+  },
+  {
     icon: "🏥",
     title: "Return-to-Work Coordination",
     description:
