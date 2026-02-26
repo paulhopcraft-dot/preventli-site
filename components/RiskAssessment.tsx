@@ -371,89 +371,169 @@ export default function RiskAssessment() {
         </div>
 
         {/* Assessment Type Selector */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-10 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <button
             onClick={() => {
               setAssessmentType("individual");
               resetAssessment();
             }}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+            className={`group relative overflow-hidden rounded-2xl p-6 text-left transition-all ${
               assessmentType === "individual"
-                ? "bg-[#00E676] text-[#0A1628]"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                ? "bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-xl scale-105"
+                : "bg-white border-2 border-gray-200 hover:border-violet-400 hover:shadow-lg"
             }`}
           >
-            Individual Worker Risk
+            <div className="relative z-10">
+              <div className="text-4xl mb-3">👤</div>
+              <h3 className={`text-lg font-bold mb-2 ${
+                assessmentType === "individual" ? "text-white" : "text-[#0A1628]"
+              }`}>
+                Individual Worker Risk
+              </h3>
+              <p className={`text-sm ${
+                assessmentType === "individual" ? "text-white/90" : "text-gray-600"
+              }`}>
+                Identify at-risk employees before injuries occur
+              </p>
+            </div>
+            {assessmentType === "individual" && (
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-600/20 to-purple-700/20 animate-pulse" />
+            )}
           </button>
+          
           <button
             onClick={() => {
               setAssessmentType("psychosocial");
               resetAssessment();
             }}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+            className={`group relative overflow-hidden rounded-2xl p-6 text-left transition-all ${
               assessmentType === "psychosocial"
-                ? "bg-[#00E676] text-[#0A1628]"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                ? "bg-gradient-to-br from-blue-500 to-cyan-600 text-white shadow-xl scale-105"
+                : "bg-white border-2 border-gray-200 hover:border-blue-400 hover:shadow-lg"
             }`}
           >
-            Psychosocial Hazards
+            <div className="relative z-10">
+              <div className="text-4xl mb-3">🧠</div>
+              <h3 className={`text-lg font-bold mb-2 ${
+                assessmentType === "psychosocial" ? "text-white" : "text-[#0A1628]"
+              }`}>
+                Psychosocial Hazards
+              </h3>
+              <p className={`text-sm ${
+                assessmentType === "psychosocial" ? "text-white/90" : "text-gray-600"
+              }`}>
+                Assess workplace stress, culture & mental health risks
+              </p>
+            </div>
+            {assessmentType === "psychosocial" && (
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-700/20 animate-pulse" />
+            )}
           </button>
+          
           <button
             onClick={() => {
               setAssessmentType("wellbeing");
               resetAssessment();
             }}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+            className={`group relative overflow-hidden rounded-2xl p-6 text-left transition-all ${
               assessmentType === "wellbeing"
-                ? "bg-[#00E676] text-[#0A1628]"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                ? "bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-xl scale-105"
+                : "bg-white border-2 border-gray-200 hover:border-emerald-400 hover:shadow-lg"
             }`}
           >
-            Health & Wellbeing Profile
+            <div className="relative z-10">
+              <div className="text-4xl mb-3">💚</div>
+              <h3 className={`text-lg font-bold mb-2 ${
+                assessmentType === "wellbeing" ? "text-white" : "text-[#0A1628]"
+              }`}>
+                Health & Wellbeing Profile
+              </h3>
+              <p className={`text-sm ${
+                assessmentType === "wellbeing" ? "text-white/90" : "text-gray-600"
+              }`}>
+                Measure organizational wellbeing maturity
+              </p>
+            </div>
+            {assessmentType === "wellbeing" && (
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-teal-700/20 animate-pulse" />
+            )}
           </button>
         </div>
 
         {/* Questions */}
-        <div className="bg-[#F8F9FA] rounded-2xl p-6 sm:p-8 mb-8">
+        <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 sm:p-8 mb-8 border border-gray-200 shadow-lg">
           <div className="mb-6">
-            <h3 className="text-xl font-bold text-[#0A1628] mb-2">
-              {assessmentType === "individual" && "Individual Worker Assessment"}
-              {assessmentType === "psychosocial" &&
-                "Organizational Psychosocial Hazards"}
-              {assessmentType === "wellbeing" &&
-                "Organizational Health & Wellbeing"}
-            </h3>
-            <p className="text-gray-600 text-sm">
-              {assessmentType === "individual" &&
-                "Check all items that apply to the worker being assessed."}
-              {assessmentType === "psychosocial" &&
-                "Check all psychosocial hazards present in your organization."}
-              {assessmentType === "wellbeing" &&
-                "Check all items that are currently in place at your organization."}
-            </p>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#00E676] to-[#00D168] flex items-center justify-center text-white text-xl font-bold">
+                {assessmentType === "individual" && "👤"}
+                {assessmentType === "psychosocial" && "🧠"}
+                {assessmentType === "wellbeing" && "💚"}
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-[#0A1628]">
+                  {assessmentType === "individual" && "Individual Worker Assessment"}
+                  {assessmentType === "psychosocial" &&
+                    "Organizational Psychosocial Hazards"}
+                  {assessmentType === "wellbeing" &&
+                    "Organizational Health & Wellbeing"}
+                </h3>
+                <p className="text-gray-600 text-sm mt-1">
+                  {assessmentType === "individual" &&
+                    "Check all items that apply to the worker being assessed."}
+                  {assessmentType === "psychosocial" &&
+                    "Check all psychosocial hazards present in your organization."}
+                  {assessmentType === "wellbeing" &&
+                    "Check all items that are currently in place at your organization."}
+                </p>
+              </div>
+            </div>
+            
+            {/* Progress Bar */}
+            <div className="mt-4">
+              <div className="flex justify-between text-sm mb-2">
+                <span className="text-gray-600 font-medium">Progress</span>
+                <span className="text-[#00E676] font-bold">{score} / {maxScore}</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div 
+                  className="h-full bg-gradient-to-r from-[#00E676] to-[#00D168] transition-all duration-300 ease-out"
+                  style={{ width: `${(score / maxScore) * 100}%` }}
+                />
+              </div>
+            </div>
           </div>
 
           <div className="space-y-6">
             {currentQuestions.map((category, catIndex) => (
-              <div key={catIndex} className="space-y-3">
-                <h4 className="font-semibold text-[#0A1628] text-sm uppercase tracking-wide">
-                  {category.category}
-                </h4>
+              <div key={catIndex} className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-2 h-8 bg-gradient-to-b from-[#00E676] to-[#00D168] rounded-full" />
+                  <h4 className="font-bold text-[#0A1628] text-base">
+                    {category.category}
+                  </h4>
+                </div>
                 <div className="space-y-2">
                   {category.questions.map((question, qIndex) => {
                     const key = `${catIndex}-${qIndex}`;
+                    const isChecked = responses[key] || false;
                     return (
                       <label
                         key={key}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-white transition-colors cursor-pointer"
+                        className={`flex items-start gap-3 p-3 rounded-lg transition-all cursor-pointer ${
+                          isChecked 
+                            ? "bg-[#00E676]/10 border-2 border-[#00E676]/30" 
+                            : "bg-gray-50 hover:bg-gray-100 border-2 border-transparent"
+                        }`}
                       >
                         <input
                           type="checkbox"
-                          checked={responses[key] || false}
+                          checked={isChecked}
                           onChange={() => handleToggle(key)}
-                          className="mt-1 w-4 h-4 text-[#00E676] focus:ring-[#00E676] rounded border-gray-300"
+                          className="mt-1 w-5 h-5 text-[#00E676] focus:ring-[#00E676] rounded border-gray-300"
                         />
-                        <span className="text-gray-700 text-sm flex-1">
+                        <span className={`text-sm flex-1 ${
+                          isChecked ? "text-[#0A1628] font-medium" : "text-gray-700"
+                        }`}>
                           {question}
                         </span>
                       </label>
@@ -464,13 +544,21 @@ export default function RiskAssessment() {
             ))}
           </div>
 
-          {/* Current Score */}
-          <div className="mt-6 p-4 bg-white rounded-lg border border-gray-200">
+          {/* Current Score Card */}
+          <div className="mt-6 p-6 bg-gradient-to-br from-[#0A1628] to-[#1a2638] rounded-xl text-white shadow-xl">
             <div className="flex justify-between items-center">
-              <span className="text-gray-600 font-medium">Current Score:</span>
-              <span className="text-2xl font-bold text-[#0A1628]">
-                {score} / {maxScore}
-              </span>
+              <div>
+                <span className="text-white/70 text-sm uppercase tracking-wider">Current Score</span>
+                <div className="text-4xl font-bold mt-1">
+                  {score} <span className="text-2xl text-white/60">/ {maxScore}</span>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-5xl font-bold text-[#00E676]">
+                  {Math.round((score / maxScore) * 100)}%
+                </div>
+                <span className="text-white/70 text-sm">Complete</span>
+              </div>
             </div>
           </div>
 
@@ -495,16 +583,106 @@ export default function RiskAssessment() {
         {showResults && (
           <div
             id="results"
-            className={`${risk.bg} rounded-2xl p-6 sm:p-8 border-2 ${risk.color.replace("text-", "border-")}`}
+            className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-6 sm:p-10 border-2 border-gray-200 shadow-2xl"
           >
-            <div className="text-center mb-6">
-              <h3 className={`text-3xl font-bold ${risk.color} mb-2`}>
+            {/* Risk Level Header */}
+            <div className="text-center mb-8">
+              <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full ${risk.bg} ${risk.color.replace("text-", "border-")} border-4 mb-4`}>
+                <span className="text-4xl">
+                  {risk.level === "High Risk" && "⚠️"}
+                  {risk.level === "Moderate Risk" && "⚡"}
+                  {risk.level === "Low Risk" && "✓"}
+                  {risk.level === "Minimal Risk" && "✓"}
+                  {risk.level === "Excellent" && "🌟"}
+                  {risk.level === "Good" && "✓"}
+                  {risk.level === "Moderate" && "⚡"}
+                  {risk.level === "At Risk" && "⚠️"}
+                </span>
+              </div>
+              <h3 className={`text-4xl font-bold ${risk.color} mb-2`}>
                 {risk.level}
               </h3>
-              <p className="text-gray-700">
-                Score: {score} out of {maxScore} ({Math.round((score / maxScore) * 100)}
-                %)
+              <p className="text-gray-600 text-lg">
+                Score: {score} out of {maxScore} ({Math.round((score / maxScore) * 100)}%)
               </p>
+            </div>
+
+            {/* Visual Graph */}
+            <div className="mb-8 p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
+              <h4 className="text-lg font-bold text-[#0A1628] mb-4 text-center">Risk Level Visualization</h4>
+              
+              {/* Circular Progress */}
+              <div className="flex justify-center mb-6">
+                <div className="relative w-48 h-48">
+                  {/* Background circle */}
+                  <svg className="transform -rotate-90 w-48 h-48">
+                    <circle
+                      cx="96"
+                      cy="96"
+                      r="88"
+                      stroke="#E5E7EB"
+                      strokeWidth="16"
+                      fill="none"
+                    />
+                    {/* Progress circle */}
+                    <circle
+                      cx="96"
+                      cy="96"
+                      r="88"
+                      stroke={
+                        risk.color === "text-red-500" ? "#EF4444" :
+                        risk.color === "text-amber-500" ? "#F59E0B" :
+                        risk.color === "text-blue-500" ? "#3B82F6" :
+                        "#10B981"
+                      }
+                      strokeWidth="16"
+                      fill="none"
+                      strokeDasharray={`${(score / maxScore) * 553} 553`}
+                      strokeLinecap="round"
+                      className="transition-all duration-1000 ease-out"
+                    />
+                  </svg>
+                  {/* Center text */}
+                  <div className="absolute inset-0 flex items-center justify-center flex-col">
+                    <div className={`text-5xl font-bold ${risk.color}`}>
+                      {Math.round((score / maxScore) * 100)}
+                    </div>
+                    <div className="text-gray-500 text-sm font-medium">of {maxScore}</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bar Graph by Category */}
+              <div className="space-y-3">
+                <h5 className="font-semibold text-[#0A1628] text-sm mb-3">Breakdown by Category:</h5>
+                {currentQuestions.map((category, catIndex) => {
+                  const categoryScore = category.questions.filter((_, qIndex) => 
+                    responses[`${catIndex}-${qIndex}`]
+                  ).length;
+                  const categoryMax = category.questions.length;
+                  const categoryPercent = (categoryScore / categoryMax) * 100;
+                  
+                  return (
+                    <div key={catIndex} className="space-y-1">
+                      <div className="flex justify-between text-xs">
+                        <span className="font-medium text-gray-700">{category.category}</span>
+                        <span className="text-gray-500">{categoryScore}/{categoryMax}</span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+                        <div
+                          className={`h-full transition-all duration-500 rounded-full ${
+                            categoryPercent >= 60 ? "bg-red-500" :
+                            categoryPercent >= 40 ? "bg-amber-500" :
+                            categoryPercent >= 20 ? "bg-blue-500" :
+                            "bg-green-500"
+                          }`}
+                          style={{ width: `${categoryPercent}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
             <div className="prose prose-sm max-w-none text-gray-700">
