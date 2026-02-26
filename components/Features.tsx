@@ -4,6 +4,24 @@ import { useEffect, useRef } from "react";
 
 const features = [
   {
+    icon: "🤖",
+    title: "AI-Powered Risk Prediction",
+    description:
+      "Machine learning algorithms analyze your workforce data to predict injury risks before they happen. Get early warnings and prevent incidents proactively.",
+    color: "from-violet-400/10 to-purple-400/5",
+    border: "border-violet-400/20",
+    aiFeature: true,
+  },
+  {
+    icon: "🧠",
+    title: "Intelligent Claim Analysis",
+    description:
+      "AI automatically categorizes and analyzes claims data, identifying patterns and cost drivers to help you make data-driven decisions that reduce premiums.",
+    color: "from-blue-400/10 to-cyan-400/5",
+    border: "border-blue-400/20",
+    aiFeature: true,
+  },
+  {
     icon: "💰",
     title: "WorkCover Premium Reduction",
     description:
@@ -12,28 +30,38 @@ const features = [
     border: "border-green-400/20",
   },
   {
+    icon: "📈",
+    title: "Predictive Analytics Dashboard",
+    description:
+      "Real-time AI-powered insights show trending risks, predict future claims likelihood, and recommend preventive actions specific to your workforce patterns.",
+    color: "from-indigo-400/10 to-blue-400/5",
+    border: "border-indigo-400/20",
+    aiFeature: true,
+  },
+  {
     icon: "🦺",
     title: "Injury Prevention Programs",
     description:
       "Customised safety programs tailored to your industry and workforce. Reduce incident rates through targeted training, hazard identification, and culture change.",
-    color: "from-blue-400/10 to-cyan-400/5",
-    border: "border-blue-400/20",
+    color: "from-orange-400/10 to-amber-400/5",
+    border: "border-orange-400/20",
   },
   {
     icon: "📋",
-    title: "Compliance Management",
+    title: "Automated Compliance Tracking",
     description:
-      "Stay on top of WHS obligations with automated compliance tracking, SWMS management, risk registers, and real-time reporting dashboards.",
+      "AI monitors WHS obligations and deadlines automatically. Never miss a compliance requirement with intelligent alerts and automated documentation generation.",
     color: "from-purple-400/10 to-violet-400/5",
     border: "border-purple-400/20",
+    aiFeature: true,
   },
   {
     icon: "🏥",
     title: "Return-to-Work Coordination",
     description:
       "Expert coordination of return-to-work programs to get injured employees back safely and quickly, minimising claims duration and cost.",
-    color: "from-amber-400/10 to-orange-400/5",
-    border: "border-amber-400/20",
+    color: "from-teal-400/10 to-emerald-400/5",
+    border: "border-teal-400/20",
   },
   {
     icon: "🚨",
@@ -44,12 +72,13 @@ const features = [
     border: "border-red-400/20",
   },
   {
-    icon: "📊",
-    title: "Executive Reporting Dashboard",
+    icon: "💬",
+    title: "AI Assistant & Smart Alerts",
     description:
-      "Real-time visibility into your safety performance, premium trajectory, compliance status, and ROI — all in one executive-ready dashboard.",
-    color: "from-indigo-400/10 to-blue-400/5",
-    border: "border-indigo-400/20",
+      "Conversational AI helps managers get instant answers about WHS policies, send smart notifications to employees, and automate routine communications.",
+    color: "from-pink-400/10 to-rose-400/5",
+    border: "border-pink-400/20",
+    aiFeature: true,
   },
 ];
 
@@ -80,14 +109,14 @@ export default function Features() {
       >
         <div className="text-center mb-14">
           <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
-            Platform Features
+            AI-Powered Platform
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
-            Everything you need to stay protected
+            Intelligent WorkCover management that works for you
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            A complete WorkCover and WHS management platform, designed
-            specifically for Australian businesses.
+            Advanced AI and machine learning combined with expert WHS guidance. 
+            Predict risks, automate compliance, and reduce premiums with data-driven intelligence.
           </p>
         </div>
 
@@ -95,9 +124,19 @@ export default function Features() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className={`card-hover bg-gradient-to-br ${feature.color} border ${feature.border} rounded-2xl p-6 bg-white`}
+              className={`card-hover bg-gradient-to-br ${feature.color} border ${feature.border} rounded-2xl p-6 bg-white relative`}
               style={{ backgroundColor: "white" }}
             >
+              {feature.aiFeature && (
+                <div className="absolute top-4 right-4">
+                  <span className="inline-flex items-center gap-1 bg-gradient-to-r from-violet-500 to-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    AI
+                  </span>
+                </div>
+              )}
               <div className="text-3xl mb-4">{feature.icon}</div>
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                 {feature.title}
