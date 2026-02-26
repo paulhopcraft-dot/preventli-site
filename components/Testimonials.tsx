@@ -10,7 +10,7 @@ const testimonials = [
     industry: "Cleaning Services",
     size: "200 employees",
     quote:
-      "The preVentia approach has taught us how to block exposure to potential claims and at the same time look after our workforce better. Through improvements in awareness by our supervisors, we are now more proactively managing our cleaners and all have a clear process to follow across our company which is consistent. This has resulted in a premium which is significantly below the industry standard.",
+      "The Preventli system has taught us how to block exposure to potential claims and at the same time look after our workforce better. Through improvements in awareness by our supervisors, we are now more proactively managing our cleaners and all have a clear process to follow across our company which is consistent. This has resulted in a premium which is significantly below the industry standard.",
     rating: 5,
     initials: "GT",
     color: "bg-indigo-500",
@@ -22,7 +22,7 @@ const testimonials = [
     industry: "Manufacturing",
     size: "150 employees",
     quote:
-      "The team at preVentia was engaged at the time when our organisation did not have a good culture. They supported us in providing a framework to improve our processes from being reactive to proactive, specifically in the management of potential claims. Outside of improving our claims experiences during the time they were engaged, the culture of openness between management and worker improved and continues to do so.",
+      "The Preventli platform was implemented at a time when our organisation did not have a good culture. The system supported us in providing a framework to improve our processes from being reactive to proactive, specifically in the management of potential claims. Beyond improving our claims experiences, the culture of openness between management and workers improved and continues to do so.",
     rating: 5,
     initials: "MR",
     color: "bg-orange-500",
@@ -34,7 +34,7 @@ const testimonials = [
     industry: "Disability Services",
     size: "180 employees",
     quote:
-      "What Preventia taught us to do was an entirely new approach to be more proactive in the way we manage our people and block exposure. Through improved hiring and management practices, we have seen costs fall dramatically and this is now to the point where we are now one of the best performers in disability services in Victoria.",
+      "What Preventli taught us to do was an entirely new approach to be more proactive in the way we manage our people and block exposure. Through improved hiring and management practices powered by their AI system, we have seen costs fall dramatically and are now one of the best performers in disability services in Victoria.",
     rating: 5,
     initials: "TF",
     color: "bg-emerald-500",
@@ -46,7 +46,7 @@ const testimonials = [
     industry: "Disability Services",
     size: "160 employees",
     quote:
-      "preVentia have made a significant positive impact on how we deal with our prevention in the workplace. We have adopted the proactive approach recommended and have reduced the number of claims and the overall premium cost significantly. Would highly recommend this approach for any organisation and would be happy to discuss with anyone.",
+      "Preventli has made a significant positive impact on how we deal with prevention in the workplace. We have adopted the proactive approach recommended by their AI agents and have reduced the number of claims and the overall premium cost significantly. Would highly recommend this system for any organisation.",
     rating: 5,
     initials: "SR",
     color: "bg-blue-500",
@@ -58,7 +58,7 @@ const testimonials = [
     industry: "Food Manufacturing",
     size: "110 employees",
     quote:
-      "preVentia has been a part of Allseps over 10 years, Allseps has dramatically reduced our workcover levies to become one of the lowest contributers in the food industry. We have also understood clearly how to prevent claims with the help and guidance from preVentia.",
+      "Preventli has been supporting Allseps for years. We have dramatically reduced our workcover levies to become one of the lowest contributors in the food industry. The system has helped us understand clearly how to prevent claims through data-driven insights and early intervention.",
     rating: 5,
     initials: "AR",
     color: "bg-pink-500",
@@ -70,7 +70,7 @@ const testimonials = [
     industry: "Healthcare",
     size: "300 employees",
     quote:
-      "Although our Workers Compensation premium was under control it was the exposure we were facing that preVentia helped us with. The application of the preVentia program produced outstanding results in terms of how we managed our staff from pre-employment through to post-exit. Our managers were already overworked so having a framework in place we could apply consistently made all the difference. We engaged preVentia with our worst performing site against our benchmarks which over a short period of became one of best performing sites!",
+      "Although our Workers Compensation premium was under control, it was the exposure we were facing that Preventli helped us with. The AI-powered platform produced outstanding results in how we managed our staff from pre-employment through to post-exit. Our managers were already overworked, so having an automated system we could apply consistently made all the difference. Our worst performing site became one of our best performing in a short period!",
     rating: 5,
     initials: "EF",
     color: "bg-teal-500",
@@ -82,7 +82,7 @@ const testimonials = [
     industry: "Healthcare",
     size: "500 employees",
     quote:
-      "The introduction of the Preventia Program into our Private Hospitals has seen a vast turnaround in our culture and performance of our people management in particular in relation to the management aspects of our staff Health and Wellbeing. The preVentia program is not a theory. It works",
+      "The introduction of the Preventli system into our Private Hospitals has seen a vast turnaround in our culture and performance of people management, particularly in relation to staff health and wellbeing. The Preventli platform is not a theory. It works.",
     rating: 5,
     initials: "MD",
     color: "bg-red-500",
@@ -94,7 +94,7 @@ const testimonials = [
     industry: "Manufacturing",
     size: "140 employees",
     quote:
-      "Alpine MDF has been working with preVentia for a number of years now. The goal has always been to get 'win win' outcomes for both the business and the employee and I can say we have been delighted with the outcomes.",
+      "Alpine MDF has been working with Preventli for a number of years now. The goal has always been to get 'win-win' outcomes for both the business and the employee, and I can say we have been delighted with the outcomes delivered by their intelligent system.",
     rating: 5,
     initials: "GC",
     color: "bg-amber-500",
@@ -106,7 +106,7 @@ const testimonials = [
     industry: "Labor Hire",
     size: "250 employees",
     quote:
-      "Working with preVentia has allowed us to manage the health and safety of our workforce with greater efficiency. This has led to far less claims over the past 3 years, which in turn has had a dramatic reduction of our Workcover premium!",
+      "Working with Preventli has allowed us to manage the health and safety of our workforce with greater efficiency through automation and AI insights. This has led to far fewer claims over the past 3 years, which in turn has resulted in a dramatic reduction of our Workcover premium!",
     rating: 5,
     initials: "PV",
     color: "bg-cyan-500",
