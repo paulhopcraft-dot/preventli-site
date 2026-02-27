@@ -157,10 +157,10 @@ export default function ContactForm() {
                   <div>
                     <div className="text-sm text-gray-400 mb-1">Email</div>
                     <a
-                      href="mailto:paul@preventli.com.au"
+                      href="mailto:jacinta@preventli.ai"
                       className="text-[#0A1628] font-semibold hover:text-[#00E676] transition-colors"
                     >
-                      paul@preventli.com.au
+                      jacinta@preventli.ai
                     </a>
                   </div>
                 </div>
@@ -371,7 +371,7 @@ export default function ContactForm() {
                 {state === "error" && (
                   <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-red-600 text-sm">
                     Something went wrong. Please try again or email us directly
-                    at paul@preventli.com.au
+                    at jacinta@preventli.ai
                   </div>
                 )}
 
