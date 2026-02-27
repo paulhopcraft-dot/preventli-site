@@ -150,30 +150,6 @@ export default function ContactForm() {
                       strokeWidth="2"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.67 11a19.8 19.8 0 01-3.07-8.67A2 2 0 012.58 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.64a16 16 0 006.29 6.29l.92-.92a2 2 0 012.11-.45c.907.34 1.85.574 2.81.7A2 2 0 0122 16.92z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-400 mb-1">Phone</div>
-                    <a
-                      href="tel:1800PREVENTLI"
-                      className="text-[#0A1628] font-semibold hover:text-[#00E676] transition-colors"
-                    >
-                      1800 XXX XXX
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-[#0A1628] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <svg
-                      width="18"
-                      height="18"
-                      fill="none"
-                      stroke="#00E676"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                       <polyline points="22,6 12,13 2,6" />
                     </svg>
