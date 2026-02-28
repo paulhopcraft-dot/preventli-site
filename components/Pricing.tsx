@@ -4,72 +4,70 @@ import { useState, useEffect, useRef } from "react";
 
 const plans = [
   {
-    name: "Starter",
-    monthlyPrice: 299,
-    annualPrice: 239,
-    description: "Perfect for small businesses getting started with compliance.",
-    employees: "Up to 20 employees",
+    name: "Pay Per Case",
+    price: "From $750",
+    priceSuffix: "/case",
+    description: "Perfect for small businesses with occasional claims. Pay only when you need us.",
+    highlight: "No monthly commitment",
     popular: false,
     features: [
-      "National telehealth doctor network",
-      "Monthly compliance reports",
-      "WHS documentation templates",
-      "Incident reporting tool",
-      "Email support (48hr response)",
-      "Basic risk register",
-      "1 user seat",
+      "Full case management from start to finish",
+      "WorkSafe compliance monitoring",
+      "Return-to-work coordination",
+      "Medical certificate tracking",
+      "Chat access for status updates",
+      "Direct line to your case manager",
+      "Compliance documentation handled",
     ],
-    cta: "Start with Starter",
+    cta: "Get Started",
     color: "border-gray-200",
+    ideal: "1-5 claims per year",
   },
   {
-    name: "Business",
-    monthlyPrice: 599,
-    annualPrice: 479,
-    description:
-      "For growing businesses serious about WorkCover premium reduction.",
-    employees: "Up to 100 employees",
+    name: "Monthly Plan",
+    price: "$1,499",
+    priceSuffix: "/month",
+    description: "For businesses with ongoing claims. Predictable costs, unlimited support.",
+    highlight: "Includes up to 5 active cases",
     popular: true,
     features: [
-      "National telehealth doctor network",
-      "Weekly compliance reports",
-      "WorkCover premium liaison",
-      "Dedicated phone support",
-      "Return-to-work coordination",
-      "Advanced analytics dashboard",
-      "Staff training modules",
-      "5 user seats",
-      "Quarterly strategy reviews",
+      "Everything in Pay Per Case",
+      "Up to 5 active cases included",
+      "Priority case handling",
+      "Proactive compliance alerts",
+      "Quarterly premium reviews",
+      "Dedicated account manager",
+      "Additional cases at reduced rate",
+      "Monthly reporting dashboard",
     ],
-    cta: "Start with Business",
+    cta: "Start Monthly Plan",
     color: "border-[#00E676]",
+    ideal: "5-20 claims per year",
   },
   {
     name: "Enterprise",
-    monthlyPrice: null,
-    annualPrice: null,
-    description:
-      "Full-service WorkCover and WHS management for large organisations.",
-    employees: "Unlimited employees",
+    price: "Custom",
+    priceSuffix: "",
+    description: "Full-service WorkCover management for large organisations with high claim volumes.",
+    highlight: "Unlimited cases included",
     popular: false,
     features: [
-      "Everything in Business",
-      "Priority telehealth doctor access",
-      "Dedicated safety consultant",
-      "On-site audits & training",
+      "Everything in Monthly Plan",
+      "Unlimited active cases",
+      "Dedicated senior consultant",
+      "On-site training available",
       "SLA guarantee (4hr response)",
-      "Custom compliance frameworks",
       "Executive reporting suite",
-      "Unlimited user seats",
-      "Priority WorkCover liaison",
+      "WorkCover strategy sessions",
+      "Premium reduction consulting",
     ],
     cta: "Contact Us",
     color: "border-[#FF8F00]",
+    ideal: "20+ claims per year",
   },
 ];
 
 export default function Pricing() {
-  const [annual, setAnnual] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -99,38 +97,32 @@ export default function Pricing() {
             Simple Pricing
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
-            Invest less than one claim costs you
+            We manage your claims. You focus on your business.
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-8">
-            A single WorkCover claim averages $52,000. Our plans pay for
-            themselves many times over.
+            A single WorkCover claim averages $52,000. Our managed service pays for itself many times over — and you don't have to learn any software.
           </p>
 
-          {/* Toggle */}
-          <div className="inline-flex items-center gap-4 bg-white border border-gray-200 rounded-full p-1.5">
-            <button
-              onClick={() => setAnnual(false)}
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-                !annual
-                  ? "bg-[#0A1628] text-white"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setAnnual(true)}
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all flex items-center gap-2 ${
-                annual
-                  ? "bg-[#0A1628] text-white"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              Annual
-              <span className="bg-[#00E676] text-[#0A1628] text-xs font-bold px-2 py-0.5 rounded-full">
-                Save 20%
-              </span>
-            </button>
+          {/* Value prop badges */}
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <span className="bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-600 flex items-center gap-2">
+              <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              No software to learn
+            </span>
+            <span className="bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-600 flex items-center gap-2">
+              <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Just ask us anything via chat
+            </span>
+            <span className="bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-600 flex items-center gap-2">
+              <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              We handle the compliance
+            </span>
           </div>
         </div>
 
@@ -158,23 +150,17 @@ export default function Pricing() {
               </div>
 
               <div className="mb-6">
-                {plan.monthlyPrice ? (
-                  <div className="flex items-end gap-2">
-                    <span className="text-4xl font-bold text-[#0A1628]">
-                      ${annual ? plan.annualPrice : plan.monthlyPrice}
-                    </span>
-                    <span className="text-gray-400 mb-1">/mo</span>
-                  </div>
-                ) : (
-                  <div className="text-4xl font-bold text-[#0A1628]">
-                    Custom
-                  </div>
-                )}
-                {annual && plan.monthlyPrice && (
-                  <div className="text-sm text-[#00E676] mt-1">
-                    Save ${(plan.monthlyPrice - (plan.annualPrice ?? 0)) * 12}/yr
-                  </div>
-                )}
+                <div className="flex items-end gap-1">
+                  <span className="text-4xl font-bold text-[#0A1628]">
+                    {plan.price}
+                  </span>
+                  {plan.priceSuffix && (
+                    <span className="text-gray-400 mb-1">{plan.priceSuffix}</span>
+                  )}
+                </div>
+                <div className="text-sm text-[#00E676] mt-2 font-medium">
+                  {plan.highlight}
+                </div>
                 <div className="text-sm text-gray-400 mt-2 flex items-center gap-1.5">
                   <svg
                     width="14"
@@ -188,7 +174,7 @@ export default function Pricing() {
                     <circle cx="9" cy="7" r="4" />
                     <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
                   </svg>
-                  {plan.employees}
+                  Ideal for: {plan.ideal}
                 </div>
               </div>
 
@@ -212,7 +198,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href={plan.name === "Enterprise" ? "#contact" : "#contact"}
+                href="#contact"
                 className={`block w-full text-center py-3 px-6 rounded-xl font-semibold transition-all ${
                   plan.popular
                     ? "bg-[#00E676] text-[#0A1628] hover:bg-[#00C060]"
@@ -226,7 +212,7 @@ export default function Pricing() {
         </div>
 
         <p className="text-center text-gray-400 text-sm mt-8">
-          All plans include a 14-day free trial. No credit card required.
+          Not sure which plan? Chat with us — we'll help you figure out what makes sense for your business.
         </p>
       </div>
     </section>
