@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PainPoints from "@/components/PainPoints";
 import HowItWorks from "@/components/HowItWorks";
+import PreEmployment from "@/components/PreEmployment";
 import Features from "@/components/Features";
 import AIAgents from "@/components/AIAgents";
 import RiskAssessment from "@/components/RiskAssessment";
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <PainPoints />
       <HowItWorks />
+      <PreEmployment />
       <Features />
       <AIAgents />
       <RiskAssessment />
