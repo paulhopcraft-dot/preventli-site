@@ -81,20 +81,27 @@ export default function OnlineDoctor() {
               ))}
             </div>
 
-            {/* Two access points */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-                <div className="text-3xl mb-3">📅</div>
-                <h3 className="font-bold text-[#0A1628] mb-2">Book Appointment</h3>
-                <p className="text-gray-500 text-sm">
-                  Schedule a time that works for you. Video consultation with a real doctor.
-                </p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+            {/* Three access points */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-[#00E676] transition-colors cursor-pointer">
                 <div className="text-3xl mb-3">💬</div>
                 <h3 className="font-bold text-[#0A1628] mb-2">Chat Now</h3>
                 <p className="text-gray-500 text-sm">
                   Start immediately with our AI health assistant. Doctor reviews within 24 hours.
+                </p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-[#00E676] transition-colors cursor-pointer">
+                <div className="text-3xl mb-3">📹</div>
+                <h3 className="font-bold text-[#0A1628] mb-2">Video Call</h3>
+                <p className="text-gray-500 text-sm">
+                  Book a telehealth video consultation with a doctor from our national network.
+                </p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-[#00E676] transition-colors cursor-pointer">
+                <div className="text-3xl mb-3">🏥</div>
+                <h3 className="font-bold text-[#0A1628] mb-2">Face-to-Face</h3>
+                <p className="text-gray-500 text-sm">
+                  Book an in-person appointment at a clinic near you.
                 </p>
               </div>
             </div>
