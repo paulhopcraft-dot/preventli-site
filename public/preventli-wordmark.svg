@@ -1,10 +1,10 @@
 <svg width="400" height="100" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- "Prevent" in dark gray -->
+  <!-- "Prevent" in white -->
   <text x="10" y="70" 
         font-family="Arial, Helvetica, sans-serif" 
         font-size="60" 
         font-weight="700" 
-        fill="#4A5568"
+        fill="#FFFFFF"
         letter-spacing="-1">Prevent</text>
   
   <!-- "li" in teal -->
