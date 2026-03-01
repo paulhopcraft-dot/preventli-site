@@ -169,7 +169,7 @@ export default function Testimonials() {
   const currentPage = Math.floor(currentIndex / 3);
 
   return (
-    <section className="py-20 bg-[#0A1628]">
+    <section className="pt-8 pb-20 bg-[#0A1628]">
       <div
         ref={ref}
         className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
