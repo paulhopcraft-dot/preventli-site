@@ -35,11 +35,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/preventli-logo-wordmark.png"
+              src="/preventli-wordmark.svg"
               alt="Preventli"
-              width={160}
-              height={40}
-              className="h-8 w-auto"
+              width={200}
+              height={50}
+              className="h-10 w-auto"
               priority
             />
           </Link>
