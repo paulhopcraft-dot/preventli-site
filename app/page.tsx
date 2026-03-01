@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PainPoints from "@/components/PainPoints";
 import HowItWorks from "@/components/HowItWorks";
+import OnlineDoctor from "@/components/OnlineDoctor";
 import PreEmployment from "@/components/PreEmployment";
 import Features from "@/components/Features";
 import AIAgents from "@/components/AIAgents";
@@ -19,6 +20,7 @@ export default function Home() {
       <Hero />
       <PainPoints />
       <HowItWorks />
+      <OnlineDoctor />
       <PreEmployment />
       <Features />
       <AIAgents />
