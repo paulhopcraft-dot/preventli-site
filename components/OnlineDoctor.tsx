@@ -5,9 +5,17 @@ import { useEffect, useRef, useState } from "react";
 const doctors = [
   { name: "Dr. Sarah Chen", specialty: "Occupational Medicine", image: "👩‍⚕️" },
   { name: "Dr. Michael Torres", specialty: "General Practice", image: "👨‍⚕️" },
-  { name: "Dr. Emily Watson", specialty: "Occupational Health", image: "👩‍⚕️" },
-  { name: "Dr. James Park", specialty: "Sports Medicine", image: "👨‍⚕️" },
-  { name: "Dr. Lisa Nguyen", specialty: "Workplace Health", image: "👩‍⚕️" },
+  { name: "Dr. Emily Watson", specialty: "Mental Health", image: "👩‍⚕️" },
+  { name: "Dr. James Park", specialty: "Injury Prevention", image: "👨‍⚕️" },
+  { name: "Physio Alex", specialty: "Physical Rehabilitation", image: "🧑‍⚕️" },
+];
+
+const services = [
+  { icon: "📋", title: "Pre-Employment", desc: "Health assessments for new starters" },
+  { icon: "🦺", title: "Injury Prevention", desc: "Ergonomic reviews & risk assessments" },
+  { icon: "🧠", title: "Mental Health", desc: "Stress, anxiety & wellbeing support" },
+  { icon: "🚪", title: "Exit Assessments", desc: "End-of-employment health reviews" },
+  { icon: "💚", title: "General Wellbeing", desc: "Ongoing health & lifestyle support" },
 ];
 
 export default function OnlineDoctor() {
@@ -61,6 +69,17 @@ export default function OnlineDoctor() {
               No waiting rooms, no delays. Get expert medical assessments 
               and clearances from anywhere in Australia.
             </p>
+
+            {/* Services grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
+              {services.map((service, i) => (
+                <div key={i} className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm text-center hover:border-[#00E676] transition-colors cursor-pointer">
+                  <div className="text-2xl mb-2">{service.icon}</div>
+                  <h3 className="font-bold text-[#0A1628] text-sm mb-1">{service.title}</h3>
+                  <p className="text-gray-500 text-xs">{service.desc}</p>
+                </div>
+              ))}
+            </div>
 
             {/* Two access points */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">

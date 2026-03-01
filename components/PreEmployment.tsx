@@ -6,27 +6,35 @@ const steps = [
   {
     number: "01",
     title: "Request",
-    description: "Enter new starter details — name, email, role. One click to send.",
+    description: "Select assessment type, enter details. One click to send.",
     icon: "📝",
   },
   {
     number: "02", 
     title: "Complete",
-    description: "Worker receives a link, completes the health questionnaire on their phone in 10 minutes.",
+    description: "Employee receives a link, completes the assessment on their phone in 10 minutes.",
     icon: "📱",
   },
   {
     number: "03",
     title: "Review",
-    description: "Our national telehealth doctors review and sign off within 24 hours.",
+    description: "Our telehealth team reviews and signs off within 24 hours.",
     icon: "👨‍⚕️",
   },
   {
     number: "04",
-    title: "Cleared",
-    description: "You receive a doctor-approved report with clearance recommendation.",
+    title: "Report",
+    description: "You receive a doctor-approved report with recommendations.",
     icon: "✅",
   },
+];
+
+const assessmentTypes = [
+  { icon: "📋", title: "Pre-Employment", desc: "Clear new starters before day one" },
+  { icon: "🦺", title: "Injury Prevention", desc: "Identify risks before they become claims" },
+  { icon: "🧠", title: "Mental Health", desc: "Support employee wellbeing proactively" },
+  { icon: "🚪", title: "Exit Assessment", desc: "Document health at end of employment" },
+  { icon: "💚", title: "Health Check", desc: "Ongoing wellness monitoring" },
 ];
 
 export default function PreEmployment() {
@@ -49,22 +57,41 @@ export default function PreEmployment() {
   }, []);
 
   return (
-    <section id="pre-employment" className="py-20 bg-gradient-to-b from-[#0A1628] to-[#0d1d35]">
+    <section id="assessments" className="py-20 bg-gradient-to-b from-[#0A1628] to-[#0d1d35]">
       <div
         ref={ref}
         className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
-            Pre-Employment Checks
+            Health Assessments
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">
-            New starters cleared in 24 hours
+            Every stage of the employee lifecycle
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Doctor-approved pre-employment health assessments. No chasing GPs, 
-            no delays. Just send and forget — we handle everything.
+            From hire to retire — doctor-approved health assessments delivered in 24 hours. 
+            No chasing GPs, no delays.
           </p>
+        </div>
+
+        {/* Assessment types */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
+          {assessmentTypes.map((type, i) => (
+            <div
+              key={i}
+              className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5 text-center hover:border-[#00E676]/50 transition-colors cursor-pointer"
+            >
+              <div className="text-3xl mb-3">{type.icon}</div>
+              <h3 className="text-white font-bold text-sm mb-1">{type.title}</h3>
+              <p className="text-gray-400 text-xs">{type.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mb-12">
+          <h3 className="text-2xl font-bold text-white mb-2">How it works</h3>
+          <p className="text-gray-400">Same simple process for every assessment type</p>
         </div>
 
         {/* Process steps */}
@@ -116,7 +143,7 @@ export default function PreEmployment() {
             href="#contact"
             className="inline-flex items-center gap-2 bg-[#00E676] text-[#0A1628] px-8 py-4 rounded-full font-semibold hover:bg-[#00ff84] transition-colors"
           >
-            Get Started with Pre-Employment Checks
+            Start Your First Assessment
             <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
