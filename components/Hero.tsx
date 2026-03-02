@@ -48,9 +48,14 @@ export default function Hero() {
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+        <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-6 leading-relaxed">
           Preventli helps Australian businesses reduce workplace injuries, manage
           compliance, and cut WorkCover premium costs &mdash; proactively.
+        </p>
+
+        {/* Credibility tagline */}
+        <p className="text-sm sm:text-base text-[#00E676]/90 font-medium max-w-2xl mx-auto mb-10">
+          Built by 30-year industry veterans. Powered by predictive intelligence.
         </p>
 
         {/* CTAs */}
