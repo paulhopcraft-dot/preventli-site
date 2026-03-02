@@ -49,13 +49,12 @@ export default function Hero() {
 
         {/* Subheadline */}
         <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-6 leading-relaxed">
-          Preventli helps Australian businesses reduce workplace injuries, manage
-          compliance, and cut WorkCover premium costs &mdash; proactively.
+          Reduce today's claims. Prevent tomorrow's.
         </p>
 
         {/* Credibility tagline */}
-        <p className="text-sm sm:text-base text-[#00E676]/90 font-medium max-w-2xl mx-auto mb-10">
-          A smarter way to prevent claims. Powered by intelligent workflows and 30 years of real-world expertise.
+        <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Built on 30 years of expertise, Preventli shortens active claim duration and proactively stops new claims before they happen.
         </p>
 
         {/* CTAs */}
