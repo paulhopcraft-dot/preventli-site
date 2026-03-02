@@ -55,7 +55,7 @@ export default function Hero() {
 
         {/* Credibility tagline */}
         <p className="text-sm sm:text-base text-[#00E676]/90 font-medium max-w-2xl mx-auto mb-10">
-          Built by industry experts. Powered by predictive intelligence.
+          Built by 30-year industry experts. Powered by predictive intelligence.
         </p>
 
         {/* CTAs */}
