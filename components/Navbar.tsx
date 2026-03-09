@@ -60,6 +60,12 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
+              href="/login"
+              className="text-sm text-gray-300 hover:text-white transition-colors font-medium"
+            >
+              Login
+            </a>
+            <a
               href="#contact"
               className="text-sm text-gray-300 hover:text-white transition-colors font-medium"
             >
@@ -123,6 +129,13 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="/login"
+              onClick={() => setMenuOpen(false)}
+              className="block text-gray-300 hover:text-[#00E676] py-2 text-sm font-medium transition-colors"
+            >
+              Login
+            </a>
             <a
               href="#calculator"
               onClick={() => setMenuOpen(false)}
