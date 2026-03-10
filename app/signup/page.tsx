@@ -1,7 +1,7 @@
-import { SignIn } from "@clerk/nextjs";
+import { SignUp } from "@clerk/nextjs";
 import Link from "next/link";
 
-export default function LoginPage() {
+export default function SignUpPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0A1628] via-[#1a2942] to-[#0A1628] flex items-center justify-center px-4">
       <div className="max-w-md w-full">
@@ -27,8 +27,8 @@ export default function LoginPage() {
           </span>
         </Link>
 
-        {/* Clerk Sign In Component */}
-        <SignIn
+        {/* Clerk Sign Up Component */}
+        <SignUp
           appearance={{
             elements: {
               rootBox: "w-full",
@@ -41,7 +41,6 @@ export default function LoginPage() {
               formFieldLabel: "text-gray-300",
               footerActionLink: "text-[#00E676] hover:text-[#00C060]",
               identityPreviewText: "text-white",
-              formResendCodeLink: "text-[#00E676] hover:text-[#00C060]",
             },
           }}
         />
