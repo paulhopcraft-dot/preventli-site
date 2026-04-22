@@ -4,66 +4,66 @@ import { useState, useEffect, useRef } from "react";
 
 const plans = [
   {
-    name: "One-Off Case Fee",
-    price: "$990",
-    priceSuffix: "/case",
-    description: "Got a claim you need handled? Pay once, we manage it to resolution. No ongoing fees.",
-    highlight: "One claim, one fee, done",
+    name: "Starter",
+    price: "Free",
+    priceSuffix: "",
+    description: "Get started with WorkCover case management. No credit card required.",
+    highlight: "Up to 3 active cases",
     popular: false,
     features: [
-      "Full case management start to finish",
-      "WorkSafe compliance handled for you",
-      "Return-to-work coordination",
-      "All documentation & certificates tracked",
-      "Chat with us anytime for updates",
-      "Direct line to your case manager",
-      "No subscription required",
+      "1 manager user",
+      "Up to 3 active cases",
+      "RTW case tracking & timeline",
+      "Document & certificate storage",
+      "WorkSafe compliance checklists",
+      "Email notifications",
+      "Standard support",
     ],
-    cta: "Get a Case Handled",
+    cta: "Get Started Free",
     color: "border-gray-200",
-    ideal: "Occasional claims",
+    ideal: "Small businesses, occasional claims",
   },
   {
-    name: "Monthly Plan",
-    price: "$1,499",
+    name: "Professional",
+    price: "$299",
     priceSuffix: "/month",
-    description: "For businesses with ongoing claims. Predictable costs, unlimited support.",
-    highlight: "Includes up to 5 active cases",
+    description: "For growing businesses that need AI-powered RTW planning and pre-employment checks.",
+    highlight: "Unlimited cases included",
     popular: true,
     features: [
-      "Everything in Pay Per Case",
-      "Up to 5 active cases included",
-      "Priority case handling",
-      "Proactive compliance alerts",
-      "Quarterly premium reviews",
-      "Dedicated account manager",
-      "Additional cases at reduced rate",
-      "Monthly reporting dashboard",
+      "Everything in Starter",
+      "Unlimited active cases",
+      "AI-generated return-to-work plans",
+      "Pre-employment health assessments",
+      "Manager dashboard & analytics",
+      "Real-time notification bell",
+      "Full compliance audit trail",
+      "Priority support",
     ],
-    cta: "Start Monthly Plan",
+    cta: "Request Access",
     color: "border-[#00E676]",
-    ideal: "5-20 claims per year",
+    ideal: "Growing teams, 5–50 employees",
   },
   {
     name: "Enterprise",
-    price: "Custom",
-    priceSuffix: "",
-    description: "Full-service WorkCover management for large organisations with high claim volumes.",
-    highlight: "Unlimited cases included",
+    price: "$799",
+    priceSuffix: "/month",
+    description: "Full-scale WorkCover management for large organisations. Custom SLA, SSO, and dedicated support.",
+    highlight: "Unlimited users & cases",
     popular: false,
     features: [
-      "Everything in Monthly Plan",
-      "Unlimited active cases",
-      "Dedicated senior consultant",
+      "Everything in Professional",
+      "Unlimited manager users",
+      "Single sign-on (SSO)",
+      "Custom SLA (4-hour response)",
+      "Dedicated account manager",
       "On-site training available",
-      "SLA guarantee (4hr response)",
       "Executive reporting suite",
       "WorkCover strategy sessions",
-      "Premium reduction consulting",
     ],
     cta: "Contact Us",
     color: "border-[#FF8F00]",
-    ideal: "20+ claims per year",
+    ideal: "Large organisations, 50+ employees",
   },
 ];
 
@@ -97,10 +97,10 @@ export default function Pricing() {
             Simple Pricing
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
-            We manage your claims. You focus on your business.
+            Start free. Scale as you grow.
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-8">
-            A single WorkCover claim averages $52,000. Our managed service pays for itself many times over — and you don't have to learn any software.
+            A single WorkCover claim averages $52,000. Preventli pays for itself many times over — get AI-powered RTW plans, pre-employment checks, and full compliance in one platform.
           </p>
 
           {/* Value prop badges */}
@@ -109,19 +109,19 @@ export default function Pricing() {
               <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              No software to learn
+              No credit card for Starter
             </span>
             <span className="bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-600 flex items-center gap-2">
               <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              Just ask us anything via chat
+              AI-generated RTW plans
             </span>
             <span className="bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-600 flex items-center gap-2">
               <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              We handle the compliance
+              Full compliance audit trail
             </span>
           </div>
         </div>
@@ -212,7 +212,11 @@ export default function Pricing() {
         </div>
 
         <p className="text-center text-gray-400 text-sm mt-8">
-          Not sure which plan? Chat with us — we'll help you figure out what makes sense for your business.
+          Prices in AUD and exclude GST. Not sure which plan?{" "}
+          <a href="#contact" className="text-[#00E676] hover:underline">
+            Chat with us
+          </a>{" "}
+          — we&apos;ll help you figure out what makes sense for your business.
         </p>
       </div>
     </section>
