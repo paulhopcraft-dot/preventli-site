@@ -4,89 +4,85 @@ import { useEffect, useRef } from "react";
 
 const features = [
   {
-    icon: "🤖",
-    title: "AI-Powered Risk Prediction",
+    icon: "📋",
+    title: "RTW Case Tracking & Timeline",
     description:
-      "Machine learning algorithms analyze your workforce data to predict injury risks before they happen. Get early warnings and prevent incidents proactively.",
+      "Manage every WorkCover case from lodgement to closure. A visual timeline tracks each phase — initial treatment, capacity assessment, graduated return, and full return to work.",
+    color: "from-blue-400/10 to-cyan-400/5",
+    border: "border-blue-400/20",
+  },
+  {
+    icon: "🤖",
+    title: "AI-Generated Return-to-Work Plans",
+    description:
+      "AI writes a complete, compliant RTW plan in seconds. Upload the medical certificate and Preventli generates duties, timelines, and WorkSafe obligations automatically.",
     color: "from-violet-400/10 to-purple-400/5",
     border: "border-violet-400/20",
     aiFeature: true,
   },
   {
-    icon: "🧠",
-    title: "Intelligent Claim Analysis",
+    icon: "🩺",
+    title: "Pre-Employment Health Assessments",
     description:
-      "AI automatically categorizes and analyzes claims data, identifying patterns and cost drivers to help you make data-driven decisions that reduce premiums.",
-    color: "from-blue-400/10 to-cyan-400/5",
-    border: "border-blue-400/20",
-    aiFeature: true,
-  },
-  {
-    icon: "💰",
-    title: "WorkCover Premium Reduction",
-    description:
-      "We analyse your claims history and risk factors to implement strategies that directly reduce your WorkCover premiums year over year.",
+      "Screen candidates before they start. Create role-specific health requirements, send digital assessment links, and track clearance levels — cleared, conditional, or not cleared.",
     color: "from-green-400/10 to-emerald-400/5",
     border: "border-green-400/20",
   },
   {
-    icon: "📈",
-    title: "Predictive Analytics Dashboard",
+    icon: "📊",
+    title: "Manager Dashboard & Analytics",
     description:
-      "Real-time AI-powered insights show trending risks, predict future claims likelihood, and recommend preventive actions specific to your workforce patterns.",
+      "See all active cases, upcoming milestones, and compliance obligations at a glance. Spot at-risk cases before they blow out and track resolution times across your organisation.",
     color: "from-indigo-400/10 to-blue-400/5",
     border: "border-indigo-400/20",
-    aiFeature: true,
   },
   {
-    icon: "🦺",
-    title: "Injury Prevention Programs",
+    icon: "🔔",
+    title: "Real-Time Notification Bell",
     description:
-      "Customised safety programs tailored to your industry and workforce. Reduce incident rates through targeted training, hazard identification, and culture change.",
+      "Never miss a deadline. In-app alerts notify managers the moment a task is overdue, a certificate expires, or a WorkSafe obligation needs attention.",
     color: "from-orange-400/10 to-amber-400/5",
     border: "border-orange-400/20",
   },
   {
-    icon: "📋",
-    title: "Automated Compliance Tracking",
+    icon: "🔒",
+    title: "Full Compliance Audit Trail",
     description:
-      "AI monitors WHS obligations and deadlines automatically. Never miss a compliance requirement with intelligent alerts and automated documentation generation.",
+      "Every action logged with timestamp, user, and IP. WorkSafe inspectors get a complete, tamper-evident record of every decision and document from day one.",
     color: "from-purple-400/10 to-violet-400/5",
     border: "border-purple-400/20",
-    aiFeature: true,
+  },
+  {
+    icon: "📁",
+    title: "Document & Certificate Storage",
+    description:
+      "Centralise all medical certificates, capacity certificates, and rehabilitation documents. Upload, version, and retrieve any document in seconds — no more lost paperwork.",
+    color: "from-teal-400/10 to-emerald-400/5",
+    border: "border-teal-400/20",
+  },
+  {
+    icon: "✅",
+    title: "WorkSafe Compliance Checklists",
+    description:
+      "Built-in checklists for every WHS obligation. Step-by-step guidance ensures managers complete the right actions at the right time — from initial notification to case closure.",
+    color: "from-cyan-400/10 to-teal-400/5",
+    border: "border-cyan-400/20",
   },
   {
     icon: "👨‍⚕️",
     title: "Real Doctors from Day One",
     description:
-      "Access real doctors immediately when any injury occurs. Our nationwide telehealth network provides expert medical opinions, injury assessments, and early intervention support from day one — no waiting, no delays.",
-    color: "from-cyan-400/10 to-teal-400/5",
-    border: "border-cyan-400/20",
-  },
-  {
-    icon: "🏥",
-    title: "Return-to-Work Coordination",
-    description:
-      "Expert coordination of return-to-work programs to get injured employees back safely and quickly, minimising claims duration and cost.",
-    color: "from-teal-400/10 to-emerald-400/5",
-    border: "border-teal-400/20",
-  },
-  {
-    icon: "🚨",
-    title: "Incident Response Support",
-    description:
-      "24/7 incident response guidance. When something happens, we're there to manage the response, documentation, and WorkCover notification requirements.",
-    color: "from-red-400/10 to-rose-400/5",
-    border: "border-red-400/20",
-  },
-  {
-    icon: "💬",
-    title: "AI Assistant & Smart Alerts",
-    description:
-      "Conversational AI helps managers get instant answers about WHS policies, send smart notifications to employees, and automate routine communications.",
+      "Access real doctors immediately when any injury occurs. Our nationwide telehealth network provides expert medical opinions, injury assessments, and early intervention — no waiting, no delays.",
     color: "from-pink-400/10 to-rose-400/5",
     border: "border-pink-400/20",
-    aiFeature: true,
+  },
+  {
+    icon: "🏢",
+    title: "Multi-Manager Access",
+    description:
+      "Invite your whole team. Managers get role-based access so the right people see the right cases. Enterprise plans add SSO and unlimited users across large organisations.",
+    color: "from-red-400/10 to-rose-400/5",
+    border: "border-red-400/20",
   },
 ];
 
@@ -117,14 +113,14 @@ export default function Features() {
       >
         <div className="text-center mb-14">
           <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
-            AI-Powered Platform
+            What&apos;s Inside the Platform
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
-            Intelligent WorkCover management that works for you
+            Everything you need to manage WorkCover — in one place
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            Advanced AI and machine learning combined with expert WHS guidance. 
-            Predict risks, automate compliance, and reduce premiums with data-driven intelligence.
+            From the moment a claim is lodged to the day the worker returns, Preventli handles
+            case tracking, compliance, AI-generated plans, and pre-employment screening in a single platform.
           </p>
         </div>
 

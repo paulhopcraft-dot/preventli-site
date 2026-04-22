@@ -36,7 +36,7 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 bg-[#00E676]/10 border border-[#00E676]/30 rounded-full px-4 py-2 mb-8">
           <span className="w-2 h-2 bg-[#00E676] rounded-full animate-pulse" />
           <span className="text-[#00E676] text-sm font-medium">
-            Trusted by 200+ Australian businesses
+            Australia&apos;s AI-powered WorkCover platform
           </span>
         </div>
 
@@ -49,21 +49,21 @@ export default function Hero() {
 
         {/* Subheadline */}
         <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-6 leading-relaxed">
-          Reduce today's claims. Prevent tomorrow's.
+          Reduce today&apos;s claims. Prevent tomorrow&apos;s.
         </p>
 
         {/* Credibility tagline */}
         <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Built on 30 years of expertise, Preventli shortens active claim duration and proactively stops new claims before they happen.
+          Built on 30 years of WorkCover expertise — Preventli manages RTW cases, generates AI return-to-work plans, and screens candidates before they start. One platform. Full compliance.
         </p>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <a
-            href="#calculator"
+            href="#contact"
             className="inline-flex items-center justify-center gap-2 bg-[#00E676] text-[#0A1628] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#00C060] transition-all hover:scale-105 shadow-lg shadow-[#00E676]/25"
           >
-            Get a Free Quote
+            Get Started Free
             <svg
               width="20"
               height="20"
@@ -86,16 +86,16 @@ export default function Hero() {
         {/* Floating stat cards */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <div className="animate-float bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 text-center">
-            <div className="text-3xl font-bold text-[#00E676]">47%</div>
-            <div className="text-sm text-gray-300 mt-1">Avg premium reduction</div>
+            <div className="text-3xl font-bold text-[#00E676]">Free</div>
+            <div className="text-sm text-gray-300 mt-1">Start — no credit card</div>
           </div>
           <div className="animate-float-delay bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 text-center">
-            <div className="text-3xl font-bold text-[#00E676]">200+</div>
-            <div className="text-sm text-gray-300 mt-1">Businesses protected</div>
+            <div className="text-3xl font-bold text-[#00E676]">AI</div>
+            <div className="text-sm text-gray-300 mt-1">RTW plans in seconds</div>
           </div>
           <div className="animate-float-delay2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 text-center">
-            <div className="text-3xl font-bold text-[#00E676]">98%</div>
-            <div className="text-sm text-gray-300 mt-1">Compliance rate</div>
+            <div className="text-3xl font-bold text-[#00E676]">100%</div>
+            <div className="text-sm text-gray-300 mt-1">WorkSafe compliant</div>
           </div>
         </div>
 
