@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from "react";
 type FormData = {
   name: string;
   email: string;
-  phone: string;
   company: string;
   employees: string;
   message: string;
@@ -27,7 +26,6 @@ export default function ContactForm() {
   const [form, setForm] = useState<FormData>({
     name: "",
     email: "",
-    phone: "",
     company: "",
     employees: "",
     message: "",
@@ -85,7 +83,6 @@ export default function ContactForm() {
       setForm({
         name: "",
         email: "",
-        phone: "",
         company: "",
         employees: "",
         message: "",
@@ -295,39 +292,23 @@ export default function ContactForm() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                      Phone
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={form.phone}
-                      onChange={handleChange}
-                      placeholder="04XX XXX XXX"
-                      className={inputClass("phone")}
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                      Company <span className="text-red-400">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="company"
-                      value={form.company}
-                      onChange={handleChange}
-                      placeholder="Acme Pty Ltd"
-                      className={inputClass("company")}
-                    />
-                    {errors.company && (
-                      <p className="text-red-400 text-xs mt-1">
-                        {errors.company}
-                      </p>
-                    )}
-                  </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                    Company <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    value={form.company}
+                    onChange={handleChange}
+                    placeholder="Acme Pty Ltd"
+                    className={inputClass("company")}
+                  />
+                  {errors.company && (
+                    <p className="text-red-400 text-xs mt-1">
+                      {errors.company}
+                    </p>
+                  )}
                 </div>
 
                 <div>
