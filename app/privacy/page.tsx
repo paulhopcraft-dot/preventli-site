@@ -260,8 +260,8 @@ export default function PrivacyPage() {
             </ul>
             <p className="mt-3">
               To make an access or correction request, contact us at{" "}
-              <a href="mailto:privacy@preventli.com.au" className="text-[#00E676] underline">
-                privacy@preventli.com.au
+              <a href="mailto:privacy@preventli.ai" className="text-[#00E676] underline">
+                privacy@preventli.ai
               </a>
               . We will respond within 30 days.
             </p>
@@ -272,8 +272,8 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-bold text-[#0A1628] mb-3">11. Complaints</h2>
             <p>
               If you believe we have breached the APPs, please contact us first at{" "}
-              <a href="mailto:privacy@preventli.com.au" className="text-[#00E676] underline">
-                privacy@preventli.com.au
+              <a href="mailto:privacy@preventli.ai" className="text-[#00E676] underline">
+                privacy@preventli.ai
               </a>
               . We will investigate and respond within 30 days.
             </p>
@@ -311,11 +311,11 @@ export default function PrivacyPage() {
               <p className="font-semibold text-[#0A1628]">Preventli Pty Ltd</p>
               <p className="mt-1">
                 Email:{" "}
-                <a href="mailto:privacy@preventli.com.au" className="text-[#00E676] underline">
-                  privacy@preventli.com.au
+                <a href="mailto:privacy@preventli.ai" className="text-[#00E676] underline">
+                  privacy@preventli.ai
                 </a>
               </p>
-              <p className="mt-1">Website: preventli.com.au</p>
+              <p className="mt-1">Website: preventli.ai</p>
               <p className="mt-1">Australia</p>
             </div>
           </section>

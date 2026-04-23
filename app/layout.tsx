@@ -9,7 +9,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://preventli.com.au";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://preventli.ai";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -41,9 +41,10 @@ export const metadata: Metadata = {
       "Preventli helps Australian businesses reduce workplace injuries, manage WHS compliance, and cut WorkCover premium costs — proactively.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/preventli-logo-wordmark.png",
         width: 1200,
         height: 630,
+        type: "image/png",
         alt: "Preventli — WorkCover Claims Made Preventable",
       },
     ],
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     title: "Preventli — WorkCover Claims Made Preventable",
     description:
       "Reduce workplace injuries, manage compliance, and cut WorkCover premium costs — proactively.",
-    images: ["/og-image.png"],
+    images: ["/preventli-logo-wordmark.png"],
   },
   robots: {
     index: true,
@@ -86,7 +87,7 @@ const organizationSchema = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
-    email: "paul@preventli.com.au",
+    email: "lisah@preventli.ai",
   },
   sameAs: ["https://www.linkedin.com/company/preventli"],
 };

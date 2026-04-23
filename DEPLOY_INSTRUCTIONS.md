@@ -99,9 +99,9 @@ CREATE INDEX idx_contact_submissions_status
 4. Copy the key → `RESEND_API_KEY`
 
 ### 2.2 Verify your domain (important!)
-For emails to be sent from `noreply@preventli.com.au`:
+For emails to be sent from `noreply@preventli.ai`:
 1. In Resend, go to **"Domains"** → **"Add Domain"**
-2. Enter `preventli.com.au`
+2. Enter `preventli.ai`
 3. Add the DNS records shown (TXT, CNAME, MX) to your domain registrar
 4. Wait for verification (5–30 minutes)
 
@@ -158,7 +158,7 @@ Add each of these:
 
 | Variable | Value |
 |----------|-------|
-| `NEXT_PUBLIC_SITE_URL` | `https://preventli.com.au` |
+| `NEXT_PUBLIC_SITE_URL` | `https://preventli.ai` |
 | `RESEND_API_KEY` | Your Resend API key |
 | `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase anon key |
@@ -169,18 +169,18 @@ After adding variables, click **"Redeploy"** (deployments → latest → **Redep
 
 ---
 
-## Step 4: Connect Domain preventli.com.au (~5 minutes)
+## Step 4: Connect Domain preventli.ai (~5 minutes)
 
 ### 4.1 Add domain in Vercel
 1. Go to your Vercel project → **Settings** → **Domains**
-2. Type `preventli.com.au` and click **"Add"**
-3. Also add `www.preventli.com.au` and redirect to apex domain
+2. Type `preventli.ai` and click **"Add"**
+3. Also add `www.preventli.ai` and redirect to apex domain
 
 ### 4.2 Update DNS records at your registrar
 
 Vercel will show you the required DNS records. Typically:
 
-**For apex domain (preventli.com.au):**
+**For apex domain (preventli.ai):**
 ```
 Type: A
 Name: @
@@ -197,7 +197,7 @@ Value: cname.vercel-dns.com
 DNS propagation takes 5–30 minutes. Vercel provides SSL automatically.
 
 ### 4.3 Verify
-Once DNS propagates, visit https://preventli.com.au — you should see the site! 🎉
+Once DNS propagates, visit https://preventli.ai — you should see the site! 🎉
 
 ---
 
@@ -205,7 +205,7 @@ Once DNS propagates, visit https://preventli.com.au — you should see the site!
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `NEXT_PUBLIC_SITE_URL` | ✅ | Your production URL (e.g. `https://preventli.com.au`) |
+| `NEXT_PUBLIC_SITE_URL` | ✅ | Your production URL (e.g. `https://preventli.ai`) |
 | `RESEND_API_KEY` | ✅ | Resend API key for email notifications |
 | `NEXT_PUBLIC_SUPABASE_URL` | ✅ | Supabase project URL (safe to expose to browser) |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✅ | Supabase anon key (safe to expose to browser) |
@@ -216,7 +216,7 @@ Once DNS propagates, visit https://preventli.com.au — you should see the site!
 
 ## Admin Dashboard
 
-Access at: **https://preventli.com.au/admin**
+Access at: **https://preventli.ai/admin**
 
 ### Features:
 - 📊 **Stats cards**: Total leads, This week, Conversion rate
@@ -254,7 +254,7 @@ Before sharing the site with customers:
 Edit `components/ContactForm.tsx` → find `1800 XXX XXX`
 
 ### Change email:
-Edit `components/ContactForm.tsx` and `app/api/contact/route.ts` → find `paul@preventli.com.au`
+Edit `components/ContactForm.tsx` and `app/api/contact/route.ts` → find `paul@preventli.ai`
 
 ### Change pricing:
 Edit `components/Pricing.tsx` → update `monthlyPrice` and `annualPrice`

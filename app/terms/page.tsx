@@ -142,8 +142,8 @@ export default function TermsPage() {
             <p>
               You are responsible for maintaining the confidentiality of your login credentials and for all
               activity that occurs under your account. You must notify us immediately at{" "}
-              <a href="mailto:support@preventli.com.au" className="text-[#00E676] underline">
-                support@preventli.com.au
+              <a href="mailto:support@preventli.ai" className="text-[#00E676] underline">
+                support@preventli.ai
               </a>{" "}
               if you suspect unauthorised access to your account.
             </p>
@@ -247,8 +247,8 @@ export default function TermsPage() {
             <h3 className="font-semibold text-[#0A1628] mb-2 mt-4">b) Termination by You</h3>
             <p>
               You may cancel your subscription at any time by contacting us at{" "}
-              <a href="mailto:support@preventli.com.au" className="text-[#00E676] underline">
-                support@preventli.com.au
+              <a href="mailto:support@preventli.ai" className="text-[#00E676] underline">
+                support@preventli.ai
               </a>
               . Cancellation takes effect at the end of the current billing period. No refunds are provided for
               unused portions of a billing period.
@@ -319,11 +319,11 @@ export default function TermsPage() {
               <p className="font-semibold text-[#0A1628]">Preventli Pty Ltd</p>
               <p className="mt-1">
                 Email:{" "}
-                <a href="mailto:legal@preventli.com.au" className="text-[#00E676] underline">
-                  legal@preventli.com.au
+                <a href="mailto:legal@preventli.ai" className="text-[#00E676] underline">
+                  legal@preventli.ai
                 </a>
               </p>
-              <p className="mt-1">Website: preventli.com.au</p>
+              <p className="mt-1">Website: preventli.ai</p>
               <p className="mt-1">Australia</p>
             </div>
           </section>

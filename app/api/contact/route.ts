@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
 
         // 1. Notification to Preventli team
         await resend.emails.send({
-          from: "Preventli <noreply@preventli.com.au>",
+          from: "Preventli <noreply@preventli.ai>",
           to: "paul.hopcraft@gmail.com",
           subject: `New lead: ${name} from ${company}`,
           html: `
@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
               }
 
               <p style="color: #999; font-size: 12px; margin-top: 24px;">
-                Sent from preventli.com.au contact form | ${aestTime} AEST
+                Sent from preventli.ai contact form | ${aestTime} AEST
               </p>
             </div>
           `,
@@ -99,7 +99,7 @@ export async function POST(req: NextRequest) {
 
         // 2. Confirmation email to prospect
         await resend.emails.send({
-          from: "Preventli <noreply@preventli.com.au>",
+          from: "Preventli <noreply@preventli.ai>",
           to: email,
           subject: `We received your request, ${name.split(" ")[0]}`,
           html: `
@@ -131,7 +131,7 @@ export async function POST(req: NextRequest) {
 
               <p style="color: #999; font-size: 12px; margin-top: 32px; border-top: 1px solid #eee; padding-top: 16px;">
                 © ${new Date().getFullYear()} Preventli Pty Ltd · Australia's WorkCover specialists<br/>
-                This email was sent because you submitted a request at preventli.com.au
+                This email was sent because you submitted a request at preventli.ai
               </p>
             </div>
           `,
