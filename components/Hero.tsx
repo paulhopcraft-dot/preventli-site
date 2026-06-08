@@ -36,7 +36,7 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 bg-[#00E676]/10 border border-[#00E676]/30 rounded-full px-4 py-2 mb-8">
           <span className="w-2 h-2 bg-[#00E676] rounded-full animate-pulse" />
           <span className="text-[#00E676] text-sm font-medium">
-            Australia&apos;s AI-powered WorkCover platform
+            30 Years of WorkCover Expertise
           </span>
         </div>
 
@@ -54,7 +54,7 @@ export default function Hero() {
 
         {/* Credibility tagline */}
         <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Built on 30 years of WorkCover expertise — Preventli manages RTW cases, generates AI return-to-work plans, and screens candidates before they start. One platform. Full compliance.
+          Built on 30 years of WorkCover expertise and 3,000+ cases — Preventli manages RTW cases, creates expert return-to-work plans, and screens candidates before they start. One platform. Full compliance.
         </p>
 
         {/* CTAs */}
@@ -90,8 +90,8 @@ export default function Hero() {
             <div className="text-sm text-gray-300 mt-1">Start — no credit card</div>
           </div>
           <div className="animate-float-delay bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 text-center">
-            <div className="text-3xl font-bold text-[#00E676]">AI</div>
-            <div className="text-sm text-gray-300 mt-1">RTW plans in seconds</div>
+            <div className="text-3xl font-bold text-[#00E676]">3,000+</div>
+            <div className="text-sm text-gray-300 mt-1">Cases managed</div>
           </div>
           <div className="animate-float-delay2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 text-center">
             <div className="text-3xl font-bold text-[#00E676]">100%</div>

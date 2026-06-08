@@ -87,7 +87,7 @@ export default function OnlineDoctor() {
                 <div className="text-3xl mb-3">💬</div>
                 <h3 className="font-bold text-[#0A1628] mb-2">Chat Now</h3>
                 <p className="text-gray-500 text-sm">
-                  Start immediately with our AI health assistant. Doctor reviews within 24 hours.
+                  Connect immediately with our care team. Doctor reviews within 24 hours.
                 </p>
               </div>
               <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-[#00E676] transition-colors cursor-pointer">

@@ -12,13 +12,12 @@ const features = [
     border: "border-blue-400/20",
   },
   {
-    icon: "🤖",
-    title: "AI-Generated Return-to-Work Plans",
+    icon: "📝",
+    title: "Expert Return-to-Work Plans",
     description:
-      "AI writes a complete, compliant RTW plan in seconds. Upload the medical certificate and Preventli generates duties, timelines, and WorkSafe obligations automatically.",
+      "Our specialists generate a complete, compliant RTW plan backed by 30 years of expertise. Upload the medical certificate and Preventli creates duties, timelines, and WorkSafe obligations automatically.",
     color: "from-violet-400/10 to-purple-400/5",
     border: "border-violet-400/20",
-    aiFeature: true,
   },
   {
     icon: "🩺",
@@ -120,7 +119,7 @@ export default function Features() {
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
             From the moment a claim is lodged to the day the worker returns, Preventli handles
-            case tracking, compliance, AI-generated plans, and pre-employment screening in a single platform.
+            case tracking, compliance, expert RTW plans, and pre-employment screening in a single platform.
           </p>
         </div>
 
@@ -131,17 +130,7 @@ export default function Features() {
               className={`card-hover bg-gradient-to-br ${feature.color} border ${feature.border} rounded-2xl p-6 bg-white relative`}
               style={{ backgroundColor: "white" }}
             >
-              {feature.aiFeature && (
-                <div className="absolute top-4 right-4">
-                  <span className="inline-flex items-center gap-1 bg-gradient-to-r from-violet-500 to-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                    AI
-                  </span>
-                </div>
-              )}
-              <div className="text-3xl mb-4">{feature.icon}</div>
+<div className="text-3xl mb-4">{feature.icon}</div>
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                 {feature.title}
               </h3>

@@ -28,28 +28,16 @@ const testimonials = [
     color: "bg-orange-500",
   },
   {
-    name: "Tony Fitzgerald",
+    name: "Martin Day",
     role: "CEO",
-    company: "Outlook Disability Services Victoria",
-    industry: "Disability Services",
-    size: "180 employees",
+    company: "St Vincent's Private Hospitals",
+    industry: "Healthcare",
+    size: "500 employees",
     quote:
-      "What Preventli taught us to do was an entirely new approach to be more proactive in the way we manage our people and block exposure. Through improved hiring and management practices powered by their AI system, we have seen costs fall dramatically and are now one of the best performers in disability services in Victoria.",
+      "The introduction of the Preventli system into our Private Hospitals has seen a vast turnaround in our culture and performance of people management, particularly in relation to staff health and wellbeing. The Preventli platform is not a theory. It works.",
     rating: 5,
-    initials: "TF",
-    color: "bg-emerald-500",
-  },
-  {
-    name: "Sue Rolland",
-    role: "General Manager People, Culture & Quality",
-    company: "Wallara Australia",
-    industry: "Disability Services",
-    size: "160 employees",
-    quote:
-      "Preventli has made a significant positive impact on how we deal with prevention in the workplace. We have adopted the proactive approach recommended by their AI agents and have reduced the number of claims and the overall premium cost significantly. Would highly recommend this system for any organisation.",
-    rating: 5,
-    initials: "SR",
-    color: "bg-blue-500",
+    initials: "MD",
+    color: "bg-red-500",
   },
   {
     name: "Anthony Raffa",
@@ -64,6 +52,18 @@ const testimonials = [
     color: "bg-pink-500",
   },
   {
+    name: "Sue Rolland",
+    role: "General Manager People, Culture & Quality",
+    company: "Wallara Australia",
+    industry: "Disability Services",
+    size: "160 employees",
+    quote:
+      "Preventli has made a significant positive impact on how we deal with prevention in the workplace. We have adopted the proactive approach recommended by their AI agents and have reduced the number of claims and the overall premium cost significantly. Would highly recommend this system for any organisation.",
+    rating: 5,
+    initials: "SR",
+    color: "bg-blue-500",
+  },
+  {
     name: "Ellen Flint",
     role: "General Manager People Development",
     company: "BENETAS",
@@ -76,18 +76,6 @@ const testimonials = [
     color: "bg-teal-500",
   },
   {
-    name: "Martin Day",
-    role: "CEO",
-    company: "St Vincent's Private Hospitals",
-    industry: "Healthcare",
-    size: "500 employees",
-    quote:
-      "The introduction of the Preventli system into our Private Hospitals has seen a vast turnaround in our culture and performance of people management, particularly in relation to staff health and wellbeing. The Preventli platform is not a theory. It works.",
-    rating: 5,
-    initials: "MD",
-    color: "bg-red-500",
-  },
-  {
     name: "Graham Church",
     role: "CEO",
     company: "Alpine MDF Industries",
@@ -98,6 +86,18 @@ const testimonials = [
     rating: 5,
     initials: "GC",
     color: "bg-amber-500",
+  },
+  {
+    name: "Tony Fitzgerald",
+    role: "CEO",
+    company: "Outlook Disability Services Victoria",
+    industry: "Disability Services",
+    size: "180 employees",
+    quote:
+      "What Preventli taught us to do was an entirely new approach to be more proactive in the way we manage our people and block exposure. Through improved hiring and management practices powered by their AI system, we have seen costs fall dramatically and are now one of the best performers in disability services in Victoria.",
+    rating: 5,
+    initials: "TF",
+    color: "bg-emerald-500",
   },
   {
     name: "Peter Vero",

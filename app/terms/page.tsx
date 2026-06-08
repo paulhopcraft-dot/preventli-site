@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Preventli Terms of Service — subscription terms, acceptable use, and governing law for Australia's AI-powered WorkCover platform.",
+  description: "Preventli Terms of Service — subscription terms, acceptable use, and governing law for Australia's leading WorkCover management platform.",
 };
 
 const EFFECTIVE_DATE = "1 May 2026";

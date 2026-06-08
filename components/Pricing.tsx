@@ -27,13 +27,13 @@ const plans = [
     name: "Professional",
     price: "$299",
     priceSuffix: "/month",
-    description: "For growing businesses that need AI-powered RTW planning and pre-employment checks.",
+    description: "For growing businesses that need expert RTW planning and pre-employment checks.",
     highlight: "Unlimited cases included",
     popular: true,
     features: [
       "Everything in Starter",
       "Unlimited active cases",
-      "AI-generated return-to-work plans",
+      "Expert return-to-work plans",
       "Pre-employment health assessments",
       "Manager dashboard & analytics",
       "Real-time notification bell",
@@ -100,7 +100,7 @@ export default function Pricing() {
             Start free. Scale as you grow.
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-8">
-            A single WorkCover claim averages $52,000. Preventli pays for itself many times over — get AI-powered RTW plans, pre-employment checks, and full compliance in one platform.
+            A single WorkCover claim averages $52,000. Preventli pays for itself many times over — get expert-designed RTW plans, pre-employment checks, and full compliance in one platform.
           </p>
 
           {/* Value prop badges */}
@@ -115,7 +115,7 @@ export default function Pricing() {
               <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              AI-generated RTW plans
+              Expert RTW plans
             </span>
             <span className="bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-600 flex items-center gap-2">
               <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">

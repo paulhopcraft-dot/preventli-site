@@ -106,7 +106,7 @@ export async function POST(req: NextRequest) {
             <div style="font-family: Inter, system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
               <div style="background: #0A1628; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
                 <h1 style="color: #00E676; margin: 0; font-size: 20px;">Preventli</h1>
-                <p style="color: #aaa; margin: 8px 0 0; font-size: 14px;">Australia's AI-powered WorkCover platform</p>
+                <p style="color: #aaa; margin: 8px 0 0; font-size: 14px;">30 years of WorkCover expertise. 3,000+ cases managed.</p>
               </div>
 
               <h2 style="color: #0A1628; font-size: 22px; margin-bottom: 8px;">Thanks for reaching out, ${name.split(" ")[0]}!</h2>

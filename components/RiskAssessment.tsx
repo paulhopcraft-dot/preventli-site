@@ -890,7 +890,7 @@ export default function RiskAssessment() {
                 Want expert help?
               </h4>
               <p className="text-gray-700 text-sm mb-4">
-                Preventli's AI-powered platform automates risk assessment,
+                Preventli's platform streamlines risk assessment,
                 provides real-time alerts, and connects you with WHS consultants
                 and telehealth doctors for immediate support.
               </p>

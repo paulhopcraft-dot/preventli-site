@@ -4,43 +4,43 @@ import { useEffect, useRef, useState } from "react";
 
 const agents = [
   {
-    name: "Case Manager Agent",
+    name: "Claims Management",
     icon: "📋",
     gradient: "from-violet-500 to-purple-600",
     description:
-      "AI-powered case management that monitors every workers compensation claim from injury to resolution. Tracks milestones, flags delays, and ensures optimal outcomes.",
+      "Expert case management that monitors every workers compensation claim from injury to resolution. Tracks milestones, flags delays, and ensures optimal outcomes.",
     capabilities: [
       "Real-time claim status monitoring",
-      "Automated milestone tracking",
-      "Early intervention alerts",
+      "Milestone tracking & alerts",
+      "Early intervention planning",
       "Stakeholder communication coordination",
-      "Cost prediction & management",
+      "Cost management & reporting",
     ],
     stats: { metric: "30%", label: "Faster case resolution" },
   },
   {
-    name: "Return to Work Agent",
+    name: "Return-to-Work Coordination",
     icon: "🏥",
     gradient: "from-blue-500 to-cyan-600",
     description:
       "Orchestrates return-to-work programs with precision. Matches injured workers with suitable duties, monitors progress, and accelerates safe workplace reintegration.",
     capabilities: [
-      "Suitable duties matching algorithm",
+      "Suitable duties matching",
       "Medical certificate analysis",
-      "Capacity vs workload optimization",
+      "Capacity vs workload planning",
       "Progress tracking & reporting",
       "Early return-to-work incentives",
     ],
     stats: { metric: "45%", label: "Reduction in claim duration" },
   },
   {
-    name: "Compliance Agent",
+    name: "Compliance Management",
     icon: "✅",
     gradient: "from-emerald-500 to-teal-600",
     description:
       "Never miss a deadline again. Continuously monitors WHS obligations, tracks documentation, and automates compliance reporting across all regulatory requirements.",
     capabilities: [
-      "Automated obligation tracking",
+      "Obligation tracking & reminders",
       "Document expiry alerts",
       "Audit trail generation",
       "Multi-jurisdiction compliance",
@@ -49,11 +49,11 @@ const agents = [
     stats: { metric: "100%", label: "Compliance rate achieved" },
   },
   {
-    name: "Medical Certificate Agent",
+    name: "Medical Certificate Review",
     icon: "🩺",
     gradient: "from-orange-500 to-red-600",
     description:
-      "Intelligent analysis of medical certificates to identify inconsistencies, predict claim trajectories, and trigger early intervention when needed.",
+      "Expert analysis of medical certificates to identify inconsistencies, predict claim trajectories, and trigger early intervention when needed.",
     capabilities: [
       "Certificate pattern analysis",
       "NTD restriction interpretation",
@@ -86,7 +86,7 @@ export default function AIAgents() {
   }, []);
 
   return (
-    <section id="ai-agents" className="py-12 pb-8 bg-[#0A1628] relative overflow-hidden">
+    <section id="expertise" className="py-12 pb-8 bg-[#0A1628] relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-[#00E676] rounded-full filter blur-3xl animate-pulse" />
@@ -99,15 +99,13 @@ export default function AIAgents() {
       >
         <div className="text-center mb-14">
           <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
-            AI-Powered Workforce
+            30 Years of Expertise
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">
-            Meet Your Specialized AI Agents
+            Specialist Expertise at Every Stage
           </h2>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Four intelligent agents working 24/7 to manage claims, compliance,
-            and worker wellbeing. Each agent is trained on thousands of cases to
-            deliver expert-level outcomes automatically.
+            Four specialist disciplines — refined across 3,000+ cases and 30 years of experience — working together to drive claims resolution, compliance, and safe return to work.
           </p>
         </div>
 
@@ -195,18 +193,16 @@ export default function AIAgents() {
         {/* Bottom CTA */}
         <div className="bg-gradient-to-r from-[#00E676] to-[#00D168] rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-bold text-[#0A1628] mb-3">
-            All Four Agents. One Platform.
+            Expert Management. One Platform.
           </h3>
           <p className="text-[#0A1628]/80 mb-6 max-w-2xl mx-auto">
-            These AI agents work together seamlessly, sharing insights and
-            coordinating actions to give you the most comprehensive WorkCover
-            management system available.
+            Our specialist capabilities work together seamlessly, drawing on 30 years of experience and 3,000+ cases to give you the most comprehensive WorkCover management system available.
           </p>
           <a
             href="#contact"
             className="inline-block bg-[#0A1628] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#1a2638] transition-all shadow-lg"
           >
-            See the Agents in Action
+            See How It Works
           </a>
         </div>
       </div>
