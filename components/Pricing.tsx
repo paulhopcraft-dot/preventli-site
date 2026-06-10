@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 
 const plans = [
   {
-    name: "Starter",
+    name: "Free",
     price: "Free",
     priceSuffix: "",
     description: "Get started with WorkCover case management. No credit card required.",
@@ -24,30 +24,49 @@ const plans = [
     ideal: "Small businesses, occasional claims",
   },
   {
-    name: "Professional",
-    price: "$299",
+    name: "Starter",
+    price: "$499",
     priceSuffix: "/month",
-    description: "For growing businesses that need expert RTW planning and pre-employment checks.",
+    description: "For small teams managing claims hands-on with expert backup.",
+    highlight: "Up to 25 active cases",
+    popular: false,
+    features: [
+      "Everything in Free",
+      "Up to 5 manager users",
+      "Up to 25 active cases",
+      "Expert return-to-work plans",
+      "Pre-employment health assessments",
+      "Manager dashboard & analytics",
+      "Priority support",
+    ],
+    cta: "Request Access",
+    color: "border-gray-200",
+    ideal: "Growing teams, 5–50 employees",
+  },
+  {
+    name: "Professional",
+    price: "$899",
+    priceSuffix: "/month",
+    description: "For established businesses that need full compliance coverage at scale.",
     highlight: "Unlimited cases included",
     popular: true,
     features: [
       "Everything in Starter",
+      "Up to 15 manager users",
       "Unlimited active cases",
-      "Expert return-to-work plans",
-      "Pre-employment health assessments",
-      "Manager dashboard & analytics",
+      "Automated case briefings & alerts",
       "Real-time notification bell",
       "Full compliance audit trail",
-      "Priority support",
+      "Executive reporting suite",
     ],
     cta: "Request Access",
     color: "border-[#00E676]",
-    ideal: "Growing teams, 5–50 employees",
+    ideal: "Established teams, 50–200 employees",
   },
   {
     name: "Enterprise",
-    price: "$799",
-    priceSuffix: "/month",
+    price: "Ask us",
+    priceSuffix: "",
     description: "Full-scale WorkCover management for large organisations. Custom SLA, SSO, and dedicated support.",
     highlight: "Unlimited users & cases",
     popular: false,
@@ -58,12 +77,11 @@ const plans = [
       "Custom SLA (4-hour response)",
       "Dedicated account manager",
       "On-site training available",
-      "Executive reporting suite",
       "WorkCover strategy sessions",
     ],
     cta: "Contact Us",
     color: "border-[#FF8F00]",
-    ideal: "Large organisations, 50+ employees",
+    ideal: "Large organisations, 200+ employees",
   },
 ];
 
@@ -109,7 +127,7 @@ export default function Pricing() {
               <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              No credit card for Starter
+              No credit card for Free
             </span>
             <span className="bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-600 flex items-center gap-2">
               <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
@@ -126,7 +144,7 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
           {plans.map((plan, i) => (
             <div
               key={i}

@@ -82,18 +82,23 @@ export default function TermsPage() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-gray-200 px-4 py-2 font-medium">Starter</td>
+                    <td className="border border-gray-200 px-4 py-2 font-medium">Free</td>
                     <td className="border border-gray-200 px-4 py-2">Free</td>
                     <td className="border border-gray-200 px-4 py-2">1 user, up to 3 active cases</td>
                   </tr>
                   <tr className="bg-gray-50">
-                    <td className="border border-gray-200 px-4 py-2 font-medium">Professional</td>
-                    <td className="border border-gray-200 px-4 py-2">$299/month AUD</td>
-                    <td className="border border-gray-200 px-4 py-2">Unlimited cases, AI RTW plans, pre-employment assessments, up to 5 users</td>
+                    <td className="border border-gray-200 px-4 py-2 font-medium">Starter</td>
+                    <td className="border border-gray-200 px-4 py-2">$499/month AUD</td>
+                    <td className="border border-gray-200 px-4 py-2">Up to 25 active cases, expert RTW plans, pre-employment assessments, up to 5 users</td>
                   </tr>
                   <tr>
+                    <td className="border border-gray-200 px-4 py-2 font-medium">Professional</td>
+                    <td className="border border-gray-200 px-4 py-2">$899/month AUD</td>
+                    <td className="border border-gray-200 px-4 py-2">Unlimited cases, automated briefings, full audit trail, up to 15 users</td>
+                  </tr>
+                  <tr className="bg-gray-50">
                     <td className="border border-gray-200 px-4 py-2 font-medium">Enterprise</td>
-                    <td className="border border-gray-200 px-4 py-2">$799/month AUD</td>
+                    <td className="border border-gray-200 px-4 py-2">Custom — contact us</td>
                     <td className="border border-gray-200 px-4 py-2">Unlimited users, custom SLA, enterprise SSO, dedicated support</td>
                   </tr>
                 </tbody>
