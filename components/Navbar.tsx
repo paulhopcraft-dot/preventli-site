@@ -15,10 +15,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Features", href: "#features" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Calculator", href: "#calculator" },
+    { label: "How It Works", href: "/#how-it-works" },
+    { label: "Features", href: "/#features" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "Calculator", href: "/#calculator" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -66,13 +66,13 @@ export default function Navbar() {
               Login
             </a>
             <a
-              href="#contact"
+              href="/demo"
               className="text-sm text-gray-300 hover:text-white transition-colors font-medium"
             >
               Book a Demo
             </a>
             <a
-              href="#calculator"
+              href="/#calculator"
               className="bg-[#00E676] text-[#0A1628] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#00C060] transition-colors"
             >
               Get Free Quote
@@ -137,7 +137,7 @@ export default function Navbar() {
               Login
             </a>
             <a
-              href="#calculator"
+              href="/#calculator"
               onClick={() => setMenuOpen(false)}
               className="block w-full text-center bg-[#00E676] text-[#0A1628] px-4 py-3 rounded-lg text-sm font-semibold mt-4"
             >

@@ -76,7 +76,7 @@ export default function Hero() {
             </svg>
           </a>
           <a
-            href="#contact"
+            href="/demo"
             className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:border-[#00E676] hover:text-[#00E676] transition-all"
           >
             Book a Demo

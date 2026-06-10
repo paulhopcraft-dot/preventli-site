@@ -79,7 +79,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { label: "Contact", href: "#contact" },
-                { label: "Book a Demo", href: "#contact" },
+                { label: "Book a Demo", href: "/demo" },
                 {
                   label: "LinkedIn",
                   href: "https://www.linkedin.com/company/preventli",
