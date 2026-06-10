@@ -2,77 +2,30 @@
 
 import { useEffect, useRef } from "react";
 
-const walkthrough = [
+const journey = [
   {
+    minutes: "0–5",
     title: "Your case dashboard",
     description:
-      "Every active WorkCover case in one view — status, compliance indicators, and what needs attention today.",
-    icon: (
-      <svg width="22" height="22" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
-        <rect x="3" y="3" width="7" height="9" rx="1" />
-        <rect x="14" y="3" width="7" height="5" rx="1" />
-        <rect x="14" y="12" width="7" height="9" rx="1" />
-        <rect x="3" y="16" width="7" height="5" rx="1" />
-      </svg>
-    ),
+      "Every active case on one screen — compliance status, certificate expiries, and what needs attention today. The Tuesday-morning view your team would start with.",
   },
   {
+    minutes: "5–15",
     title: "A real case, end to end",
     description:
-      "Follow an injury from first report to return to work — certificates tracked, deadlines flagged, every step compliant.",
-    icon: (
-      <svg width="22" height="22" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
-        <path d="M9 11l3 3L22 4" />
-        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
-      </svg>
-    ),
+      "We follow an injury from first report to return to work: certificate lands, restrictions extracted, duties matched, RTW plan built against the medical evidence — GP-ready.",
   },
   {
-    title: "Expert RTW plans",
+    minutes: "15–25",
+    title: "Your scenarios",
     description:
-      "Watch a return-to-work plan built against real medical restrictions — duties matched, hours scheduled, GP-ready.",
-    icon: (
-      <svg width="22" height="22" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
-        <rect x="3" y="4" width="18" height="18" rx="2" />
-        <line x1="16" y1="2" x2="16" y2="6" />
-        <line x1="8" y1="2" x2="8" y2="6" />
-        <line x1="3" y1="10" x2="21" y2="10" />
-        <path d="M9 16l2 2 4-4" />
-      </svg>
-    ),
+      "Bring a current case or a premium problem. We run your situation through the platform live — your industry, your duties, your insurer.",
   },
   {
-    title: "Pre-employment screening",
+    minutes: "25–30",
+    title: "Pricing & next steps",
     description:
-      "Send a health check before day one — see how candidate risk surfaces before it becomes a claim.",
-    icon: (
-      <svg width="22" height="22" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M16 11l2 2 4-4" />
-      </svg>
-    ),
-  },
-  {
-    title: "Compliance, automatically",
-    description:
-      "WorkSafe obligations tracked per case with a full audit trail — see exactly what your insurer and regulator see.",
-    icon: (
-      <svg width="22" height="22" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M9 12l2 2 4-4" />
-      </svg>
-    ),
-  },
-  {
-    title: "Your questions, answered",
-    description:
-      "Bring a current case or premium problem — our WorkCover specialists will show you how Preventli would handle it.",
-    icon: (
-      <svg width="22" height="22" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
-        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
-      </svg>
-    ),
+      "Which plan fits, what onboarding looks like, and how your existing cases come across. No pressure — you'll know either way by the end of the call.",
   },
 ];
 
@@ -96,43 +49,83 @@ export default function DemoWalkthrough() {
   }, []);
 
   return (
-    <section className="py-20 bg-white">
-      <div
-        ref={ref}
-        className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-      >
-        <div className="text-center mb-14">
+    <>
+      {/* 30-minute journey */}
+      <section className="py-20 bg-white">
+        <div
+          ref={ref}
+          className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          <div className="text-center mb-14">
+            <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
+              What you&apos;ll see
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
+              Your 30 minutes, minute by minute
+            </h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+              No slide deck. The live platform, walked at your pace.
+            </p>
+          </div>
+
+          <div className="relative max-w-3xl mx-auto">
+            {/* Timeline spine */}
+            <div className="absolute left-[27px] sm:left-[31px] top-2 bottom-2 w-px bg-gray-200" aria-hidden="true" />
+
+            <ol className="space-y-10">
+              {journey.map((step, i) => (
+                <li key={step.minutes} className="relative flex gap-6 sm:gap-8">
+                  <div className="relative z-10 flex-shrink-0">
+                    <div className="flex h-14 w-14 sm:h-16 sm:w-16 flex-col items-center justify-center rounded-2xl bg-[#0A1628] text-center shadow-lg">
+                      <span className="text-[#00E676] text-sm sm:text-base font-bold leading-none">
+                        {step.minutes}
+                      </span>
+                      <span className="text-[9px] text-gray-400 mt-1">min</span>
+                    </div>
+                  </div>
+                  <div className="pt-1">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#0A1628] mb-2">
+                      <span className="text-gray-300 mr-2">{String(i + 1).padStart(2, "0")}</span>
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* Value anchor */}
+      <section className="py-20 bg-[#0A1628] relative overflow-hidden">
+        <div className="absolute inset-0 hero-grid opacity-50" />
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
-            What you&apos;ll see
+            The maths
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
-            30 minutes. Your workflow, working.
-          </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            No slide deck. We walk the live platform with scenarios that match
-            your industry and claims history.
+          <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+            <div>
+              <div className="text-5xl sm:text-6xl font-bold text-white">$52,000</div>
+              <div className="text-gray-400 mt-2 text-sm">average cost of one WorkCover claim</div>
+            </div>
+            <div className="text-3xl text-[#00E676] font-bold rotate-90 md:rotate-0" aria-hidden="true">
+              vs
+            </div>
+            <div>
+              <div className="text-5xl sm:text-6xl font-bold text-[#00E676]">$899<span className="text-2xl text-gray-400 font-semibold">/mo</span></div>
+              <div className="text-gray-400 mt-2 text-sm">Preventli Professional — unlimited cases</div>
+            </div>
+          </div>
+          <p className="mt-10 text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
+            One prevented claim pays for more than{" "}
+            <span className="text-white font-semibold">four years</span> of
+            Preventli. We&apos;ll show you where your next claim is coming from.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {walkthrough.map((item, i) => (
-            <div
-              key={i}
-              className="bg-[#F8F9FA] border border-gray-100 rounded-2xl p-6 card-hover"
-            >
-              <div className="w-11 h-11 bg-[#0A1628] rounded-xl flex items-center justify-center mb-4">
-                {item.icon}
-              </div>
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                {item.title}
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

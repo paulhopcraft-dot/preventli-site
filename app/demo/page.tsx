@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import DemoHero from "@/components/DemoHero";
 import DemoWalkthrough from "@/components/DemoWalkthrough";
-import ContactForm from "@/components/ContactForm";
+import DemoForm from "@/components/DemoForm";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function DemoPage() {
       <Navbar />
       <DemoHero />
       <DemoWalkthrough />
-      <ContactForm />
+      <DemoForm />
       <Footer />
     </main>
   );
