@@ -89,7 +89,7 @@ export default function TermsPage() {
                   <tr className="bg-gray-50">
                     <td className="border border-gray-200 px-4 py-2 font-medium">Starter</td>
                     <td className="border border-gray-200 px-4 py-2">$499/month AUD</td>
-                    <td className="border border-gray-200 px-4 py-2">Up to 25 active cases, expert RTW plans, pre-employment assessments, up to 5 users</td>
+                    <td className="border border-gray-200 px-4 py-2">Up to 5 active cases, expert RTW plans, pre-employment assessments, 2 users</td>
                   </tr>
                   <tr>
                     <td className="border border-gray-200 px-4 py-2 font-medium">Professional</td>
