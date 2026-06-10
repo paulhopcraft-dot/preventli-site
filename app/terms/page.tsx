@@ -84,7 +84,7 @@ export default function TermsPage() {
                   <tr>
                     <td className="border border-gray-200 px-4 py-2 font-medium">Free</td>
                     <td className="border border-gray-200 px-4 py-2">Free</td>
-                    <td className="border border-gray-200 px-4 py-2">1 user, up to 3 active cases</td>
+                    <td className="border border-gray-200 px-4 py-2">1 user, 1 active case</td>
                   </tr>
                   <tr className="bg-gray-50">
                     <td className="border border-gray-200 px-4 py-2 font-medium">Starter</td>

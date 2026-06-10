@@ -8,11 +8,11 @@ const plans = [
     price: "Free",
     priceSuffix: "",
     description: "Get started with WorkCover case management. No credit card required.",
-    highlight: "Up to 3 active cases",
+    highlight: "1 active case",
     popular: false,
     features: [
       "1 manager user",
-      "Up to 3 active cases",
+      "1 active case",
       "RTW case tracking & timeline",
       "Document & certificate storage",
       "WorkSafe compliance checklists",
