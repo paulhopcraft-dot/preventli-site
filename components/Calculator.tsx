@@ -75,10 +75,10 @@ export default function Calculator() {
       >
         <div className="text-center mb-14">
           <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
-            Savings Calculator
+            Premium Reduction Calculator
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">
-            Estimate Your WorkCover Savings
+            Estimate Your Premium Reduction
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Get an instant estimate of what Preventli could save your business
@@ -203,7 +203,7 @@ export default function Calculator() {
                   <div className="space-y-6">
                     <div>
                       <div className="text-gray-400 text-sm mb-1">
-                        Estimated Annual Savings
+                        Estimated Annual Premium Reduction
                       </div>
                       <div className="text-4xl font-bold text-white">
                         ${result.savings.toLocaleString()}

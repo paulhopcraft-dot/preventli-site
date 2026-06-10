@@ -75,7 +75,7 @@ export default function Navbar() {
               href="/#calculator"
               className="bg-[#00E676] text-[#0A1628] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#00C060] transition-colors"
             >
-              Get Free Quote
+              Premium Reduction Calculator
             </a>
           </div>
 
@@ -141,7 +141,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className="block w-full text-center bg-[#00E676] text-[#0A1628] px-4 py-3 rounded-lg text-sm font-semibold mt-4"
             >
-              Get Free Quote
+              Premium Reduction Calculator
             </a>
           </div>
         </div>
