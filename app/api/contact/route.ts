@@ -126,7 +126,7 @@ export async function POST(req: NextRequest) {
 
               <p style="color: #555; line-height: 1.6;">
                 In the meantime, if you have an urgent question, you can reach us at
-                <a href="mailto:jacinta@preventli.ai" style="color: #00E676;">jacinta@preventli.ai</a>.
+                <a href="mailto:lisah@preventli.ai" style="color: #00E676;">lisah@preventli.ai</a>.
               </p>
 
               <p style="color: #999; font-size: 12px; margin-top: 32px; border-top: 1px solid #eee; padding-top: 16px;">
