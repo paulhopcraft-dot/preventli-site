@@ -209,6 +209,31 @@ Mirrors the existing `app/api/contact/route.ts` pattern exactly.
 - **Phase 3 (the one ultracode-worthy step):** a workflow that throws hundreds of randomised employer scenarios at both the Excel and `engine.ts` and reports any divergence. This is where multi-agent parity-checking earns its keep.
 - Reconciliation note: the official model uses a multi-year experience period + stabilisation; v1 estimates on a **single-year snapshot** (current wages + claims). Expect small deltas vs the full model — document the tolerance and that it's an *estimate*.
 
+### Golden cases (POPULATED — validated 2026-06-24, oracle values are engine-proven)
+
+These are the assertions `engine.test.ts` MUST make. Tier-1 values are reproduced **to the dollar** from the WorkSafe simulator's cached Princes example (no recalc); the reference implementation is `.planning/phases/01-premium-engine/decode/04_verify_princes.py` and `05_prove_savings.py` (Python) — port the assertions to TS.
+
+**Engine shape this requires:** expose a pure **core** `computeEpr({ claimsWindow, expRem, X, iccr, K, maxWeight, T })` so the exact Princes oracle is testable, plus the public **wrapper** `computePremium({ remuneration, wicCode, claimsCost })` that derives `expRem = 3 × remuneration` and `X = ir × expRem` and calls the core. Both share one code path.
+
+**Tier 1 — exact formula validation** (params: `K=600,000`, `maxWeight=1`, `T=1096`):
+
+| # | Inputs | Expected (oracle, exact) |
+|---|---|---|
+| G1 | `claimsWindow=761000`, `expRem=39,087,035`, `X=1,186,682.36`, `iccr=0.018290` | `PI=1.064461`, `Z=0.664182`, **`EPR=1.042814`** |
+| G2 | `EPR=1.022225` (projected), `ir=0.029070`, `rem=12,393,155`, `CF=1` | `rate=0.029716`, **`premium=368274.99`** |
+
+**Tier 2 — calculator model** (params: 2025-26, `K=2,000,000`; wrapper, `expRem=3×rem`):
+
+| # | Inputs | Expected |
+|---|---|---|
+| G3 (savings) | `rem=30,000,000`, `ir=0.03036`, `iccr=0.018290`, `annualClaims=877,920` (≈1.6× industry), managed = 0.6× | baseline `EPR=1.346429` → managed `EPR=0.976892`; **annual saving ≈ `336600`** |
+| G4 (small-employer guard) | `rem=150,000`, any wic | **`EPR=1`**, `premium=ROUND(ir×150000,2)`, **`saving=0`** (no saving figure shown) |
+| G5 (claim impact, K=600,000) | `rem=12,393,155`, `ir=0.03036`, `iccr=0.018290`, `+100,000` claim | **`+34,949/yr`**, **`+104,846 / 3yr`** |
+
+**Oracle markers the DoD gate greps for in the test file:** `1.042814`, `368274.99`. An empty/trivial test cannot pass.
+
+> ⚠️ **Honest caveat — these oracles are 2012-13 (K=600k) for the exact cases.** They validate the **formula** to the dollar. They do **not** yet confirm the 2025-26 **parameters** (K=2,000,000, 1096-day window, MinPremium). Phase 1 must additionally assert the live params load correctly; a true 2025-26 oracle (from `WS_simulator_2025-26.xlsx`, or the real 2024-25 filled sims in `D:\Downloads`) is the Phase 3 parity sweep. Do **not** claim 2025-26 dollar-accuracy until that runs.
+
 ---
 
 ## 8a. Definition of Done (deterministic gate for an autonomous/long run)
