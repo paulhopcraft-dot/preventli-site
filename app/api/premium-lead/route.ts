@@ -3,6 +3,9 @@ import { supabaseAdmin } from "@/lib/supabase";
 import {
   computePremium,
   savingsScenario,
+  savingsFromPremium,
+  performanceFromPremium,
+  claimImpact,
   lookupIndustry,
 } from "@/lib/premium/engine";
 import { renderPremiumReport } from "@/lib/premium/pdf/PremiumReport";
@@ -19,7 +22,7 @@ import { renderPremiumReport } from "@/lib/premium/pdf/PremiumReport";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { email, wages, wicCode, claimsCost, premium, saving } = body;
+    const { email, wages, wicCode, claimsCost, premium, saving, currentPremium, claimCost } = body;
 
     // Validation
     if (
@@ -80,15 +83,27 @@ export async function POST(req: NextRequest) {
         // Recompute server-side from the trusted inputs so the PDF carries the
         // full engine result (the request only sends headline premium/saving).
         const { description } = lookupIndustry(wicCode);
+        const hasPremium = currentPremium != null && Number(currentPremium) > 0;
         const premiumResult = computePremium({
           remuneration: wages,
           wicCode,
           claimsCost,
         });
-        const savingsResult = savingsScenario({
+        // Premium-entered → real performance rating + premium-based savings.
+        const performanceResult = hasPremium
+          ? performanceFromPremium({ remuneration: wages, wicCode, currentPremium })
+          : null;
+        const savingsResult = hasPremium
+          ? savingsFromPremium({ remuneration: wages, wicCode, currentPremium })
+          : savingsScenario({ remuneration: wages, wicCode, claimsCost });
+        // Cost-of-a-claim projection (chosen claim, else a serious-claim preset).
+        const impactClaim =
+          claimCost != null && Number(claimCost) > 0 ? Number(claimCost) : 250000;
+        const impactResult = claimImpact({
           remuneration: wages,
           wicCode,
-          claimsCost,
+          claimCost: impactClaim,
+          priorYearPremium: hasPremium ? currentPremium : undefined,
         });
         const pdf = await renderPremiumReport({
           remuneration: wages,
@@ -97,6 +112,9 @@ export async function POST(req: NextRequest) {
           claimsCost,
           premium: premiumResult,
           savings: savingsResult,
+          performance: performanceResult,
+          claimImpact: impactResult,
+          claimCost: impactClaim,
         });
 
         const money = (n: number) =>
@@ -110,10 +128,10 @@ export async function POST(req: NextRequest) {
         await resend.emails.send({
           from: "Preventli <noreply@preventli.ai>",
           to: email,
-          subject: "Your WorkCover premium estimate",
+          subject: "Your WorkCover premium report",
           attachments: [
             {
-              filename: "Preventli-WorkCover-Premium-Estimate.pdf",
+              filename: "Preventli-WorkCover-Premium-Report.pdf",
               content: pdf,
             },
           ],
