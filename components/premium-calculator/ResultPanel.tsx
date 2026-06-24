@@ -105,6 +105,9 @@ export default function ResultPanel({
           claimsCost,
           premium: premium.premium,
           saving: savings.showSaving ? savings.annualSaving : 0,
+          // Drive the comprehensive PDF report: real rating + claim impact.
+          currentPremium: priorYearPremium ?? null,
+          claimCost,
         }),
       });
       setEmailState(res.ok ? "success" : "error");

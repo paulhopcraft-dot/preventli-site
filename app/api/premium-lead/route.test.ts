@@ -29,11 +29,40 @@ vi.mock("resend", () => ({
 }));
 
 // Keep the email path fast + offline: stub the engine + PDF renderer.
-vi.mock("@/lib/premium/engine", () => ({
-  computePremium: vi.fn(() => ({ premium: 30360 })),
-  savingsScenario: vi.fn(() => ({ showSaving: true, annualSaving: 5000 })),
-  lookupIndustry: vi.fn(() => ({ description: "Cafes and restaurants" })),
-}));
+vi.mock("@/lib/premium/engine", () => {
+  const savings = {
+    showSaving: true,
+    annualSaving: 5000,
+    baselinePremium: 30360,
+    managedPremium: 25360,
+    threeYearSaving: 15000,
+  };
+  return {
+    computePremium: vi.fn(() => ({ premium: 30360, gst: 3036 })),
+    savingsScenario: vi.fn(() => savings),
+    savingsFromPremium: vi.fn(() => savings),
+    performanceFromPremium: vi.fn(() => ({
+      epr: 1.2,
+      industryRatePremium: 30360,
+      ratingImpact: 6000,
+      percentVsIndustry: 20,
+      betterThanIndustry: false,
+    })),
+    claimImpact: vi.fn(() => ({
+      showImpact: true,
+      baselinePremium: 30360,
+      newPremium: 35000,
+      uncappedPremium: 35000,
+      capped: false,
+      threeYearImpact: 13800,
+    })),
+    lookupIndustry: vi.fn(() => ({
+      description: "Cafes and restaurants",
+      iccr: 0.0183,
+      ir: 0.03,
+    })),
+  };
+});
 vi.mock("@/lib/premium/pdf/PremiumReport", () => ({
   renderPremiumReport: vi.fn(async () => Buffer.from("pdf")),
 }));
