@@ -1,0 +1,114 @@
+﻿{
+    "completed":  false,
+    "updated_at":  "2026-06-24T10:13:21.9213762+08:00",
+    "started_at":  "2026-06-24T09:38:01.7160566+08:00",
+    "session_id":  "2026-06-24-ad08de",
+    "phase":  "1",
+    "plan":  "",
+    "checkpoint":  {
+                       "awaiting":  "User approval",
+                       "task_id":  "task-8",
+                       "details":  "PAUSE for Paul. The machine-checkable build is green (goal_verify: npm run build + all vitest + oracle markers). These need a human per spec §8a — and per Paul\u0027s merge policy preventli-site is the public live site, so the merge is HIS click, not the bot\u0027s:\n  1. Push the feature branch and open a PR (gh pr create) — Vercel auto-builds a PREVIEW URL off the PR.\n  2. On the preview: confirm the page looks good / on-brand; a real input renders a sensible premium; a small-employer (\u003c$200k) input shows the size-aware guard message and NO saving figure; the disclaimer + 40% asterisk read correctly and say \"lower claims cost\" (never \"lower premium\").\n  3. Submit a real test lead and confirm the branded PDF arrives correctly.\n  4. Create the premium_calc_leads table in Supabase (mirror contact_submissions) BEFORE going live.\n  5. Sign off the savings copy + the 40% asterisk wording.\n  6. MERGE the PR -\u003e Vercel deploys to preventli.ai/premium-calculator. (This merge is the deploy; Paul performs it.)",
+                       "type":  "human-verify"
+                   },
+    "tasks":  [
+                  {
+                      "id":  "task-1",
+                      "name":  "Add vitest test runner",
+                      "commit":  "1f229fa",
+                      "duration_ms":  170690,
+                      "status":  "completed",
+                      "verified":  true
+                  },
+                  {
+                      "id":  "task-2",
+                      "name":  "Add 2025-26 industry rates data",
+                      "commit":  "d414a94",
+                      "duration_ms":  43283,
+                      "status":  "completed",
+                      "verified":  true
+                  },
+                  {
+                      "id":  "task-3",
+                      "name":  "Add 2025-26 premium parameters",
+                      "commit":  "b530e4a",
+                      "duration_ms":  35608,
+                      "status":  "completed",
+                      "verified":  true
+                  },
+                  {
+                      "id":  "task-4",
+                      "name":  "Build the deterministic premium engine",
+                      "commit":  "0cd1021",
+                      "duration_ms":  459037,
+                      "status":  "completed",
+                      "verified":  true
+                  },
+                  {
+                      "id":  "task-5",
+                      "name":  "Golden tests vs WorkSafe simulator",
+                      "commit":  "0a74edd",
+                      "duration_ms":  262277,
+                      "status":  "completed",
+                      "verified":  true
+                  },
+                  {
+                      "id":  "task-1",
+                      "name":  "Industry plain-English picker data + matcher",
+                      "commit":  "fc8341d",
+                      "duration_ms":  133937,
+                      "status":  "completed",
+                      "verified":  true
+                  },
+                  {
+                      "id":  "task-2",
+                      "name":  "IndustryPicker component",
+                      "commit":  "8f4c684",
+                      "duration_ms":  96948,
+                      "status":  "completed",
+                      "verified":  true
+                  },
+                  {
+                      "id":  "task-3",
+                      "name":  "Calculator + ResultPanel components",
+                      "commit":  "87ff848",
+                      "duration_ms":  196345,
+                      "status":  "completed",
+                      "verified":  true
+                  },
+                  {
+                      "id":  "task-4",
+                      "name":  "Calculator page route",
+                      "commit":  "c7aa15c",
+                      "duration_ms":  204499,
+                      "status":  "completed",
+                      "verified":  true
+                  },
+                  {
+                      "id":  "task-5",
+                      "name":  "Branded PDF report",
+                      "commit":  "7e242c9",
+                      "duration_ms":  227270,
+                      "status":  "completed",
+                      "verified":  true
+                  },
+                  {
+                      "id":  "task-6",
+                      "name":  "Lead capture API route",
+                      "commit":  "373bd74",
+                      "duration_ms":  105823,
+                      "status":  "completed",
+                      "verified":  true
+                  },
+                  {
+                      "id":  "task-7",
+                      "name":  "Lead route test (mocked Supabase + Resend)",
+                      "commit":  "79c2cd0",
+                      "duration_ms":  127939,
+                      "status":  "completed",
+                      "verified":  true
+                  }
+              ],
+    "current_task_index":  7,
+    "current_plan_index":  1
+}
