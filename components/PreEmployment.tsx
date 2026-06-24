@@ -63,7 +63,7 @@ export default function PreEmployment() {
         className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center mb-12">
-          <span className="text-[#9CB81E] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
             Health Assessments
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">
@@ -80,7 +80,7 @@ export default function PreEmployment() {
           {assessmentTypes.map((type, i) => (
             <div
               key={i}
-              className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5 text-center hover:border-[#9CB81E]/50 transition-colors cursor-pointer"
+              className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5 text-center hover:border-[#00E676]/50 transition-colors cursor-pointer"
             >
               <div className="text-3xl mb-3">{type.icon}</div>
               <h3 className="text-white font-bold text-sm mb-1">{type.title}</h3>
@@ -102,7 +102,7 @@ export default function PreEmployment() {
               className="relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center"
             >
               <div className="text-4xl mb-4">{step.icon}</div>
-              <div className="text-[#9CB81E]/60 text-sm font-mono mb-2">
+              <div className="text-[#00E676]/60 text-sm font-mono mb-2">
                 {step.number}
               </div>
               <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
@@ -110,7 +110,7 @@ export default function PreEmployment() {
               
               {/* Connector arrow (except last) */}
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-[#9CB81E]/40">
+                <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-[#00E676]/40">
                   →
                 </div>
               )}
@@ -121,17 +121,17 @@ export default function PreEmployment() {
         {/* Key benefits */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center">
-            <div className="text-5xl font-bold text-[#9CB81E] mb-2">24hr</div>
+            <div className="text-5xl font-bold text-[#00E676] mb-2">24hr</div>
             <div className="text-white font-medium">Turnaround</div>
             <div className="text-gray-400 text-sm">Most same-day</div>
           </div>
           <div className="text-center">
-            <div className="text-5xl font-bold text-[#9CB81E] mb-2">100%</div>
+            <div className="text-5xl font-bold text-[#00E676] mb-2">100%</div>
             <div className="text-white font-medium">Doctor Reviewed</div>
             <div className="text-gray-400 text-sm">National telehealth network</div>
           </div>
           <div className="text-center">
-            <div className="text-5xl font-bold text-[#9CB81E] mb-2">0</div>
+            <div className="text-5xl font-bold text-[#00E676] mb-2">0</div>
             <div className="text-white font-medium">Admin for You</div>
             <div className="text-gray-400 text-sm">We handle everything</div>
           </div>
@@ -141,7 +141,7 @@ export default function PreEmployment() {
         <div className="text-center mt-12">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 bg-[#9CB81E] text-[#0A1628] px-8 py-4 rounded-full font-semibold hover:bg-[#9CB81E] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#00E676] text-[#0A1628] px-8 py-4 rounded-full font-semibold hover:bg-[#00E676] transition-colors"
           >
             Start Your First Assessment
             <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

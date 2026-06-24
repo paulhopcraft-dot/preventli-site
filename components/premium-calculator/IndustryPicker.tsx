@@ -106,7 +106,7 @@ export default function IndustryPicker({ value, onChange }: Props) {
         aria-expanded={open}
         aria-autocomplete="list"
         autoComplete="off"
-        className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#9CB81E]"
+        className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#00E676]"
       />
 
       {open && results.length > 0 && (
@@ -125,7 +125,7 @@ export default function IndustryPicker({ value, onChange }: Props) {
               }}
               onMouseEnter={() => setActive(i)}
               className={`cursor-pointer px-4 py-2.5 text-sm ${
-                i === active ? "bg-[#9CB81E]/10" : ""
+                i === active ? "bg-[#00E676]/10" : ""
               }`}
             >
               <span className="text-[#0A1628] font-medium">{c.description}</span>
@@ -151,7 +151,7 @@ export default function IndustryPicker({ value, onChange }: Props) {
             width="16"
             height="16"
             fill="none"
-            stroke="#9CB81E"
+            stroke="#00E676"
             strokeWidth="2"
             viewBox="0 0 24 24"
             className="mt-0.5 flex-shrink-0"

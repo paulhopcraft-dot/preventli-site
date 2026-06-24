@@ -22,7 +22,7 @@ export default function Hero() {
           className="w-[600px] h-[600px] rounded-full opacity-20"
           style={{
             background:
-              "radial-gradient(circle, #9CB81E 0%, transparent 70%)",
+              "radial-gradient(circle, #00E676 0%, transparent 70%)",
           }}
         />
       </div>
@@ -33,9 +33,9 @@ export default function Hero() {
         className="section-observe relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center"
       >
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-[#9CB81E]/10 border border-[#9CB81E]/30 rounded-full px-4 py-2 mb-8">
-          <span className="w-2 h-2 bg-[#9CB81E] rounded-full animate-pulse" />
-          <span className="text-[#9CB81E] text-sm font-medium">
+        <div className="inline-flex items-center gap-2 bg-[#00E676]/10 border border-[#00E676]/30 rounded-full px-4 py-2 mb-8">
+          <span className="w-2 h-2 bg-[#00E676] rounded-full animate-pulse" />
+          <span className="text-[#00E676] text-sm font-medium">
             30 Years of WorkCover Expertise
           </span>
         </div>
@@ -61,7 +61,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 bg-[#9CB81E] text-[#0A1628] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#86A516] transition-all hover:scale-105 shadow-lg shadow-[#9CB81E]/25"
+            className="inline-flex items-center justify-center gap-2 bg-[#00E676] text-[#0A1628] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#00C060] transition-all hover:scale-105 shadow-lg shadow-[#00E676]/25"
           >
             Get Started Free
             <svg
@@ -77,7 +77,7 @@ export default function Hero() {
           </a>
           <a
             href="/demo"
-            className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:border-[#9CB81E] hover:text-[#9CB81E] transition-all"
+            className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:border-[#00E676] hover:text-[#00E676] transition-all"
           >
             Book a Demo
           </a>
@@ -86,15 +86,15 @@ export default function Hero() {
         {/* Floating stat cards */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <div className="animate-float bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 text-center">
-            <div className="text-3xl font-bold text-[#9CB81E]">Free</div>
+            <div className="text-3xl font-bold text-[#00E676]">Free</div>
             <div className="text-sm text-gray-300 mt-1">Start — no credit card</div>
           </div>
           <div className="animate-float-delay bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 text-center">
-            <div className="text-3xl font-bold text-[#9CB81E]">3,000+</div>
+            <div className="text-3xl font-bold text-[#00E676]">3,000+</div>
             <div className="text-sm text-gray-300 mt-1">Cases managed</div>
           </div>
           <div className="animate-float-delay2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 text-center">
-            <div className="text-3xl font-bold text-[#9CB81E]">100%</div>
+            <div className="text-3xl font-bold text-[#00E676]">100%</div>
             <div className="text-sm text-gray-300 mt-1">WorkSafe compliant</div>
           </div>
         </div>
@@ -104,7 +104,7 @@ export default function Hero() {
           <span className="text-xs uppercase tracking-widest">Scroll</span>
           <div className="w-5 h-8 border border-gray-600 rounded-full flex items-start justify-center p-1">
             <div
-              className="w-1.5 h-1.5 bg-[#9CB81E] rounded-full animate-bounce"
+              className="w-1.5 h-1.5 bg-[#00E676] rounded-full animate-bounce"
               style={{ animationDuration: "1.5s" }}
             />
           </div>

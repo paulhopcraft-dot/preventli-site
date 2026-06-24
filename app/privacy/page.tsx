@@ -13,7 +13,7 @@ export default function PrivacyPage() {
     <div className="min-h-screen bg-[#F8F9FA]">
       <header className="bg-[#0A1628] py-6">
         <div className="max-w-4xl mx-auto px-4">
-          <Link href="/" className="text-[#9CB81E] font-bold text-xl">
+          <Link href="/" className="text-[#00E676] font-bold text-xl">
             ← Back to Preventli
           </Link>
         </div>
@@ -260,7 +260,7 @@ export default function PrivacyPage() {
             </ul>
             <p className="mt-3">
               To make an access or correction request, contact us at{" "}
-              <a href="mailto:privacy@preventli.ai" className="text-[#9CB81E] underline">
+              <a href="mailto:privacy@preventli.ai" className="text-[#00E676] underline">
                 privacy@preventli.ai
               </a>
               . We will respond within 30 days.
@@ -272,7 +272,7 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-bold text-[#0A1628] mb-3">11. Complaints</h2>
             <p>
               If you believe we have breached the APPs, please contact us first at{" "}
-              <a href="mailto:privacy@preventli.ai" className="text-[#9CB81E] underline">
+              <a href="mailto:privacy@preventli.ai" className="text-[#00E676] underline">
                 privacy@preventli.ai
               </a>
               . We will investigate and respond within 30 days.
@@ -283,7 +283,7 @@ export default function PrivacyPage() {
                 href="https://www.oaic.gov.au"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#9CB81E] underline"
+                className="text-[#00E676] underline"
               >
                 Office of the Australian Information Commissioner (OAIC)
               </a>
@@ -311,7 +311,7 @@ export default function PrivacyPage() {
               <p className="font-semibold text-[#0A1628]">Preventli Pty Ltd</p>
               <p className="mt-1">
                 Email:{" "}
-                <a href="mailto:privacy@preventli.ai" className="text-[#9CB81E] underline">
+                <a href="mailto:privacy@preventli.ai" className="text-[#00E676] underline">
                   privacy@preventli.ai
                 </a>
               </p>
@@ -325,8 +325,8 @@ export default function PrivacyPage() {
 
       <footer className="border-t border-gray-200 py-8 mt-8">
         <div className="max-w-4xl mx-auto px-4 text-center text-sm text-gray-400">
-          <Link href="/terms" className="hover:text-[#9CB81E] mr-6">Terms of Service</Link>
-          <Link href="/" className="hover:text-[#9CB81E]">Back to Preventli</Link>
+          <Link href="/terms" className="hover:text-[#00E676] mr-6">Terms of Service</Link>
+          <Link href="/" className="hover:text-[#00E676]">Back to Preventli</Link>
         </div>
       </footer>
     </div>

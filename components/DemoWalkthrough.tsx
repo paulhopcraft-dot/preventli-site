@@ -57,7 +57,7 @@ export default function DemoWalkthrough() {
           className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <div className="text-center mb-14">
-            <span className="text-[#9CB81E] text-sm font-semibold uppercase tracking-widest">
+            <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
               What you&apos;ll see
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
@@ -77,7 +77,7 @@ export default function DemoWalkthrough() {
                 <li key={step.minutes} className="relative flex gap-6 sm:gap-8">
                   <div className="relative z-10 flex-shrink-0">
                     <div className="flex h-14 w-14 sm:h-16 sm:w-16 flex-col items-center justify-center rounded-2xl bg-[#0A1628] text-center shadow-lg">
-                      <span className="text-[#9CB81E] text-sm sm:text-base font-bold leading-none">
+                      <span className="text-[#00E676] text-sm sm:text-base font-bold leading-none">
                         {step.minutes}
                       </span>
                       <span className="text-[9px] text-gray-400 mt-1">min</span>
@@ -103,7 +103,7 @@ export default function DemoWalkthrough() {
       <section className="py-20 bg-[#0A1628] relative overflow-hidden">
         <div className="absolute inset-0 hero-grid opacity-50" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-[#9CB81E] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
             The maths
           </span>
           <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
@@ -111,11 +111,11 @@ export default function DemoWalkthrough() {
               <div className="text-5xl sm:text-6xl font-bold text-white">$52,000</div>
               <div className="text-gray-400 mt-2 text-sm">average cost of one WorkCover claim</div>
             </div>
-            <div className="text-3xl text-[#9CB81E] font-bold rotate-90 md:rotate-0" aria-hidden="true">
+            <div className="text-3xl text-[#00E676] font-bold rotate-90 md:rotate-0" aria-hidden="true">
               vs
             </div>
             <div>
-              <div className="text-5xl sm:text-6xl font-bold text-[#9CB81E]">$899<span className="text-2xl text-gray-400 font-semibold">/mo</span></div>
+              <div className="text-5xl sm:text-6xl font-bold text-[#00E676]">$899<span className="text-2xl text-gray-400 font-semibold">/mo</span></div>
               <div className="text-gray-400 mt-2 text-sm">Preventli Professional — unlimited cases</div>
             </div>
           </div>

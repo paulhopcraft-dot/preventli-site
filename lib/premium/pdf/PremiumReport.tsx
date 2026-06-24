@@ -26,8 +26,8 @@ import type {
 
 const NAVY = "#0A1628";
 const NAVY_2 = "#16233A";
-const GREEN = "#9CB81E";
-const GREEN_DARK = "#5E7012";
+const GREEN = "#00E676";
+const GREEN_DARK = "#0A7A45";
 const AMBER = "#D97706";
 const GRAY = "#6b7280";
 const GRAY_LT = "#9ca3af";

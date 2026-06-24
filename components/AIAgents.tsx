@@ -89,7 +89,7 @@ export default function AIAgents() {
     <section id="expertise" className="py-12 pb-8 bg-[#0A1628] relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[#9CB81E] rounded-full filter blur-3xl animate-pulse" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-[#00E676] rounded-full filter blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-violet-500 rounded-full filter blur-3xl animate-pulse delay-1000" />
       </div>
 
@@ -98,7 +98,7 @@ export default function AIAgents() {
         className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
       >
         <div className="text-center mb-14">
-          <span className="text-[#9CB81E] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
             30 Years of Expertise
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">
@@ -137,7 +137,7 @@ export default function AIAgents() {
                         {agent.name}
                       </h3>
                       <div className="flex items-center gap-2 mt-1">
-                        <div className="w-2 h-2 bg-[#9CB81E] rounded-full animate-pulse" />
+                        <div className="w-2 h-2 bg-[#00E676] rounded-full animate-pulse" />
                         <span className="text-white/80 text-xs font-medium">
                           Active
                         </span>
@@ -171,7 +171,7 @@ export default function AIAgents() {
                           key={i}
                           className="flex items-start gap-2 text-white/90 text-sm"
                         >
-                          <span className="text-[#9CB81E] mt-0.5">✓</span>
+                          <span className="text-[#00E676] mt-0.5">✓</span>
                           <span>{capability}</span>
                         </li>
                       ))}
@@ -191,7 +191,7 @@ export default function AIAgents() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="bg-gradient-to-r from-[#9CB81E] to-[#9CB81E] rounded-2xl p-8 text-center">
+        <div className="bg-gradient-to-r from-[#00E676] to-[#00E676] rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-bold text-[#0A1628] mb-3">
             Expert Management. One Platform.
           </h3>

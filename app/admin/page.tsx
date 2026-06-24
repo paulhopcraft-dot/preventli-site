@@ -148,7 +148,7 @@ export default function AdminPage() {
       <div className="min-h-screen bg-[#0A1628] flex items-center justify-center px-4">
         <div className="bg-white rounded-2xl p-10 w-full max-w-md shadow-2xl">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 bg-[#9CB81E] rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-[#00E676] rounded-xl flex items-center justify-center">
               <svg
                 width="20"
                 height="20"
@@ -175,7 +175,7 @@ export default function AdminPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#9CB81E] transition-colors"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#00E676] transition-colors"
                 placeholder="Enter admin password"
                 autoFocus
               />
@@ -203,7 +203,7 @@ export default function AdminPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#9CB81E] rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#00E676] rounded-lg flex items-center justify-center">
                 <svg
                   width="18"
                   height="18"
@@ -240,7 +240,7 @@ export default function AdminPage() {
               </button>
               <button
                 onClick={exportCSV}
-                className="bg-[#9CB81E] text-[#0A1628] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#86A516] transition-colors flex items-center gap-1.5"
+                className="bg-[#00E676] text-[#0A1628] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#00C060] transition-colors flex items-center gap-1.5"
               >
                 <svg
                   width="14"
@@ -349,7 +349,7 @@ export default function AdminPage() {
                       <td className="px-4 py-4 text-sm text-gray-600">
                         <a
                           href={`mailto:${s.email}`}
-                          className="text-[#0A1628] hover:text-[#9CB81E] transition-colors"
+                          className="text-[#0A1628] hover:text-[#00E676] transition-colors"
                         >
                           {s.email}
                         </a>
@@ -381,7 +381,7 @@ export default function AdminPage() {
                         <select
                           value={s.status}
                           onChange={(e) => updateStatus(s.id, e.target.value)}
-                          className="text-xs border border-gray-200 rounded-lg px-2 py-1.5 focus:outline-none focus:border-[#9CB81E] cursor-pointer bg-white"
+                          className="text-xs border border-gray-200 rounded-lg px-2 py-1.5 focus:outline-none focus:border-[#00E676] cursor-pointer bg-white"
                         >
                           <option value="new">New</option>
                           <option value="contacted">Contacted</option>

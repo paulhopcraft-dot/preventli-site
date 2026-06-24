@@ -106,7 +106,7 @@ export default function ContactForm() {
   }
 
   const inputClass = (field: keyof FormData) =>
-    `w-full rounded-xl px-4 py-3 text-sm border transition-colors focus:outline-none focus:border-[#9CB81E] bg-white ${
+    `w-full rounded-xl px-4 py-3 text-sm border transition-colors focus:outline-none focus:border-[#00E676] bg-white ${
       errors[field] ? "border-red-400" : "border-gray-200"
     }`;
 
@@ -117,7 +117,7 @@ export default function ContactForm() {
         className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center mb-14">
-          <span className="text-[#9CB81E] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
             Get in Touch
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
@@ -143,7 +143,7 @@ export default function ContactForm() {
                       width="18"
                       height="18"
                       fill="none"
-                      stroke="#9CB81E"
+                      stroke="#00E676"
                       strokeWidth="2"
                       viewBox="0 0 24 24"
                     >
@@ -155,7 +155,7 @@ export default function ContactForm() {
                     <div className="text-sm text-gray-400 mb-1">Email</div>
                     <a
                       href="mailto:lisah@preventli.ai"
-                      className="text-[#0A1628] font-semibold hover:text-[#9CB81E] transition-colors"
+                      className="text-[#0A1628] font-semibold hover:text-[#00E676] transition-colors"
                     >
                       lisah@preventli.ai
                     </a>
@@ -167,7 +167,7 @@ export default function ContactForm() {
                     <svg
                       width="18"
                       height="18"
-                      fill="#9CB81E"
+                      fill="#00E676"
                       viewBox="0 0 24 24"
                     >
                       <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
@@ -180,7 +180,7 @@ export default function ContactForm() {
                       href="https://www.linkedin.com/company/preventli"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#0A1628] font-semibold hover:text-[#9CB81E] transition-colors"
+                      className="text-[#0A1628] font-semibold hover:text-[#00E676] transition-colors"
                     >
                       linkedin.com/company/preventli
                     </a>
@@ -206,7 +206,7 @@ export default function ContactForm() {
                       width="16"
                       height="16"
                       fill="none"
-                      stroke="#9CB81E"
+                      stroke="#00E676"
                       strokeWidth="2"
                       viewBox="0 0 24 24"
                     >
@@ -223,12 +223,12 @@ export default function ContactForm() {
           <div className="lg:col-span-3">
             {state === "success" ? (
               <div className="bg-white border border-gray-100 rounded-2xl p-12 text-center shadow-sm">
-                <div className="w-16 h-16 bg-[#9CB81E]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-[#00E676]/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg
                     width="32"
                     height="32"
                     fill="none"
-                    stroke="#9CB81E"
+                    stroke="#00E676"
                     strokeWidth="2"
                     viewBox="0 0 24 24"
                   >
@@ -244,7 +244,7 @@ export default function ContactForm() {
                 </p>
                 <button
                   onClick={() => setState("idle")}
-                  className="text-[#9CB81E] font-semibold hover:underline"
+                  className="text-[#00E676] font-semibold hover:underline"
                 >
                   Send another message
                 </button>

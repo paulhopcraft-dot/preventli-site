@@ -138,7 +138,7 @@ export async function POST(req: NextRequest) {
           html: `
             <div style="font-family: Inter, system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
               <div style="background: #0A1628; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
-                <h1 style="color: #9CB81E; margin: 0; font-size: 20px;">Preventli</h1>
+                <h1 style="color: #00E676; margin: 0; font-size: 20px;">Preventli</h1>
                 <p style="color: #aaa; margin: 8px 0 0; font-size: 14px;">30 years of WorkCover expertise. 3,000+ cases managed.</p>
               </div>
 
@@ -154,7 +154,7 @@ export async function POST(req: NextRequest) {
                   <tr><td style="padding: 8px 0; color: #666;">Estimated annual premium:</td><td style="padding: 8px 0; font-weight: 600; color: #1A1A2E;">${money(premium)}</td></tr>
                   ${
                     savingsResult.showSaving
-                      ? `<tr><td style="padding: 8px 0; color: #666;">Potential saving with Preventli:</td><td style="padding: 8px 0; font-weight: 600; color: #86A516;">${money(saving)}/year</td></tr>`
+                      ? `<tr><td style="padding: 8px 0; color: #666;">Potential saving with Preventli:</td><td style="padding: 8px 0; font-weight: 600; color: #00C060;">${money(saving)}/year</td></tr>`
                       : ""
                   }
                 </table>
@@ -162,7 +162,7 @@ export async function POST(req: NextRequest) {
 
               <p style="color: #555; line-height: 1.6;">
                 Want the real number? Lisa and the team can review your actual claims history at
-                <a href="mailto:lisah@preventli.ai" style="color: #9CB81E;">lisah@preventli.ai</a>.
+                <a href="mailto:lisah@preventli.ai" style="color: #00E676;">lisah@preventli.ai</a>.
               </p>
 
               <p style="color: #999; font-size: 11px; margin-top: 24px; border-top: 1px solid #eee; padding-top: 16px; line-height: 1.5;">
@@ -180,11 +180,11 @@ export async function POST(req: NextRequest) {
           html: `
             <div style="font-family: Inter, system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
               <div style="background: #0A1628; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
-                <h1 style="color: #9CB81E; margin: 0; font-size: 20px;">🧮 New Premium-Calc Lead</h1>
+                <h1 style="color: #00E676; margin: 0; font-size: 20px;">🧮 New Premium-Calc Lead</h1>
               </div>
               <div style="background: #f8f9fa; padding: 24px; border-radius: 12px;">
                 <table style="width: 100%; border-collapse: collapse;">
-                  <tr><td style="padding: 8px 0; color: #666; width: 140px;">Email:</td><td style="padding: 8px 0; font-weight: 600;"><a href="mailto:${email}" style="color: #9CB81E;">${email}</a></td></tr>
+                  <tr><td style="padding: 8px 0; color: #666; width: 140px;">Email:</td><td style="padding: 8px 0; font-weight: 600;"><a href="mailto:${email}" style="color: #00E676;">${email}</a></td></tr>
                   <tr><td style="padding: 8px 0; color: #666;">Industry:</td><td style="padding: 8px 0; font-weight: 600;">${description} (WIC ${wicCode})</td></tr>
                   <tr><td style="padding: 8px 0; color: #666;">Wages:</td><td style="padding: 8px 0; font-weight: 600;">${money(wages)}</td></tr>
                   <tr><td style="padding: 8px 0; color: #666;">Premium:</td><td style="padding: 8px 0; font-weight: 600;">${money(premium)}</td></tr>
