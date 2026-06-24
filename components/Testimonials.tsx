@@ -175,7 +175,7 @@ export default function Testimonials() {
         className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center mb-14">
-          <span className="text-[#9CB81E] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
             Client Results
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">
@@ -198,7 +198,7 @@ export default function Testimonials() {
               className="card-hover bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col"
             >
               {/* Quote mark */}
-              <div className="text-[#9CB81E] text-5xl font-serif leading-none mb-4 opacity-50">
+              <div className="text-[#00E676] text-5xl font-serif leading-none mb-4 opacity-50">
                 &ldquo;
               </div>
 
@@ -223,7 +223,7 @@ export default function Testimonials() {
                     <div className="text-gray-400 text-xs">
                       {t.role}, {t.company}
                     </div>
-                    <div className="text-[#9CB81E] text-xs mt-0.5">
+                    <div className="text-[#00E676] text-xs mt-0.5">
                       {t.size}
                     </div>
                   </div>
@@ -241,7 +241,7 @@ export default function Testimonials() {
               onClick={() => setCurrentIndex(i * 3)}
               className={`w-2.5 h-2.5 rounded-full transition-all ${
                 currentPage === i
-                  ? "bg-[#9CB81E] w-8"
+                  ? "bg-[#00E676] w-8"
                   : "bg-white/20 hover:bg-white/40"
               }`}
               aria-label={`Go to page ${i + 1}`}

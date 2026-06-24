@@ -49,7 +49,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-gray-300 hover:text-[#9CB81E] transition-colors text-sm font-medium"
+                className="text-gray-300 hover:text-[#00E676] transition-colors text-sm font-medium"
               >
                 {link.label}
               </a>
@@ -72,7 +72,7 @@ export default function Navbar() {
             </a>
             <a
               href="/#calculator"
-              className="bg-[#9CB81E] text-[#0A1628] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#86A516] transition-colors"
+              className="bg-[#00E676] text-[#0A1628] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#00C060] transition-colors"
             >
               Premium Calculator
             </a>
@@ -123,7 +123,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="block text-gray-300 hover:text-[#9CB81E] py-2 text-sm font-medium transition-colors"
+                className="block text-gray-300 hover:text-[#00E676] py-2 text-sm font-medium transition-colors"
               >
                 {link.label}
               </a>
@@ -131,14 +131,14 @@ export default function Navbar() {
             <a
               href="/login"
               onClick={() => setMenuOpen(false)}
-              className="block text-gray-300 hover:text-[#9CB81E] py-2 text-sm font-medium transition-colors"
+              className="block text-gray-300 hover:text-[#00E676] py-2 text-sm font-medium transition-colors"
             >
               Login
             </a>
             <a
               href="/#calculator"
               onClick={() => setMenuOpen(false)}
-              className="block w-full text-center bg-[#9CB81E] text-[#0A1628] px-4 py-3 rounded-lg text-sm font-semibold mt-4"
+              className="block w-full text-center bg-[#00E676] text-[#0A1628] px-4 py-3 rounded-lg text-sm font-semibold mt-4"
             >
               Premium Calculator
             </a>

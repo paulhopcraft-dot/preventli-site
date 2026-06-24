@@ -87,7 +87,7 @@ export default function DemoForm() {
                 "No lock-in contracts, no credit card, no pressure",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-gray-300">
-                  <svg className="flex-shrink-0 mt-0.5" width="16" height="16" fill="none" stroke="#9CB81E" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg className="flex-shrink-0 mt-0.5" width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                   <span>{item}</span>
@@ -96,7 +96,7 @@ export default function DemoForm() {
             </ul>
             <div className="mt-10 pt-6 border-t border-white/10 text-sm text-gray-400">
               Prefer email?{" "}
-              <a href="mailto:lisah@preventli.ai" className="text-[#9CB81E] hover:underline">
+              <a href="mailto:lisah@preventli.ai" className="text-[#00E676] hover:underline">
                 lisah@preventli.ai
               </a>
             </div>
@@ -106,8 +106,8 @@ export default function DemoForm() {
           <div className="p-8 sm:p-10">
             {state === "success" ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-10">
-                <div className="w-16 h-16 bg-[#9CB81E]/10 rounded-full flex items-center justify-center mb-6">
-                  <svg width="32" height="32" fill="none" stroke="#9CB81E" strokeWidth="2" viewBox="0 0 24 24">
+                <div className="w-16 h-16 bg-[#00E676]/10 rounded-full flex items-center justify-center mb-6">
+                  <svg width="32" height="32" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
@@ -131,7 +131,7 @@ export default function DemoForm() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Jane Smith"
-                    className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#9CB81E]"
+                    className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#00E676]"
                   />
                 </div>
                 <div>
@@ -144,7 +144,7 @@ export default function DemoForm() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="jane@company.com.au"
-                    className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#9CB81E]"
+                    className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#00E676]"
                   />
                 </div>
                 <div>
@@ -157,7 +157,7 @@ export default function DemoForm() {
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     placeholder="Acme Pty Ltd"
-                    className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#9CB81E]"
+                    className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#00E676]"
                   />
                 </div>
                 <div>
@@ -168,7 +168,7 @@ export default function DemoForm() {
                     id="demo-employees"
                     value={employees}
                     onChange={(e) => setEmployees(e.target.value)}
-                    className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#9CB81E] cursor-pointer"
+                    className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#00E676] cursor-pointer"
                   >
                     <option value="">Select employee count</option>
                     {employeeOptions.map((opt) => (
@@ -193,7 +193,7 @@ export default function DemoForm() {
                 <button
                   type="submit"
                   disabled={state === "loading"}
-                  className="w-full bg-[#9CB81E] text-[#0A1628] py-4 px-6 rounded-xl font-bold text-sm hover:bg-[#86A516] transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-[#00E676] text-[#0A1628] py-4 px-6 rounded-xl font-bold text-sm hover:bg-[#00C060] transition-all disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {state === "loading" ? "Sending…" : "Book my 30-minute demo"}
                 </button>

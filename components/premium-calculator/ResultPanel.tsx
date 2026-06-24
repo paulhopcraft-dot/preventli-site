@@ -121,7 +121,7 @@ export default function ResultPanel({
       {performance ? (
         /* ---- Performance rating (when they entered their actual premium) ---- */
         <div className="rounded-2xl bg-[#0A1628] p-6 sm:p-8 text-white">
-          <div className="text-xs uppercase tracking-widest text-[#9CB81E] font-semibold">
+          <div className="text-xs uppercase tracking-widest text-[#00E676] font-semibold">
             Your performance rating
           </div>
           <div className="mt-2 flex items-baseline gap-3 flex-wrap">
@@ -131,7 +131,7 @@ export default function ResultPanel({
             <span
               className={`text-sm font-semibold ${
                 performance.betterThanIndustry
-                  ? "text-[#9CB81E]"
+                  ? "text-[#00E676]"
                   : "text-amber-300"
               }`}
             >
@@ -144,7 +144,7 @@ export default function ResultPanel({
             {performance.betterThanIndustry ? (
               <>
                 A strong record — you pay about{" "}
-                <span className="font-semibold text-[#9CB81E]">
+                <span className="font-semibold text-[#00E676]">
                   {money(Math.abs(performance.ratingImpact))}/year less
                 </span>{" "}
                 than an average employer your size (who&apos;d pay{" "}
@@ -166,7 +166,7 @@ export default function ResultPanel({
       ) : (
         /* ---- Estimated premium (when no premium entered) ---- */
         <div className="rounded-2xl bg-[#0A1628] p-6 sm:p-8 text-white">
-          <div className="text-xs uppercase tracking-widest text-[#9CB81E] font-semibold">
+          <div className="text-xs uppercase tracking-widest text-[#00E676] font-semibold">
             Estimated annual premium
           </div>
           <div className="mt-2 text-4xl sm:text-5xl font-bold">
@@ -183,7 +183,7 @@ export default function ResultPanel({
       )}
 
       {/* ---- Savings block (THE HIGHLIGHT) ---- */}
-      <div className="rounded-2xl border border-[#9CB81E]/30 bg-[#9CB81E]/5 p-6 sm:p-8">
+      <div className="rounded-2xl border border-[#00E676]/30 bg-[#00E676]/5 p-6 sm:p-8">
         <h3 className="text-lg font-bold text-[#0A1628]">
           Lower your claims cost → lower your premium
         </h3>
@@ -247,7 +247,7 @@ export default function ResultPanel({
                 digits ? Number(digits).toLocaleString("en-AU") : "",
               );
             }}
-            className="w-full rounded-xl pl-7 pr-4 py-3 text-sm border border-gray-200 bg-white focus:outline-none focus:border-[#9CB81E]"
+            className="w-full rounded-xl pl-7 pr-4 py-3 text-sm border border-gray-200 bg-white focus:outline-none focus:border-[#00E676]"
           />
         </div>
 
@@ -304,7 +304,7 @@ export default function ResultPanel({
           <span className="text-sm font-semibold text-[#0A1628]">
             How this is worked out
           </span>
-          <span className="text-[#5E7012] text-lg leading-none">
+          <span className="text-[#0A7A45] text-lg leading-none">
             {howOpen ? "−" : "+"}
           </span>
         </button>
@@ -363,7 +363,7 @@ export default function ResultPanel({
               <button
                 type="submit"
                 disabled={emailState === "loading"}
-                className="rounded-xl bg-[#9CB81E] text-[#0A1628] font-bold text-sm px-6 py-3 hover:bg-[#86A516] transition-colors disabled:opacity-70"
+                className="rounded-xl bg-[#00E676] text-[#0A1628] font-bold text-sm px-6 py-3 hover:bg-[#00C060] transition-colors disabled:opacity-70"
               >
                 {emailState === "loading" ? "Sending..." : "Email me a copy"}
               </button>

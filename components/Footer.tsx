@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-[#9CB81E] rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#00E676] rounded-lg flex items-center justify-center">
                 <svg
                   width="18"
                   height="18"
@@ -37,10 +37,10 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/preventli"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-white/5 hover:bg-[#9CB81E]/20 rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-white/5 hover:bg-[#00E676]/20 rounded-lg flex items-center justify-center transition-colors"
                 aria-label="LinkedIn"
               >
-                <svg width="16" height="16" fill="#9CB81E" viewBox="0 0 24 24">
+                <svg width="16" height="16" fill="#00E676" viewBox="0 0 24 24">
                   <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
                   <circle cx="4" cy="4" r="2" />
                 </svg>
@@ -63,7 +63,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-[#9CB81E] text-sm transition-colors"
+                    className="text-gray-400 hover:text-[#00E676] text-sm transition-colors"
                   >
                     {link.label}
                   </a>
@@ -88,7 +88,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-[#9CB81E] text-sm transition-colors"
+                    className="text-gray-400 hover:text-[#00E676] text-sm transition-colors"
                     target={
                       link.href.startsWith("http") ? "_blank" : undefined
                     }
