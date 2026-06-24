@@ -18,7 +18,6 @@ export default function Navbar() {
     { label: "How It Works", href: "/#how-it-works" },
     { label: "Features", href: "/#features" },
     { label: "Pricing", href: "/#pricing" },
-    { label: "Calculator", href: "/#calculator" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -75,7 +74,7 @@ export default function Navbar() {
               href="/#calculator"
               className="bg-[#00E676] text-[#0A1628] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#00C060] transition-colors"
             >
-              Premium Reduction Calculator
+              Premium Calculator
             </a>
           </div>
 
@@ -141,7 +140,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className="block w-full text-center bg-[#00E676] text-[#0A1628] px-4 py-3 rounded-lg text-sm font-semibold mt-4"
             >
-              Premium Reduction Calculator
+              Premium Calculator
             </a>
           </div>
         </div>
