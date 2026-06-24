@@ -1,0 +1,3182 @@
+{
+  "source": "WorkSafe Victoria Insurance Premium Simulator 2025-26 (official) + Special Gazette S 275, 3 Jun 2025",
+  "financial_year": "2025-26",
+  "average_rate": 0.018,
+  "count": 529,
+  "rates": [
+    {
+      "wic": "A01110",
+      "description": "Nursery Production (Under Cover)",
+      "iccr_2025_26": 0.02128,
+      "industry_rate_2025_26": 0.03568
+    },
+    {
+      "wic": "A01120",
+      "description": "Nursery Production (Outdoors)",
+      "iccr_2025_26": 0.01031,
+      "industry_rate_2025_26": 0.03534
+    },
+    {
+      "wic": "A01130",
+      "description": "Turf Growing",
+      "iccr_2025_26": 0.02358,
+      "industry_rate_2025_26": 0.03275
+    },
+    {
+      "wic": "A01140",
+      "description": "Floriculture Production (Under Cover)",
+      "iccr_2025_26": 0.01449,
+      "industry_rate_2025_26": 0.03378
+    },
+    {
+      "wic": "A01150",
+      "description": "Floriculture Production (Outdoors)",
+      "iccr_2025_26": 0.02657,
+      "industry_rate_2025_26": 0.03273
+    },
+    {
+      "wic": "A01210",
+      "description": "Mushroom Growing",
+      "iccr_2025_26": 0.00305,
+      "industry_rate_2025_26": 0.02877
+    },
+    {
+      "wic": "A01220",
+      "description": "Vegetable Growing (Under Cover)",
+      "iccr_2025_26": 0.00248,
+      "industry_rate_2025_26": 0.02258
+    },
+    {
+      "wic": "A01230",
+      "description": "Vegetable Growing (Outdoors)",
+      "iccr_2025_26": 0.01078,
+      "industry_rate_2025_26": 0.03186
+    },
+    {
+      "wic": "A01310",
+      "description": "Grape Growing",
+      "iccr_2025_26": 0.00528,
+      "industry_rate_2025_26": 0.02557
+    },
+    {
+      "wic": "A01320",
+      "description": "Kiwifruit Growing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03451
+    },
+    {
+      "wic": "A01330",
+      "description": "Berry Fruit Growing",
+      "iccr_2025_26": 0.00668,
+      "industry_rate_2025_26": 0.03227
+    },
+    {
+      "wic": "A01340",
+      "description": "Apple And Pear Growing",
+      "iccr_2025_26": 0.01008,
+      "industry_rate_2025_26": 0.02784
+    },
+    {
+      "wic": "A01350",
+      "description": "Stone Fruit Growing",
+      "iccr_2025_26": 0.0037,
+      "industry_rate_2025_26": 0.0285
+    },
+    {
+      "wic": "A01360",
+      "description": "Citrus Fruit Growing",
+      "iccr_2025_26": 0.01172,
+      "industry_rate_2025_26": 0.03384
+    },
+    {
+      "wic": "A01370",
+      "description": "Olive Growing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03472
+    },
+    {
+      "wic": "A01390",
+      "description": "Other Fruit And Tree Nut Growing",
+      "iccr_2025_26": 0.0091,
+      "industry_rate_2025_26": 0.02537
+    },
+    {
+      "wic": "A01410",
+      "description": "Sheep Farming (Specialised)",
+      "iccr_2025_26": 0.00614,
+      "industry_rate_2025_26": 0.02594
+    },
+    {
+      "wic": "A01420",
+      "description": "Beef Cattle Farming (Specialised)",
+      "iccr_2025_26": 0.01717,
+      "industry_rate_2025_26": 0.03475
+    },
+    {
+      "wic": "A01430",
+      "description": "Beef Cattle Feedlots (Specialised)",
+      "iccr_2025_26": 0.037,
+      "industry_rate_2025_26": 0.05821
+    },
+    {
+      "wic": "A01440",
+      "description": "Sheep-Beef Cattle Farming",
+      "iccr_2025_26": 0.00971,
+      "industry_rate_2025_26": 0.02935
+    },
+    {
+      "wic": "A01450",
+      "description": "Grain-Sheep And/Or Grain-Beef Cattle Farming",
+      "iccr_2025_26": 0.01101,
+      "industry_rate_2025_26": 0.03303
+    },
+    {
+      "wic": "A01460",
+      "description": "Rice Growing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03451
+    },
+    {
+      "wic": "A01490",
+      "description": "Other Grain Growing",
+      "iccr_2025_26": 0.00777,
+      "industry_rate_2025_26": 0.02257
+    },
+    {
+      "wic": "A01510",
+      "description": "Sugar Cane Growing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03451
+    },
+    {
+      "wic": "A01520",
+      "description": "Cotton Growing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03451
+    },
+    {
+      "wic": "A01590",
+      "description": "Other Crop Growing N.E.C.",
+      "iccr_2025_26": 0.00845,
+      "industry_rate_2025_26": 0.03067
+    },
+    {
+      "wic": "A01600",
+      "description": "Dairy Cattle Farming",
+      "iccr_2025_26": 0.02036,
+      "industry_rate_2025_26": 0.04896
+    },
+    {
+      "wic": "A01710",
+      "description": "Poultry Farming (Meat)",
+      "iccr_2025_26": 0.02447,
+      "industry_rate_2025_26": 0.0465
+    },
+    {
+      "wic": "A01720",
+      "description": "Poultry Farming (Eggs)",
+      "iccr_2025_26": 0.01393,
+      "industry_rate_2025_26": 0.03675
+    },
+    {
+      "wic": "A01800",
+      "description": "Deer Farming",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03451
+    },
+    {
+      "wic": "A01910",
+      "description": "Horse Farming",
+      "iccr_2025_26": 0.02384,
+      "industry_rate_2025_26": 0.09336
+    },
+    {
+      "wic": "A01920",
+      "description": "Pig Farming",
+      "iccr_2025_26": 0.00905,
+      "industry_rate_2025_26": 0.0411
+    },
+    {
+      "wic": "A01930",
+      "description": "Beekeeping",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03414
+    },
+    {
+      "wic": "A01990",
+      "description": "Other Livestock Farming N.E.C.",
+      "iccr_2025_26": 0.03412,
+      "industry_rate_2025_26": 0.05493
+    },
+    {
+      "wic": "A02010",
+      "description": "Offshore Longline And Rack Aquaculture",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03392
+    },
+    {
+      "wic": "A02020",
+      "description": "Offshore Caged Aquaculture",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03451
+    },
+    {
+      "wic": "A02030",
+      "description": "Onshore Aquaculture",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03089
+    },
+    {
+      "wic": "A03010",
+      "description": "Forestry",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03217
+    },
+    {
+      "wic": "A03020",
+      "description": "Logging",
+      "iccr_2025_26": 0.0157,
+      "industry_rate_2025_26": 0.02892
+    },
+    {
+      "wic": "A04110",
+      "description": "Rock Lobster And Crab Potting",
+      "iccr_2025_26": 0.00299,
+      "industry_rate_2025_26": 0.03402
+    },
+    {
+      "wic": "A04120",
+      "description": "Prawn Fishing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03451
+    },
+    {
+      "wic": "A04130",
+      "description": "Line Fishing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03451
+    },
+    {
+      "wic": "A04140",
+      "description": "Fish Trawling, Seining And Netting",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03451
+    },
+    {
+      "wic": "A04190",
+      "description": "Other Fishing",
+      "iccr_2025_26": 0.03332,
+      "industry_rate_2025_26": 0.07397
+    },
+    {
+      "wic": "A04200",
+      "description": "Hunting And Trapping",
+      "iccr_2025_26": 0.00658,
+      "industry_rate_2025_26": 0.03417
+    },
+    {
+      "wic": "A05100",
+      "description": "Forestry Support Services",
+      "iccr_2025_26": 0.01512,
+      "industry_rate_2025_26": 0.03649
+    },
+    {
+      "wic": "A05210",
+      "description": "Cotton Ginning",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03451
+    },
+    {
+      "wic": "A05220",
+      "description": "Shearing Services",
+      "iccr_2025_26": 0.02653,
+      "industry_rate_2025_26": 0.06192
+    },
+    {
+      "wic": "A05290",
+      "description": "Other Agriculture And Fishing Support Services",
+      "iccr_2025_26": 0.01305,
+      "industry_rate_2025_26": 0.03117
+    },
+    {
+      "wic": "B06000",
+      "description": "Coal Mining",
+      "iccr_2025_26": 0.00528,
+      "industry_rate_2025_26": 0.01503
+    },
+    {
+      "wic": "B07000",
+      "description": "Oil And Gas Extraction",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02129
+    },
+    {
+      "wic": "B08010",
+      "description": "Iron Ore Mining",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02375
+    },
+    {
+      "wic": "B08020",
+      "description": "Bauxite Mining",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02375
+    },
+    {
+      "wic": "B08030",
+      "description": "Copper Ore Mining",
+      "iccr_2025_26": 0.00868,
+      "industry_rate_2025_26": 0.04053
+    },
+    {
+      "wic": "B08040",
+      "description": "Gold Ore Mining",
+      "iccr_2025_26": 0.0116,
+      "industry_rate_2025_26": 0.03715
+    },
+    {
+      "wic": "B08050",
+      "description": "Mineral Sand Mining",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02297
+    },
+    {
+      "wic": "B08060",
+      "description": "Nickel Ore Mining",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02375
+    },
+    {
+      "wic": "B08070",
+      "description": "Silver-Lead-Zinc Ore Mining",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02375
+    },
+    {
+      "wic": "B08090",
+      "description": "Other Metal Ore Mining",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02375
+    },
+    {
+      "wic": "B09110",
+      "description": "Gravel And Sand Quarrying",
+      "iccr_2025_26": 0.01103,
+      "industry_rate_2025_26": 0.04538
+    },
+    {
+      "wic": "B09190",
+      "description": "Other Construction Material Mining",
+      "iccr_2025_26": 0.01556,
+      "industry_rate_2025_26": 0.03007
+    },
+    {
+      "wic": "B09900",
+      "description": "Other Non-Metallic Mineral Mining And Quarrying",
+      "iccr_2025_26": 0.00595,
+      "industry_rate_2025_26": 0.02563
+    },
+    {
+      "wic": "B10110",
+      "description": "Petroleum Exploration",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02292
+    },
+    {
+      "wic": "B10120",
+      "description": "Mineral Exploration",
+      "iccr_2025_26": 0.00802,
+      "industry_rate_2025_26": 0.01967
+    },
+    {
+      "wic": "B10900",
+      "description": "Other Mining Support Services",
+      "iccr_2025_26": 0.01142,
+      "industry_rate_2025_26": 0.02462
+    },
+    {
+      "wic": "C11110",
+      "description": "Meat Processing",
+      "iccr_2025_26": 0.01831,
+      "industry_rate_2025_26": 0.0501
+    },
+    {
+      "wic": "C11120",
+      "description": "Poultry Processing",
+      "iccr_2025_26": 0.0187,
+      "industry_rate_2025_26": 0.04203
+    },
+    {
+      "wic": "C11130",
+      "description": "Cured Meat And Smallgoods Manufacturing",
+      "iccr_2025_26": 0.01684,
+      "industry_rate_2025_26": 0.04478
+    },
+    {
+      "wic": "C11200",
+      "description": "Seafood Processing",
+      "iccr_2025_26": 0.00522,
+      "industry_rate_2025_26": 0.036
+    },
+    {
+      "wic": "C11310",
+      "description": "Milk And Cream Processing",
+      "iccr_2025_26": 0.01363,
+      "industry_rate_2025_26": 0.03511
+    },
+    {
+      "wic": "C11320",
+      "description": "Ice Cream Manufacturing",
+      "iccr_2025_26": 0.00837,
+      "industry_rate_2025_26": 0.02505
+    },
+    {
+      "wic": "C11330",
+      "description": "Cheese And Other Dairy Product Manufacturing",
+      "iccr_2025_26": 0.01183,
+      "industry_rate_2025_26": 0.03028
+    },
+    {
+      "wic": "C11400",
+      "description": "Fruit And Vegetable Processing",
+      "iccr_2025_26": 0.01611,
+      "industry_rate_2025_26": 0.03997
+    },
+    {
+      "wic": "C11500",
+      "description": "Oil And Fat Manufacturing",
+      "iccr_2025_26": 0.00553,
+      "industry_rate_2025_26": 0.02426
+    },
+    {
+      "wic": "C11610",
+      "description": "Grain Mill Product Manufacturing",
+      "iccr_2025_26": 0.02333,
+      "industry_rate_2025_26": 0.04217
+    },
+    {
+      "wic": "C11620",
+      "description": "Cereal, Pasta And Baking Mix Manufacturing",
+      "iccr_2025_26": 0.02667,
+      "industry_rate_2025_26": 0.05656
+    },
+    {
+      "wic": "C11710",
+      "description": "Bread Manufacturing (Factory Based)",
+      "iccr_2025_26": 0.01278,
+      "industry_rate_2025_26": 0.04156
+    },
+    {
+      "wic": "C11720",
+      "description": "Cake And Pastry Manufacturing (Factory Based)",
+      "iccr_2025_26": 0.01633,
+      "industry_rate_2025_26": 0.04373
+    },
+    {
+      "wic": "C11730",
+      "description": "Biscuit Manufacturing (Factory Based)",
+      "iccr_2025_26": 0.02988,
+      "industry_rate_2025_26": 0.06416
+    },
+    {
+      "wic": "C11740",
+      "description": "Bakery Product Manufacturing (Non-Factory Based)",
+      "iccr_2025_26": 0.00795,
+      "industry_rate_2025_26": 0.01865
+    },
+    {
+      "wic": "C11810",
+      "description": "Sugar Manufacturing",
+      "iccr_2025_26": 0.01678,
+      "industry_rate_2025_26": 0.03126
+    },
+    {
+      "wic": "C11820",
+      "description": "Confectionery Manufacturing",
+      "iccr_2025_26": 0.02055,
+      "industry_rate_2025_26": 0.05184
+    },
+    {
+      "wic": "C11910",
+      "description": "Potato, Corn And Other Crisp Manufacturing",
+      "iccr_2025_26": 0.01889,
+      "industry_rate_2025_26": 0.03697
+    },
+    {
+      "wic": "C11920",
+      "description": "Prepared Animal And Bird Feed Manufacturing",
+      "iccr_2025_26": 0.01427,
+      "industry_rate_2025_26": 0.04655
+    },
+    {
+      "wic": "C11990",
+      "description": "Other Food Product Manufacturing N.E.C.",
+      "iccr_2025_26": 0.01125,
+      "industry_rate_2025_26": 0.02654
+    },
+    {
+      "wic": "C12110",
+      "description": "Soft Drink, Cordial And Syrup Manufacturing",
+      "iccr_2025_26": 0.00722,
+      "industry_rate_2025_26": 0.01667
+    },
+    {
+      "wic": "C12120",
+      "description": "Beer Manufacturing",
+      "iccr_2025_26": 0.00497,
+      "industry_rate_2025_26": 0.02479
+    },
+    {
+      "wic": "C12130",
+      "description": "Spirit Manufacturing",
+      "iccr_2025_26": 0.00886,
+      "industry_rate_2025_26": 0.02791
+    },
+    {
+      "wic": "C12140",
+      "description": "Wine And Other Alcoholic Beverage Manufacturing",
+      "iccr_2025_26": 0.01234,
+      "industry_rate_2025_26": 0.02607
+    },
+    {
+      "wic": "C12200",
+      "description": "Cigarette And Tobacco Product Manufacturing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0363
+    },
+    {
+      "wic": "C13110",
+      "description": "Wool Scouring",
+      "iccr_2025_26": 0.06312,
+      "industry_rate_2025_26": 0.04702
+    },
+    {
+      "wic": "C13120",
+      "description": "Natural Textile Manufacturing",
+      "iccr_2025_26": 0.02867,
+      "industry_rate_2025_26": 0.0525
+    },
+    {
+      "wic": "C13130",
+      "description": "Synthetic Textile Manufacturing",
+      "iccr_2025_26": 0.07682,
+      "industry_rate_2025_26": 0.06836
+    },
+    {
+      "wic": "C13200",
+      "description": "Leather Tanning, Fur Dressing And Leather Product Manufactur",
+      "iccr_2025_26": 0.02139,
+      "industry_rate_2025_26": 0.07658
+    },
+    {
+      "wic": "C13310",
+      "description": "Textile Floor Covering Manufacturing",
+      "iccr_2025_26": 0.01819,
+      "industry_rate_2025_26": 0.03707
+    },
+    {
+      "wic": "C13320",
+      "description": "Rope, Cordage And Twine Manufacturing",
+      "iccr_2025_26": 0.00251,
+      "industry_rate_2025_26": 0.03594
+    },
+    {
+      "wic": "C13330",
+      "description": "Cut And Sewn Textile Product Manufacturing",
+      "iccr_2025_26": 0.01831,
+      "industry_rate_2025_26": 0.03075
+    },
+    {
+      "wic": "C13340",
+      "description": "Textile Finishing And Other Textile Product Manufacturing",
+      "iccr_2025_26": 0.02117,
+      "industry_rate_2025_26": 0.03561
+    },
+    {
+      "wic": "C13400",
+      "description": "Knitted Product Manufacturing",
+      "iccr_2025_26": 0.00835,
+      "industry_rate_2025_26": 0.03595
+    },
+    {
+      "wic": "C13510",
+      "description": "Clothing Manufacturing",
+      "iccr_2025_26": 0.01806,
+      "industry_rate_2025_26": 0.02457
+    },
+    {
+      "wic": "C13520",
+      "description": "Footwear Manufacturing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03528
+    },
+    {
+      "wic": "C14110",
+      "description": "Log Sawmilling",
+      "iccr_2025_26": 0.03419,
+      "industry_rate_2025_26": 0.0565
+    },
+    {
+      "wic": "C14120",
+      "description": "Wood Chipping",
+      "iccr_2025_26": 0.00681,
+      "industry_rate_2025_26": 0.03115
+    },
+    {
+      "wic": "C14130",
+      "description": "Timber Resawing And Dressing",
+      "iccr_2025_26": 0.02228,
+      "industry_rate_2025_26": 0.04322
+    },
+    {
+      "wic": "C14910",
+      "description": "Prefabricated Wooden Building Manufacturing",
+      "iccr_2025_26": 0.0064,
+      "industry_rate_2025_26": 0.03233
+    },
+    {
+      "wic": "C14920",
+      "description": "Wooden Structural Fitting And Component Manufacturing",
+      "iccr_2025_26": 0.01778,
+      "industry_rate_2025_26": 0.04358
+    },
+    {
+      "wic": "C14930",
+      "description": "Veneer And Plywood Manufacturing",
+      "iccr_2025_26": 0.00306,
+      "industry_rate_2025_26": 0.035
+    },
+    {
+      "wic": "C14940",
+      "description": "Reconstituted Wood Product Manufacturing",
+      "iccr_2025_26": 0.0158,
+      "industry_rate_2025_26": 0.07074
+    },
+    {
+      "wic": "C14990",
+      "description": "Other Wood Product Manufacturing N.E.C.",
+      "iccr_2025_26": 0.01384,
+      "industry_rate_2025_26": 0.04616
+    },
+    {
+      "wic": "C15100",
+      "description": "Pulp, Paper And Paperboard Manufacturing",
+      "iccr_2025_26": 0.01584,
+      "industry_rate_2025_26": 0.04529
+    },
+    {
+      "wic": "C15210",
+      "description": "Corrugated Paperboard And Paperboard Container Manufacturing",
+      "iccr_2025_26": 0.0091,
+      "industry_rate_2025_26": 0.04053
+    },
+    {
+      "wic": "C15220",
+      "description": "Paper Bag Manufacturing",
+      "iccr_2025_26": 0.00265,
+      "industry_rate_2025_26": 0.03504
+    },
+    {
+      "wic": "C15230",
+      "description": "Paper Stationery Manufacturing",
+      "iccr_2025_26": 0.01144,
+      "industry_rate_2025_26": 0.03076
+    },
+    {
+      "wic": "C15240",
+      "description": "Sanitary Paper Product Manufacturing",
+      "iccr_2025_26": 0.01322,
+      "industry_rate_2025_26": 0.02789
+    },
+    {
+      "wic": "C15290",
+      "description": "Other Converted Paper Product Manufacturing",
+      "iccr_2025_26": 0.0328,
+      "industry_rate_2025_26": 0.05778
+    },
+    {
+      "wic": "C16110",
+      "description": "Printing",
+      "iccr_2025_26": 0.00927,
+      "industry_rate_2025_26": 0.02539
+    },
+    {
+      "wic": "C16120",
+      "description": "Printing Support Services",
+      "iccr_2025_26": 0.00662,
+      "industry_rate_2025_26": 0.02617
+    },
+    {
+      "wic": "C16200",
+      "description": "Reproduction Of Recorded Media",
+      "iccr_2025_26": 0.011,
+      "industry_rate_2025_26": 0.03585
+    },
+    {
+      "wic": "C17010",
+      "description": "Petroleum Refining And Petroleum Fuel Manufacturing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03524
+    },
+    {
+      "wic": "C17090",
+      "description": "Other Petroleum And Coal Product Manufacturing",
+      "iccr_2025_26": 0.01044,
+      "industry_rate_2025_26": 0.02968
+    },
+    {
+      "wic": "C18110",
+      "description": "Industrial Gas Manufacturing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03507
+    },
+    {
+      "wic": "C18120",
+      "description": "Basic Organic Chemical Manufacturing",
+      "iccr_2025_26": 0.01175,
+      "industry_rate_2025_26": 0.03046
+    },
+    {
+      "wic": "C18130",
+      "description": "Basic Inorganic Chemical Manufacturing",
+      "iccr_2025_26": 0.01416,
+      "industry_rate_2025_26": 0.03381
+    },
+    {
+      "wic": "C18210",
+      "description": "Synthetic Resin And Synthetic Rubber Manufacturing",
+      "iccr_2025_26": 0.0088,
+      "industry_rate_2025_26": 0.028
+    },
+    {
+      "wic": "C18290",
+      "description": "Other Basic Polymer Manufacturing",
+      "iccr_2025_26": 0.02527,
+      "industry_rate_2025_26": 0.03513
+    },
+    {
+      "wic": "C18310",
+      "description": "Fertiliser Manufacturing",
+      "iccr_2025_26": 0.00693,
+      "industry_rate_2025_26": 0.02781
+    },
+    {
+      "wic": "C18320",
+      "description": "Pesticide Manufacturing",
+      "iccr_2025_26": 0.00196,
+      "industry_rate_2025_26": 0.02732
+    },
+    {
+      "wic": "C18410",
+      "description": "Human Pharmaceutical And Medicinal Product Manufacturing",
+      "iccr_2025_26": 0.01012,
+      "industry_rate_2025_26": 0.02659
+    },
+    {
+      "wic": "C18420",
+      "description": "Veterinary Pharmaceutical And Medicinal Product Manufacturin",
+      "iccr_2025_26": 0.0046,
+      "industry_rate_2025_26": 0.02706
+    },
+    {
+      "wic": "C18510",
+      "description": "Cleaning Compound Manufacturing",
+      "iccr_2025_26": 0.00805,
+      "industry_rate_2025_26": 0.03304
+    },
+    {
+      "wic": "C18520",
+      "description": "Cosmetic And Toiletry Preparation Manufacturing",
+      "iccr_2025_26": 0.01406,
+      "industry_rate_2025_26": 0.0293
+    },
+    {
+      "wic": "C18910",
+      "description": "Photographic Chemical Product Manufacturing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0363
+    },
+    {
+      "wic": "C18920",
+      "description": "Explosive Manufacturing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03491
+    },
+    {
+      "wic": "C18990",
+      "description": "Other Basic Chemical Product Manufacturing N.E.C.",
+      "iccr_2025_26": 0.00267,
+      "industry_rate_2025_26": 0.02483
+    },
+    {
+      "wic": "C19110",
+      "description": "Polymer Film And Sheet Packaging Material Manufacturing",
+      "iccr_2025_26": 0.01165,
+      "industry_rate_2025_26": 0.03762
+    },
+    {
+      "wic": "C19120",
+      "description": "Rigid And Semi-Rigid Polymer Product Manufacturing",
+      "iccr_2025_26": 0.02108,
+      "industry_rate_2025_26": 0.05244
+    },
+    {
+      "wic": "C19130",
+      "description": "Polymer Foam Product Manufacturing",
+      "iccr_2025_26": 0.02009,
+      "industry_rate_2025_26": 0.03801
+    },
+    {
+      "wic": "C19140",
+      "description": "Tyre Manufacturing",
+      "iccr_2025_26": 0.00389,
+      "industry_rate_2025_26": 0.03735
+    },
+    {
+      "wic": "C19150",
+      "description": "Adhesive Manufacturing",
+      "iccr_2025_26": 0.00683,
+      "industry_rate_2025_26": 0.03079
+    },
+    {
+      "wic": "C19160",
+      "description": "Paint And Coatings Manufacturing",
+      "iccr_2025_26": 0.01314,
+      "industry_rate_2025_26": 0.02764
+    },
+    {
+      "wic": "C19190",
+      "description": "Other Polymer Product Manufacturing",
+      "iccr_2025_26": 0.01177,
+      "industry_rate_2025_26": 0.02926
+    },
+    {
+      "wic": "C19200",
+      "description": "Natural Rubber Product Manufacturing",
+      "iccr_2025_26": 0.01771,
+      "industry_rate_2025_26": 0.03056
+    },
+    {
+      "wic": "C20100",
+      "description": "Glass And Glass Product Manufacturing",
+      "iccr_2025_26": 0.01481,
+      "industry_rate_2025_26": 0.06059
+    },
+    {
+      "wic": "C20210",
+      "description": "Clay Brick Manufacturing",
+      "iccr_2025_26": 0.02724,
+      "industry_rate_2025_26": 0.03765
+    },
+    {
+      "wic": "C20290",
+      "description": "Other Ceramic Product Manufacturing",
+      "iccr_2025_26": 0.06569,
+      "industry_rate_2025_26": 0.05597
+    },
+    {
+      "wic": "C20310",
+      "description": "Cement And Lime Manufacturing",
+      "iccr_2025_26": 0.01685,
+      "industry_rate_2025_26": 0.0638
+    },
+    {
+      "wic": "C20320",
+      "description": "Plaster Product Manufacturing",
+      "iccr_2025_26": 0.01933,
+      "industry_rate_2025_26": 0.04827
+    },
+    {
+      "wic": "C20330",
+      "description": "Ready-Mixed Concrete Manufacturing",
+      "iccr_2025_26": 0.01227,
+      "industry_rate_2025_26": 0.03838
+    },
+    {
+      "wic": "C20340",
+      "description": "Concrete Product Manufacturing",
+      "iccr_2025_26": 0.01685,
+      "industry_rate_2025_26": 0.05539
+    },
+    {
+      "wic": "C20900",
+      "description": "Other Non-Metallic Mineral Product Manufacturing",
+      "iccr_2025_26": 0.04582,
+      "industry_rate_2025_26": 0.18
+    },
+    {
+      "wic": "C21100",
+      "description": "Iron Smelting And Steel Manufacturing",
+      "iccr_2025_26": 0.00293,
+      "industry_rate_2025_26": 0.03098
+    },
+    {
+      "wic": "C21210",
+      "description": "Iron And Steel Casting",
+      "iccr_2025_26": 0.01334,
+      "industry_rate_2025_26": 0.04674
+    },
+    {
+      "wic": "C21220",
+      "description": "Steel Pipe And Tube Manufacturing",
+      "iccr_2025_26": 0.02033,
+      "industry_rate_2025_26": 0.03337
+    },
+    {
+      "wic": "C21310",
+      "description": "Alumina Production",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0363
+    },
+    {
+      "wic": "C21320",
+      "description": "Aluminium Smelting",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03629
+    },
+    {
+      "wic": "C21330",
+      "description": "Copper, Silver, Lead And Zinc Smelting And Refining",
+      "iccr_2025_26": 0.00852,
+      "industry_rate_2025_26": 0.03536
+    },
+    {
+      "wic": "C21390",
+      "description": "Other Basic Non-Ferrous Metal Manufacturing",
+      "iccr_2025_26": 0.00293,
+      "industry_rate_2025_26": 0.03315
+    },
+    {
+      "wic": "C21410",
+      "description": "Non-Ferrous Metal Casting",
+      "iccr_2025_26": 0.01245,
+      "industry_rate_2025_26": 0.03819
+    },
+    {
+      "wic": "C21420",
+      "description": "Aluminium Rolling, Drawing, Extruding",
+      "iccr_2025_26": 0.02568,
+      "industry_rate_2025_26": 0.05101
+    },
+    {
+      "wic": "C21490",
+      "description": "Other Basic Non-Ferrous Metal Product Manufacturing",
+      "iccr_2025_26": 0.00256,
+      "industry_rate_2025_26": 0.03274
+    },
+    {
+      "wic": "C22100",
+      "description": "Iron And Steel Forging",
+      "iccr_2025_26": 0.10266,
+      "industry_rate_2025_26": 0.09433
+    },
+    {
+      "wic": "C22210",
+      "description": "Structural Steel Fabricating",
+      "iccr_2025_26": 0.02022,
+      "industry_rate_2025_26": 0.04501
+    },
+    {
+      "wic": "C22220",
+      "description": "Prefabricated Metal Building Manufacturing",
+      "iccr_2025_26": 0.0175,
+      "industry_rate_2025_26": 0.03758
+    },
+    {
+      "wic": "C22230",
+      "description": "Architectural Aluminium Product Manufacturing",
+      "iccr_2025_26": 0.01755,
+      "industry_rate_2025_26": 0.04742
+    },
+    {
+      "wic": "C22240",
+      "description": "Metal Roof And Guttering Manufacturing (Except Aluminium)",
+      "iccr_2025_26": 0.01958,
+      "industry_rate_2025_26": 0.05397
+    },
+    {
+      "wic": "C22290",
+      "description": "Other Structural Metal Product Manufacturing",
+      "iccr_2025_26": 0.01525,
+      "industry_rate_2025_26": 0.04318
+    },
+    {
+      "wic": "C22310",
+      "description": "Boiler, Tank And Other Heavy Gauge Metal Container Manufactu",
+      "iccr_2025_26": 0.01861,
+      "industry_rate_2025_26": 0.03644
+    },
+    {
+      "wic": "C22390",
+      "description": "Other Metal Container Manufacturing",
+      "iccr_2025_26": 0.00819,
+      "industry_rate_2025_26": 0.02681
+    },
+    {
+      "wic": "C22400",
+      "description": "Sheet Metal Product Manufacturing (Except Metal Structural A",
+      "iccr_2025_26": 0.01806,
+      "industry_rate_2025_26": 0.04191
+    },
+    {
+      "wic": "C22910",
+      "description": "Spring And Wire Product Manufacturing",
+      "iccr_2025_26": 0.02419,
+      "industry_rate_2025_26": 0.03467
+    },
+    {
+      "wic": "C22920",
+      "description": "Nut, Bolt, Screw And Rivet Manufacturing",
+      "iccr_2025_26": 0.005,
+      "industry_rate_2025_26": 0.02965
+    },
+    {
+      "wic": "C22930",
+      "description": "Metal Coating And Finishing",
+      "iccr_2025_26": 0.02004,
+      "industry_rate_2025_26": 0.05266
+    },
+    {
+      "wic": "C22990",
+      "description": "Other Fabricated Metal Product Manufacturing N.E.C.",
+      "iccr_2025_26": 0.01418,
+      "industry_rate_2025_26": 0.03256
+    },
+    {
+      "wic": "C23110",
+      "description": "Motor Vehicle Manufacturing",
+      "iccr_2025_26": 0.01444,
+      "industry_rate_2025_26": 0.03164
+    },
+    {
+      "wic": "C23120",
+      "description": "Motor Vehicle Body And Trailer Manufacturing",
+      "iccr_2025_26": 0.02052,
+      "industry_rate_2025_26": 0.04622
+    },
+    {
+      "wic": "C23130",
+      "description": "Automotive Electrical Component Manufacturing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02831
+    },
+    {
+      "wic": "C23190",
+      "description": "Other Motor Vehicle Parts Manufacturing",
+      "iccr_2025_26": 0.01468,
+      "industry_rate_2025_26": 0.04231
+    },
+    {
+      "wic": "C23910",
+      "description": "Shipbuilding And Repair Services",
+      "iccr_2025_26": 0.06728,
+      "industry_rate_2025_26": 0.05794
+    },
+    {
+      "wic": "C23920",
+      "description": "Boatbuilding And Repair Services",
+      "iccr_2025_26": 0.03017,
+      "industry_rate_2025_26": 0.0457
+    },
+    {
+      "wic": "C23930",
+      "description": "Railway Rolling Stock Manufacturing And Repair Services",
+      "iccr_2025_26": 0.01117,
+      "industry_rate_2025_26": 0.02515
+    },
+    {
+      "wic": "C23940",
+      "description": "Aircraft Manufacturing And Repair Services",
+      "iccr_2025_26": 0.00372,
+      "industry_rate_2025_26": 0.02185
+    },
+    {
+      "wic": "C23990",
+      "description": "Other Transport Equipment Manufacturing N.E.C.",
+      "iccr_2025_26": 0.00806,
+      "industry_rate_2025_26": 0.03021
+    },
+    {
+      "wic": "C24110",
+      "description": "Photographic, Optical And Ophthalmic Equipment Manufacturing",
+      "iccr_2025_26": 0.00418,
+      "industry_rate_2025_26": 0.0318
+    },
+    {
+      "wic": "C24120",
+      "description": "Medical And Surgical Equipment Manufacturing",
+      "iccr_2025_26": 0.00483,
+      "industry_rate_2025_26": 0.01597
+    },
+    {
+      "wic": "C24190",
+      "description": "Other Professional And Scientific Equipment Manufacturing",
+      "iccr_2025_26": 0.00499,
+      "industry_rate_2025_26": 0.01611
+    },
+    {
+      "wic": "C24210",
+      "description": "Computer And Electronic Office Equipment Manufacturing",
+      "iccr_2025_26": 0.00243,
+      "industry_rate_2025_26": 0.02775
+    },
+    {
+      "wic": "C24220",
+      "description": "Communication Equipment Manufacturing",
+      "iccr_2025_26": 0.00439,
+      "industry_rate_2025_26": 0.02456
+    },
+    {
+      "wic": "C24290",
+      "description": "Other Electronic Equipment Manufacturing",
+      "iccr_2025_26": 0.00745,
+      "industry_rate_2025_26": 0.02586
+    },
+    {
+      "wic": "C24310",
+      "description": "Electric Cable And Wire Manufacturing",
+      "iccr_2025_26": 0.00647,
+      "industry_rate_2025_26": 0.03184
+    },
+    {
+      "wic": "C24320",
+      "description": "Electric Lighting Equipment Manufacturing",
+      "iccr_2025_26": 0.00752,
+      "industry_rate_2025_26": 0.02412
+    },
+    {
+      "wic": "C24390",
+      "description": "Other Electrical Equipment Manufacturing",
+      "iccr_2025_26": 0.00772,
+      "industry_rate_2025_26": 0.02014
+    },
+    {
+      "wic": "C24410",
+      "description": "Whiteware Appliance Manufacturing",
+      "iccr_2025_26": 0.00787,
+      "industry_rate_2025_26": 0.04189
+    },
+    {
+      "wic": "C24490",
+      "description": "Other Domestic Appliance Manufacturing",
+      "iccr_2025_26": 0.01268,
+      "industry_rate_2025_26": 0.03196
+    },
+    {
+      "wic": "C24510",
+      "description": "Pump And Compressor Manufacturing",
+      "iccr_2025_26": 0.00839,
+      "industry_rate_2025_26": 0.02528
+    },
+    {
+      "wic": "C24520",
+      "description": "Fixed Space Heating, Cooling And Ventilation Equipment Manuf",
+      "iccr_2025_26": 0.01667,
+      "industry_rate_2025_26": 0.03065
+    },
+    {
+      "wic": "C24610",
+      "description": "Agricultural Machinery And Equipment Manufacturing",
+      "iccr_2025_26": 0.00853,
+      "industry_rate_2025_26": 0.02861
+    },
+    {
+      "wic": "C24620",
+      "description": "Mining And Construction Machinery Manufacturing",
+      "iccr_2025_26": 0.02029,
+      "industry_rate_2025_26": 0.04678
+    },
+    {
+      "wic": "C24630",
+      "description": "Machine Tool And Parts Manufacturing",
+      "iccr_2025_26": 0.01216,
+      "industry_rate_2025_26": 0.02063
+    },
+    {
+      "wic": "C24690",
+      "description": "Other Specialised Machinery And Equipment Manufacturing",
+      "iccr_2025_26": 0.01439,
+      "industry_rate_2025_26": 0.0269
+    },
+    {
+      "wic": "C24910",
+      "description": "Lifting And Material Handling Equipment Manufacturing",
+      "iccr_2025_26": 0.00971,
+      "industry_rate_2025_26": 0.02072
+    },
+    {
+      "wic": "C24990",
+      "description": "Other Machinery And Equipment Manufacturing N.E.C.",
+      "iccr_2025_26": 0.00566,
+      "industry_rate_2025_26": 0.02451
+    },
+    {
+      "wic": "C25110",
+      "description": "Wooden Furniture And Upholstered Seat Manufacturing",
+      "iccr_2025_26": 0.01004,
+      "industry_rate_2025_26": 0.03458
+    },
+    {
+      "wic": "C25120",
+      "description": "Metal Furniture Manufacturing",
+      "iccr_2025_26": 0.01073,
+      "industry_rate_2025_26": 0.02682
+    },
+    {
+      "wic": "C25130",
+      "description": "Mattress Manufacturing",
+      "iccr_2025_26": 0.01287,
+      "industry_rate_2025_26": 0.04898
+    },
+    {
+      "wic": "C25190",
+      "description": "Other Furniture Manufacturing",
+      "iccr_2025_26": 0.02341,
+      "industry_rate_2025_26": 0.03514
+    },
+    {
+      "wic": "C25910",
+      "description": "Jewellery And Silverware Manufacturing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03192
+    },
+    {
+      "wic": "C25920",
+      "description": "Toy, Sporting And Recreational Product Manufacturing",
+      "iccr_2025_26": 0.0115,
+      "industry_rate_2025_26": 0.02823
+    },
+    {
+      "wic": "C25990",
+      "description": "Other Manufacturing N.E.C.",
+      "iccr_2025_26": 0.01344,
+      "industry_rate_2025_26": 0.02448
+    },
+    {
+      "wic": "D26110",
+      "description": "Fossil Fuel Electricity Generation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.01272
+    },
+    {
+      "wic": "D26120",
+      "description": "Hydro-Electricity Generation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.01868
+    },
+    {
+      "wic": "D26190",
+      "description": "Other Electricity Generation",
+      "iccr_2025_26": 0.00233,
+      "industry_rate_2025_26": 0.0109
+    },
+    {
+      "wic": "D26200",
+      "description": "Electricity Transmission",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.01794
+    },
+    {
+      "wic": "D26300",
+      "description": "Electricity Distribution",
+      "iccr_2025_26": 0.00252,
+      "industry_rate_2025_26": 0.00648
+    },
+    {
+      "wic": "D26400",
+      "description": "On Selling Electricity And Electricity Market Operation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00526
+    },
+    {
+      "wic": "D27000",
+      "description": "Gas Supply",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.01306
+    },
+    {
+      "wic": "D28110",
+      "description": "Water Supply",
+      "iccr_2025_26": 0.00278,
+      "industry_rate_2025_26": 0.00972
+    },
+    {
+      "wic": "D28120",
+      "description": "Sewerage And Drainage Services",
+      "iccr_2025_26": 0.00486,
+      "industry_rate_2025_26": 0.01938
+    },
+    {
+      "wic": "D29110",
+      "description": "Solid Waste Collection Services",
+      "iccr_2025_26": 0.02393,
+      "industry_rate_2025_26": 0.05601
+    },
+    {
+      "wic": "D29190",
+      "description": "Other Waste Collection Services",
+      "iccr_2025_26": 0.02012,
+      "industry_rate_2025_26": 0.0402
+    },
+    {
+      "wic": "D29210",
+      "description": "Waste Treatment And Disposal Services",
+      "iccr_2025_26": 0.02519,
+      "industry_rate_2025_26": 0.06426
+    },
+    {
+      "wic": "D29220",
+      "description": "Waste Remediation And Materials Recovery Services",
+      "iccr_2025_26": 0.01591,
+      "industry_rate_2025_26": 0.04925
+    },
+    {
+      "wic": "E30110",
+      "description": "House Construction",
+      "iccr_2025_26": 0.00885,
+      "industry_rate_2025_26": 0.02385
+    },
+    {
+      "wic": "E30190",
+      "description": "Other Residential Building Construction",
+      "iccr_2025_26": 0.00701,
+      "industry_rate_2025_26": 0.01973
+    },
+    {
+      "wic": "E30200",
+      "description": "Non-Residential Building Construction",
+      "iccr_2025_26": 0.00671,
+      "industry_rate_2025_26": 0.01869
+    },
+    {
+      "wic": "E31010",
+      "description": "Road And Bridge Construction",
+      "iccr_2025_26": 0.01056,
+      "industry_rate_2025_26": 0.02828
+    },
+    {
+      "wic": "E31090",
+      "description": "Other Heavy And Civil Engineering Construction",
+      "iccr_2025_26": 0.00642,
+      "industry_rate_2025_26": 0.01788
+    },
+    {
+      "wic": "E32110",
+      "description": "Land Development And Subdivision",
+      "iccr_2025_26": 0.00911,
+      "industry_rate_2025_26": 0.01759
+    },
+    {
+      "wic": "E32120",
+      "description": "Site Preparation Services",
+      "iccr_2025_26": 0.01281,
+      "industry_rate_2025_26": 0.02858
+    },
+    {
+      "wic": "E32210",
+      "description": "Concreting Services",
+      "iccr_2025_26": 0.01749,
+      "industry_rate_2025_26": 0.04614
+    },
+    {
+      "wic": "E32220",
+      "description": "Bricklaying Services",
+      "iccr_2025_26": 0.02409,
+      "industry_rate_2025_26": 0.08377
+    },
+    {
+      "wic": "E32230",
+      "description": "Roofing Services",
+      "iccr_2025_26": 0.01632,
+      "industry_rate_2025_26": 0.06911
+    },
+    {
+      "wic": "E32240",
+      "description": "Structural Steel Erection Services",
+      "iccr_2025_26": 0.01636,
+      "industry_rate_2025_26": 0.03908
+    },
+    {
+      "wic": "E32310",
+      "description": "Plumbing Services",
+      "iccr_2025_26": 0.01148,
+      "industry_rate_2025_26": 0.03378
+    },
+    {
+      "wic": "E32320",
+      "description": "Electrical Services",
+      "iccr_2025_26": 0.00607,
+      "industry_rate_2025_26": 0.01769
+    },
+    {
+      "wic": "E32330",
+      "description": "Air Conditioning And Heating Services",
+      "iccr_2025_26": 0.00617,
+      "industry_rate_2025_26": 0.02078
+    },
+    {
+      "wic": "E32340",
+      "description": "Fire And Security Alarm Installation Services",
+      "iccr_2025_26": 0.00674,
+      "industry_rate_2025_26": 0.02128
+    },
+    {
+      "wic": "E32390",
+      "description": "Other Building Installation Services",
+      "iccr_2025_26": 0.01213,
+      "industry_rate_2025_26": 0.02921
+    },
+    {
+      "wic": "E32410",
+      "description": "Plastering And Ceiling Services",
+      "iccr_2025_26": 0.0305,
+      "industry_rate_2025_26": 0.09023
+    },
+    {
+      "wic": "E32420",
+      "description": "Carpentry Services",
+      "iccr_2025_26": 0.01749,
+      "industry_rate_2025_26": 0.05713
+    },
+    {
+      "wic": "E32430",
+      "description": "Tiling And Carpeting Services",
+      "iccr_2025_26": 0.03487,
+      "industry_rate_2025_26": 0.12782
+    },
+    {
+      "wic": "E32440",
+      "description": "Painting And Decorating Services",
+      "iccr_2025_26": 0.02539,
+      "industry_rate_2025_26": 0.07866
+    },
+    {
+      "wic": "E32450",
+      "description": "Glazing Services",
+      "iccr_2025_26": 0.01369,
+      "industry_rate_2025_26": 0.04399
+    },
+    {
+      "wic": "E32910",
+      "description": "Landscape Construction Services",
+      "iccr_2025_26": 0.01533,
+      "industry_rate_2025_26": 0.03757
+    },
+    {
+      "wic": "E32920",
+      "description": "Hire Of Construction Machinery With Operator",
+      "iccr_2025_26": 0.00965,
+      "industry_rate_2025_26": 0.04417
+    },
+    {
+      "wic": "E32990",
+      "description": "Other Construction Services N.E.C.",
+      "iccr_2025_26": 0.01883,
+      "industry_rate_2025_26": 0.05577
+    },
+    {
+      "wic": "F33110",
+      "description": "Wool Wholesaling",
+      "iccr_2025_26": 0.00528,
+      "industry_rate_2025_26": 0.01557
+    },
+    {
+      "wic": "F33120",
+      "description": "Cereal Grain Wholesaling",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.01175
+    },
+    {
+      "wic": "F33190",
+      "description": "Other Agricultural Product Wholesaling",
+      "iccr_2025_26": 0.00737,
+      "industry_rate_2025_26": 0.01743
+    },
+    {
+      "wic": "F33210",
+      "description": "Petroleum Product Wholesaling",
+      "iccr_2025_26": 0.01162,
+      "industry_rate_2025_26": 0.03276
+    },
+    {
+      "wic": "F33220",
+      "description": "Metal And Mineral Wholesaling",
+      "iccr_2025_26": 0.02013,
+      "industry_rate_2025_26": 0.05168
+    },
+    {
+      "wic": "F33230",
+      "description": "Industrial And Agricultural Chemical Product Wholesaling",
+      "iccr_2025_26": 0.00401,
+      "industry_rate_2025_26": 0.01521
+    },
+    {
+      "wic": "F33310",
+      "description": "Timber Wholesaling",
+      "iccr_2025_26": 0.01124,
+      "industry_rate_2025_26": 0.02342
+    },
+    {
+      "wic": "F33320",
+      "description": "Plumbing Goods Wholesaling",
+      "iccr_2025_26": 0.00853,
+      "industry_rate_2025_26": 0.0196
+    },
+    {
+      "wic": "F33390",
+      "description": "Other Hardware Goods Wholesaling",
+      "iccr_2025_26": 0.00919,
+      "industry_rate_2025_26": 0.02508
+    },
+    {
+      "wic": "F34110",
+      "description": "Agricultural And Construction Machinery Wholesaling",
+      "iccr_2025_26": 0.00606,
+      "industry_rate_2025_26": 0.0172
+    },
+    {
+      "wic": "F34190",
+      "description": "Other Specialised Industrial Machinery And Equipment Wholesa",
+      "iccr_2025_26": 0.00598,
+      "industry_rate_2025_26": 0.01786
+    },
+    {
+      "wic": "F34910",
+      "description": "Professional And Scientific Goods Wholesaling",
+      "iccr_2025_26": 0.00264,
+      "industry_rate_2025_26": 0.00711
+    },
+    {
+      "wic": "F34920",
+      "description": "Computer And Computer Peripheral Wholesaling",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00624
+    },
+    {
+      "wic": "F34930",
+      "description": "Telecommunication Goods Wholesaling",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0099
+    },
+    {
+      "wic": "F34940",
+      "description": "Other Electrical And Electronic Goods Wholesaling",
+      "iccr_2025_26": 0.00385,
+      "industry_rate_2025_26": 0.00948
+    },
+    {
+      "wic": "F34990",
+      "description": "Other Machinery And Equipment Wholesaling N.E.C.",
+      "iccr_2025_26": 0.00396,
+      "industry_rate_2025_26": 0.01038
+    },
+    {
+      "wic": "F35010",
+      "description": "Car Wholesaling",
+      "iccr_2025_26": 0.00301,
+      "industry_rate_2025_26": 0.00836
+    },
+    {
+      "wic": "F35020",
+      "description": "Commercial Vehicle Sales",
+      "iccr_2025_26": 0.00381,
+      "industry_rate_2025_26": 0.01185
+    },
+    {
+      "wic": "F35030",
+      "description": "Trailer And Other Motor Vehicle Wholesaling",
+      "iccr_2025_26": 0.01335,
+      "industry_rate_2025_26": 0.01922
+    },
+    {
+      "wic": "F35040",
+      "description": "Motor Vehicle New Parts Wholesaling",
+      "iccr_2025_26": 0.00792,
+      "industry_rate_2025_26": 0.01974
+    },
+    {
+      "wic": "F35050",
+      "description": "Motor Vehicle Dismantling And Used Parts Wholesaling",
+      "iccr_2025_26": 0.01086,
+      "industry_rate_2025_26": 0.04142
+    },
+    {
+      "wic": "F36010",
+      "description": "General Line Grocery Wholesaling",
+      "iccr_2025_26": 0.02677,
+      "industry_rate_2025_26": 0.05873
+    },
+    {
+      "wic": "F36020",
+      "description": "Meat, Poultry And Smallgoods Wholesaling",
+      "iccr_2025_26": 0.01495,
+      "industry_rate_2025_26": 0.0271
+    },
+    {
+      "wic": "F36030",
+      "description": "Dairy Produce Wholesaling",
+      "iccr_2025_26": 0.00919,
+      "industry_rate_2025_26": 0.01883
+    },
+    {
+      "wic": "F36040",
+      "description": "Fish And Seafood Wholesaling",
+      "iccr_2025_26": 0.01597,
+      "industry_rate_2025_26": 0.04106
+    },
+    {
+      "wic": "F36050",
+      "description": "Fruit And Vegetable Wholesaling",
+      "iccr_2025_26": 0.01176,
+      "industry_rate_2025_26": 0.02998
+    },
+    {
+      "wic": "F36060",
+      "description": "Liquor And Tobacco Product Wholesaling",
+      "iccr_2025_26": 0.01061,
+      "industry_rate_2025_26": 0.01549
+    },
+    {
+      "wic": "F36090",
+      "description": "Other Grocery Wholesaling",
+      "iccr_2025_26": 0.00826,
+      "industry_rate_2025_26": 0.02263
+    },
+    {
+      "wic": "F37110",
+      "description": "Textile Product Wholesaling",
+      "iccr_2025_26": 0.00692,
+      "industry_rate_2025_26": 0.02216
+    },
+    {
+      "wic": "F37120",
+      "description": "Clothing And Footwear Wholesaling",
+      "iccr_2025_26": 0.00365,
+      "industry_rate_2025_26": 0.00868
+    },
+    {
+      "wic": "F37200",
+      "description": "Pharmaceutical And Toiletry Goods Wholesaling",
+      "iccr_2025_26": 0.00249,
+      "industry_rate_2025_26": 0.00796
+    },
+    {
+      "wic": "F37310",
+      "description": "Furniture And Floor Covering Wholesaling",
+      "iccr_2025_26": 0.00616,
+      "industry_rate_2025_26": 0.02131
+    },
+    {
+      "wic": "F37320",
+      "description": "Jewellery And Watch Wholesaling",
+      "iccr_2025_26": 0.01047,
+      "industry_rate_2025_26": 0.01304
+    },
+    {
+      "wic": "F37330",
+      "description": "Kitchen And Diningware Wholesaling",
+      "iccr_2025_26": 0.00564,
+      "industry_rate_2025_26": 0.01206
+    },
+    {
+      "wic": "F37340",
+      "description": "Toy And Sporting Goods Wholesaling",
+      "iccr_2025_26": 0.00516,
+      "industry_rate_2025_26": 0.00993
+    },
+    {
+      "wic": "F37350",
+      "description": "Book And Magazine Wholesaling",
+      "iccr_2025_26": 0.00854,
+      "industry_rate_2025_26": 0.01476
+    },
+    {
+      "wic": "F37360",
+      "description": "Paper Product Wholesaling",
+      "iccr_2025_26": 0.00664,
+      "industry_rate_2025_26": 0.02195
+    },
+    {
+      "wic": "F37390",
+      "description": "Other Goods Wholesaling N.E.C.",
+      "iccr_2025_26": 0.00725,
+      "industry_rate_2025_26": 0.01694
+    },
+    {
+      "wic": "F38000",
+      "description": "Commission-Based Wholesaling",
+      "iccr_2025_26": 0.00294,
+      "industry_rate_2025_26": 0.00729
+    },
+    {
+      "wic": "G39110",
+      "description": "Car Retailing",
+      "iccr_2025_26": 0.00414,
+      "industry_rate_2025_26": 0.01179
+    },
+    {
+      "wic": "G39120",
+      "description": "Motor Cycle Retailing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0146
+    },
+    {
+      "wic": "G39130",
+      "description": "Trailer And Other Motor Vehicle Retailing",
+      "iccr_2025_26": 0.00628,
+      "industry_rate_2025_26": 0.01481
+    },
+    {
+      "wic": "G39210",
+      "description": "Motor Vehicle Parts Retailing",
+      "iccr_2025_26": 0.00837,
+      "industry_rate_2025_26": 0.0221
+    },
+    {
+      "wic": "G39220",
+      "description": "Tyre Retailing",
+      "iccr_2025_26": 0.02809,
+      "industry_rate_2025_26": 0.05696
+    },
+    {
+      "wic": "G40000",
+      "description": "Fuel Retailing",
+      "iccr_2025_26": 0.00978,
+      "industry_rate_2025_26": 0.02463
+    },
+    {
+      "wic": "G41100",
+      "description": "Supermarket And Grocery Stores",
+      "iccr_2025_26": 0.01223,
+      "industry_rate_2025_26": 0.02701
+    },
+    {
+      "wic": "G41210",
+      "description": "Fresh Meat, Fish And Poultry Retailing",
+      "iccr_2025_26": 0.01384,
+      "industry_rate_2025_26": 0.03538
+    },
+    {
+      "wic": "G41220",
+      "description": "Fruit And Vegetable Retailing",
+      "iccr_2025_26": 0.00874,
+      "industry_rate_2025_26": 0.02535
+    },
+    {
+      "wic": "G41230",
+      "description": "Liquor Retailing",
+      "iccr_2025_26": 0.00869,
+      "industry_rate_2025_26": 0.01757
+    },
+    {
+      "wic": "G41290",
+      "description": "Other Specialised Food Retailing",
+      "iccr_2025_26": 0.00491,
+      "industry_rate_2025_26": 0.01407
+    },
+    {
+      "wic": "G42110",
+      "description": "Furniture Retailing",
+      "iccr_2025_26": 0.00745,
+      "industry_rate_2025_26": 0.02175
+    },
+    {
+      "wic": "G42120",
+      "description": "Floor Coverings Retailing",
+      "iccr_2025_26": 0.00886,
+      "industry_rate_2025_26": 0.01863
+    },
+    {
+      "wic": "G42130",
+      "description": "Houseware Retailing",
+      "iccr_2025_26": 0.01204,
+      "industry_rate_2025_26": 0.03424
+    },
+    {
+      "wic": "G42140",
+      "description": "Manchester And Other Textile Goods Retailing",
+      "iccr_2025_26": 0.00823,
+      "industry_rate_2025_26": 0.01834
+    },
+    {
+      "wic": "G42210",
+      "description": "Electrical, Electronic And Gas Appliance Retailing",
+      "iccr_2025_26": 0.0061,
+      "industry_rate_2025_26": 0.01557
+    },
+    {
+      "wic": "G42220",
+      "description": "Computer And Computer Peripheral Retailing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0083
+    },
+    {
+      "wic": "G42290",
+      "description": "Other Electrical And Electronic Goods Retailing",
+      "iccr_2025_26": 0.00768,
+      "industry_rate_2025_26": 0.01943
+    },
+    {
+      "wic": "G42310",
+      "description": "Hardware And Building Supplies Retailing",
+      "iccr_2025_26": 0.01217,
+      "industry_rate_2025_26": 0.02965
+    },
+    {
+      "wic": "G42320",
+      "description": "Garden Supplies Retailing",
+      "iccr_2025_26": 0.01218,
+      "industry_rate_2025_26": 0.02414
+    },
+    {
+      "wic": "G42410",
+      "description": "Sport And Camping Equipment Retailing",
+      "iccr_2025_26": 0.00608,
+      "industry_rate_2025_26": 0.01607
+    },
+    {
+      "wic": "G42420",
+      "description": "Entertainment Media Retailing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.01654
+    },
+    {
+      "wic": "G42430",
+      "description": "Toy And Game Retailing",
+      "iccr_2025_26": 0.0165,
+      "industry_rate_2025_26": 0.01962
+    },
+    {
+      "wic": "G42440",
+      "description": "Newspaper And Book Retailing",
+      "iccr_2025_26": 0.00506,
+      "industry_rate_2025_26": 0.01444
+    },
+    {
+      "wic": "G42450",
+      "description": "Marine Equipment Retailing",
+      "iccr_2025_26": 0.00994,
+      "industry_rate_2025_26": 0.02106
+    },
+    {
+      "wic": "G42510",
+      "description": "Clothing Retailing",
+      "iccr_2025_26": 0.00517,
+      "industry_rate_2025_26": 0.01124
+    },
+    {
+      "wic": "G42520",
+      "description": "Footwear Retailing",
+      "iccr_2025_26": 0.00205,
+      "industry_rate_2025_26": 0.01129
+    },
+    {
+      "wic": "G42530",
+      "description": "Watch And Jewellery Retailing",
+      "iccr_2025_26": 0.00496,
+      "industry_rate_2025_26": 0.01265
+    },
+    {
+      "wic": "G42590",
+      "description": "Other Personal Accessory Retailing",
+      "iccr_2025_26": 0.00224,
+      "industry_rate_2025_26": 0.01401
+    },
+    {
+      "wic": "G42600",
+      "description": "Department Stores",
+      "iccr_2025_26": 0.00993,
+      "industry_rate_2025_26": 0.02
+    },
+    {
+      "wic": "G42710",
+      "description": "Pharmaceutical, Cosmetic And Toiletry Goods Retailing",
+      "iccr_2025_26": 0.00437,
+      "industry_rate_2025_26": 0.00961
+    },
+    {
+      "wic": "G42720",
+      "description": "Stationery Goods Retailing",
+      "iccr_2025_26": 0.00293,
+      "industry_rate_2025_26": 0.01385
+    },
+    {
+      "wic": "G42730",
+      "description": "Antique And Used Goods Retailing",
+      "iccr_2025_26": 0.0155,
+      "industry_rate_2025_26": 0.02847
+    },
+    {
+      "wic": "G42740",
+      "description": "Flower Retailing",
+      "iccr_2025_26": 0.0172,
+      "industry_rate_2025_26": 0.02305
+    },
+    {
+      "wic": "G42790",
+      "description": "Other Store-Based Retailing N.E.C.",
+      "iccr_2025_26": 0.01205,
+      "industry_rate_2025_26": 0.02655
+    },
+    {
+      "wic": "G43100",
+      "description": "Non-Store Retailing",
+      "iccr_2025_26": 0.00794,
+      "industry_rate_2025_26": 0.01996
+    },
+    {
+      "wic": "G43200",
+      "description": "Retail Commission-Based Buying And/Or Selling",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.01664
+    },
+    {
+      "wic": "H44000",
+      "description": "Accommodation",
+      "iccr_2025_26": 0.0115,
+      "industry_rate_2025_26": 0.02299
+    },
+    {
+      "wic": "H45110",
+      "description": "Cafes And Restaurants",
+      "iccr_2025_26": 0.00461,
+      "industry_rate_2025_26": 0.01109
+    },
+    {
+      "wic": "H45120",
+      "description": "Takeaway Food Services",
+      "iccr_2025_26": 0.00551,
+      "industry_rate_2025_26": 0.01093
+    },
+    {
+      "wic": "H45130",
+      "description": "Catering Services",
+      "iccr_2025_26": 0.01508,
+      "industry_rate_2025_26": 0.03582
+    },
+    {
+      "wic": "H45200",
+      "description": "Pubs, Taverns And Bars",
+      "iccr_2025_26": 0.00624,
+      "industry_rate_2025_26": 0.01639
+    },
+    {
+      "wic": "H45300",
+      "description": "Clubs (Hospitality)",
+      "iccr_2025_26": 0.01298,
+      "industry_rate_2025_26": 0.03103
+    },
+    {
+      "wic": "I46100",
+      "description": "Road Freight Transport",
+      "iccr_2025_26": 0.02361,
+      "industry_rate_2025_26": 0.05902
+    },
+    {
+      "wic": "I46210",
+      "description": "Long Distance Bus Transport",
+      "iccr_2025_26": 0.01272,
+      "industry_rate_2025_26": 0.03625
+    },
+    {
+      "wic": "I46220",
+      "description": "Short Distance Bus Transport (Including Tramway)",
+      "iccr_2025_26": 0.01658,
+      "industry_rate_2025_26": 0.03736
+    },
+    {
+      "wic": "I46230",
+      "description": "Taxi And Other Road Transport",
+      "iccr_2025_26": 0.00872,
+      "industry_rate_2025_26": 0.02917
+    },
+    {
+      "wic": "I47100",
+      "description": "Rail Freight Transport",
+      "iccr_2025_26": 0.0085,
+      "industry_rate_2025_26": 0.02518
+    },
+    {
+      "wic": "I47200",
+      "description": "Wic Not Available - Refer To I47207 Or I47208",
+      "iccr_2025_26": "#N/A",
+      "industry_rate_2025_26": "#N/A"
+    },
+    {
+      "wic": "I47207",
+      "description": "Rail Passenger Transport - Public Sector",
+      "iccr_2025_26": 0.00869,
+      "industry_rate_2025_26": 0.01929
+    },
+    {
+      "wic": "I47208",
+      "description": "Rail Passenger Transport - Non-Public Sector",
+      "iccr_2025_26": 0.00631,
+      "industry_rate_2025_26": 0.02257
+    },
+    {
+      "wic": "I48100",
+      "description": "Water Freight Transport",
+      "iccr_2025_26": 0.02333,
+      "industry_rate_2025_26": 0.04901
+    },
+    {
+      "wic": "I48200",
+      "description": "Water Passenger Transport",
+      "iccr_2025_26": 0.013,
+      "industry_rate_2025_26": 0.03032
+    },
+    {
+      "wic": "I49000",
+      "description": "Air And Space Transport",
+      "iccr_2025_26": 0.00417,
+      "industry_rate_2025_26": 0.01814
+    },
+    {
+      "wic": "I50100",
+      "description": "Scenic And Sightseeing Transport",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02951
+    },
+    {
+      "wic": "I50210",
+      "description": "Pipeline Transport",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03801
+    },
+    {
+      "wic": "I50290",
+      "description": "Other Transport N.E.C.",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03381
+    },
+    {
+      "wic": "I51010",
+      "description": "Postal Services",
+      "iccr_2025_26": 0.01699,
+      "industry_rate_2025_26": 0.03012
+    },
+    {
+      "wic": "I51020",
+      "description": "Courier Pick-Up And Delivery Services",
+      "iccr_2025_26": 0.01648,
+      "industry_rate_2025_26": 0.04656
+    },
+    {
+      "wic": "I52110",
+      "description": "Stevedoring Services",
+      "iccr_2025_26": 0.0385,
+      "industry_rate_2025_26": 0.10181
+    },
+    {
+      "wic": "I52120",
+      "description": "Port And Water Transport Terminal Operations",
+      "iccr_2025_26": 0.01259,
+      "industry_rate_2025_26": 0.04018
+    },
+    {
+      "wic": "I52190",
+      "description": "Other Water Transport Support Services",
+      "iccr_2025_26": 0.00308,
+      "industry_rate_2025_26": 0.01884
+    },
+    {
+      "wic": "I52200",
+      "description": "Airport Operations And Other Air Transport Support Services",
+      "iccr_2025_26": 0.01455,
+      "industry_rate_2025_26": 0.04
+    },
+    {
+      "wic": "I52910",
+      "description": "Customs Agency Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03096
+    },
+    {
+      "wic": "I52920",
+      "description": "Freight Forwarding Services",
+      "iccr_2025_26": 0.00981,
+      "industry_rate_2025_26": 0.02035
+    },
+    {
+      "wic": "I52990",
+      "description": "Other Transport Support Services N.E.C.",
+      "iccr_2025_26": 0.00353,
+      "industry_rate_2025_26": 0.01117
+    },
+    {
+      "wic": "I53010",
+      "description": "Grain Storage Services",
+      "iccr_2025_26": 0.0071,
+      "industry_rate_2025_26": 0.02708
+    },
+    {
+      "wic": "I53090",
+      "description": "Other Warehousing And Storage Services",
+      "iccr_2025_26": 0.01364,
+      "industry_rate_2025_26": 0.03423
+    },
+    {
+      "wic": "J54110",
+      "description": "Newspaper Publishing",
+      "iccr_2025_26": 0.00233,
+      "industry_rate_2025_26": 0.00736
+    },
+    {
+      "wic": "J54120",
+      "description": "Magazine And Other Periodical Publishing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00368
+    },
+    {
+      "wic": "J54130",
+      "description": "Book Publishing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00405
+    },
+    {
+      "wic": "J54140",
+      "description": "Directory And Mailing List Publishing",
+      "iccr_2025_26": 0.00526,
+      "industry_rate_2025_26": 0.00766
+    },
+    {
+      "wic": "J54190",
+      "description": "Other Publishing (Except Software, Music And Internet)",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00397
+    },
+    {
+      "wic": "J54200",
+      "description": "Software Publishing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00385
+    },
+    {
+      "wic": "J55110",
+      "description": "Motion Picture And Video Production",
+      "iccr_2025_26": 0.00402,
+      "industry_rate_2025_26": 0.00649
+    },
+    {
+      "wic": "J55120",
+      "description": "Motion Picture And Video Distribution",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00397
+    },
+    {
+      "wic": "J55130",
+      "description": "Motion Picture Exhibition",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00503
+    },
+    {
+      "wic": "J55140",
+      "description": "Post-Production Services And Other Motion Picture And Video",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00391
+    },
+    {
+      "wic": "J55210",
+      "description": "Music Publishing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00397
+    },
+    {
+      "wic": "J55220",
+      "description": "Music And Other Sound Recording Activities",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00392
+    },
+    {
+      "wic": "J56100",
+      "description": "Radio Broadcasting",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00366
+    },
+    {
+      "wic": "J56210",
+      "description": "Free-To-Air Television Broadcasting",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "J56220",
+      "description": "Cable And Other Subscription Broadcasting",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00411
+    },
+    {
+      "wic": "J57000",
+      "description": "Internet Publishing And Broadcasting",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "J58010",
+      "description": "Wired Telecommunications Network Operation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "J58020",
+      "description": "Other Telecommunications Network Operation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00374
+    },
+    {
+      "wic": "J58090",
+      "description": "Other Telecommunications Services",
+      "iccr_2025_26": 0.00331,
+      "industry_rate_2025_26": 0.00392
+    },
+    {
+      "wic": "J59100",
+      "description": "Internet Service Providers And Web Search Portals",
+      "iccr_2025_26": 0.00259,
+      "industry_rate_2025_26": 0.00523
+    },
+    {
+      "wic": "J59210",
+      "description": "Data Processing And Web Hosting Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "J59220",
+      "description": "Electronic Information Storage Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "J60100",
+      "description": "Libraries And Archives",
+      "iccr_2025_26": 0.00331,
+      "industry_rate_2025_26": 0.00697
+    },
+    {
+      "wic": "J60200",
+      "description": "Other Information Services",
+      "iccr_2025_26": 0.03073,
+      "industry_rate_2025_26": 0.00569
+    },
+    {
+      "wic": "K62100",
+      "description": "Central Banking",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00363
+    },
+    {
+      "wic": "K62210",
+      "description": "Banking",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "K62220",
+      "description": "Building Society Operation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00363
+    },
+    {
+      "wic": "K62230",
+      "description": "Credit Union Operation",
+      "iccr_2025_26": 0.00361,
+      "industry_rate_2025_26": 0.00499
+    },
+    {
+      "wic": "K62290",
+      "description": "Other Depository Financial Intermediation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "K62300",
+      "description": "Non-Depository Financing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00365
+    },
+    {
+      "wic": "K62400",
+      "description": "Financial Asset Investing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "K63100",
+      "description": "Life Insurance",
+      "iccr_2025_26": 0.00214,
+      "industry_rate_2025_26": 0.00529
+    },
+    {
+      "wic": "K63210",
+      "description": "Health Insurance",
+      "iccr_2025_26": 0.0028,
+      "industry_rate_2025_26": 0.00559
+    },
+    {
+      "wic": "K63220",
+      "description": "Wic Not Available - Refer To K63227 Or K63228",
+      "iccr_2025_26": "#N/A",
+      "industry_rate_2025_26": "#N/A"
+    },
+    {
+      "wic": "K63227",
+      "description": "General Insurance, Public Sector",
+      "iccr_2025_26": 0.00729,
+      "industry_rate_2025_26": 0.01691
+    },
+    {
+      "wic": "K63228",
+      "description": "General Insurance, Non-Public Sector",
+      "iccr_2025_26": 0.00213,
+      "industry_rate_2025_26": 0.00406
+    },
+    {
+      "wic": "K63300",
+      "description": "Superannuation Funds",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "K64110",
+      "description": "Financial Asset Broking Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "K64190",
+      "description": "Other Auxiliary Finance And Investment Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "K64200",
+      "description": "Auxiliary Insurance Services",
+      "iccr_2025_26": 0.00207,
+      "industry_rate_2025_26": 0.00523
+    },
+    {
+      "wic": "L66110",
+      "description": "Passenger Car Rental And Hiring",
+      "iccr_2025_26": 0.00875,
+      "industry_rate_2025_26": 0.02028
+    },
+    {
+      "wic": "L66190",
+      "description": "Other Motor Vehicle And Transport Equipment Rental And Hirin",
+      "iccr_2025_26": 0.00771,
+      "industry_rate_2025_26": 0.03433
+    },
+    {
+      "wic": "L66200",
+      "description": "Farm Animal And Bloodstock Leasing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0103
+    },
+    {
+      "wic": "L66310",
+      "description": "Heavy Machinery And Scaffolding Rental And Hiring",
+      "iccr_2025_26": 0.01043,
+      "industry_rate_2025_26": 0.02936
+    },
+    {
+      "wic": "L66320",
+      "description": "Video And Other Electronic Media Rental And Hiring",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0103
+    },
+    {
+      "wic": "L66390",
+      "description": "Other Goods And Equipment Rental And Hiring N.E.C.",
+      "iccr_2025_26": 0.00839,
+      "industry_rate_2025_26": 0.02009
+    },
+    {
+      "wic": "L66400",
+      "description": "Non-Financial Intangible Assets (Except Copyrights) Leasing",
+      "iccr_2025_26": 0.00176,
+      "industry_rate_2025_26": 0.00836
+    },
+    {
+      "wic": "L67110",
+      "description": "Residential Property Operators",
+      "iccr_2025_26": 0.0096,
+      "industry_rate_2025_26": 0.01727
+    },
+    {
+      "wic": "L67120",
+      "description": "Non-Residential Property Operators",
+      "iccr_2025_26": 0.00472,
+      "industry_rate_2025_26": 0.00889
+    },
+    {
+      "wic": "L67200",
+      "description": "Real Estate Services",
+      "iccr_2025_26": 0.00225,
+      "industry_rate_2025_26": 0.00545
+    },
+    {
+      "wic": "M69100",
+      "description": "Scientific Research Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00467
+    },
+    {
+      "wic": "M69210",
+      "description": "Architectural Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "M69220",
+      "description": "Surveying And Mapping Services",
+      "iccr_2025_26": 0.0035,
+      "industry_rate_2025_26": 0.00557
+    },
+    {
+      "wic": "M69230",
+      "description": "Engineering Design And Engineering Consulting Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "M69240",
+      "description": "Other Specialised Design Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "M69250",
+      "description": "Scientific Testing And Analysis Services",
+      "iccr_2025_26": 0.00269,
+      "industry_rate_2025_26": 0.0085
+    },
+    {
+      "wic": "M69310",
+      "description": "Legal Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "M69320",
+      "description": "Accounting Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "M69400",
+      "description": "Advertising Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "M69500",
+      "description": "Market Research And Statistical Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "M69610",
+      "description": "Corporate Head Office Management Services",
+      "iccr_2025_26": 0.00332,
+      "industry_rate_2025_26": 0.00835
+    },
+    {
+      "wic": "M69620",
+      "description": "Management Advice And Related Consulting Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "M69700",
+      "description": "Veterinary Services",
+      "iccr_2025_26": 0.01019,
+      "industry_rate_2025_26": 0.0239
+    },
+    {
+      "wic": "M69910",
+      "description": "Professional Photographic Services",
+      "iccr_2025_26": 0.00281,
+      "industry_rate_2025_26": 0.00427
+    },
+    {
+      "wic": "M69990",
+      "description": "Other Professional, Scientific And Technical Services N.E.C.",
+      "iccr_2025_26": 0.00222,
+      "industry_rate_2025_26": 0.00663
+    },
+    {
+      "wic": "M70000",
+      "description": "Computer System Design And Related Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0036
+    },
+    {
+      "wic": "N72110",
+      "description": "Employment Placement And Recruitment Services",
+      "iccr_2025_26": 0.00533,
+      "industry_rate_2025_26": 0.01742
+    },
+    {
+      "wic": "N72120",
+      "description": "Labour Hire Services",
+      "iccr_2025_26": 0.01067,
+      "industry_rate_2025_26": 0.03155
+    },
+    {
+      "wic": "N72200",
+      "description": "Travel Agency And Tour Arrangement Services",
+      "iccr_2025_26": 0.00248,
+      "industry_rate_2025_26": 0.00858
+    },
+    {
+      "wic": "N72910",
+      "description": "Office Administrative Services",
+      "iccr_2025_26": 0.008,
+      "industry_rate_2025_26": 0.01462
+    },
+    {
+      "wic": "N72920",
+      "description": "Document Preparation Services",
+      "iccr_2025_26": 0.00449,
+      "industry_rate_2025_26": 0.02088
+    },
+    {
+      "wic": "N72930",
+      "description": "Credit Reporting And Debt Collection Services",
+      "iccr_2025_26": 0.00313,
+      "industry_rate_2025_26": 0.01415
+    },
+    {
+      "wic": "N72940",
+      "description": "Call Centre Operation",
+      "iccr_2025_26": 0.00678,
+      "industry_rate_2025_26": 0.01979
+    },
+    {
+      "wic": "N72990",
+      "description": "Other Administrative Services N.E.C.",
+      "iccr_2025_26": 0.00347,
+      "industry_rate_2025_26": 0.00755
+    },
+    {
+      "wic": "N73110",
+      "description": "Building And Other Industrial Cleaning Services",
+      "iccr_2025_26": 0.01454,
+      "industry_rate_2025_26": 0.03292
+    },
+    {
+      "wic": "N73120",
+      "description": "Building Pest Control Services",
+      "iccr_2025_26": 0.00612,
+      "industry_rate_2025_26": 0.02721
+    },
+    {
+      "wic": "N73130",
+      "description": "Gardening Services",
+      "iccr_2025_26": 0.02405,
+      "industry_rate_2025_26": 0.05536
+    },
+    {
+      "wic": "N73200",
+      "description": "Packaging Services",
+      "iccr_2025_26": 0.0088,
+      "industry_rate_2025_26": 0.0308
+    },
+    {
+      "wic": "O75100",
+      "description": "Central Government Administration",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03005
+    },
+    {
+      "wic": "O75200",
+      "description": "State Government Administration",
+      "iccr_2025_26": 0.00384,
+      "industry_rate_2025_26": 0.00971
+    },
+    {
+      "wic": "O75300",
+      "description": "Local Government Administration",
+      "iccr_2025_26": 0.01018,
+      "industry_rate_2025_26": 0.0225
+    },
+    {
+      "wic": "O75400",
+      "description": "Justice",
+      "iccr_2025_26": 0.00394,
+      "industry_rate_2025_26": 0.00823
+    },
+    {
+      "wic": "O75510",
+      "description": "Domestic Government Representation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03701
+    },
+    {
+      "wic": "O75520",
+      "description": "Foreign Government Representation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03681
+    },
+    {
+      "wic": "O76000",
+      "description": "Defence",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.03552
+    },
+    {
+      "wic": "O77110",
+      "description": "Police Services",
+      "iccr_2025_26": 0.05092,
+      "industry_rate_2025_26": 0.09637
+    },
+    {
+      "wic": "O77120",
+      "description": "Investigation And Security Services",
+      "iccr_2025_26": 0.01398,
+      "industry_rate_2025_26": 0.03641
+    },
+    {
+      "wic": "O77130",
+      "description": "Fire Protection And Other Emergency Services",
+      "iccr_2025_26": 0.0261,
+      "industry_rate_2025_26": 0.06055
+    },
+    {
+      "wic": "O77140",
+      "description": "Wic Not Available - Refer To O77147 Or O77148",
+      "iccr_2025_26": "#N/A",
+      "industry_rate_2025_26": "#N/A"
+    },
+    {
+      "wic": "O77147",
+      "description": "Correctional And Detention Services, Public Sector",
+      "iccr_2025_26": 0.03866,
+      "industry_rate_2025_26": 0.09147
+    },
+    {
+      "wic": "O77148",
+      "description": "Correctional And Detention Services, Non-Public Sector",
+      "iccr_2025_26": 0.03195,
+      "industry_rate_2025_26": 0.07272
+    },
+    {
+      "wic": "O77190",
+      "description": "Other Public Order And Safety Services",
+      "iccr_2025_26": 0.01539,
+      "industry_rate_2025_26": 0.03185
+    },
+    {
+      "wic": "O77200",
+      "description": "Regulatory Services",
+      "iccr_2025_26": 0.00597,
+      "industry_rate_2025_26": 0.01448
+    },
+    {
+      "wic": "P80100",
+      "description": "Preschool Education",
+      "iccr_2025_26": 0.0121,
+      "industry_rate_2025_26": 0.02234
+    },
+    {
+      "wic": "P80217",
+      "description": "Primary Education, Public Sector",
+      "iccr_2025_26": 0.00689,
+      "industry_rate_2025_26": 0.01493
+    },
+    {
+      "wic": "P80218",
+      "description": "Primary Education, Non-Public Sector",
+      "iccr_2025_26": 0.00397,
+      "industry_rate_2025_26": 0.00867
+    },
+    {
+      "wic": "P80227",
+      "description": "Secondary Education, Public Sector",
+      "iccr_2025_26": 0.00937,
+      "industry_rate_2025_26": 0.01982
+    },
+    {
+      "wic": "P80228",
+      "description": "Secondary Education, Non-Public Sector",
+      "iccr_2025_26": 0.0057,
+      "industry_rate_2025_26": 0.01351
+    },
+    {
+      "wic": "P80230",
+      "description": "Wic Not Available - Refer To P80237 Or P80238",
+      "iccr_2025_26": "#N/A",
+      "industry_rate_2025_26": "#N/A"
+    },
+    {
+      "wic": "P80237",
+      "description": "Combined Primary And Secondary Education, Public Sector",
+      "iccr_2025_26": 0.01074,
+      "industry_rate_2025_26": 0.01988
+    },
+    {
+      "wic": "P80238",
+      "description": "Combined Primary And Secondary Education, Non-Public Sector",
+      "iccr_2025_26": 0.00394,
+      "industry_rate_2025_26": 0.00947
+    },
+    {
+      "wic": "P80247",
+      "description": "Special School Education, Public Sector",
+      "iccr_2025_26": 0.02689,
+      "industry_rate_2025_26": 0.06182
+    },
+    {
+      "wic": "P80248",
+      "description": "Special School Education, Non-Public Sector",
+      "iccr_2025_26": 0.01111,
+      "industry_rate_2025_26": 0.03489
+    },
+    {
+      "wic": "P81010",
+      "description": "Wic Not Available - Refer To P81017 Or P81018",
+      "iccr_2025_26": "#N/A",
+      "industry_rate_2025_26": "#N/A"
+    },
+    {
+      "wic": "P81017",
+      "description": "Technical And Vocational Education And Training, Public",
+      "iccr_2025_26": 0.00975,
+      "industry_rate_2025_26": 0.02242
+    },
+    {
+      "wic": "P81018",
+      "description": "Technical And Vocational Education And Training, Non-Public",
+      "iccr_2025_26": 0.00258,
+      "industry_rate_2025_26": 0.01007
+    },
+    {
+      "wic": "P81020",
+      "description": "Higher Education",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.00382
+    },
+    {
+      "wic": "P82110",
+      "description": "Sports And Physical Recreation Instruction",
+      "iccr_2025_26": 0.01009,
+      "industry_rate_2025_26": 0.02183
+    },
+    {
+      "wic": "P82120",
+      "description": "Arts Education",
+      "iccr_2025_26": 0.00342,
+      "industry_rate_2025_26": 0.01048
+    },
+    {
+      "wic": "P82190",
+      "description": "Adult, Community And Other Education N.E.C.",
+      "iccr_2025_26": 0.00709,
+      "industry_rate_2025_26": 0.01794
+    },
+    {
+      "wic": "P82200",
+      "description": "Educational Support Services",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.01165
+    },
+    {
+      "wic": "Q84010",
+      "description": "Wic Not Available - Refer To Q84017 Or Q84018",
+      "iccr_2025_26": "#N/A",
+      "industry_rate_2025_26": "#N/A"
+    },
+    {
+      "wic": "Q84017",
+      "description": "Hospitals (Except Psychiatric Hospitals), Public Sector",
+      "iccr_2025_26": 0.0064,
+      "industry_rate_2025_26": 0.01596
+    },
+    {
+      "wic": "Q84018",
+      "description": "Hospitals (Except Psychiatric Hospitals), Non-Public Sector",
+      "iccr_2025_26": 0.00677,
+      "industry_rate_2025_26": 0.01618
+    },
+    {
+      "wic": "Q84020",
+      "description": "Wic Not Available - Refer To Q84027 Or Q84028",
+      "iccr_2025_26": "#N/A",
+      "industry_rate_2025_26": "#N/A"
+    },
+    {
+      "wic": "Q84027",
+      "description": "Psychiatric Hospitals, Public Sector",
+      "iccr_2025_26": 0.01129,
+      "industry_rate_2025_26": 0.02418
+    },
+    {
+      "wic": "Q84028",
+      "description": "Psychiatric Hospitals, Non-Public Sector",
+      "iccr_2025_26": 0.00534,
+      "industry_rate_2025_26": 0.01553
+    },
+    {
+      "wic": "Q85110",
+      "description": "General Practice Medical Services",
+      "iccr_2025_26": 0.00477,
+      "industry_rate_2025_26": 0.01026
+    },
+    {
+      "wic": "Q85120",
+      "description": "Specialist Medical Services",
+      "iccr_2025_26": 0.00294,
+      "industry_rate_2025_26": 0.00553
+    },
+    {
+      "wic": "Q85200",
+      "description": "Pathology And Diagnostic Imaging Services",
+      "iccr_2025_26": 0.00514,
+      "industry_rate_2025_26": 0.01405
+    },
+    {
+      "wic": "Q85310",
+      "description": "Dental Services",
+      "iccr_2025_26": 0.00372,
+      "industry_rate_2025_26": 0.00882
+    },
+    {
+      "wic": "Q85320",
+      "description": "Optometry And Optical Dispensing",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.01241
+    },
+    {
+      "wic": "Q85330",
+      "description": "Physiotherapy Services",
+      "iccr_2025_26": 0.00211,
+      "industry_rate_2025_26": 0.00778
+    },
+    {
+      "wic": "Q85340",
+      "description": "Chiropractic And Osteopathic Services",
+      "iccr_2025_26": 0.00211,
+      "industry_rate_2025_26": 0.01614
+    },
+    {
+      "wic": "Q85390",
+      "description": "Other Allied Health Services",
+      "iccr_2025_26": 0.00455,
+      "industry_rate_2025_26": 0.01363
+    },
+    {
+      "wic": "Q85910",
+      "description": "Wic Not Available - Refer To Q85917 Or Q85918",
+      "iccr_2025_26": "#N/A",
+      "industry_rate_2025_26": "#N/A"
+    },
+    {
+      "wic": "Q85917",
+      "description": "Ambulance Services, Public Sector",
+      "iccr_2025_26": 0.04143,
+      "industry_rate_2025_26": 0.0832
+    },
+    {
+      "wic": "Q85918",
+      "description": "Ambulance Services, Non-Public Sector",
+      "iccr_2025_26": 0.02536,
+      "industry_rate_2025_26": 0.04145
+    },
+    {
+      "wic": "Q85990",
+      "description": "Other Health Care Services N.E.C.",
+      "iccr_2025_26": 0.01067,
+      "industry_rate_2025_26": 0.02345
+    },
+    {
+      "wic": "Q86010",
+      "description": "Aged Care Residential Services",
+      "iccr_2025_26": 0.01432,
+      "industry_rate_2025_26": 0.03825
+    },
+    {
+      "wic": "Q86090",
+      "description": "Other Residential Care Services",
+      "iccr_2025_26": 0.01724,
+      "industry_rate_2025_26": 0.05074
+    },
+    {
+      "wic": "Q87100",
+      "description": "Child Care Services",
+      "iccr_2025_26": 0.01441,
+      "industry_rate_2025_26": 0.0327
+    },
+    {
+      "wic": "Q87900",
+      "description": "Wic Not Available - Refer To Q87907 Or Q87908",
+      "iccr_2025_26": "#N/A",
+      "industry_rate_2025_26": "#N/A"
+    },
+    {
+      "wic": "Q87907",
+      "description": "Other Social Assistance Services, Public Sector",
+      "iccr_2025_26": 0.00917,
+      "industry_rate_2025_26": 0.02248
+    },
+    {
+      "wic": "Q87908",
+      "description": "Other Social Assistance Services, Non-Public Sector",
+      "iccr_2025_26": 0.01337,
+      "industry_rate_2025_26": 0.03103
+    },
+    {
+      "wic": "R89100",
+      "description": "Museum Operation",
+      "iccr_2025_26": 0.00394,
+      "industry_rate_2025_26": 0.01304
+    },
+    {
+      "wic": "R89210",
+      "description": "Zoological And Botanical Gardens Operation",
+      "iccr_2025_26": 0.0047,
+      "industry_rate_2025_26": 0.01653
+    },
+    {
+      "wic": "R89220",
+      "description": "Nature Reserves And Conservation Parks Operation",
+      "iccr_2025_26": 0.01767,
+      "industry_rate_2025_26": 0.04569
+    },
+    {
+      "wic": "R90010",
+      "description": "Performing Arts Operation",
+      "iccr_2025_26": 0.0069,
+      "industry_rate_2025_26": 0.02
+    },
+    {
+      "wic": "R90020",
+      "description": "Creative Artists, Musicians, Writers And Performers",
+      "iccr_2025_26": 0.00342,
+      "industry_rate_2025_26": 0.01547
+    },
+    {
+      "wic": "R90030",
+      "description": "Performing Arts Venue Operation",
+      "iccr_2025_26": 0.01354,
+      "industry_rate_2025_26": 0.02706
+    },
+    {
+      "wic": "R91110",
+      "description": "Health And Fitness Centres And Gymnasia Operation",
+      "iccr_2025_26": 0.00363,
+      "industry_rate_2025_26": 0.0109
+    },
+    {
+      "wic": "R91120",
+      "description": "Sports And Physical Recreation Clubs And Sports Professional",
+      "iccr_2025_26": 0.0047,
+      "industry_rate_2025_26": 0.01036
+    },
+    {
+      "wic": "R91130",
+      "description": "Sports And Physical Recreation Venues, Grounds And Facilitie",
+      "iccr_2025_26": 0.00739,
+      "industry_rate_2025_26": 0.02083
+    },
+    {
+      "wic": "R91140",
+      "description": "Sports And Physical Recreation Administrative Service",
+      "iccr_2025_26": 0.00454,
+      "industry_rate_2025_26": 0.01198
+    },
+    {
+      "wic": "R91211",
+      "description": "Horse Racing Administration And Track Operation",
+      "iccr_2025_26": 0.01728,
+      "industry_rate_2025_26": 0.04311
+    },
+    {
+      "wic": "R91212",
+      "description": "Dog Racing Administration And Track Operation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0219
+    },
+    {
+      "wic": "R91291",
+      "description": "Other Horse Racing Activities",
+      "iccr_2025_26": 0.05131,
+      "industry_rate_2025_26": 0.11309
+    },
+    {
+      "wic": "R91292",
+      "description": "Other Dog Racing Activities",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02211
+    },
+    {
+      "wic": "R91310",
+      "description": "Amusement Parks And Centres Operation",
+      "iccr_2025_26": 0.00864,
+      "industry_rate_2025_26": 0.01934
+    },
+    {
+      "wic": "R91390",
+      "description": "Amusement And Other Recreational Activities N.E.C.",
+      "iccr_2025_26": 0.01268,
+      "industry_rate_2025_26": 0.02589
+    },
+    {
+      "wic": "R92010",
+      "description": "Casino Operation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0223
+    },
+    {
+      "wic": "R92020",
+      "description": "Lottery Operation",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.0211
+    },
+    {
+      "wic": "R92090",
+      "description": "Other Gambling Activities",
+      "iccr_2025_26": 0.00753,
+      "industry_rate_2025_26": 0.01549
+    },
+    {
+      "wic": "S94110",
+      "description": "Automotive Electrical Services",
+      "iccr_2025_26": 0.00512,
+      "industry_rate_2025_26": 0.01771
+    },
+    {
+      "wic": "S94120",
+      "description": "Automotive Body, Paint And Interior Repair",
+      "iccr_2025_26": 0.00872,
+      "industry_rate_2025_26": 0.02487
+    },
+    {
+      "wic": "S94190",
+      "description": "Other Automotive Repair And Maintenance",
+      "iccr_2025_26": 0.00887,
+      "industry_rate_2025_26": 0.02689
+    },
+    {
+      "wic": "S94210",
+      "description": "Domestic Appliance Repair And Maintenance",
+      "iccr_2025_26": 0.01202,
+      "industry_rate_2025_26": 0.02555
+    },
+    {
+      "wic": "S94220",
+      "description": "Electronic (Except Domestic Appliance) And Precision",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.01339
+    },
+    {
+      "wic": "S94290",
+      "description": "Other Machinery And Equipment Repair And Maintenance",
+      "iccr_2025_26": 0.00844,
+      "industry_rate_2025_26": 0.02217
+    },
+    {
+      "wic": "S94910",
+      "description": "Clothing And Footwear Repair",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.02115
+    },
+    {
+      "wic": "S94990",
+      "description": "Other Repair And Maintenance N.E.C.",
+      "iccr_2025_26": 0.0297,
+      "industry_rate_2025_26": 0.03766
+    },
+    {
+      "wic": "S95110",
+      "description": "Hairdressing And Beauty Services",
+      "iccr_2025_26": 0.00979,
+      "industry_rate_2025_26": 0.01946
+    },
+    {
+      "wic": "S95120",
+      "description": "Diet And Weight Reduction Services",
+      "iccr_2025_26": 0.01094,
+      "industry_rate_2025_26": 0.02115
+    },
+    {
+      "wic": "S95201",
+      "description": "Funeral Services",
+      "iccr_2025_26": 0.01342,
+      "industry_rate_2025_26": 0.03175
+    },
+    {
+      "wic": "S95202",
+      "description": "Crematorium And Cemetery Services",
+      "iccr_2025_26": 0.02,
+      "industry_rate_2025_26": 0.04599
+    },
+    {
+      "wic": "S95310",
+      "description": "Laundry And Dry-Cleaning Services",
+      "iccr_2025_26": 0.0226,
+      "industry_rate_2025_26": 0.03741
+    },
+    {
+      "wic": "S95320",
+      "description": "Photographic Film Processing",
+      "iccr_2025_26": 0.0123,
+      "industry_rate_2025_26": 0.0223
+    },
+    {
+      "wic": "S95330",
+      "description": "Parking Services",
+      "iccr_2025_26": 0.00723,
+      "industry_rate_2025_26": 0.03086
+    },
+    {
+      "wic": "S95340",
+      "description": "Brothel Keeping And Prostitution Services",
+      "iccr_2025_26": 0.01846,
+      "industry_rate_2025_26": 0.05516
+    },
+    {
+      "wic": "S95390",
+      "description": "Other Personal Services N.E.C.",
+      "iccr_2025_26": 0.01712,
+      "industry_rate_2025_26": 0.03343
+    },
+    {
+      "wic": "S95400",
+      "description": "Religious Services",
+      "iccr_2025_26": 0.00522,
+      "industry_rate_2025_26": 0.0166
+    },
+    {
+      "wic": "S95510",
+      "description": "Business And Professional Association Services",
+      "iccr_2025_26": 0.00363,
+      "industry_rate_2025_26": 0.00823
+    },
+    {
+      "wic": "S95520",
+      "description": "Labour Association Services",
+      "iccr_2025_26": 0.0062,
+      "industry_rate_2025_26": 0.022
+    },
+    {
+      "wic": "S95590",
+      "description": "Other Interest Group Services N.E.C.",
+      "iccr_2025_26": 0.00522,
+      "industry_rate_2025_26": 0.01537
+    },
+    {
+      "wic": "S96010",
+      "description": "Private Households Employing Staff",
+      "iccr_2025_26": 0.00236,
+      "industry_rate_2025_26": 0.02349
+    },
+    {
+      "wic": "S99000",
+      "description": "Default Rate Applied",
+      "iccr_2025_26": 0.00169,
+      "industry_rate_2025_26": 0.18
+    }
+  ]
+}
