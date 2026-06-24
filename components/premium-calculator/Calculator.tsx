@@ -6,6 +6,8 @@ import ResultPanel from "./ResultPanel";
 import {
   computePremium,
   savingsScenario,
+  savingsFromPremium,
+  performanceFromPremium,
   lookupIndustry,
 } from "@/lib/premium/engine";
 
@@ -47,13 +49,33 @@ export default function Calculator() {
     claimsOverride !== null ? parseDollars(claimsOverride) : defaultClaims;
   const priorYearPremium = priorInput ? parseDollars(priorInput) : undefined;
 
+  // When they tell us their actual premium we back out their real performance
+  // rating (EPR = premium ÷ (wages × IR)) — more accurate than a claims estimate,
+  // and it lets us show them where they sit vs their industry. Otherwise we
+  // estimate from the (industry-default) claims cost.
+  const hasPremium = priorYearPremium !== undefined && priorYearPremium > 0;
+
   const result = useMemo(() => {
     if (!hasInputs) return null;
-    return {
-      premium: computePremium({ remuneration, wicCode, claimsCost }),
-      savings: savingsScenario({ remuneration, wicCode, claimsCost }),
-    };
-  }, [hasInputs, remuneration, wicCode, claimsCost]);
+    const premium = computePremium({ remuneration, wicCode, claimsCost });
+    const performance =
+      hasPremium && priorYearPremium
+        ? performanceFromPremium({
+            remuneration,
+            wicCode,
+            currentPremium: priorYearPremium,
+          })
+        : null;
+    const savings =
+      hasPremium && priorYearPremium
+        ? savingsFromPremium({
+            remuneration,
+            wicCode,
+            currentPremium: priorYearPremium,
+          })
+        : savingsScenario({ remuneration, wicCode, claimsCost });
+    return { premium, savings, performance };
+  }, [hasInputs, remuneration, wicCode, claimsCost, hasPremium, priorYearPremium]);
 
   const inputClass =
     "w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#00E676]";
@@ -146,11 +168,12 @@ export default function Calculator() {
           )}
         </div>
 
-        {/* Optional prior-year premium — upgrades capping to a true value. */}
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-            Last year&apos;s premium{" "}
-            <span className="font-normal text-gray-400">(optional)</span>
+        {/* Optional current premium — reveals their real performance rating
+            (EPR) and upgrades the claim-impact capping to a true value. */}
+        <div className="rounded-xl border border-[#00E676]/40 bg-[#00E676]/5 p-4">
+          <label className="block text-sm font-semibold text-[#0A1628] mb-1.5">
+            Your current annual premium{" "}
+            <span className="font-normal text-gray-500">(optional)</span>
           </label>
           <div className="relative">
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">
@@ -161,13 +184,17 @@ export default function Calculator() {
               inputMode="numeric"
               value={priorInput}
               onChange={(e) => setPriorInput(formatThousands(e.target.value))}
-              placeholder="Leave blank for an estimate"
+              placeholder="Before GST, from your WorkSafe notice"
               className={`${inputClass} pl-7`}
             />
           </div>
-          <p className="text-xs text-gray-400 mt-1.5">
-            Enter it to get a true capped claim-impact figure instead of an
-            estimate.
+          <p className="text-xs text-gray-500 mt-1.5">
+            Know it? Enter it and we&apos;ll show your{" "}
+            <span className="font-semibold text-[#0A7A45]">
+              performance rating
+            </span>{" "}
+            — exactly how you compare to your industry — plus a true claim-impact
+            figure.
           </p>
         </div>
       </div>
@@ -181,6 +208,7 @@ export default function Calculator() {
           priorYearPremium={priorYearPremium}
           premium={result.premium}
           savings={result.savings}
+          performance={result.performance}
         />
       ) : (
         <div className="rounded-2xl border border-dashed border-gray-200 bg-[#F8F9FA] p-8 text-center text-sm text-gray-400 flex items-center justify-center min-h-[20rem]">
