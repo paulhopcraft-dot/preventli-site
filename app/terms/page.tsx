@@ -13,7 +13,7 @@ export default function TermsPage() {
     <div className="min-h-screen bg-[#F8F9FA]">
       <header className="bg-[#0A1628] py-6">
         <div className="max-w-4xl mx-auto px-4">
-          <Link href="/" className="text-[#00E676] font-bold text-xl">
+          <Link href="/" className="text-[#9CB81E] font-bold text-xl">
             ← Back to Preventli
           </Link>
         </div>
@@ -38,7 +38,7 @@ export default function TermsPage() {
             <p className="mt-3">
               By creating an account, submitting a contact form, or otherwise using the Preventli platform, you
               confirm that you have read, understood, and agree to be bound by these Terms and our{" "}
-              <Link href="/privacy" className="text-[#00E676] underline">Privacy Policy</Link>.
+              <Link href="/privacy" className="text-[#9CB81E] underline">Privacy Policy</Link>.
             </p>
             <p className="mt-3">
               If you are accepting these Terms on behalf of an organisation, you represent and warrant that you
@@ -147,7 +147,7 @@ export default function TermsPage() {
             <p>
               You are responsible for maintaining the confidentiality of your login credentials and for all
               activity that occurs under your account. You must notify us immediately at{" "}
-              <a href="mailto:support@preventli.ai" className="text-[#00E676] underline">
+              <a href="mailto:support@preventli.ai" className="text-[#9CB81E] underline">
                 support@preventli.ai
               </a>{" "}
               if you suspect unauthorised access to your account.
@@ -163,7 +163,7 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold text-[#0A1628] mb-3">6. Data and Privacy</h2>
             <p>
               Your use of the Platform is also governed by our{" "}
-              <Link href="/privacy" className="text-[#00E676] underline">Privacy Policy</Link>, which is incorporated
+              <Link href="/privacy" className="text-[#9CB81E] underline">Privacy Policy</Link>, which is incorporated
               into these Terms by reference. You acknowledge that you have read and understood our Privacy Policy.
             </p>
             <p className="mt-3">
@@ -252,7 +252,7 @@ export default function TermsPage() {
             <h3 className="font-semibold text-[#0A1628] mb-2 mt-4">b) Termination by You</h3>
             <p>
               You may cancel your subscription at any time by contacting us at{" "}
-              <a href="mailto:support@preventli.ai" className="text-[#00E676] underline">
+              <a href="mailto:support@preventli.ai" className="text-[#9CB81E] underline">
                 support@preventli.ai
               </a>
               . Cancellation takes effect at the end of the current billing period. No refunds are provided for
@@ -324,7 +324,7 @@ export default function TermsPage() {
               <p className="font-semibold text-[#0A1628]">Preventli Pty Ltd</p>
               <p className="mt-1">
                 Email:{" "}
-                <a href="mailto:legal@preventli.ai" className="text-[#00E676] underline">
+                <a href="mailto:legal@preventli.ai" className="text-[#9CB81E] underline">
                   legal@preventli.ai
                 </a>
               </p>
@@ -338,8 +338,8 @@ export default function TermsPage() {
 
       <footer className="border-t border-gray-200 py-8 mt-8">
         <div className="max-w-4xl mx-auto px-4 text-center text-sm text-gray-400">
-          <Link href="/privacy" className="hover:text-[#00E676] mr-6">Privacy Policy</Link>
-          <Link href="/" className="hover:text-[#00E676]">Back to Preventli</Link>
+          <Link href="/privacy" className="hover:text-[#9CB81E] mr-6">Privacy Policy</Link>
+          <Link href="/" className="hover:text-[#9CB81E]">Back to Preventli</Link>
         </div>
       </footer>
     </div>

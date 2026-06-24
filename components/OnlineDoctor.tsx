@@ -57,12 +57,12 @@ export default function OnlineDoctor() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
           <div>
-            <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
+            <span className="text-[#9CB81E] text-sm font-semibold uppercase tracking-widest">
               Telehealth Network
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-6">
               Your online doctor —<br />
-              <span className="text-[#00E676]">available when you need one</span>
+              <span className="text-[#9CB81E]">available when you need one</span>
             </h2>
             <p className="text-gray-600 text-lg mb-8 leading-relaxed">
               Access our national network of telehealth doctors instantly. 
@@ -73,7 +73,7 @@ export default function OnlineDoctor() {
             {/* Services grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
               {services.map((service, i) => (
-                <div key={i} className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm text-center hover:border-[#00E676] transition-colors cursor-pointer">
+                <div key={i} className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm text-center hover:border-[#9CB81E] transition-colors cursor-pointer">
                   <div className="text-2xl mb-2">{service.icon}</div>
                   <h3 className="font-bold text-[#0A1628] text-sm mb-1">{service.title}</h3>
                   <p className="text-gray-500 text-xs">{service.desc}</p>
@@ -83,21 +83,21 @@ export default function OnlineDoctor() {
 
             {/* Three access points */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-[#00E676] transition-colors cursor-pointer">
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-[#9CB81E] transition-colors cursor-pointer">
                 <div className="text-3xl mb-3">💬</div>
                 <h3 className="font-bold text-[#0A1628] mb-2">Chat Now</h3>
                 <p className="text-gray-500 text-sm">
                   Connect immediately with our care team. Doctor reviews within 24 hours.
                 </p>
               </div>
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-[#00E676] transition-colors cursor-pointer">
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-[#9CB81E] transition-colors cursor-pointer">
                 <div className="text-3xl mb-3">📹</div>
                 <h3 className="font-bold text-[#0A1628] mb-2">Video Call</h3>
                 <p className="text-gray-500 text-sm">
                   Book a telehealth video consultation with a doctor from our national network.
                 </p>
               </div>
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-[#00E676] transition-colors cursor-pointer">
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-[#9CB81E] transition-colors cursor-pointer">
                 <div className="text-3xl mb-3">🏥</div>
                 <h3 className="font-bold text-[#0A1628] mb-2">Face-to-Face</h3>
                 <p className="text-gray-500 text-sm">
@@ -108,7 +108,7 @@ export default function OnlineDoctor() {
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 bg-[#00E676] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#00ff84] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#9CB81E] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#9CB81E] transition-colors"
             >
               Talk to a Doctor Today
               <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -122,10 +122,10 @@ export default function OnlineDoctor() {
             <div className="relative">
               {/* Main card */}
               <div className="bg-white rounded-3xl shadow-2xl p-8 w-80 text-center border border-gray-100">
-                <div className="w-20 h-20 bg-[#00E676]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-5xl">
+                <div className="w-20 h-20 bg-[#9CB81E]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-5xl">
                   {doctor.image}
                 </div>
-                <div className="text-xs text-[#00E676] font-semibold uppercase tracking-wider mb-2">
+                <div className="text-xs text-[#9CB81E] font-semibold uppercase tracking-wider mb-2">
                   Available Now
                 </div>
                 <h3 className="text-xl font-bold text-[#0A1628] mb-1">
@@ -135,7 +135,7 @@ export default function OnlineDoctor() {
                   {doctor.specialty}
                 </p>
                 <div className="flex gap-3 justify-center">
-                  <button className="flex-1 bg-[#00E676] text-[#0A1628] py-3 rounded-xl font-semibold hover:bg-[#00ff84] transition-colors">
+                  <button className="flex-1 bg-[#9CB81E] text-[#0A1628] py-3 rounded-xl font-semibold hover:bg-[#9CB81E] transition-colors">
                     Book
                   </button>
                   <button className="flex-1 border border-[#0A1628] text-[#0A1628] py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors">
@@ -158,7 +158,7 @@ export default function OnlineDoctor() {
                   <div
                     key={i}
                     className={`w-2 h-2 rounded-full transition-colors ${
-                      i === currentDoctor ? "bg-[#00E676]" : "bg-gray-300"
+                      i === currentDoctor ? "bg-[#9CB81E]" : "bg-gray-300"
                     }`}
                   />
                 ))}

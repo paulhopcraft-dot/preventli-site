@@ -111,7 +111,7 @@ export default function HowItWorks() {
         className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center mb-16">
-          <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-[#9CB81E] text-sm font-semibold uppercase tracking-widest">
             Our Process
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">
@@ -125,7 +125,7 @@ export default function HowItWorks() {
 
         <div className="relative">
           {/* Connecting line (desktop) */}
-          <div className="hidden lg:block absolute top-[72px] left-[calc(16.67%+32px)] right-[calc(16.67%+32px)] h-0.5 bg-gradient-to-r from-[#00E676]/0 via-[#00E676]/40 to-[#00E676]/0" />
+          <div className="hidden lg:block absolute top-[72px] left-[calc(16.67%+32px)] right-[calc(16.67%+32px)] h-0.5 bg-gradient-to-r from-[#9CB81E]/0 via-[#9CB81E]/40 to-[#9CB81E]/0" />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {steps.map((step, i) => (
@@ -133,10 +133,10 @@ export default function HowItWorks() {
                 {/* Number badge */}
                 <div className="flex justify-center lg:justify-start mb-6">
                   <div className="relative">
-                    <div className="w-16 h-16 rounded-2xl bg-[#00E676]/10 border border-[#00E676]/30 flex items-center justify-center text-[#00E676]">
+                    <div className="w-16 h-16 rounded-2xl bg-[#9CB81E]/10 border border-[#9CB81E]/30 flex items-center justify-center text-[#9CB81E]">
                       {step.icon}
                     </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#00E676] rounded-full flex items-center justify-center">
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#9CB81E] rounded-full flex items-center justify-center">
                       <span className="text-[#0A1628] text-xs font-bold">
                         {i + 1}
                       </span>
@@ -144,13 +144,13 @@ export default function HowItWorks() {
                   </div>
                 </div>
 
-                <div className="text-[#00E676]/40 text-sm font-mono mb-2">
+                <div className="text-[#9CB81E]/40 text-sm font-mono mb-2">
                   {step.number}
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-1">
                   {step.title}
                 </h3>
-                <div className="text-[#00E676] text-sm font-medium mb-4">
+                <div className="text-[#9CB81E] text-sm font-medium mb-4">
                   {step.subtitle}
                 </div>
                 <p className="text-gray-400 leading-relaxed mb-6">
@@ -167,7 +167,7 @@ export default function HowItWorks() {
                         width="16"
                         height="16"
                         fill="none"
-                        stroke="#00E676"
+                        stroke="#9CB81E"
                         strokeWidth="2"
                         viewBox="0 0 24 24"
                       >

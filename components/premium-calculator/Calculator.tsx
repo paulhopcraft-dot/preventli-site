@@ -78,7 +78,7 @@ export default function Calculator() {
   }, [hasInputs, remuneration, wicCode, claimsCost, hasPremium, priorYearPremium]);
 
   const inputClass =
-    "w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#00E676]";
+    "w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#9CB81E]";
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -118,7 +118,7 @@ export default function Calculator() {
             <span className="text-sm font-semibold text-gray-700">
               Annual claims cost
             </span>
-            <span className="text-xs text-[#00E676] font-semibold">
+            <span className="text-xs text-[#5E7012] font-semibold">
               {claimsExpanded ? "Hide" : "Adjust"}
             </span>
           </button>
@@ -158,7 +158,7 @@ export default function Calculator() {
                   <button
                     type="button"
                     onClick={() => setClaimsOverride(null)}
-                    className="ml-1 text-[#00E676] font-semibold"
+                    className="ml-1 text-[#5E7012] font-semibold"
                   >
                     Reset to estimate
                   </button>
@@ -170,7 +170,7 @@ export default function Calculator() {
 
         {/* Optional current premium — reveals their real performance rating
             (EPR) and upgrades the claim-impact capping to a true value. */}
-        <div className="rounded-xl border border-[#00E676]/40 bg-[#00E676]/5 p-4">
+        <div className="rounded-xl border border-[#9CB81E]/40 bg-[#9CB81E]/5 p-4">
           <label className="block text-sm font-semibold text-[#0A1628] mb-1.5">
             Your current annual premium{" "}
             <span className="font-normal text-gray-500">(optional)</span>
@@ -190,7 +190,7 @@ export default function Calculator() {
           </div>
           <p className="text-xs text-gray-500 mt-1.5">
             Know it? Enter it and we&apos;ll show your{" "}
-            <span className="font-semibold text-[#0A7A45]">
+            <span className="font-semibold text-[#5E7012]">
               performance rating
             </span>{" "}
             — exactly how you compare to your industry — plus a true claim-impact
