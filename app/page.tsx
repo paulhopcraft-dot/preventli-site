@@ -9,7 +9,7 @@ import AIAgents from "@/components/AIAgents";
 import RiskAssessment from "@/components/RiskAssessment";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
-import Calculator from "@/components/Calculator";
+import Calculator from "@/components/premium-calculator/Calculator";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
@@ -27,7 +27,23 @@ export default function Home() {
       <RiskAssessment />
       <Testimonials />
       <Pricing />
-      <Calculator />
+      <section id="calculator" className="py-20 bg-[#F8F9FA]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-[#0A7A45] text-sm font-semibold uppercase tracking-widest">
+              WorkCover premium calculator
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
+              Estimate your WorkCover premium
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              See your estimated WorkSafe Victoria premium — and how managing
+              claims well could bring it down.
+            </p>
+          </div>
+          <Calculator />
+        </div>
+      </section>
       <ContactForm />
       <Footer />
     </main>

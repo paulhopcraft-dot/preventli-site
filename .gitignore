@@ -36,3 +36,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ralph harness run artifacts (regenerated locally)
+ralph-state.json
+.planning/ralph-state.json
+RALPH-BRIEF.md
