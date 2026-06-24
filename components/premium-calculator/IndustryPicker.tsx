@@ -88,6 +88,15 @@ export default function IndustryPicker({ value, onChange }: Props) {
         }}
         onFocus={() => query.trim() && setOpen(true)}
         onKeyDown={handleKeyDown}
+        onBlur={() => {
+          // Foolproof selection: if the user typed a trade and there's a match
+          // but they clicked away without picking, lock in the highlighted one
+          // (the confirmation box below shows what was chosen — they can re-search).
+          // Option clicks use onMouseDown+preventDefault, so this never fires on them.
+          if (query.trim() && results.length > 0) {
+            select(results[Math.min(active, results.length - 1)]);
+          }
+        }}
         placeholder={
           selectedDescription
             ? "Search again to change industry..."
