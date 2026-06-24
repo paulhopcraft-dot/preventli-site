@@ -9,7 +9,53 @@
 // DO NOT invent expected values. Every number here traces to the spec/decode.
 
 import { describe, it, expect } from "vitest";
-import { computeEpr, computePremium, savingsScenario, round } from "./engine";
+import {
+  computeEpr,
+  computePremium,
+  savingsScenario,
+  savingsFromPremium,
+  performanceFromPremium,
+  round,
+} from "./engine";
+
+// Tier 3 — back out the rating from a premium (premium = wages × IR × EPR).
+describe("Tier 3 — performance from premium", () => {
+  const rem = 30_000_000;
+  const wic = "I46100"; // road freight
+
+  it("recovers the EPR from a computed premium (round-trip)", () => {
+    // High-claims employer (PI ~1.5) → EPR well above 1.
+    const claimsCost = Math.round(1.5 * 0.02361 * rem); // ICCR(I46100) × 1.5
+    const computed = computePremium({ remuneration: rem, wicCode: wic, claimsCost });
+    const perf = performanceFromPremium({
+      remuneration: rem,
+      wicCode: wic,
+      currentPremium: computed.premium,
+    });
+    expect(perf.epr).toBeCloseTo(computed.epr, 4);
+    expect(perf.betterThanIndustry).toBe(false);
+    expect(perf.percentVsIndustry).toBeGreaterThan(0); // above industry
+    expect(perf.ratingImpact).toBeGreaterThan(0); // pays more than industry rate
+  });
+
+  it("flags a below-industry employer as a strong record (EPR < 1)", () => {
+    const industryRate = round(rem * 0.05902, 2); // wages × IR = EPR 1 baseline
+    const goodPremium = round(industryRate * 0.92, 2); // ~8% below industry
+    const perf = performanceFromPremium({
+      remuneration: rem,
+      wicCode: wic,
+      currentPremium: goodPremium,
+    });
+    expect(perf.betterThanIndustry).toBe(true);
+    expect(perf.epr).toBeLessThan(1);
+    const s = savingsFromPremium({
+      remuneration: rem,
+      wicCode: wic,
+      currentPremium: goodPremium,
+    });
+    expect(s.showSaving).toBe(false); // already below industry → no claims-saving figure
+  });
+});
 
 // 2012-13 Princes params (K=600,000) — the exact-formula oracle window.
 const K_PRINCES = 600_000;

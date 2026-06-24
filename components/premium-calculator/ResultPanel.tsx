@@ -5,6 +5,7 @@ import {
   claimImpact,
   type ComputePremiumResult,
   type SavingsScenarioResult,
+  type PerformanceResult,
 } from "@/lib/premium/engine";
 
 // Result panel (spec §6): estimated premium (+GST), the size-aware savings
@@ -23,6 +24,8 @@ type Props = {
   priorYearPremium?: number;
   premium: ComputePremiumResult;
   savings: SavingsScenarioResult;
+  /** Present when they entered their actual premium — their real rating vs industry. */
+  performance?: PerformanceResult | null;
 };
 
 /** Whole-dollar AUD, e.g. "$368,275". */
@@ -60,6 +63,7 @@ export default function ResultPanel({
   priorYearPremium,
   premium,
   savings,
+  performance,
 }: Props) {
   const [claimInput, setClaimInput] = useState(String(DEFAULT_CLAIM));
   const [howOpen, setHowOpen] = useState(false);
@@ -111,22 +115,69 @@ export default function ResultPanel({
 
   return (
     <div className="space-y-6">
-      {/* ---- Estimated premium ---- */}
-      <div className="rounded-2xl bg-[#0A1628] p-6 sm:p-8 text-white">
-        <div className="text-xs uppercase tracking-widest text-[#00E676] font-semibold">
-          Estimated annual premium
+      {performance ? (
+        /* ---- Performance rating (when they entered their actual premium) ---- */
+        <div className="rounded-2xl bg-[#0A1628] p-6 sm:p-8 text-white">
+          <div className="text-xs uppercase tracking-widest text-[#00E676] font-semibold">
+            Your performance rating
+          </div>
+          <div className="mt-2 flex items-baseline gap-3 flex-wrap">
+            <span className="text-4xl sm:text-5xl font-bold">
+              {performance.epr.toFixed(2)}
+            </span>
+            <span
+              className={`text-sm font-semibold ${
+                performance.betterThanIndustry
+                  ? "text-[#00E676]"
+                  : "text-amber-300"
+              }`}
+            >
+              {performance.betterThanIndustry
+                ? `${Math.round(Math.abs(performance.percentVsIndustry))}% below your industry rate`
+                : `${Math.round(performance.percentVsIndustry)}% above your industry rate`}
+            </span>
+          </div>
+          <div className="mt-3 pt-3 border-t border-white/10 text-sm text-gray-300">
+            {performance.betterThanIndustry ? (
+              <>
+                A strong record — you pay about{" "}
+                <span className="font-semibold text-[#00E676]">
+                  {money(Math.abs(performance.ratingImpact))}/year less
+                </span>{" "}
+                than an average employer your size (who&apos;d pay{" "}
+                {money(performance.industryRatePremium)} at the industry rate).
+              </>
+            ) : (
+              <>
+                Your claims history costs you about{" "}
+                <span className="font-semibold text-white">
+                  {money(performance.ratingImpact)}/year more
+                </span>{" "}
+                than an average employer your size (who&apos;d pay{" "}
+                {money(performance.industryRatePremium)} at the industry rate) —
+                and that gap is exactly what claims management targets.
+              </>
+            )}
+          </div>
         </div>
-        <div className="mt-2 text-4xl sm:text-5xl font-bold">
-          {money(premium.premium)}
+      ) : (
+        /* ---- Estimated premium (when no premium entered) ---- */
+        <div className="rounded-2xl bg-[#0A1628] p-6 sm:p-8 text-white">
+          <div className="text-xs uppercase tracking-widest text-[#00E676] font-semibold">
+            Estimated annual premium
+          </div>
+          <div className="mt-2 text-4xl sm:text-5xl font-bold">
+            {money(premium.premium)}
+          </div>
+          <div className="mt-1 text-sm text-gray-300">
+            + GST {money(premium.gst)} ={" "}
+            <span className="font-semibold text-white">
+              {money(premium.premium + premium.gst)}
+            </span>{" "}
+            inc. GST
+          </div>
         </div>
-        <div className="mt-1 text-sm text-gray-300">
-          + GST {money(premium.gst)} ={" "}
-          <span className="font-semibold text-white">
-            {money(premium.premium + premium.gst)}
-          </span>{" "}
-          inc. GST
-        </div>
-      </div>
+      )}
 
       {/* ---- Savings block (THE HIGHLIGHT) ---- */}
       <div className="rounded-2xl border border-[#00E676]/30 bg-[#00E676]/5 p-6 sm:p-8">

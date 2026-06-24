@@ -278,3 +278,97 @@ export function claimImpact(input: ClaimImpactInput): ClaimImpactResult {
     message: showImpact ? undefined : FLAT_RATE_MESSAGE,
   };
 }
+
+// ---------------------------------------------------------------------------
+// (5) PERFORMANCE FROM PREMIUM — most employers know their PREMIUM, not their
+// rating. Back out their effective EPR from the premium they actually pay and
+// compare it to the industry benchmark, so the tool can tell them where they
+// sit and what it costs them.   premium = wages × IR × EPR  →  EPR = premium ÷ (wages × IR)
+// currentPremium is BEFORE GST (as shown on a WorkSafe premium notice).
+// ---------------------------------------------------------------------------
+
+const GOOD_PERFORMER_MESSAGE =
+  "You're already performing better than your industry benchmark — a strong " +
+  "record. Preventli helps you hold it there and protects you from rate " +
+  "increases as you grow.";
+
+export interface PerformanceInput {
+  remuneration: number;
+  wicCode: string;
+  /** Current annual premium, BEFORE GST (from their WorkSafe premium notice). */
+  currentPremium: number;
+  params?: PremiumParams;
+}
+
+export interface PerformanceResult {
+  /** Effective Employer Performance Rating implied by their premium. */
+  epr: number;
+  /** What an average employer (EPR = 1) your size pays = wages × IR. */
+  industryRatePremium: number;
+  /** premium − industryRatePremium ($/yr). Positive = paying above industry. */
+  ratingImpact: number;
+  /** (epr − 1) × 100, 1 dp. Positive = above the industry benchmark. */
+  percentVsIndustry: number;
+  /** True when epr < 1 — better than industry (a credit). */
+  betterThanIndustry: boolean;
+}
+
+export function performanceFromPremium(input: PerformanceInput): PerformanceResult {
+  const { ir } = lookupIndustry(input.wicCode);
+  const industryRatePremium = round(input.remuneration * ir, 2);
+  const epr =
+    industryRatePremium > 0 ? round(input.currentPremium / industryRatePremium, 6) : 1;
+  const ratingImpact = round(input.currentPremium - industryRatePremium, 2);
+  const percentVsIndustry = round((epr - 1) * 100, 1);
+  return {
+    epr,
+    industryRatePremium,
+    ratingImpact,
+    percentVsIndustry,
+    betterThanIndustry: epr < 1,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// (6) SAVINGS FROM PREMIUM — the savings story driven by their REAL premium
+// (more accurate than a claims estimate). Recover the performance index from
+// the effective rating (EPR = 1 + Z(PI−1) → PI = 1 + (EPR−1)/Z), then apply the
+// 40% claims-cost reduction. Saving only applies above industry (a record to fix).
+// ---------------------------------------------------------------------------
+
+export function savingsFromPremium(input: PerformanceInput): SavingsScenarioResult {
+  const p = input.params ?? defaultParams;
+  const { ir } = lookupIndustry(input.wicCode);
+  const expRem = 3 * input.remuneration;
+  const X = ir * expRem;
+  const z = round((p.maxWeight * X) / (X + p.K), 6);
+  const smallEmployer = input.remuneration <= p.smallEmployerThreshold;
+
+  const { epr } = performanceFromPremium(input);
+
+  const pi = z > 0 ? 1 + (epr - 1) / z : 1;
+  const managedPi = 0.6 * pi; // PI scales linearly with claims cost
+  const managedEpr = smallEmployer ? 1 : round(1 + z * (managedPi - 1), 6);
+
+  const baselinePremium = round(input.currentPremium, 2);
+  const managedPremium = round(round(managedEpr * ir, 6) * input.remuneration, 2);
+  const annualSaving = round(baselinePremium - managedPremium, 2);
+  const threeYearSaving = round(annualSaving * 3, 2);
+
+  const showSaving = !smallEmployer && epr > 1 && annualSaving > 0;
+  const message = smallEmployer
+    ? FLAT_RATE_MESSAGE
+    : epr <= 1
+      ? GOOD_PERFORMER_MESSAGE
+      : undefined;
+
+  return {
+    baselinePremium,
+    managedPremium,
+    annualSaving,
+    threeYearSaving,
+    smallEmployer,
+    showSaving,
+    message,
+  };
+}
