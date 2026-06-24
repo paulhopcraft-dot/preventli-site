@@ -357,7 +357,7 @@ export default function RiskAssessment() {
         className="section-observe max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center mb-12">
-          <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-[#9CB81E] text-sm font-semibold uppercase tracking-widest">
             Free Risk Assessment
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
@@ -464,7 +464,7 @@ export default function RiskAssessment() {
         <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 sm:p-8 mb-8 border border-gray-200 shadow-lg">
           <div className="mb-6">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#00E676] to-[#00D168] flex items-center justify-center text-white text-xl font-bold">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#9CB81E] to-[#9CB81E] flex items-center justify-center text-white text-xl font-bold">
                 {assessmentType === "individual" && "👤"}
                 {assessmentType === "psychosocial" && "🧠"}
                 {assessmentType === "wellbeing" && "💚"}
@@ -492,11 +492,11 @@ export default function RiskAssessment() {
             <div className="mt-4">
               <div className="flex justify-between text-sm mb-2">
                 <span className="text-gray-600 font-medium">Progress</span>
-                <span className="text-[#00E676] font-bold">{score} / {maxScore}</span>
+                <span className="text-[#9CB81E] font-bold">{score} / {maxScore}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                 <div 
-                  className="h-full bg-gradient-to-r from-[#00E676] to-[#00D168] transition-all duration-300 ease-out"
+                  className="h-full bg-gradient-to-r from-[#9CB81E] to-[#9CB81E] transition-all duration-300 ease-out"
                   style={{ width: `${(score / maxScore) * 100}%` }}
                 />
               </div>
@@ -507,7 +507,7 @@ export default function RiskAssessment() {
             {currentQuestions.map((category, catIndex) => (
               <div key={catIndex} className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-2 h-8 bg-gradient-to-b from-[#00E676] to-[#00D168] rounded-full" />
+                  <div className="w-2 h-8 bg-gradient-to-b from-[#9CB81E] to-[#9CB81E] rounded-full" />
                   <h4 className="font-bold text-[#0A1628] text-base">
                     {category.category}
                   </h4>
@@ -521,7 +521,7 @@ export default function RiskAssessment() {
                         key={key}
                         className={`flex items-start gap-3 p-3 rounded-lg transition-all cursor-pointer ${
                           isChecked 
-                            ? "bg-[#00E676]/10 border-2 border-[#00E676]/30" 
+                            ? "bg-[#9CB81E]/10 border-2 border-[#9CB81E]/30" 
                             : "bg-gray-50 hover:bg-gray-100 border-2 border-transparent"
                         }`}
                       >
@@ -529,7 +529,7 @@ export default function RiskAssessment() {
                           type="checkbox"
                           checked={isChecked}
                           onChange={() => handleToggle(key)}
-                          className="mt-1 w-5 h-5 text-[#00E676] focus:ring-[#00E676] rounded border-gray-300"
+                          className="mt-1 w-5 h-5 text-[#9CB81E] focus:ring-[#9CB81E] rounded border-gray-300"
                         />
                         <span className={`text-sm flex-1 ${
                           isChecked ? "text-[#0A1628] font-medium" : "text-gray-700"
@@ -554,7 +554,7 @@ export default function RiskAssessment() {
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-5xl font-bold text-[#00E676]">
+                <div className="text-5xl font-bold text-[#9CB81E]">
                   {Math.round((score / maxScore) * 100)}%
                 </div>
                 <span className="text-white/70 text-sm">Complete</span>
@@ -566,7 +566,7 @@ export default function RiskAssessment() {
           <div className="flex gap-4 mt-6">
             <button
               onClick={handleSubmit}
-              className="flex-1 bg-[#00E676] text-[#0A1628] px-6 py-3 rounded-lg font-semibold hover:bg-[#00D168] transition-all"
+              className="flex-1 bg-[#9CB81E] text-[#0A1628] px-6 py-3 rounded-lg font-semibold hover:bg-[#9CB81E] transition-all"
             >
               Get Risk Assessment
             </button>
@@ -633,7 +633,7 @@ export default function RiskAssessment() {
                         risk.color === "text-red-500" ? "#EF4444" :
                         risk.color === "text-amber-500" ? "#F59E0B" :
                         risk.color === "text-blue-500" ? "#3B82F6" :
-                        "#10B981"
+                        "#9CB81E"
                       }
                       strokeWidth="16"
                       fill="none"

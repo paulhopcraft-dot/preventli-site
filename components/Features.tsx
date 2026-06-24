@@ -111,7 +111,7 @@ export default function Features() {
         className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center mb-14">
-          <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-[#9CB81E] text-sm font-semibold uppercase tracking-widest">
             What&apos;s Inside the Platform
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
