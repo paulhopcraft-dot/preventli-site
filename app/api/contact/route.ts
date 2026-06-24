@@ -65,14 +65,14 @@ export async function POST(req: NextRequest) {
           html: `
             <div style="font-family: Inter, system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
               <div style="background: #0A1628; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
-                <h1 style="color: #00E676; margin: 0; font-size: 20px;">🎯 New Preventli Lead</h1>
+                <h1 style="color: #9CB81E; margin: 0; font-size: 20px;">🎯 New Preventli Lead</h1>
               </div>
 
               <div style="background: #f8f9fa; padding: 24px; border-radius: 12px; margin-bottom: 16px;">
                 <h2 style="color: #0A1628; margin-top: 0; font-size: 16px;">Contact Details</h2>
                 <table style="width: 100%; border-collapse: collapse;">
                   <tr><td style="padding: 8px 0; color: #666; width: 120px;">Name:</td><td style="padding: 8px 0; font-weight: 600; color: #1A1A2E;">${name}</td></tr>
-                  <tr><td style="padding: 8px 0; color: #666;">Email:</td><td style="padding: 8px 0; font-weight: 600; color: #1A1A2E;"><a href="mailto:${email}" style="color: #00E676;">${email}</a></td></tr>
+                  <tr><td style="padding: 8px 0; color: #666;">Email:</td><td style="padding: 8px 0; font-weight: 600; color: #1A1A2E;"><a href="mailto:${email}" style="color: #9CB81E;">${email}</a></td></tr>
                   <tr><td style="padding: 8px 0; color: #666;">Phone:</td><td style="padding: 8px 0; font-weight: 600; color: #1A1A2E;">${phone || "Not provided"}</td></tr>
                   <tr><td style="padding: 8px 0; color: #666;">Company:</td><td style="padding: 8px 0; font-weight: 600; color: #1A1A2E;">${company}</td></tr>
                   <tr><td style="padding: 8px 0; color: #666;">Employees:</td><td style="padding: 8px 0; font-weight: 600; color: #1A1A2E;">${employees}</td></tr>
@@ -105,7 +105,7 @@ export async function POST(req: NextRequest) {
           html: `
             <div style="font-family: Inter, system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
               <div style="background: #0A1628; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
-                <h1 style="color: #00E676; margin: 0; font-size: 20px;">Preventli</h1>
+                <h1 style="color: #9CB81E; margin: 0; font-size: 20px;">Preventli</h1>
                 <p style="color: #aaa; margin: 8px 0 0; font-size: 14px;">30 years of WorkCover expertise. 3,000+ cases managed.</p>
               </div>
 
@@ -126,7 +126,7 @@ export async function POST(req: NextRequest) {
 
               <p style="color: #555; line-height: 1.6;">
                 In the meantime, if you have an urgent question, you can reach us at
-                <a href="mailto:lisah@preventli.ai" style="color: #00E676;">lisah@preventli.ai</a>.
+                <a href="mailto:lisah@preventli.ai" style="color: #9CB81E;">lisah@preventli.ai</a>.
               </p>
 
               <p style="color: #999; font-size: 12px; margin-top: 32px; border-top: 1px solid #eee; padding-top: 16px;">

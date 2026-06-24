@@ -62,7 +62,7 @@ const plans = [
       "Full compliance audit trail & reporting",
     ],
     cta: "Request Access",
-    color: "border-[#00E676]",
+    color: "border-[#9CB81E]",
     ideal: "Established teams, 50–200 employees",
   },
   {
@@ -113,7 +113,7 @@ export default function Pricing() {
         className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center mb-12">
-          <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-[#9CB81E] text-sm font-semibold uppercase tracking-widest">
             Simple Pricing
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
@@ -126,19 +126,19 @@ export default function Pricing() {
           {/* Value prop badges */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <span className="bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-600 flex items-center gap-2">
-              <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
+              <svg width="16" height="16" fill="none" stroke="#9CB81E" strokeWidth="2" viewBox="0 0 24 24">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
               No credit card for Free
             </span>
             <span className="bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-600 flex items-center gap-2">
-              <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
+              <svg width="16" height="16" fill="none" stroke="#9CB81E" strokeWidth="2" viewBox="0 0 24 24">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
               Expert RTW plans
             </span>
             <span className="bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-600 flex items-center gap-2">
-              <svg width="16" height="16" fill="none" stroke="#00E676" strokeWidth="2" viewBox="0 0 24 24">
+              <svg width="16" height="16" fill="none" stroke="#9CB81E" strokeWidth="2" viewBox="0 0 24 24">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
               Full compliance audit trail
@@ -151,12 +151,12 @@ export default function Pricing() {
             <div
               key={i}
               className={`relative bg-white border-2 ${plan.color} rounded-2xl p-8 card-hover ${
-                plan.popular ? "shadow-xl shadow-[#00E676]/10 scale-105" : ""
+                plan.popular ? "shadow-xl shadow-[#9CB81E]/10 scale-105" : ""
               }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-[#00E676] text-[#0A1628] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide">
+                  <span className="bg-[#9CB81E] text-[#0A1628] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide">
                     Most Popular
                   </span>
                 </div>
@@ -178,7 +178,7 @@ export default function Pricing() {
                     <span className="text-gray-400 mb-1">{plan.priceSuffix}</span>
                   )}
                 </div>
-                <div className="text-sm text-[#00E676] mt-2 font-medium">
+                <div className="text-sm text-[#9CB81E] mt-2 font-medium">
                   {plan.highlight}
                 </div>
                 <div className="text-sm text-gray-400 mt-2 flex items-center gap-1.5">
@@ -206,7 +206,7 @@ export default function Pricing() {
                       width="16"
                       height="16"
                       fill="none"
-                      stroke="#00E676"
+                      stroke="#9CB81E"
                       strokeWidth="2"
                       viewBox="0 0 24 24"
                     >
@@ -221,7 +221,7 @@ export default function Pricing() {
                 href="#contact"
                 className={`block w-full text-center py-3 px-6 rounded-xl font-semibold transition-all ${
                   plan.popular
-                    ? "bg-[#00E676] text-[#0A1628] hover:bg-[#00C060]"
+                    ? "bg-[#9CB81E] text-[#0A1628] hover:bg-[#86A516]"
                     : "bg-[#0A1628] text-white hover:bg-[#0D1F3C]"
                 }`}
               >
@@ -233,7 +233,7 @@ export default function Pricing() {
 
         <p className="text-center text-gray-400 text-sm mt-8">
           Prices in AUD and exclude GST. Not sure which plan?{" "}
-          <a href="#contact" className="text-[#00E676] hover:underline">
+          <a href="#contact" className="text-[#9CB81E] hover:underline">
             Chat with us
           </a>{" "}
           — we&apos;ll help you figure out what makes sense for your business.

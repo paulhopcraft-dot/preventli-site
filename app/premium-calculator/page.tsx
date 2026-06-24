@@ -32,7 +32,7 @@ export default function PremiumCalculatorPage() {
       {/* ---- Hero (dark, so the transparent fixed navbar reads on light pages) ---- */}
       <header className="bg-[#0A1628] pt-28 pb-16 sm:pt-32 sm:pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs uppercase tracking-widest text-[#00E676] font-semibold">
+          <p className="text-xs uppercase tracking-widest text-[#9CB81E] font-semibold">
             WorkCover Victoria
           </p>
           <h1 className="mt-3 text-3xl sm:text-5xl font-bold text-white leading-tight">
