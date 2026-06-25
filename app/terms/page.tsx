@@ -88,12 +88,12 @@ export default function TermsPage() {
                   </tr>
                   <tr className="bg-gray-50">
                     <td className="border border-gray-200 px-4 py-2 font-medium">Starter</td>
-                    <td className="border border-gray-200 px-4 py-2">$499/month AUD</td>
+                    <td className="border border-gray-200 px-4 py-2">$595/month AUD</td>
                     <td className="border border-gray-200 px-4 py-2">Up to 3 active cases, expert RTW plans, pre-employment assessments, 2 users</td>
                   </tr>
                   <tr>
                     <td className="border border-gray-200 px-4 py-2 font-medium">Professional</td>
-                    <td className="border border-gray-200 px-4 py-2">$899/month AUD</td>
+                    <td className="border border-gray-200 px-4 py-2">$1,199/month AUD</td>
                     <td className="border border-gray-200 px-4 py-2">Unlimited cases, automated briefings, full audit trail, up to 15 users</td>
                   </tr>
                   <tr className="bg-gray-50">

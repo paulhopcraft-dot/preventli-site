@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import AlexWidget from "@/components/AlexWidget";
 import PainPoints from "@/components/PainPoints";
 import HowItWorks from "@/components/HowItWorks";
 import OnlineDoctor from "@/components/OnlineDoctor";
@@ -46,6 +47,7 @@ export default function Home() {
       </section>
       <ContactForm />
       <Footer />
+      <AlexWidget />
     </main>
   );
 }
