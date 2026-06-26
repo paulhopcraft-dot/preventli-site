@@ -129,11 +129,7 @@ export default function Calculator() {
               onChange={(e) =>
                 setClaimsOverride(formatThousands(e.target.value))
               }
-              placeholder={
-                wicCode && remuneration > 0
-                  ? "Calculating…"
-                  : "Enter wages + industry first"
-              }
+              placeholder=""
               className={`${inputClass} pl-7`}
             />
           </div>
