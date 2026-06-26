@@ -11,9 +11,9 @@ const plans = [
     popular: false,
     metrics: ["1 user", "1 check / month", "1 active case"],
     features: [
-      "Preventli Advisor — Alex — your own personal consultant",
       "RTW tracking & documents",
       "WorkSafe compliance checklists",
+      "Preventli Advisor — Alex",
     ],
     support: null as null | { title: string; desc: string },
     cta: "Get Started Free",
@@ -27,12 +27,12 @@ const plans = [
     priceSuffix: "/mo",
     description: "For small teams getting started.",
     popular: false,
-    metrics: ["3 users", "4 checks / month", "Up to 5 active cases"],
+    metrics: ["3 users", "3 checks / month", "Up to 5 active cases"],
     features: [
       "Everything in Free",
       "RTW plans & document management",
       "Pre-employment & health checks",
-      "Preventli Advisor — Alex — your own personal consultant",
+      "Health insights dashboard",
     ],
     support: {
       title: "Human support included",
@@ -49,14 +49,13 @@ const plans = [
     priceSuffix: "/mo",
     description: "For growing businesses that need more power and visibility.",
     popular: true,
-    metrics: ["Up to 10 users", "12 checks / month", "Up to 20 active cases"],
+    metrics: ["Up to 10 users", "10 checks / month", "Up to 20 active cases"],
     features: [
       "Everything in Starter",
-      "Premium management",
+      "Premium case management",
       "RTW auto-file & task automation",
       "Predictions & risk dashboard",
       "Audit trail & executive reports",
-      "Preventli Advisor — Alex — your own personal consultant",
     ],
     support: {
       title: "Expert guidance from real people",
@@ -79,7 +78,6 @@ const plans = [
       "Multi-org / multi-site support",
       "SSO + custom SLA",
       "Dedicated account manager",
-      "Preventli Advisor — Alex — your own personal consultant",
     ],
     support: {
       title: "Dedicated human support",
