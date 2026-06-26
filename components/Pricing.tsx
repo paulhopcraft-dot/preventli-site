@@ -148,6 +148,16 @@ export default function Pricing() {
           </p>
         </div>
 
+        {/* Free & unlimited wellbeing banner */}
+        <div className="flex items-center justify-center gap-3 bg-[#E8FFF3] border border-[#00E676]/40 rounded-2xl px-6 py-4 mb-8 max-w-2xl mx-auto">
+          <svg width="22" height="22" fill="none" stroke="#00E676" strokeWidth="2.5" viewBox="0 0 24 24" className="flex-shrink-0">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          <p className="text-[#0A1628] text-sm font-semibold">
+            Health &amp; wellbeing checks are <span className="text-[#00935d]">free and unlimited</span> on every Preventli plan
+          </p>
+        </div>
+
         {/* Plan cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
           {plans.map((plan, i) => (
@@ -294,8 +304,9 @@ export default function Pricing() {
 
         {/* Fine print */}
         <p className="text-center text-gray-400 text-sm mt-12 max-w-3xl mx-auto">
-          A &ldquo;check&rdquo; is any health check — new starter, exit, prevention, injury or wellbeing.
-          Beyond your plan, pay as you go from $40 each. Medico-legal and IME reports are billed
+          Monthly check allowance covers clinical checks — new starter, exit, prevention, and injury.
+          Health &amp; wellbeing checks are free and unlimited on all plans.
+          Additional clinical checks beyond your plan from $40 each. Medico-legal and IME reports billed
           separately ($119 / $149). Prices in AUD and exclude GST.{" "}
           <a href="#contact" className="text-[#00E676] hover:underline">
             Chat with us
