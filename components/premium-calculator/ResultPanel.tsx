@@ -37,8 +37,8 @@ function money(n: number): string {
   });
 }
 
-/** A sensible "serious claim" preset for the interactive impact panel (§4b). */
-const DEFAULT_CLAIM = 250_000;
+/** Maximum WorkCover VIC non-economic loss (pain & suffering) cap — 2025-26. */
+const DEFAULT_CLAIM = 680_000;
 
 const DISCLAIMER =
   "For illustration purposes only. This is an indicative estimate based on " +
@@ -65,7 +65,7 @@ export default function ResultPanel({
   savings,
   performance,
 }: Props) {
-  const [claimInput, setClaimInput] = useState(String(DEFAULT_CLAIM));
+  const [claimInput, setClaimInput] = useState(DEFAULT_CLAIM.toLocaleString("en-AU"));
   const [howOpen, setHowOpen] = useState(false);
 
   const [email, setEmail] = useState("");
@@ -250,6 +250,21 @@ export default function ResultPanel({
             className="w-full rounded-xl pl-7 pr-4 py-3 text-sm border border-gray-200 bg-white focus:outline-none focus:border-[#00E676]"
           />
         </div>
+        <p className="text-xs text-gray-400 mt-1.5">
+          Default is $680,000 — WorkCover VIC&apos;s non-economic loss cap for a
+          serious claim where a worker is off work for an extended period.{" "}
+          {claimCost !== DEFAULT_CLAIM && (
+            <button
+              type="button"
+              onClick={() =>
+                setClaimInput(DEFAULT_CLAIM.toLocaleString("en-AU"))
+              }
+              className="text-[#0A7A45] font-semibold"
+            >
+              Reset to maximum
+            </button>
+          )}
+        </p>
 
         {impact.showImpact ? (
           <div className="mt-4 space-y-2 text-sm">
