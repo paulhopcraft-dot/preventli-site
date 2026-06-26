@@ -30,7 +30,6 @@ function formatThousands(s: string): string {
 export default function Calculator() {
   const [wagesInput, setWagesInput] = useState("");
   const [wicCode, setWicCode] = useState("");
-  const [claimsExpanded, setClaimsExpanded] = useState(false);
   // null = follow the industry default; a string = user override.
   const [claimsOverride, setClaimsOverride] = useState<string | null>(null);
   const [priorInput, setPriorInput] = useState("");
@@ -108,64 +107,50 @@ export default function Calculator() {
 
         <IndustryPicker value={wicCode} onChange={setWicCode} />
 
-        {/* Claims cost — collapsed by default, pre-filled with ICCR × wages. */}
+        {/* Claims cost — always visible, pre-filled with industry average. */}
         <div>
-          <button
-            type="button"
-            onClick={() => setClaimsExpanded((v) => !v)}
-            className="flex w-full items-center justify-between text-left"
-          >
-            <span className="text-sm font-semibold text-gray-700">
-              Annual claims cost
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+            Annual claims cost
+          </label>
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">
+              $
             </span>
-            <span className="text-xs text-[#0A7A45] font-semibold">
-              {claimsExpanded ? "Hide" : "Adjust"}
-            </span>
-          </button>
-          {!claimsExpanded ? (
-            <p className="text-xs text-gray-400 mt-1.5">
-              We&apos;ve estimated this from your industry — tap{" "}
-              <span className="font-semibold">Adjust</span> if you know your
-              figure.
-            </p>
-          ) : (
-            <div className="mt-2">
-              <div className="relative">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">
-                  $
-                </span>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  value={
-                    claimsOverride !== null
-                      ? claimsOverride
-                      : defaultClaims
-                        ? formatThousands(String(defaultClaims))
-                        : ""
-                  }
-                  onChange={(e) =>
-                    setClaimsOverride(formatThousands(e.target.value))
-                  }
-                  placeholder="0"
-                  className={`${inputClass} pl-7`}
-                />
-              </div>
-              <p className="text-xs text-gray-400 mt-1.5">
-                Pre-filled with your industry average. Edit if you know your
-                actual annual claims cost.
-                {claimsOverride !== null && (
-                  <button
-                    type="button"
-                    onClick={() => setClaimsOverride(null)}
-                    className="ml-1 text-[#0A7A45] font-semibold"
-                  >
-                    Reset to estimate
-                  </button>
-                )}
-              </p>
-            </div>
-          )}
+            <input
+              type="text"
+              inputMode="numeric"
+              value={
+                claimsOverride !== null
+                  ? claimsOverride
+                  : defaultClaims
+                    ? formatThousands(String(defaultClaims))
+                    : ""
+              }
+              onChange={(e) =>
+                setClaimsOverride(formatThousands(e.target.value))
+              }
+              placeholder={
+                wicCode && remuneration > 0
+                  ? "Calculating…"
+                  : "Enter wages + industry first"
+              }
+              className={`${inputClass} pl-7`}
+            />
+          </div>
+          <p className="text-xs text-gray-400 mt-1.5">
+            {claimsOverride === null
+              ? "Pre-filled at your industry average — what you'd pay if performing exactly at par. Edit if you know your actual figure."
+              : "Using your figure."}
+            {claimsOverride !== null && (
+              <button
+                type="button"
+                onClick={() => setClaimsOverride(null)}
+                className="ml-1 text-[#0A7A45] font-semibold"
+              >
+                Reset to industry average
+              </button>
+            )}
+          </p>
         </div>
 
         {/* Optional current premium — reveals their real performance rating
