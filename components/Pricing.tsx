@@ -47,7 +47,7 @@ const plans = [
     name: "Professional",
     price: "$1,199",
     priceSuffix: "/mo",
-    description: "For growing businesses that need more power and visibility.",
+    description: "For larger businesses that need more power and visibility.",
     popular: true,
     metrics: ["Up to 10 users", "10 checks / month", "Up to 20 active cases"],
     features: [
@@ -70,7 +70,7 @@ const plans = [
     name: "Enterprise",
     price: "Ask us",
     priceSuffix: "",
-    description: "For large organisations with custom needs, SLAs and SSO.",
+    description: "For businesses with custom needs, dedicated SLAs and SSO.",
     popular: false,
     metrics: ["Unlimited users", "Custom checks / month", "Unlimited active cases"],
     features: [
