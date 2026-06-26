@@ -25,7 +25,10 @@ export default function Footer() {
                   <polyline points="9 12 11 14 15 10" />
                 </svg>
               </div>
-              <span className="text-white font-bold text-xl">Prevent<span className="text-[#00E676]">li</span></span>
+              <div>
+                <span className="text-white font-bold text-xl">Prevent<span className="text-[#00E676]">li</span></span>
+                <p className="text-[#3D5A73] text-xs tracking-[0.2em] mt-0.5">monitor · thrive · support</p>
+              </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               WorkCover Claims Made Preventable. Helping Australian businesses
