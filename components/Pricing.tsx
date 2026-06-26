@@ -35,7 +35,7 @@ const plans = [
       "Health insights dashboard",
     ],
     support: {
-      title: "Human support included",
+      title: "Support included",
       desc: "Our team is here if you need advice or clarity.",
     },
     cta: "Request Access",
@@ -58,7 +58,7 @@ const plans = [
       "Audit trail & executive reports",
     ],
     support: {
-      title: "Expert guidance from real people",
+      title: "Expert guidance",
       desc: "Access to our workplace health experts whenever you need them.",
     },
     cta: "Request Access",
@@ -80,7 +80,7 @@ const plans = [
       "Dedicated account manager",
     ],
     support: {
-      title: "Dedicated human support",
+      title: "Dedicated support",
       desc: "Your own account manager and priority support from our team.",
     },
     cta: "Contact Us",
