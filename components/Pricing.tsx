@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 
@@ -9,7 +9,7 @@ const plans = [
     priceSuffix: "/mo",
     description: "Try Preventli on a single case. No credit card.",
     popular: false,
-    metrics: ["1 user", "1 check / month", "1 active case"],
+    metrics: ["1 user", "1 clinical check / month", "1 H&W check / month", "1 active case"],
     features: [
       "RTW tracking & documents",
       "WorkSafe compliance checklists",
@@ -27,7 +27,7 @@ const plans = [
     priceSuffix: "/mo",
     description: "For small teams getting started.",
     popular: false,
-    metrics: ["3 users", "3 checks / month", "Up to 5 active cases"],
+    metrics: ["3 users", "3 clinical checks / month", "5 H&W checks / month", "Up to 5 active cases"],
     features: [
       "Everything in Free",
       "RTW plans & document management",
@@ -49,7 +49,7 @@ const plans = [
     priceSuffix: "/mo",
     description: "For larger businesses that need more power and visibility.",
     popular: true,
-    metrics: ["Up to 10 users", "10 checks / month", "Up to 20 active cases"],
+    metrics: ["Up to 10 users", "10 clinical checks / month", "Unlimited H&W checks", "Up to 20 active cases"],
     features: [
       "Everything in Starter",
       "Premium case management",
@@ -63,8 +63,8 @@ const plans = [
     },
     cta: "Request Access",
     ctaHref: "#contact",
-    cardClass: "border-[#00E676]",
-    ctaClass: "bg-[#00E676] text-[#0A1628] hover:bg-[#00C060]",
+    cardClass: "border-[#8DC63F]",
+    ctaClass: "bg-[#8DC63F] text-[#0A1628] hover:bg-[#00C060]",
   },
   {
     name: "Enterprise",
@@ -72,7 +72,7 @@ const plans = [
     priceSuffix: "",
     description: "For businesses with custom needs, dedicated SLAs and SSO.",
     popular: false,
-    metrics: ["Unlimited users", "Custom checks / month", "Unlimited active cases"],
+    metrics: ["Unlimited users", "Custom clinical checks / month", "Unlimited H&W checks", "Unlimited active cases"],
     features: [
       "Everything in Professional",
       "Multi-org / multi-site support",
@@ -97,7 +97,7 @@ function CheckIcon() {
       width="16"
       height="16"
       fill="none"
-      stroke="#00E676"
+      stroke="#8DC63F"
       strokeWidth="2.5"
       viewBox="0 0 24 24"
     >
@@ -108,7 +108,7 @@ function CheckIcon() {
 
 function PeopleIcon() {
   return (
-    <svg width="26" height="26" fill="none" stroke="#00E676" strokeWidth="1.5" viewBox="0 0 24 24">
+    <svg width="26" height="26" fill="none" stroke="#8DC63F" strokeWidth="1.5" viewBox="0 0 24 24">
       <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
       <circle cx="9" cy="7" r="4" />
       <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
@@ -137,7 +137,7 @@ export default function Pricing() {
     <section id="pricing" className="py-20 bg-[#F8F9FA]">
       <div ref={ref} className="section-observe max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <span className="text-[#00E676] text-sm font-semibold uppercase tracking-widest">
+          <span className="text-[#8DC63F] text-sm font-semibold uppercase tracking-widest">
             Simple Pricing
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mt-3 mb-4">
@@ -149,12 +149,12 @@ export default function Pricing() {
         </div>
 
         {/* Free & unlimited wellbeing banner */}
-        <div className="flex items-center justify-center gap-3 bg-[#E8FFF3] border border-[#00E676]/40 rounded-2xl px-6 py-4 mb-8 max-w-2xl mx-auto">
-          <svg width="22" height="22" fill="none" stroke="#00E676" strokeWidth="2.5" viewBox="0 0 24 24" className="flex-shrink-0">
+        <div className="flex items-center justify-center gap-3 bg-[#E8FFF3] border border-[#8DC63F]/40 rounded-2xl px-6 py-4 mb-8 max-w-2xl mx-auto">
+          <svg width="22" height="22" fill="none" stroke="#8DC63F" strokeWidth="2.5" viewBox="0 0 24 24" className="flex-shrink-0">
             <polyline points="20 6 9 17 4 12" />
           </svg>
           <p className="text-[#0A1628] text-sm font-semibold">
-            Health &amp; wellbeing checks are <span className="text-[#00935d]">free and unlimited</span> on every Preventli plan
+            Health &amp; wellbeing checks are <span className="text-[#00935d]">included on every plan</span> — unlimited on Professional &amp; Enterprise
           </p>
         </div>
 
@@ -164,14 +164,14 @@ export default function Pricing() {
             <div
               key={i}
               className={`relative bg-white border-2 ${plan.cardClass} rounded-2xl p-6 flex flex-col ${
-                plan.popular ? "shadow-xl shadow-[#00E676]/15" : "shadow-sm"
+                plan.popular ? "shadow-xl shadow-[#8DC63F]/15" : "shadow-sm"
               }`}
             >
               {/* Header row */}
               <div className="flex items-start justify-between mb-2">
                 <h3 className="text-xl font-bold text-[#0A1628]">{plan.name}</h3>
                 {plan.popular && (
-                  <span className="bg-[#00E676] text-[#0A1628] text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wide leading-none">
+                  <span className="bg-[#8DC63F] text-[#0A1628] text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wide leading-none">
                     POPULAR
                   </span>
                 )}
@@ -252,7 +252,7 @@ export default function Pricing() {
                     <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
                   </svg>
                 </div>
-                <span className="absolute -bottom-1 -right-1 bg-[#00E676] text-[#0A1628] text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                <span className="absolute -bottom-1 -right-1 bg-[#8DC63F] text-[#0A1628] text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none">
                   Alex
                 </span>
               </div>
@@ -268,7 +268,7 @@ export default function Pricing() {
             {/* People behind the platform */}
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#F0FFF4] flex items-center justify-center">
-                <svg width="28" height="28" fill="none" stroke="#00E676" strokeWidth="1.5" viewBox="0 0 24 24">
+                <svg width="28" height="28" fill="none" stroke="#8DC63F" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
                   <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
@@ -286,7 +286,7 @@ export default function Pricing() {
             {/* Experience */}
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#F0FFF4] flex items-center justify-center">
-                <svg width="28" height="28" fill="none" stroke="#00E676" strokeWidth="1.5" viewBox="0 0 24 24">
+                <svg width="28" height="28" fill="none" stroke="#8DC63F" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   <polyline points="9 12 11 14 15 10" />
                 </svg>
@@ -304,11 +304,11 @@ export default function Pricing() {
 
         {/* Fine print */}
         <p className="text-center text-gray-400 text-sm mt-12 max-w-3xl mx-auto">
-          Monthly check allowance covers clinical checks — new starter, exit, prevention, and injury.
-          Health &amp; wellbeing checks are free and unlimited on all plans.
+          Clinical checks cover new starter, exit, prevention, and injury assessments.
+          Health &amp; wellbeing checks are included on all plans (1/mo Free · 5/mo Starter · unlimited Professional+).
           Additional clinical checks beyond your plan from $40 each. Medico-legal and IME reports billed
           separately ($119 / $149). Prices in AUD and exclude GST.{" "}
-          <a href="#contact" className="text-[#00E676] hover:underline">
+          <a href="#contact" className="text-[#8DC63F] hover:underline">
             Chat with us
           </a>{" "}
           — we&apos;ll help you figure out what makes sense for your business.
