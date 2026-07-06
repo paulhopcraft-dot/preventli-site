@@ -17,7 +17,7 @@ const plans = [
     ],
     support: null as null | { title: string; desc: string },
     cta: "Get Started Free",
-    ctaHref: "https://app.preventli.ai",
+    ctaHref: "/start-trial",
     cardClass: "border-gray-200",
     ctaClass: "bg-[#0A1628] text-white hover:bg-[#0D1F3C]",
   },
