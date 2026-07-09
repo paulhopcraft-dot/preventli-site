@@ -72,9 +72,15 @@ export default function Navbar() {
             </a>
             <a
               href="/#calculator"
-              className="bg-[#00E676] text-[#0A1628] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#00C060] transition-colors"
+              className="text-sm text-gray-300 hover:text-white transition-colors font-medium"
             >
               Premium Calculator
+            </a>
+            <a
+              href="/start-trial"
+              className="bg-[#00E676] text-[#0A1628] px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#00C060] transition-colors"
+            >
+              Try Alex Free
             </a>
           </div>
 
@@ -138,9 +144,16 @@ export default function Navbar() {
             <a
               href="/#calculator"
               onClick={() => setMenuOpen(false)}
-              className="block w-full text-center bg-[#00E676] text-[#0A1628] px-4 py-3 rounded-lg text-sm font-semibold mt-4"
+              className="block text-gray-300 hover:text-[#00E676] py-2 text-sm font-medium transition-colors"
             >
               Premium Calculator
+            </a>
+            <a
+              href="/start-trial"
+              onClick={() => setMenuOpen(false)}
+              className="block w-full text-center bg-[#00E676] text-[#0A1628] px-4 py-3 rounded-lg text-sm font-semibold mt-4"
+            >
+              Try Alex Free
             </a>
           </div>
         </div>

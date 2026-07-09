@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react";
 interface Message {
   role: "user" | "assistant";
   content: string;
+  fallback?: boolean;
 }
 
 const QUICK_REPLIES = [
@@ -58,7 +59,8 @@ export default function AlexWidget() {
           role: "assistant",
           content:
             data.reply ||
-            "I had trouble with that. Try again or email lisah@preventli.ai.",
+            "I had trouble with that, but you can start your free trial instantly instead. Or email lisah@preventli.ai.",
+          fallback: data.fallback || !data.reply,
         },
       ]);
     } catch {
@@ -66,7 +68,9 @@ export default function AlexWidget() {
         ...prev,
         {
           role: "assistant",
-          content: "Something went wrong. Please email lisah@preventli.ai.",
+          content:
+            "Something went wrong, but you can start your free trial instantly instead. Or email lisah@preventli.ai.",
+          fallback: true,
         },
       ]);
     } finally {
@@ -147,24 +151,33 @@ export default function AlexWidget() {
 
             {/* Conversation */}
             {messages.map((msg, i) => (
-              <div
-                key={i}
-                className={`flex items-start gap-2 ${msg.role === "user" ? "flex-row-reverse" : ""}`}
-              >
-                {msg.role === "assistant" && (
-                  <div className="w-6 h-6 rounded-full bg-[#00E676] flex items-center justify-center text-[#0A1628] font-bold text-xs flex-shrink-0 mt-0.5">
-                    A
-                  </div>
-                )}
+              <div key={i} className="flex flex-col gap-1.5">
                 <div
-                  className={`rounded-xl px-3 py-2 text-sm max-w-[210px] whitespace-pre-wrap ${
-                    msg.role === "user"
-                      ? "bg-[#0A1628] text-white rounded-tr-sm"
-                      : "bg-gray-50 text-gray-700 rounded-tl-sm"
-                  }`}
+                  className={`flex items-start gap-2 ${msg.role === "user" ? "flex-row-reverse" : ""}`}
                 >
-                  {msg.content}
+                  {msg.role === "assistant" && (
+                    <div className="w-6 h-6 rounded-full bg-[#00E676] flex items-center justify-center text-[#0A1628] font-bold text-xs flex-shrink-0 mt-0.5">
+                      A
+                    </div>
+                  )}
+                  <div
+                    className={`rounded-xl px-3 py-2 text-sm max-w-[210px] whitespace-pre-wrap ${
+                      msg.role === "user"
+                        ? "bg-[#0A1628] text-white rounded-tr-sm"
+                        : "bg-gray-50 text-gray-700 rounded-tl-sm"
+                    }`}
+                  >
+                    {msg.content}
+                  </div>
                 </div>
+                {msg.role === "assistant" && msg.fallback && (
+                  <a
+                    href="/start-trial"
+                    className="ml-8 inline-flex w-fit items-center gap-1.5 bg-[#00E676] text-[#0A1628] text-xs font-semibold px-3 py-1.5 rounded-full hover:bg-[#00C060] transition-colors"
+                  >
+                    Start Free Trial →
+                  </a>
+                )}
               </div>
             ))}
 

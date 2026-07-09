@@ -32,7 +32,8 @@ export async function POST(req: NextRequest) {
     if (!apiKey || apiKey === "your_openrouter_key") {
       return NextResponse.json({
         reply:
-          "Alex isn't available right now. Please email lisah@preventli.ai or book a demo at preventli.ai.",
+          "I can't chat live right now, but you don't need to wait for me — start your free trial instantly (no credit card needed) and the real Alex will be right there in the app. Or email lisah@preventli.ai.",
+        fallback: true,
       });
     }
 
@@ -58,20 +59,24 @@ export async function POST(req: NextRequest) {
     if (!res.ok) {
       console.error("OpenRouter error:", res.status);
       return NextResponse.json({
-        reply: "I'm having trouble right now. Please email lisah@preventli.ai.",
+        reply:
+          "I'm having trouble right now, but you can start your free trial instantly instead — no waiting needed. Or email lisah@preventli.ai.",
+        fallback: true,
       });
     }
 
     const data = await res.json();
     const reply =
       data.choices?.[0]?.message?.content ??
-      "I couldn't generate a response. Please email lisah@preventli.ai.";
+      "I couldn't generate a response, but you can start your free trial instantly instead. Or email lisah@preventli.ai.";
 
     return NextResponse.json({ reply });
   } catch (err) {
     console.error("Alex API error:", err);
     return NextResponse.json({
-      reply: "Something went wrong. Please email lisah@preventli.ai.",
+      reply:
+        "Something went wrong, but you can start your free trial instantly instead — no waiting needed. Or email lisah@preventli.ai.",
+      fallback: true,
     });
   }
 }
