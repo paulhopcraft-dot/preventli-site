@@ -2,23 +2,15 @@
 
 import { useEffect, useRef } from "react";
 
-const plans = [
+const tiers = [
   {
-    name: "Free",
+    name: "Pay as you go",
     price: "$0",
     priceSuffix: "/mo",
-    description: "Try Preventli on a single case. No credit card.",
+    description: "Only pay for the checks you run. No credit card to start.",
     popular: false,
-    metrics: ["1 user", "1 clinical check / month", "1 H&W check / month", "1 active case"],
-    features: [
-      "RTW tracking & documents",
-      "WorkSafe compliance checklists",
-      "Preventli Advisor — Alex",
-    ],
-    support: null as null | { title: string; desc: string },
-    cta: "Get Started Free",
+    cta: "Get Started",
     ctaHref: "/start-trial",
-    cardClass: "border-gray-200",
     ctaClass: "bg-[#0A1628] text-white hover:bg-[#0D1F3C]",
   },
   {
@@ -27,20 +19,8 @@ const plans = [
     priceSuffix: "/mo",
     description: "For small teams getting started.",
     popular: false,
-    metrics: ["3 users", "3 clinical checks / month", "5 H&W checks / month", "Up to 5 active cases"],
-    features: [
-      "Everything in Free",
-      "RTW plans & document management",
-      "Pre-employment & health checks",
-      "Health insights dashboard",
-    ],
-    support: {
-      title: "Support included",
-      desc: "Our team is here if you need advice or clarity.",
-    },
     cta: "Request Access",
     ctaHref: "#contact",
-    cardClass: "border-gray-200",
     ctaClass: "bg-[#0A1628] text-white hover:bg-[#0D1F3C]",
   },
   {
@@ -49,45 +29,30 @@ const plans = [
     priceSuffix: "/mo",
     description: "For larger businesses that need more power and visibility.",
     popular: true,
-    metrics: ["Up to 10 users", "10 clinical checks / month", "Unlimited H&W checks", "Up to 20 active cases"],
-    features: [
-      "Everything in Starter",
-      "Premium case management",
-      "RTW auto-file & task automation",
-      "Predictions & risk dashboard",
-      "Audit trail & executive reports",
-    ],
-    support: {
-      title: "Expert guidance",
-      desc: "Access to our workplace health experts whenever you need them.",
-    },
     cta: "Request Access",
     ctaHref: "#contact",
-    cardClass: "border-[#8DC63F]",
     ctaClass: "bg-[#8DC63F] text-[#0A1628] hover:bg-[#00C060]",
   },
-  {
-    name: "Enterprise",
-    price: "Ask us",
-    priceSuffix: "",
-    description: "For businesses with custom needs, dedicated SLAs and SSO.",
-    popular: false,
-    metrics: ["Unlimited users", "Custom clinical checks / month", "Unlimited H&W checks", "Unlimited active cases"],
-    features: [
-      "Everything in Professional",
-      "Multi-org / multi-site support",
-      "SSO + custom SLA",
-      "Dedicated account manager",
-    ],
-    support: {
-      title: "Dedicated support",
-      desc: "Your own account manager and priority support from our team.",
-    },
-    cta: "Contact Us",
-    ctaHref: "#contact",
-    cardClass: "border-[#FF8F00]",
-    ctaClass: "bg-[#0A1628] text-white hover:bg-[#0D1F3C]",
-  },
+];
+
+// One value per tier, in tiers[] order. true = included (check), false = not included (—),
+// string = shown as text in the cell.
+type Cell = string | boolean;
+
+const featureRows: { label: string; values: [Cell, Cell, Cell] }[] = [
+  { label: "Users", values: ["1", "3", "Up to 10"] },
+  { label: "Clinical checks", values: ["$49 / check", "3 / month", "10 / month"] },
+  { label: "Health & wellbeing checks", values: ["$49 / check", "5 / month", "20 / month"] },
+  { label: "Active cases", values: [false, "Up to 5", "Up to 20"] },
+  { label: "Preventli Advisor — Alex", values: [true, true, true] },
+  { label: "RTW plans & document management", values: [false, true, true] },
+  { label: "Pre-employment & health checks", values: [false, true, true] },
+  { label: "Health insights dashboard", values: [false, true, true] },
+  { label: "Premium case management", values: [false, false, true] },
+  { label: "RTW auto-file & task automation", values: [false, false, true] },
+  { label: "Predictions & risk dashboard", values: [false, false, true] },
+  { label: "Audit trail & executive reports", values: [false, false, true] },
+  { label: "Support", values: [false, "Support included", "Expert guidance"] },
 ];
 
 function CheckIcon() {
@@ -102,16 +67,6 @@ function CheckIcon() {
       viewBox="0 0 24 24"
     >
       <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
-
-function PeopleIcon() {
-  return (
-    <svg width="26" height="26" fill="none" stroke="#8DC63F" strokeWidth="1.5" viewBox="0 0 24 24">
-      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
     </svg>
   );
 }
@@ -148,90 +103,157 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* Free & unlimited wellbeing banner */}
-        <div className="flex items-center justify-center gap-3 bg-[#E8FFF3] border border-[#8DC63F]/40 rounded-2xl px-6 py-4 mb-8 max-w-2xl mx-auto">
-          <svg width="22" height="22" fill="none" stroke="#8DC63F" strokeWidth="2.5" viewBox="0 0 24 24" className="flex-shrink-0">
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-          <p className="text-[#0A1628] text-sm font-semibold">
-            Health &amp; wellbeing checks are <span className="text-[#00935d]">included on every plan</span> — unlimited on Professional &amp; Enterprise
-          </p>
+        {/* Free trial banner */}
+        <div className="bg-[#0A1628] rounded-2xl px-6 py-6 sm:py-7 mb-10 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 shadow-lg">
+          <div className="text-center sm:text-left">
+            <p className="text-white text-lg sm:text-xl font-bold mb-1">
+              Start your 14-day free trial
+            </p>
+            <p className="text-gray-300 text-sm">
+              Full system access — every check, every compliance tool — plus 1 free report of each check type. No credit card.
+            </p>
+          </div>
+          <a
+            href="/start-trial"
+            className="flex-shrink-0 bg-[#8DC63F] text-[#0A1628] px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#00C060] transition-all whitespace-nowrap"
+          >
+            Start Free Trial
+          </a>
         </div>
 
-        {/* Plan cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
-          {plans.map((plan, i) => (
+        {/* Comparison table — desktop */}
+        <div className="hidden lg:block max-w-5xl mx-auto bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr>
+                <th className="w-[28%] p-6 align-bottom text-left">
+                  <span className="text-sm font-semibold text-gray-400 uppercase tracking-wide">
+                    Compare plans
+                  </span>
+                </th>
+                {tiers.map((tier, i) => (
+                  <th
+                    key={i}
+                    className={`w-[24%] p-6 text-left align-top ${
+                      tier.popular ? "bg-[#8DC63F]/5 border-t-4 border-[#8DC63F]" : ""
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-lg font-bold text-[#0A1628]">{tier.name}</span>
+                      {tier.popular && (
+                        <span className="bg-[#8DC63F] text-[#0A1628] text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide leading-none">
+                          POPULAR
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-gray-500 text-xs font-normal leading-snug mb-3">
+                      {tier.description}
+                    </p>
+                    <div className="flex items-end gap-1 mb-4">
+                      <span className="text-3xl font-bold text-[#0A1628]">{tier.price}</span>
+                      <span className="text-gray-400 mb-0.5 text-sm font-normal">{tier.priceSuffix}</span>
+                    </div>
+                    <a
+                      href={tier.ctaHref}
+                      className={`block w-full text-center py-2.5 px-4 rounded-xl font-semibold text-sm transition-all ${tier.ctaClass}`}
+                    >
+                      {tier.cta}
+                    </a>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {featureRows.map((row, i) => (
+                <tr key={i}>
+                  <td className="px-6 py-3.5 text-sm text-gray-600 border-t border-gray-100">
+                    {row.label}
+                  </td>
+                  {row.values.map((v, j) => (
+                    <td
+                      key={j}
+                      className={`px-6 py-3.5 text-sm border-t border-gray-100 ${
+                        tiers[j].popular ? "bg-[#8DC63F]/5" : ""
+                      }`}
+                    >
+                      {v === true ? (
+                        <CheckIcon />
+                      ) : v === false ? (
+                        <span className="text-gray-300">—</span>
+                      ) : (
+                        <span className="text-gray-700 font-medium">{v}</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Plan cards — mobile & tablet (same data as the table) */}
+        <div className="lg:hidden grid grid-cols-1 md:grid-cols-3 gap-5 items-start max-w-5xl mx-auto">
+          {tiers.map((tier, i) => (
             <div
               key={i}
-              className={`relative bg-white border-2 ${plan.cardClass} rounded-2xl p-6 flex flex-col ${
-                plan.popular ? "shadow-xl shadow-[#8DC63F]/15" : "shadow-sm"
-              }`}
+              className={`relative bg-white border-2 ${
+                tier.popular ? "border-[#8DC63F] shadow-xl shadow-[#8DC63F]/15" : "border-gray-200 shadow-sm"
+              } rounded-2xl p-6 flex flex-col`}
             >
-              {/* Header row */}
               <div className="flex items-start justify-between mb-2">
-                <h3 className="text-xl font-bold text-[#0A1628]">{plan.name}</h3>
-                {plan.popular && (
+                <h3 className="text-xl font-bold text-[#0A1628]">{tier.name}</h3>
+                {tier.popular && (
                   <span className="bg-[#8DC63F] text-[#0A1628] text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wide leading-none">
                     POPULAR
                   </span>
                 )}
               </div>
 
-              {/* Description */}
-              <p className="text-gray-500 text-sm mb-4 leading-snug">{plan.description}</p>
+              <p className="text-gray-500 text-sm mb-4 leading-snug">{tier.description}</p>
 
-              {/* Price */}
               <div className="flex items-end gap-1 mb-5">
-                <span className="text-4xl font-bold text-[#0A1628]">{plan.price}</span>
-                {plan.priceSuffix && (
-                  <span className="text-gray-400 mb-1 text-sm">{plan.priceSuffix}</span>
-                )}
+                <span className="text-4xl font-bold text-[#0A1628]">{tier.price}</span>
+                <span className="text-gray-400 mb-1 text-sm">{tier.priceSuffix}</span>
               </div>
 
-              {/* Top metrics */}
-              <ul className="mb-4 space-y-1.5">
-                {plan.metrics.map((m, j) => (
-                  <li key={j} className="flex items-center gap-2 text-sm text-gray-700">
-                    <CheckIcon />
-                    {m}
-                  </li>
-                ))}
+              <ul className="space-y-2 mb-5 flex-1">
+                {featureRows
+                  .filter((row) => row.values[i] !== false)
+                  .map((row, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-gray-600">
+                      <CheckIcon />
+                      <span>
+                        {row.values[i] === true ? row.label : `${row.label}: ${row.values[i]}`}
+                      </span>
+                    </li>
+                  ))}
               </ul>
 
-              <hr className="border-gray-100 mb-4" />
-
-              {/* Feature list */}
-              <ul className="space-y-2 mb-4 flex-1">
-                {plan.features.map((f, j) => (
-                  <li key={j} className="flex items-start gap-2 text-sm text-gray-600">
-                    <CheckIcon />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Human support callout */}
-              {plan.support && (
-                <div className="flex items-start gap-3 bg-[#F8F9FA] rounded-xl px-3 py-3 mb-5">
-                  <div className="flex-shrink-0 mt-0.5">
-                    <PeopleIcon />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-[#0A1628]">{plan.support.title}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">{plan.support.desc}</p>
-                  </div>
-                </div>
-              )}
-
-              {/* CTA */}
               <a
-                href={plan.ctaHref}
-                className={`block w-full text-center py-3 px-6 rounded-xl font-semibold text-sm transition-all ${plan.ctaClass}`}
+                href={tier.ctaHref}
+                className={`block w-full text-center py-3 px-6 rounded-xl font-semibold text-sm transition-all ${tier.ctaClass}`}
               >
-                {plan.cta}
+                {tier.cta}
               </a>
             </div>
           ))}
+        </div>
+
+        {/* Enterprise / custom solution box */}
+        <div className="mt-8 max-w-5xl mx-auto border-2 border-[#FF8F00] rounded-2xl px-6 py-6 sm:py-7 flex flex-col sm:flex-row items-center justify-between gap-5 bg-white">
+          <div className="text-center sm:text-left">
+            <p className="text-[#0A1628] text-lg font-bold mb-1">Need a custom solution?</p>
+            <p className="text-gray-500 text-sm max-w-xl">
+              Rehab providers, insurers and multi-site operators — unlimited users, custom SLAs, SSO and volume
+              check pricing tailored to your caseload.
+            </p>
+          </div>
+          <a
+            href="#contact"
+            className="flex-shrink-0 bg-[#0A1628] text-white px-6 py-3 rounded-xl font-semibold text-sm hover:bg-[#0D1F3C] transition-all whitespace-nowrap"
+          >
+            Contact Us
+          </a>
         </div>
 
         {/* Below-cards — partnership section */}
@@ -304,10 +326,10 @@ export default function Pricing() {
 
         {/* Fine print */}
         <p className="text-center text-gray-400 text-sm mt-12 max-w-3xl mx-auto">
-          Clinical checks cover new starter, exit, prevention, and injury assessments.
-          Health &amp; wellbeing checks are included on all plans (1/mo Free · 5/mo Starter · unlimited Professional+).
-          Additional clinical checks beyond your plan from $40 each. Medico-legal and IME reports billed
-          separately ($119 / $149). Prices in AUD and exclude GST.{" "}
+          Pay as you go checks are billed individually as you run them; Starter and Professional include a set
+          number each month, with additional checks billed the same way once you&apos;re over your plan.
+          All checks $49 each. Clinical reports $125. Medico-legal reports and IMEs $145 each.
+          Prices in AUD and exclude GST.{" "}
           <a href="#contact" className="text-[#8DC63F] hover:underline">
             Chat with us
           </a>{" "}

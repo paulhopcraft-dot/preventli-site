@@ -82,9 +82,9 @@ export default function TermsPage() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-gray-200 px-4 py-2 font-medium">Free</td>
-                    <td className="border border-gray-200 px-4 py-2">Free</td>
-                    <td className="border border-gray-200 px-4 py-2">1 user, 1 active case</td>
+                    <td className="border border-gray-200 px-4 py-2 font-medium">Pay as you go</td>
+                    <td className="border border-gray-200 px-4 py-2">No monthly fee</td>
+                    <td className="border border-gray-200 px-4 py-2">1 user; checks billed individually as run</td>
                   </tr>
                   <tr className="bg-gray-50">
                     <td className="border border-gray-200 px-4 py-2 font-medium">Starter</td>
@@ -104,6 +104,45 @@ export default function TermsPage() {
                 </tbody>
               </table>
             </div>
+            <p className="mt-4">
+              New customers may access a 14-day free trial with full platform access and one complimentary report
+              per check type before choosing a paid plan. No credit card is required to start a trial.
+            </p>
+
+            <h3 className="font-semibold text-[#0A1628] mb-2 mt-6">b) Pay-As-You-Go &amp; Overage Pricing</h3>
+            <p>
+              Checks on the Pay as you go plan, and checks run beyond a paid plan&apos;s monthly allowance, are
+              billed individually at the following rates (AUD, excl. GST):
+            </p>
+            <div className="overflow-x-auto mt-4">
+              <table className="w-full text-sm border-collapse border border-gray-200">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="border border-gray-200 px-4 py-2 text-left font-semibold text-[#0A1628]">Check / report type</th>
+                    <th className="border border-gray-200 px-4 py-2 text-left font-semibold text-[#0A1628]">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-2">All checks — New Starter (Pre-Employment), Injury Prevention, Mental Health, Exit, General Wellbeing (H&amp;W)</td>
+                    <td className="border border-gray-200 px-4 py-2">$49</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="border border-gray-200 px-4 py-2">Clinical report</td>
+                    <td className="border border-gray-200 px-4 py-2">$125</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-2">Medico-legal report</td>
+                    <td className="border border-gray-200 px-4 py-2">$145</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="border border-gray-200 px-4 py-2">Independent Medical Examination (IME)</td>
+                    <td className="border border-gray-200 px-4 py-2">$145</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
             <p className="mt-4">
               All fees are quoted in Australian dollars (AUD) and include GST where applicable under the{" "}
               <em>A New Tax System (Goods and Services Tax) Act 1999</em> (Cth).

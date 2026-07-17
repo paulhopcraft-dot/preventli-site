@@ -67,10 +67,10 @@ export default function StartTrialPage() {
             </span>
           </Link>
           <h1 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-2">
-            Start your free trial
+            Start your 14-day free trial
           </h1>
           <p className="text-gray-500 text-sm">
-            No credit card. 1 active case, 1 clinical check a month, Alex included.
+            No credit card. Full system access for 14 days, plus 1 free report of each check type.
           </p>
         </div>
 
@@ -184,7 +184,7 @@ export default function StartTrialPage() {
                 disabled={state === "loading"}
                 className="w-full bg-[#8DC63F] text-[#0A1628] py-4 px-6 rounded-xl font-bold text-sm hover:bg-[#00C060] transition-all disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                {state === "loading" ? "Creating your account…" : "Start free trial"}
+                {state === "loading" ? "Creating your account…" : "Start 14-day free trial"}
               </button>
 
               <p className="text-gray-400 text-xs text-center">
