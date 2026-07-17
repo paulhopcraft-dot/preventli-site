@@ -2,10 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-// H&W check limit on Professional is a PLACEHOLDER pending Paul's confirmed number
-// (site previously said "unlimited" — dictated call notes 2026-07-17 say "limited" instead).
-const PROFESSIONAL_HW_LIMIT_PLACEHOLDER = "20 H&W checks / month";
-
 const plans = [
   {
     name: "Pay as you go",
@@ -53,7 +49,7 @@ const plans = [
     priceSuffix: "/mo",
     description: "For larger businesses that need more power and visibility.",
     popular: true,
-    metrics: ["Up to 10 users", "10 clinical checks / month", PROFESSIONAL_HW_LIMIT_PLACEHOLDER, "Up to 20 active cases"],
+    metrics: ["Up to 10 users", "10 clinical checks / month", "20 H&W checks / month", "Up to 20 active cases"],
     features: [
       "Everything in Starter",
       "Premium case management",

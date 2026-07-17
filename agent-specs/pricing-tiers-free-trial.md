@@ -33,9 +33,10 @@ Paul: LinkedIn goes manual for now (automation paused). Build focus:
 1. Website pricing section: free-trial banner on top, PAYG / $595 / $1,199 columns, custom-solution box at bottom.
 2. Functionality behind **free trial** and **pay as you go** — just those two.
 
-## Open questions (need Paul)
+## Resolved (2026-07-17, same day)
 
-1. **PAYG per-check price?** Fine print currently says extra clinical checks "from $40 each" and medico-legal/IME $119/$149. Are those the PAYG prices, or new ones?
-2. Transcript garble: "second is your 895" — no $895 exists on the current page. Assume final columns are PAYG / $595 / $1,199 unless Paul says otherwise.
-3. Professional's H&W checks: "limited" — what number? (Currently "unlimited" on the site.)
-4. Does the top banner's trial CTA reuse the existing `/start-trial` flow?
+1. **PAYG per-check prices (Paul, by voice):** all checks $49 flat (New Starter, Injury Prevention, Mental Health, Exit, General Wellbeing). Clinical report $125. Medico-legal $145. IME $145. Note: medico-legal/IME is a rise from the $125 on June invoices — existing clients (State Trustees etc.) should get a heads-up at next billing.
+2. "895" garble: discarded. Final columns confirmed PAYG / $595 / $1,199.
+3. Professional H&W limit: **20/month** (Claude's call, Paul delegated — 4× Starter's 5/mo, bundle math holds at $49/check).
+4. Trial CTA: reuses existing `/start-trial` flow. Yes.
+5. **All-PAYG idea (no monthly plans, free system): considered and dropped by Paul.** Context: doctors will do checks free (relationship deal), making $49/check ~pure margin. Decision: keep tiers anyway — favor won't survive scale, tiers preserve pricing power, real bottleneck is customer count. Test all-PAYG as a sales-call offer if desired, not on the public site.
