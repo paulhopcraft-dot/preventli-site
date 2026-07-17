@@ -124,23 +124,7 @@ export default function TermsPage() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-gray-200 px-4 py-2">Exit Assessment</td>
-                    <td className="border border-gray-200 px-4 py-2">$40</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="border border-gray-200 px-4 py-2">General Wellbeing (H&amp;W) check</td>
-                    <td className="border border-gray-200 px-4 py-2">$40</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-200 px-4 py-2">New Starter (Pre-Employment) check</td>
-                    <td className="border border-gray-200 px-4 py-2">$49</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="border border-gray-200 px-4 py-2">Injury Prevention check</td>
-                    <td className="border border-gray-200 px-4 py-2">$49</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-200 px-4 py-2">Mental Health check</td>
+                    <td className="border border-gray-200 px-4 py-2">All checks — New Starter (Pre-Employment), Injury Prevention, Mental Health, Exit, General Wellbeing (H&amp;W)</td>
                     <td className="border border-gray-200 px-4 py-2">$49</td>
                   </tr>
                   <tr className="bg-gray-50">
@@ -153,7 +137,7 @@ export default function TermsPage() {
                   </tr>
                   <tr className="bg-gray-50">
                     <td className="border border-gray-200 px-4 py-2">Independent Medical Examination (IME)</td>
-                    <td className="border border-gray-200 px-4 py-2">Contact us for pricing</td>
+                    <td className="border border-gray-200 px-4 py-2">$145</td>
                   </tr>
                 </tbody>
               </table>

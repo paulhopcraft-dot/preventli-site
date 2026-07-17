@@ -313,8 +313,8 @@ export default function Pricing() {
         <p className="text-center text-gray-400 text-sm mt-12 max-w-3xl mx-auto">
           Pay as you go checks are billed individually as you run them; Starter and Professional include a set
           number each month, with additional checks billed the same way once you&apos;re over your plan.
-          Exit &amp; General Wellbeing checks $40 each. New Starter, Injury Prevention &amp; Mental Health checks $49
-          each. Clinical reports $125. Medico-legal reports $145. Prices in AUD and exclude GST.{" "}
+          All checks $49 each. Clinical reports $125. Medico-legal reports and IMEs $145 each.
+          Prices in AUD and exclude GST.{" "}
           <a href="#contact" className="text-[#8DC63F] hover:underline">
             Chat with us
           </a>{" "}
