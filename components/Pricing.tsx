@@ -2,21 +2,25 @@
 
 import { useEffect, useRef } from "react";
 
+// H&W check limit on Professional is a PLACEHOLDER pending Paul's confirmed number
+// (site previously said "unlimited" — dictated call notes 2026-07-17 say "limited" instead).
+const PROFESSIONAL_HW_LIMIT_PLACEHOLDER = "20 H&W checks / month";
+
 const plans = [
   {
-    name: "Free",
+    name: "Pay as you go",
     price: "$0",
     priceSuffix: "/mo",
-    description: "Try Preventli on a single case. No credit card.",
+    description: "Only pay for the checks you run. No credit card to start.",
     popular: false,
-    metrics: ["1 user", "1 clinical check / month", "1 H&W check / month", "1 active case"],
+    metrics: ["1 user", "Checks billed individually", "No monthly minimum"],
     features: [
-      "RTW tracking & documents",
-      "WorkSafe compliance checklists",
+      "Clinical & H&W checks, pay per check",
       "Preventli Advisor — Alex",
+      "Case management, compliance & dashboards — upgrade to unlock",
     ],
     support: null as null | { title: string; desc: string },
-    cta: "Get Started Free",
+    cta: "Get Started",
     ctaHref: "/start-trial",
     cardClass: "border-gray-200",
     ctaClass: "bg-[#0A1628] text-white hover:bg-[#0D1F3C]",
@@ -29,7 +33,7 @@ const plans = [
     popular: false,
     metrics: ["3 users", "3 clinical checks / month", "5 H&W checks / month", "Up to 5 active cases"],
     features: [
-      "Everything in Free",
+      "Everything in Pay as you go",
       "RTW plans & document management",
       "Pre-employment & health checks",
       "Health insights dashboard",
@@ -49,7 +53,7 @@ const plans = [
     priceSuffix: "/mo",
     description: "For larger businesses that need more power and visibility.",
     popular: true,
-    metrics: ["Up to 10 users", "10 clinical checks / month", "Unlimited H&W checks", "Up to 20 active cases"],
+    metrics: ["Up to 10 users", "10 clinical checks / month", PROFESSIONAL_HW_LIMIT_PLACEHOLDER, "Up to 20 active cases"],
     features: [
       "Everything in Starter",
       "Premium case management",
@@ -65,28 +69,6 @@ const plans = [
     ctaHref: "#contact",
     cardClass: "border-[#8DC63F]",
     ctaClass: "bg-[#8DC63F] text-[#0A1628] hover:bg-[#00C060]",
-  },
-  {
-    name: "Enterprise",
-    price: "Ask us",
-    priceSuffix: "",
-    description: "For businesses with custom needs, dedicated SLAs and SSO.",
-    popular: false,
-    metrics: ["Unlimited users", "Custom clinical checks / month", "Unlimited H&W checks", "Unlimited active cases"],
-    features: [
-      "Everything in Professional",
-      "Multi-org / multi-site support",
-      "SSO + custom SLA",
-      "Dedicated account manager",
-    ],
-    support: {
-      title: "Dedicated support",
-      desc: "Your own account manager and priority support from our team.",
-    },
-    cta: "Contact Us",
-    ctaHref: "#contact",
-    cardClass: "border-[#FF8F00]",
-    ctaClass: "bg-[#0A1628] text-white hover:bg-[#0D1F3C]",
   },
 ];
 
@@ -148,18 +130,26 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* Free & unlimited wellbeing banner */}
-        <div className="flex items-center justify-center gap-3 bg-[#E8FFF3] border border-[#8DC63F]/40 rounded-2xl px-6 py-4 mb-8 max-w-2xl mx-auto">
-          <svg width="22" height="22" fill="none" stroke="#8DC63F" strokeWidth="2.5" viewBox="0 0 24 24" className="flex-shrink-0">
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-          <p className="text-[#0A1628] text-sm font-semibold">
-            Health &amp; wellbeing checks are <span className="text-[#00935d]">included on every plan</span> — unlimited on Professional &amp; Enterprise
-          </p>
+        {/* Free trial banner */}
+        <div className="bg-[#0A1628] rounded-2xl px-6 py-6 sm:py-7 mb-10 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 shadow-lg">
+          <div className="text-center sm:text-left">
+            <p className="text-white text-lg sm:text-xl font-bold mb-1">
+              Start your 14-day free trial
+            </p>
+            <p className="text-gray-300 text-sm">
+              Full system access — every check, every compliance tool — plus 1 free report of each check type. No credit card.
+            </p>
+          </div>
+          <a
+            href="/start-trial"
+            className="flex-shrink-0 bg-[#8DC63F] text-[#0A1628] px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#00C060] transition-all whitespace-nowrap"
+          >
+            Start Free Trial
+          </a>
         </div>
 
         {/* Plan cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start max-w-5xl mx-auto">
           {plans.map((plan, i) => (
             <div
               key={i}
@@ -234,6 +224,23 @@ export default function Pricing() {
           ))}
         </div>
 
+        {/* Enterprise / custom solution box */}
+        <div className="mt-8 max-w-5xl mx-auto border-2 border-[#FF8F00] rounded-2xl px-6 py-6 sm:py-7 flex flex-col sm:flex-row items-center justify-between gap-5 bg-white">
+          <div className="text-center sm:text-left">
+            <p className="text-[#0A1628] text-lg font-bold mb-1">Need a custom solution?</p>
+            <p className="text-gray-500 text-sm max-w-xl">
+              Rehab providers, insurers and multi-site operators — unlimited users, custom SLAs, SSO and volume
+              check pricing tailored to your caseload.
+            </p>
+          </div>
+          <a
+            href="#contact"
+            className="flex-shrink-0 bg-[#0A1628] text-white px-6 py-3 rounded-xl font-semibold text-sm hover:bg-[#0D1F3C] transition-all whitespace-nowrap"
+          >
+            Contact Us
+          </a>
+        </div>
+
         {/* Below-cards — partnership section */}
         <div className="mt-16 text-center">
           <p className="text-[#0A1628] text-lg font-semibold mb-1">
@@ -305,9 +312,9 @@ export default function Pricing() {
         {/* Fine print */}
         <p className="text-center text-gray-400 text-sm mt-12 max-w-3xl mx-auto">
           Clinical checks cover new starter, exit, prevention, and injury assessments.
-          Health &amp; wellbeing checks are included on all plans (1/mo Free · 5/mo Starter · unlimited Professional+).
-          Additional clinical checks beyond your plan from $40 each. Medico-legal and IME reports billed
-          separately ($119 / $149). Prices in AUD and exclude GST.{" "}
+          Pay as you go checks are billed individually as you run them. Starter and Professional include a set
+          number of checks each month; additional clinical checks beyond your plan from $40 each. Medico-legal and
+          IME reports billed separately ($119 / $149). Prices in AUD and exclude GST.{" "}
           <a href="#contact" className="text-[#8DC63F] hover:underline">
             Chat with us
           </a>{" "}

@@ -63,7 +63,7 @@ export default function Hero() {
             href="/start-trial"
             className="inline-flex items-center justify-center gap-2 bg-[#00E676] text-[#0A1628] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#00C060] transition-all hover:scale-105 shadow-lg shadow-[#00E676]/25"
           >
-            Get Started Free
+            Start Free Trial
             <svg
               width="20"
               height="20"
@@ -86,8 +86,8 @@ export default function Hero() {
         {/* Floating stat cards */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <div className="animate-float bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 text-center">
-            <div className="text-3xl font-bold text-[#00E676]">Free</div>
-            <div className="text-sm text-gray-300 mt-1">Start — no credit card</div>
+            <div className="text-3xl font-bold text-[#00E676]">14 Days</div>
+            <div className="text-sm text-gray-300 mt-1">Free trial, no credit card</div>
           </div>
           <div className="animate-float-delay bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 text-center">
             <div className="text-3xl font-bold text-[#00E676]">3,000+</div>
