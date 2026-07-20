@@ -72,15 +72,15 @@ describe("buildGoogleSignupUrl", () => {
     expect(parsed.origin + parsed.pathname).toBe(base);
     expect(parsed.searchParams.get("company")).toBe("Acme Pty Ltd");
     expect(parsed.searchParams.get("employeeCount")).toBe("1-10");
-    expect(parsed.searchParams.get("orgKind")).toBe("employer");
-    expect(parsed.searchParams.has("partnerBusinessType")).toBe(false);
+    expect(parsed.searchParams.get("kind")).toBe("employer");
+    expect(parsed.searchParams.has("businessType")).toBe(false);
   });
 
-  it("builds a partner URL that includes partnerBusinessType", () => {
+  it("builds a partner URL that includes businessType", () => {
     const url = buildGoogleSignupUrl(base, basePartnerFields);
     const parsed = new URL(url!);
-    expect(parsed.searchParams.get("orgKind")).toBe("partner");
-    expect(parsed.searchParams.get("partnerBusinessType")).toBe("rehabilitation_provider");
+    expect(parsed.searchParams.get("kind")).toBe("partner");
+    expect(parsed.searchParams.get("businessType")).toBe("rehabilitation_provider");
   });
 
   it("trims and URL-encodes special characters in the company name", () => {

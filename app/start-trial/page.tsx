@@ -70,8 +70,8 @@ export default function StartTrialPage() {
           company,
           password,
           employeeCount,
-          orgKind,
-          ...(orgKind === "partner" ? { partnerBusinessType } : {}),
+          kind: orgKind,
+          ...(orgKind === "partner" ? { businessType: partnerBusinessType } : {}),
         }),
       });
 

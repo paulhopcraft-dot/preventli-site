@@ -1,8 +1,10 @@
 // Shared org-info fields collected before either /start-trial signup path
-// (Google OAuth or email/password) is allowed to proceed. Field names and
-// value shapes are a fixed contract with the receiving app-side signup
-// endpoint (app.preventli.ai) — do not rename or reshape without updating
-// both sides.
+// (Google OAuth or email/password) is allowed to proceed. Internal field
+// names here (orgKind, partnerBusinessType) are UI-local; the wire keys
+// sent to the app-side signup endpoint (app.preventli.ai) are `kind` and
+// `businessType` — see buildGoogleSignupUrl and the fetch body in
+// app/start-trial/page.tsx. Do not reshape the wire keys without updating
+// shared/signupFields.ts on the app side too.
 
 export type EmployeeCountBand = "1-10" | "11-50" | "51-200" | "201-500" | "500+";
 
@@ -64,10 +66,10 @@ export function buildGoogleSignupUrl(baseUrl: string, fields: TrialOrgFields): s
   const params = new URLSearchParams({
     company: fields.company.trim(),
     employeeCount: fields.employeeCount,
-    orgKind: fields.orgKind,
+    kind: fields.orgKind,
   });
   if (fields.orgKind === "partner" && fields.partnerBusinessType) {
-    params.set("partnerBusinessType", fields.partnerBusinessType);
+    params.set("businessType", fields.partnerBusinessType);
   }
 
   return `${baseUrl}?${params.toString()}`;
