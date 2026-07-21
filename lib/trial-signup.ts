@@ -1,10 +1,15 @@
 // Shared org-info fields collected before either /start-trial signup path
-// (Google OAuth or email/password) is allowed to proceed. Internal field
-// names here (orgKind, partnerBusinessType) are UI-local; the wire keys
-// sent to the app-side signup endpoint (app.preventli.ai) are `kind` and
-// `businessType` — see buildGoogleSignupUrl and the fetch body in
-// app/start-trial/page.tsx. Do not reshape the wire keys without updating
+// (Google OAuth or email/password) is allowed to proceed. The internal field
+// name orgKind is UI-local; the wire key sent to the app-side signup endpoint
+// (app.preventli.ai) is `kind` — see buildGoogleSignupUrl and the fetch body
+// in app/start-trial/page.tsx. Do not reshape the wire keys without updating
 // shared/signupFields.ts on the app side too.
+//
+// Removed 2026-07-21: a partner "business type" dropdown that was mandatory
+// whenever orgKind === "partner". Nothing on the app side ever read the value,
+// and its fixed option list didn't describe real prospects — so it was pure
+// friction on the highest-value signup segment. orgKind itself stays: it
+// genuinely drives the partner workspace + client picker.
 
 export type EmployeeCountBand = "1-10" | "11-50" | "51-200" | "201-500" | "500+";
 
@@ -18,38 +23,20 @@ export const EMPLOYEE_COUNT_OPTIONS: { value: EmployeeCountBand; label: string }
 
 export type OrgKind = "employer" | "partner";
 
-export type PartnerBusinessType =
-  | "rehabilitation_provider"
-  | "rtw_consultancy"
-  | "insurer_claims_agency"
-  | "eap_provider"
-  | "other";
-
-export const PARTNER_BUSINESS_TYPE_OPTIONS: { value: PartnerBusinessType; label: string }[] = [
-  { value: "rehabilitation_provider", label: "Rehabilitation provider" },
-  { value: "rtw_consultancy", label: "RTW consultancy" },
-  { value: "insurer_claims_agency", label: "Insurer or claims agency" },
-  { value: "eap_provider", label: "EAP provider" },
-  { value: "other", label: "Other" },
-];
-
 export interface TrialOrgFields {
   company: string;
   orgKind: OrgKind | "";
-  partnerBusinessType: PartnerBusinessType | "";
   employeeCount: EmployeeCountBand | "";
 }
 
 /**
- * True once company name, org kind, (partner business type if applicable),
- * and employee count are all filled in. This is the shared gate for both
- * signup paths — the Google button and the email/password submit handler
- * both call this before proceeding.
+ * True once company name, org kind, and employee count are all filled in.
+ * This is the shared gate for both signup paths — the Google button and the
+ * email/password submit handler both call this before proceeding.
  */
 export function isTrialOrgFieldsValid(fields: TrialOrgFields): boolean {
   if (!fields.company.trim()) return false;
   if (fields.orgKind !== "employer" && fields.orgKind !== "partner") return false;
-  if (fields.orgKind === "partner" && !fields.partnerBusinessType) return false;
   if (!fields.employeeCount) return false;
   return true;
 }
@@ -68,9 +55,6 @@ export function buildGoogleSignupUrl(baseUrl: string, fields: TrialOrgFields): s
     employeeCount: fields.employeeCount,
     kind: fields.orgKind,
   });
-  if (fields.orgKind === "partner" && fields.partnerBusinessType) {
-    params.set("businessType", fields.partnerBusinessType);
-  }
 
   return `${baseUrl}?${params.toString()}`;
 }
