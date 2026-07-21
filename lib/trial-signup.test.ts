@@ -12,14 +12,12 @@ import {
 const baseEmployerFields: TrialOrgFields = {
   company: "Acme Pty Ltd",
   orgKind: "employer",
-  partnerBusinessType: "",
   employeeCount: "1-10",
 };
 
 const basePartnerFields: TrialOrgFields = {
   company: "Acme Rehab",
   orgKind: "partner",
-  partnerBusinessType: "rehabilitation_provider",
   employeeCount: "11-50",
 };
 
@@ -41,16 +39,11 @@ describe("isTrialOrgFieldsValid", () => {
     expect(isTrialOrgFieldsValid({ ...baseEmployerFields, orgKind: "" })).toBe(false);
   });
 
-  it("fails when partner is chosen but business type is missing", () => {
-    expect(
-      isTrialOrgFieldsValid({ ...basePartnerFields, partnerBusinessType: "" })
-    ).toBe(false);
-  });
-
-  it("does not require a business type on the employer path", () => {
-    expect(
-      isTrialOrgFieldsValid({ ...baseEmployerFields, partnerBusinessType: "" })
-    ).toBe(true);
+  // The partner path used to additionally require a business-type dropdown.
+  // Removed 2026-07-21 — company + kind + size is now the whole gate, for
+  // partners exactly as for employers.
+  it("needs nothing beyond company/kind/size on the partner path", () => {
+    expect(isTrialOrgFieldsValid(basePartnerFields)).toBe(true);
   });
 
   it("fails when employee count hasn't been chosen", () => {
@@ -65,7 +58,7 @@ describe("buildGoogleSignupUrl", () => {
     expect(buildGoogleSignupUrl(base, { ...baseEmployerFields, employeeCount: "" })).toBeNull();
   });
 
-  it("builds an encoded employer URL without a partnerBusinessType param", () => {
+  it("builds an encoded employer URL with no businessType param", () => {
     const url = buildGoogleSignupUrl(base, baseEmployerFields);
     expect(url).not.toBeNull();
     const parsed = new URL(url!);
@@ -76,11 +69,11 @@ describe("buildGoogleSignupUrl", () => {
     expect(parsed.searchParams.has("businessType")).toBe(false);
   });
 
-  it("builds a partner URL that includes businessType", () => {
+  it("builds a partner URL that also carries no businessType param", () => {
     const url = buildGoogleSignupUrl(base, basePartnerFields);
     const parsed = new URL(url!);
     expect(parsed.searchParams.get("kind")).toBe("partner");
-    expect(parsed.searchParams.get("businessType")).toBe("rehabilitation_provider");
+    expect(parsed.searchParams.has("businessType")).toBe(false);
   });
 
   it("trims and URL-encodes special characters in the company name", () => {

@@ -4,12 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   EMPLOYEE_COUNT_OPTIONS,
-  PARTNER_BUSINESS_TYPE_OPTIONS,
   isTrialOrgFieldsValid,
   buildGoogleSignupUrl,
   type EmployeeCountBand,
   type OrgKind,
-  type PartnerBusinessType,
   type TrialOrgFields,
 } from "@/lib/trial-signup";
 
@@ -24,7 +22,6 @@ export default function StartTrialPage() {
   // email/password) can proceed.
   const [company, setCompany] = useState("");
   const [orgKind, setOrgKind] = useState<OrgKind | "">("");
-  const [partnerBusinessType, setPartnerBusinessType] = useState<PartnerBusinessType | "">("");
   const [employeeCount, setEmployeeCount] = useState<EmployeeCountBand | "">("");
 
   // Email/password path fields.
@@ -34,7 +31,7 @@ export default function StartTrialPage() {
   const [state, setState] = useState<FormState>("idle");
   const [error, setError] = useState("");
 
-  const orgFields: TrialOrgFields = { company, orgKind, partnerBusinessType, employeeCount };
+  const orgFields: TrialOrgFields = { company, orgKind, employeeCount };
   const orgFieldsValid = isTrialOrgFieldsValid(orgFields);
   const googleHref = buildGoogleSignupUrl(APP_GOOGLE_OAUTH_URL, orgFields);
 
@@ -71,7 +68,6 @@ export default function StartTrialPage() {
           password,
           employeeCount,
           kind: orgKind,
-          ...(orgKind === "partner" ? { businessType: partnerBusinessType } : {}),
         }),
       });
 
@@ -169,27 +165,6 @@ export default function StartTrialPage() {
                     </button>
                   </div>
                 </div>
-
-                {orgKind === "partner" && (
-                  <div>
-                    <label htmlFor="trial-partner-type" className="block text-sm font-semibold text-gray-700 mb-1.5">
-                      What kind of business is it?
-                    </label>
-                    <select
-                      id="trial-partner-type"
-                      value={partnerBusinessType}
-                      onChange={(e) => setPartnerBusinessType(e.target.value as PartnerBusinessType)}
-                      className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#8DC63F] cursor-pointer"
-                    >
-                      <option value="">Select business type</option>
-                      {PARTNER_BUSINESS_TYPE_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
 
                 <div>
                   <label htmlFor="trial-employee-count" className="block text-sm font-semibold text-gray-700 mb-1.5">
