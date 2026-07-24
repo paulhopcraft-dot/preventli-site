@@ -47,7 +47,8 @@ export const CHAPTERS: Chapter[] = [
     index: 4,
     title: "The candidate experience",
     description: "What the candidate sees, and how automatic reminders keep things moving.",
-    poster: "/welcome/video-placeholder.svg",
+    src: "/welcome/the-candidate-experience.mp4",
+    poster: "/welcome/the-candidate-experience-poster.jpg",
   },
   {
     id: "clinical-review",
