@@ -5,7 +5,7 @@ export const WELCOME_FAQ: FaqItem[] = [
   {
     question: "What does the candidate experience?",
     answer:
-      "A secure link by email — no account, no app. A guided, plain-English questionnaire that works on their phone. Typically 10–15 minutes, and it autosaves, so they can stop and finish later.",
+      "A secure link by email — no account, no app. A guided, plain-English questionnaire that works on their phone. Most candidates take around 15–20 minutes, and it autosaves, so they can stop and finish later.",
   },
   {
     question: "How fast do results come back?",
