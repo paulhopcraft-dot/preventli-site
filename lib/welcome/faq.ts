@@ -12,11 +12,6 @@ export const WELCOME_FAQ: FaqItem[] = [
     answer: "Within one business day of the candidate completing their check.",
   },
   {
-    question: "How much does it cost?",
-    answer:
-      "$40 per completed check. If a check isn't completed, it isn't reviewed — and it isn't invoiced.",
-  },
-  {
     question: "Who sees what?",
     answer:
       "Your client receives the fitness-for-role outcome: whether the candidate can safely perform the role, with what capacity and constraints. They do not receive the candidate's private medical detail beyond that.",
