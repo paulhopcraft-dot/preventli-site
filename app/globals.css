@@ -114,3 +114,52 @@ input[type="range"]::-moz-range-thumb {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Workflow map — node reveal + connector pulse */
+.wf-node {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.wf-node.wf-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wf-connector {
+  position: relative;
+  overflow: hidden;
+}
+
+.wf-connector .wf-pulse-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #00E676;
+  box-shadow: 0 0 8px 2px rgba(0, 230, 118, 0.7);
+  opacity: 0;
+}
+
+.wf-connector.wf-visible .wf-pulse-dot {
+  animation: wfTravel 1.4s ease-in-out 0.3s 1;
+}
+
+@keyframes wfTravel {
+  0% { opacity: 0; top: -4px; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; top: calc(100% - 4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-node {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .wf-connector .wf-pulse-dot {
+    display: none;
+  }
+}
