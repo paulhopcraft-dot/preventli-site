@@ -1,4 +1,4 @@
-// The onboarding tour is split into 6 short chapter videos. Workflow map
+// The onboarding tour is split into 5 short chapter videos. Workflow map
 // nodes each point at one chapter (and optionally a start-time hint inside
 // it) so several nodes can share a single video.
 //
@@ -49,15 +49,8 @@ export const CHAPTERS: Chapter[] = [
   {
     id: "clinical-review",
     index: 5,
-    title: "Clinical review",
-    description: "How the report is drafted, reviewed by GPNet clinicians, and approved.",
-    poster: "/welcome/video-placeholder.svg",
-  },
-  {
-    id: "notification-and-alex",
-    index: 6,
-    title: "Client notification & Ask Alex",
-    description: "Your client is notified automatically, and Alex is on hand any time you have a question.",
+    title: "Clinical review & client notification",
+    description: "How the report is drafted, reviewed by GPNet clinicians, approved, and sent to your client.",
     poster: "/welcome/video-placeholder.svg",
   },
 ];
