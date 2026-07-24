@@ -12,14 +12,14 @@ export const WELCOME_FAQ: FaqItem[] = [
     answer: "Within one business day of the candidate completing their check.",
   },
   {
-    question: "Who sees what?",
+    question: "What does the client receive?",
     answer:
-      "Your client receives the fitness-for-role outcome: whether the candidate can safely perform the role, with what capacity and constraints. They do not receive the candidate's private medical detail beyond that.",
+      "The full report and the candidate's signed questionnaire — the complete picture behind the outcome, so your client can see exactly what the assessment was based on.",
   },
   {
     question: "What happens if something is flagged?",
     answer:
-      "Flags always come with a reason and a recommended next step — never an unexplained \"no\". Where more clinical depth is needed, we arrange it and manage it through to an answer.",
+      "Flags always come with a reason and a recommended next step — never an unexplained \"no\". Where a flag needs a closer look, it may call for a physical examination with a doctor. We arrange that and manage it through to an answer.",
   },
   {
     question: "Who reviews the checks?",
@@ -37,9 +37,9 @@ export const WELCOME_FAQ: FaqItem[] = [
       "The system reminds them automatically — up to three times, no more than once a day — then escalates so you know. You're never silently waiting.",
   },
   {
-    question: "How is candidate data protected?",
+    question: "How is candidate privacy protected?",
     answer:
-      "Candidate data is encrypted in transit and at rest, access is role-restricted, and activity is logged.",
+      "The report is de-identified before it goes for clinical review — the reviewing clinician assesses the information without the candidate's identity attached, so what's sent stays private. Data is encrypted in transit and at rest, access is role-restricted, and activity is logged.",
   },
   {
     question: "Where do I get help?",
