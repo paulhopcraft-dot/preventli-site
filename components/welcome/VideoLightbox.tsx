@@ -62,22 +62,29 @@ export default function VideoLightbox({
         </button>
 
         <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
-          {/* TODO(video): set src to the real hosted chapter video. When that
-              lands, wire this onEnded handler to onNextChapter() during a
-              tour so playback auto-advances without the manual buttons
-              below. */}
-          <video
-            ref={videoRef}
-            key={chapter.id}
-            className="w-full aspect-video bg-black"
-            poster={chapter.poster}
-            controls
-            preload="none"
-            aria-label={`${chapter.title} — video coming soon`}
-            onEnded={() => {
-              if (isTour) onNextChapter();
-            }}
-          />
+          {chapter.src ? (
+            <video
+              ref={videoRef}
+              key={chapter.id}
+              className="w-full aspect-video bg-black"
+              src={chapter.src}
+              poster={chapter.poster}
+              controls
+              autoPlay
+              preload="metadata"
+              aria-label={`${chapter.title} video`}
+              onEnded={() => {
+                if (isTour) onNextChapter();
+              }}
+            />
+          ) : (
+            <div
+              key={chapter.id}
+              className="w-full aspect-video bg-black flex items-center justify-center text-gray-400 text-sm"
+            >
+              This chapter&apos;s video is on its way — check back soon.
+            </div>
+          )}
 
           <div className="flex items-center justify-between gap-4 px-5 py-4 bg-[#0A1628] border-t border-white/10">
             <div>

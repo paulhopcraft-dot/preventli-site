@@ -1,3 +1,5 @@
+import HeroIntroVideo from "./HeroIntroVideo";
+
 export default function WelcomeHero() {
   return (
     <section className="relative overflow-hidden bg-[#0A1628] pt-20 pb-16 sm:pt-24 sm:pb-20">
@@ -27,15 +29,7 @@ export default function WelcomeHero() {
           through Preventli — start to finish, in about two minutes.
         </p>
 
-        <div className="relative mx-auto max-w-2xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
-          <video
-            className="w-full aspect-video bg-black"
-            src="/welcome/intro.mp4"
-            controls
-            preload="metadata"
-            aria-label="Preventli introduction video"
-          />
-        </div>
+        <HeroIntroVideo />
       </div>
     </section>
   );
