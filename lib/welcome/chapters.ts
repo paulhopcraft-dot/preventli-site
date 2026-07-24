@@ -31,14 +31,16 @@ export const CHAPTERS: Chapter[] = [
     index: 2,
     title: "Setting up a client",
     description: "Add a client company and upload the job descriptions you'll be checking against.",
-    poster: "/welcome/video-placeholder.svg",
+    src: "/welcome/setting-up-a-client.mp4",
+    poster: "/welcome/setting-up-a-client-poster.jpg",
   },
   {
     id: "creating-and-sending-checks",
     index: 3,
     title: "Creating and sending checks",
     description: "Create a check and send the secure link to your candidate.",
-    poster: "/welcome/video-placeholder.svg",
+    src: "/welcome/creating-and-sending-checks.mp4",
+    poster: "/welcome/creating-and-sending-checks-poster.jpg",
   },
   {
     id: "the-candidate-experience",
@@ -52,7 +54,8 @@ export const CHAPTERS: Chapter[] = [
     index: 5,
     title: "Clinical review & client notification",
     description: "How the report is drafted, reviewed by GPNet clinicians, approved, and sent to your client.",
-    poster: "/welcome/video-placeholder.svg",
+    src: "/welcome/clinical-review.mp4",
+    poster: "/welcome/clinical-review-poster.jpg",
   },
 ];
 
