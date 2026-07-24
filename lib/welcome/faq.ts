@@ -48,6 +48,7 @@ export const WELCOME_FAQ: FaqItem[] = [
   },
   {
     question: "Where do I get help?",
-    answer: "Ask Alex first — fastest answer, day or night. Anything else: support@preventli.ai.",
+    answer:
+      "Email support@preventli.ai — we're quick, and a real person answers. You'll also find your Preventli contact's direct details in your welcome email.",
   },
 ];

@@ -153,6 +153,25 @@ input[type="range"]::-moz-range-thumb {
   100% { opacity: 0; top: calc(100% - 4px); }
 }
 
+/* Desktop flowchart connectors — static arrow line drawn inline via SVG;
+   this is the animated green "data flowing" overlay traced along the same
+   path once its row scrolls into view. */
+.wf-connector-cell .wf-flow-line {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.wf-connector-cell.wf-visible .wf-flow-line {
+  opacity: 0.9;
+  animation: wfFlowDash 1.6s linear infinite;
+}
+
+@keyframes wfFlowDash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .wf-node {
     opacity: 1;
@@ -161,5 +180,9 @@ input[type="range"]::-moz-range-thumb {
   }
   .wf-connector .wf-pulse-dot {
     display: none;
+  }
+  .wf-connector-cell .wf-flow-line {
+    animation: none !important;
+    opacity: 0 !important;
   }
 }
