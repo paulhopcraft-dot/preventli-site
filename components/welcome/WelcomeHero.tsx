@@ -27,21 +27,14 @@ export default function WelcomeHero() {
           through Preventli — start to finish, in about two minutes.
         </p>
 
-        {/* TODO(video): swap for the real ~20s cinematic intro once produced.
-            Do not point src at a file that doesn't exist yet — leave it unset
-            so the missing-media state below stays visible instead of a
-            silent 404. */}
         <div className="relative mx-auto max-w-2xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
           <video
             className="w-full aspect-video bg-black"
-            poster="/welcome/video-placeholder.svg"
+            src="/welcome/intro.mp4"
             controls
-            preload="none"
-            aria-label="Preventli introduction video — coming soon"
+            preload="metadata"
+            aria-label="Preventli introduction video"
           />
-          <div className="pointer-events-none absolute top-3 left-3 bg-[#0A1628]/80 border border-white/10 text-gray-300 text-xs font-medium px-3 py-1.5 rounded-full">
-            Intro video — coming soon
-          </div>
         </div>
       </div>
     </section>
