@@ -1,7 +1,4 @@
-import Image from "next/image";
-import type { PartnerConfig } from "@/lib/welcome/partners";
-
-export default function WelcomeHero({ partner }: { partner: PartnerConfig }) {
+export default function WelcomeHero() {
   return (
     <section className="relative overflow-hidden bg-[#0A1628] pt-20 pb-16 sm:pt-24 sm:pb-20">
       <div className="absolute inset-0 hero-grid" />
@@ -13,25 +10,18 @@ export default function WelcomeHero({ partner }: { partner: PartnerConfig }) {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <div className="inline-flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl px-5 py-3 mb-8">
-          <div className="w-11 h-11 rounded-lg overflow-hidden bg-white flex items-center justify-center shrink-0">
-            <Image
-              src={partner.logoSrc}
-              alt={partner.logoAlt}
-              width={44}
-              height={44}
-              className="object-contain w-full h-full"
-            />
-          </div>
-          <span className="text-white/40 text-lg">×</span>
+        <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-3 mb-8">
           <span className="text-white font-bold text-lg">
             Prevent<span className="text-[#00E676]">li</span>
           </span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-          Welcome, <span className="text-[#00E676]">{partner.name}</span>
+          Welcome to <span className="text-[#00E676]">Preventli</span>
         </h1>
+        <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto mb-2">
+          This is your partner workspace.
+        </p>
         <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto mb-10">
           Here&apos;s everything you need to run pre-employment and injury-prevention checks
           through Preventli — start to finish, in about two minutes.

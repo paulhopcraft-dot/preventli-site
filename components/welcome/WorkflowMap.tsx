@@ -14,7 +14,7 @@ import VideoLightbox from "./VideoLightbox";
 
 const AUTOMATIC_ACTORS: Actor[] = ["automatic"];
 
-export default function WorkflowMap({ partnerSlug }: { partnerSlug: string }) {
+export default function WorkflowMap() {
   const [watchedChapters, setWatchedChapters] = useState<Set<string>>(new Set());
   const [activeChapterId, setActiveChapterId] = useState<string | null>(null);
   const [isTour, setIsTour] = useState(false);
@@ -22,8 +22,8 @@ export default function WorkflowMap({ partnerSlug }: { partnerSlug: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setWatchedChapters(getWatchedChapters(partnerSlug));
-  }, [partnerSlug]);
+    setWatchedChapters(getWatchedChapters());
+  }, []);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -46,7 +46,7 @@ export default function WorkflowMap({ partnerSlug }: { partnerSlug: string }) {
 
   function closeLightbox() {
     setActiveChapterId((current) => {
-      if (current) setWatchedChapters(markChapterWatched(partnerSlug, current));
+      if (current) setWatchedChapters(markChapterWatched(current));
       return null;
     });
     setIsTour(false);
@@ -55,7 +55,7 @@ export default function WorkflowMap({ partnerSlug }: { partnerSlug: string }) {
   function goToNextChapter() {
     setActiveChapterId((current) => {
       if (!current) return current;
-      setWatchedChapters(markChapterWatched(partnerSlug, current));
+      setWatchedChapters(markChapterWatched(current));
       const idx = CHAPTERS.findIndex((c) => c.id === current);
       if (idx === -1 || idx >= CHAPTERS.length - 1) {
         setIsTour(false);
