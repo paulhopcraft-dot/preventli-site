@@ -23,7 +23,8 @@ export const CHAPTERS: Chapter[] = [
     index: 1,
     title: "Getting started",
     description: "Sign up, verify your email, and find your way around the partner workspace.",
-    poster: "/welcome/video-placeholder.svg",
+    src: "/welcome/getting-started.mp4",
+    poster: "/welcome/getting-started-poster.jpg",
   },
   {
     id: "setting-up-a-client",
