@@ -19,20 +19,24 @@ export type Chapter = {
 
 export const CHAPTERS: Chapter[] = [
   {
+    // PULLED 2026-07-24: audio-forensics found a real TTS artifact (-19dB
+    // "silent" gap after "inbox", plus a bad concat seam at the ch1/ch2
+    // splice). Do not re-add src until the rebuilt VO passes the gap+volume
+    // check documented in this session, not just a plain ASR transcript pass.
     id: "getting-started",
     index: 1,
     title: "Getting started",
     description: "Sign up, verify your email, and find your way around the partner workspace.",
-    src: "/welcome/getting-started.mp4",
-    poster: "/welcome/getting-started-poster.jpg",
+    poster: "/welcome/video-placeholder.svg",
   },
   {
+    // PULLED 2026-07-24: gap after "role," peaks at 0dB (clipping-level
+    // loud) — real artifact, not a pause. Same rebuild bar as chapter 1.
     id: "setting-up-a-client",
     index: 2,
     title: "Setting up a client",
     description: "Add a client company and upload the job descriptions you'll be checking against.",
-    src: "/welcome/setting-up-a-client.mp4",
-    poster: "/welcome/setting-up-a-client-poster.jpg",
+    poster: "/welcome/video-placeholder.svg",
   },
   {
     id: "creating-and-sending-checks",
@@ -51,12 +55,14 @@ export const CHAPTERS: Chapter[] = [
     poster: "/welcome/the-candidate-experience-poster.jpg",
   },
   {
+    // PULLED 2026-07-24: gap after "constraints?" (33.04-34.66s) carries
+    // real audio content (-27.6dB mean / -7.2dB peak, not silence). Same
+    // rebuild bar as chapters 1-2.
     id: "clinical-review",
     index: 5,
     title: "Clinical review & client notification",
     description: "How the report is drafted, reviewed by GPNet clinicians, approved, and sent to your client.",
-    src: "/welcome/clinical-review.mp4",
-    poster: "/welcome/clinical-review-poster.jpg",
+    poster: "/welcome/video-placeholder.svg",
   },
 ];
 
