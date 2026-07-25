@@ -39,7 +39,7 @@ export const WELCOME_FAQ: FaqItem[] = [
   {
     question: "How is candidate privacy protected?",
     answer:
-      "The report is de-identified before it goes for clinical review — the reviewing clinician assesses the information without the candidate's identity attached, so what's sent stays private. Data is encrypted in transit and at rest, access is role-restricted, and activity is logged.",
+      "Candidate health information is only ever seen by the clinical team reviewing it, and it is de-identified when sent for independent medical review. Nothing reaches your client until a clinician has signed it off. Data is encrypted in transit and at rest, access is role-restricted, and activity is logged.",
   },
   {
     question: "Where do I get help?",
