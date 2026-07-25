@@ -19,23 +19,22 @@ export type Chapter = {
 
 export const CHAPTERS: Chapter[] = [
   {
-    // Rebuilt 2026-07-25 (v2): VO regenerated with punctuation sanitized and
-    // ch1+ch2 built as ONE composition (no concat seam). Verified: every
-    // inter-word gap >0.5s measures true silence (-38dB or lower), by
-    // word-level ASR timestamps + per-gap volumedetect — not a bare
-    // transcript pass, which was the false-negative test that let the
-    // original defect ship.
+    // Rebuilt 2026-07-25 (v3): new trial-signup footage (no invite flow —
+    // preventli.ai -> "Start free trial" -> partner choice -> company size
+    // -> name/email/password), never submitted to production; combined with
+    // fresh workspace footage captured against main @ b3079cf6 (PR #306).
+    // Gate: PASS on raw VO and on audio extracted from the final render —
+    // 0 flagged gaps failed (all measured below -35dB).
     id: "getting-started",
     index: 1,
     title: "Getting started",
-    description: "Sign up, verify your email, and find your way around the partner workspace.",
+    description: "Start a free trial, verify your email, and find your way around the partner workspace.",
     src: "/welcome/getting-started.mp4",
     poster: "/welcome/getting-started-poster.jpg",
   },
   {
-    // Rebuilt 2026-07-25 (v2): same gate. Took 5 TTS regenerations before a
-    // take passed cleanly — the artifact is nondeterministic, not tied to
-    // specific punctuation.
+    // Rebuilt 2026-07-25 (v3): footage re-captured against main @ b3079cf6.
+    // Gate: PASS on raw VO and final-render audio, first take.
     id: "setting-up-a-client",
     index: 2,
     title: "Setting up a client",
@@ -44,6 +43,9 @@ export const CHAPTERS: Chapter[] = [
     poster: "/welcome/setting-up-a-client-poster.jpg",
   },
   {
+    // Rebuilt 2026-07-25 (v3): footage now drives entirely through real UI
+    // (PR #306's "New check" button) — no /api/partner/active-org workaround.
+    // Gate: PASS on raw VO and final-render audio, first take.
     id: "creating-and-sending-checks",
     index: 3,
     title: "Creating and sending checks",
@@ -60,9 +62,9 @@ export const CHAPTERS: Chapter[] = [
     poster: "/welcome/the-candidate-experience-poster.jpg",
   },
   {
-    // Rebuilt 2026-07-25 (v2): same gate. Original text failed 6/6 TTS takes
-    // at the same sentence boundary; reworded that junction and it passed
-    // both pre- and post-render with wide margin (-74dB vs -35dB fail line).
+    // Rebuilt 2026-07-25 (v3): expanded script (de-identification + flagged/
+    // physical-exam escalation, previously missing) against fresh footage.
+    // Gate: PASS on raw VO and final-render audio, first take.
     id: "clinical-review",
     index: 5,
     title: "Clinical review & client notification",
