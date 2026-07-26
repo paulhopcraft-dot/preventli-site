@@ -50,7 +50,7 @@ export const ACTOR_COLOR: Record<Actor, string> = {
 export const WORKFLOW_NODES: WorkflowNode[] = [
   // Row 1 — partner: account + workspace
   { id: "sign-up", label: "Sign up + verify", detail: "Form, then email link", actor: "partner", chapterId: "getting-started", startTimeHint: 0, row: 0, col: 0 },
-  { id: "log-in", label: "Log in", detail: "app.preventli.ai", actor: "partner", chapterId: "getting-started", startTimeHint: 25, row: 0, col: 1 },
+  { id: "log-in", label: "Log in", detail: "preventli.ai/login", actor: "partner", chapterId: "getting-started", startTimeHint: 25, row: 0, col: 1 },
   { id: "dashboard", label: "Partner workspace", detail: "All clients, one view", actor: "partner", chapterId: "getting-started", startTimeHint: 55, row: 0, col: 2 },
 
   // Row 2 — partner: set up a client

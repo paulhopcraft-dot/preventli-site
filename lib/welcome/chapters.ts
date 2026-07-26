@@ -35,6 +35,16 @@ export const CHAPTERS: Chapter[] = [
   {
     // Rebuilt 2026-07-25 (v3): footage re-captured against main @ b3079cf6.
     // Gate: PASS on raw VO and final-render audio, first take.
+    //
+    // KNOWN STALE 2026-07-26: v3 still has 6 confirmed-live defects (redundant
+    // re-login, single-file JD upload instead of a batch, the two-step
+    // stage-then-Upload trap left unexplained, JD narration timed too early,
+    // missing Risk column, generic/non-role-matched JD content) plus a
+    // numbering mismatch in the stitched full-tour video's on-screen chapter
+    // cards. Full re-record shot list, casting, and sequencing constraints:
+    // docs/partner-onboarding-chapter2-rerecord-brief.md. Not re-recorded yet
+    // — no runnable capture/TTS/verify pipeline could be located; see that
+    // doc's "Pipeline research" section before attempting a rebuild.
     id: "setting-up-a-client",
     index: 2,
     title: "Setting up a client",
