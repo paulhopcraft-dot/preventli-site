@@ -1,6 +1,7 @@
 # Chapter 2 ("Setting up a client") re-record — brief + blocker
 
-Date: 2026-07-26
+Date: 2026-07-26 (updated same day — coordinator follow-up added the Ask Alex
+requirement + two newly-verified UI facts, see bottom two sections)
 Status: **Blocked on production pipeline access.** No video changed. Copy/data
 fixes for this same audit landed separately in this PR (see `lib/welcome/workflow.ts`).
 
@@ -146,6 +147,15 @@ In filming order. Each item tags which confirmed-live defect it fixes.
    footage), make sure the columns shown are **Worker, Type, Client, Last
    activity, Next action, Risk** — live has a Risk column the current video is
    missing. *(fixes #7)*
+8. **Closing beat — Ask Alex.** After the JD upload succeeds, a short shot of
+   the green "Chat with Alex" button (bottom right, always present) and a
+   partner asking it a question. **Do not film this yet** — see the "Ask
+   Alex" section below, it's blocked on two things and neither is closeable
+   from this repo. Placement here is a recommendation, not a constraint: it
+   reads naturally as "you've just finished setup, and help is always a click
+   away," but since the button is global chrome it would work just as well at
+   the end of chapter 1 or chapter 5 — whoever films it should pick whichever
+   moment the blocker clears in time for.
 
 ## What happens next, in chapter 3 — do not try to squeeze this into chapter 2
 
@@ -163,15 +173,157 @@ PR's deliverable:
    three JDs uploaded, dropdown correctly listed all three). Select "Personal
    Care Assistant — Position Description" — same role name as the badge, same
    JD title, visibly paired. **Safe to film now.**
-9. **Do NOT film or narrate** the check being "dynamically set up to
-   incorporate requirements" from that JD. JD requirement extraction is
-   currently broken in production (`requirementsExtractionStatus: "failed"`,
-   `extractedRequirementsJson: null` on 4/4 files tested) — a separate PR
-   against `preventli` is fixing it. Do not mock up or fabricate what
-   extracted requirements would look like. This must be the **last** beat
-   added to chapter 3, and if the extraction fix hasn't landed by the time
-   chapter 3 is otherwise ready, ship chapter 3 without it and mark this PR's
-   description "blocked-pending-extraction-fix" rather than guessing.
+9. **Show the send confirmation as a genuine two-step, not instant-send** —
+   newly verified 2026-07-26, and confirmed independently in this pass against
+   `preventli/client/src/pages/NewAssessmentPage.tsx`. The current hub copy
+   actively misleads on this: the workflow map's `send-check` node says "Send
+   to candidate — Secure link, straight away," which reads as automatic. Real
+   flow: clicking **Create Assessment** only creates the record (`status:
+   "created"`, `sentAt: null`) — nothing is emailed yet. A separate **"Ready
+   to send"** card then appears (badge "Created", `NewAssessmentPage.tsx:254`)
+   showing Candidate / Email / Position, with two buttons: **Not now**
+   (`:289`, backs out to `/checks`, nothing sent) and **Send to Worker**
+   (`:297`, the real send — flips to `status: "sent"` with a `sentAt`
+   timestamp, UI shows "Questionnaire sent! A secure link has been emailed to
+   `<address>`. You'll be notified automatically once they complete it.",
+   `:224-229`). Film both buttons on screen and narrate that nothing goes out
+   until "Send to Worker" is clicked — this is good, deliberate design (a
+   partner can review before committing), and the video should say so, not
+   just show it.
+   Fast-follow candidate, not done in this PR: `lib/welcome/workflow.ts`'s
+   `send-check` node detail text ("Secure link, straight away") is now
+   verified misleading given this two-step flow — worth changing to something
+   like "Review, then send" once someone signs off on exact wording. Left
+   alone here because this round of work was scoped to updating this brief
+   doc, not making further site-copy edits, and hub copy elsewhere in this
+   repo is marked "approved by Paul, do not edit without sign-off"
+   (`lib/welcome/faq.ts`) — treating workflow-node copy with the same caution
+   by default.
+   **UI gap worth knowing before filming this beat**: the "Ready to send" card
+   has code to show a "Job Description" row with the attached filename
+   (`NewAssessmentPage.tsx:273-281`, paperclip icon + `jdFile.name`), but the
+   condition that gates it — `{jdFile && (...)}` — is only ever true when the
+   JD came from a **fresh upload on this same form**. Picking a **saved** JD
+   from the "Saved job description" dropdown instead (the path this video
+   uses) sets a different field, `selectedJobDescriptionId` (state declared
+   around `:88`, read at submit time `:152`), which that conditional never
+   checks — so the card silently shows no JD row at all even though one is
+   genuinely attached to the check. This is the same gap Paul hit live
+   ("could not tell whether the JD had been added"), traced to its exact
+   line. Not this PR's to fix (lives in `preventli`), but it changes how to
+   shoot the JD payoff: **don't frame the "Ready to send" card as visual proof
+   the PCA JD landed** — for the saved-JD path it won't show one. Narrate the
+   pairing at the dropdown-selection moment (item 8 above) instead, where it
+   is actually visible on screen, and either cut past the JD row on the
+   confirmation card or don't dwell on it.
+10. **Do NOT film or narrate** the check being "dynamically set up to
+    incorporate requirements" from that JD. JD requirement extraction is
+    currently broken in production (`requirementsExtractionStatus: "failed"`,
+    `extractedRequirementsJson: null` on 4/4 files tested) — a separate PR
+    against `preventli` is fixing it. Do not mock up or fabricate what
+    extracted requirements would look like. This must be the **last** beat
+    added to chapter 3, and if the extraction fix hasn't landed by the time
+    chapter 3 is otherwise ready, ship chapter 3 without it and mark this PR's
+    description "blocked-pending-extraction-fix" rather than guessing.
+
+## Ask Alex — new requirement, BLOCKED
+
+Added 2026-07-26 (coordinator follow-up, same day as the rest of this brief).
+Paul wants a shot of a partner asking Alex — the in-app assistant, green "Chat
+with Alex" button, bottom right, present throughout the partner UI; panel
+header "Alex — Your case manager"; opens with a greeting such as "Good
+afternoon, Workbetter! How's the day going? I've been keeping an eye on your
+cases. Anything you need a hand with?" — a question and getting help.
+Suggested placement is the closing beat of chapter 2 (item 8 above), but
+that's a recommendation, not a constraint — the button is global chrome, so it
+would work in chapter 1 or chapter 5 too.
+
+**Do not film this section yet.** Two independent problems, both need to be
+closed first:
+
+### 1. Alex gives a factually wrong answer to the obvious question
+
+Live-verified 2026-07-26. Asked "How do I add a job description?", Alex
+replied:
+
+> [Case Manager] You can add a job description directly from any case's
+> workspace — just open the case, head to the "Job Description" tab, and
+> either upload a file or paste the text in. If you're setting up a new case
+> right now, I can walk you through that and we'll add the job description as
+> part of it.
+
+Wrong on both counts:
+- There is no "Job Description" tab anywhere in the product — confirmed by
+  grepping all of `client/src` on `origin/main` for any such tab, zero
+  matches. Alex invented it.
+- Job descriptions are a **client-level library**, not per-case. The real
+  paths: on client creation, the "`<Name> created`" dialog offers "Select PDF
+  files" (item 3 above); later, Edit client → Job descriptions → select files
+  → "Upload N file(s)". They then appear in the "Saved job description"
+  dropdown when creating a check (item 8 above).
+
+Do not film this exact question until Alex's knowledge is corrected. Do not
+substitute a different question without independently verifying its answer
+against the real UI first — **that verification was not done in this pass**:
+this session had no partner login credentials and did not access the live
+Alex chat itself (everything above about Alex's wrong answer is the
+coordinator/Paul's live finding, relayed here, not re-tested by this session).
+No replacement question has been confirmed safe. If a replacement is wanted
+before the knowledge fix lands, whoever has partner access should test
+candidates live rather than assume any of them are safe — Alex hallucinating
+on the JD question is evidence it can hallucinate on adjacent ones, so don't
+assume e.g. "how do I create a check" is fine without checking it too.
+
+### 2. This hub cut "Ask Alex" once already — confirm the reason is actually gone
+
+This hub had an Alex feature once, then deliberately removed it:
+`preventli-site` commit `a1a6cb0` (2026-07-24, "cut Ask Alex (#17)") —
+"Alex chat is 403-blocked for restricted partners, so it doesn't belong in
+this onboarding hub yet." It removed a full chapter ("Client notification &
+Ask Alex"), a workflow-map node ("Ask Alex any time"), and an FAQ answer, all
+Alex-referencing.
+
+The demo tenant this hub films against ("Vantage RTW Partners" /
+`org-demo-partner`) is itself category-restricted (pre-employment-only, per
+`server/seed-demo-partner.ts`) — exactly the partner type that 403'd. Checked
+the current gate code this pass
+(`preventli/server/middleware/restrictedPartnerGate.ts:101`, inside
+`RESTRICTED_PARTNER_ALLOWED_RULES`):
+
+```
+{ prefix: "/api/chat" },  // Alex — found 2026-07-24 blanket-blocked for restricted partners
+                          // with no case-management-flavoured error surfaced (client only
+                          // reads body.message, this gate's 403 used body.error, so it
+                          // silently degraded to a generic "couldn't process that").
+                          // Alex itself doesn't call any case-management tool for a
+                          // pre-employment-only org, so there's nothing left to gate here.
+```
+
+`/api/chat` is explicitly allow-listed now, with a comment describing the same
+bug the cut commit cited, in the past tense ("found... blanket-blocked").
+Reading the two commits' timestamps, this looks like the block was found and
+fixed the same day the hub cut Alex over it — meaning **the original reason
+for the cut may already be resolved**. But this is a code-reading inference,
+not a live test, and this session had no way to run that test (no partner
+credentials, no live chat access). Before relying on this for filming: open
+the demo tenant, click "Chat with Alex," send a message, confirm it responds
+normally. If it still silently fails (a generic "couldn't process that" with
+no real error, per the comment above), that's the same historical bug
+resurfaced, not a new one, and is worth reporting back as such.
+
+### Not a bug — leave as-is
+
+Every Alex reply starts with a bracketed tag: `[Case Manager]`, `[Clinical]`,
+or `[Legal]` (visible in the quoted reply above). Verified this pass in
+`preventli/server/routes/chat.ts` (`PERSONA_INSTRUCTION`, ~line 37) —
+deliberate: Alex is instructed to classify the question and prefix its reply
+with exactly one tag before answering, every time. This will appear on-screen
+in the recording and may read as internal machinery to a partner watching.
+Don't "fix" it by cropping it out or asking Alex to drop the tag in the
+recorded conversation — it's intentional product behaviour, not a defect. If
+it looks odd on camera, a line of narration ("that tag is just Alex sorting
+the type of question — you can ignore it") is the right move, not a
+workaround.
 
 ## Numbering inconsistency — separate, cross-cutting defect
 
@@ -210,5 +362,11 @@ confirm the exact frame before re-recording rather than assuming.
   (script wording, pacing, what to skip); treat this as production work, not
   automation work.
 - Do not touch `preventli` (a separate, guarded, live repo) from a
-  `preventli-site` session. PR #312 needs Paul's own merge decision.
-- Do not fabricate or mock up extracted-JD-requirements UI (item 9).
+  `preventli-site` session. PR #312 needs Paul's own merge decision, and so
+  does any fix to Alex's JD-question knowledge or the JD-not-shown-on-card
+  display bug (`NewAssessmentPage.tsx:273`) — both documented above, neither
+  fixable from here.
+- Do not fabricate or mock up extracted-JD-requirements UI (item 10).
+- Do not film the Ask Alex section on an unverified question, and do not
+  assume the historical 403-for-restricted-partners block is fixed just
+  because the current code reads that way — confirm live first.
