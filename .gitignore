@@ -41,3 +41,8 @@ next-env.d.ts
 ralph-state.json
 .planning/ralph-state.json
 RALPH-BRIEF.md
+
+# Onboarding-video capture pipeline output (regenerated locally — see
+# docs/video-pipeline.md). Never commit recorded footage or session state.
+/video-pipeline/output/**
+!/video-pipeline/output/.gitkeep
