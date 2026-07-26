@@ -7,7 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "video:probe-reference": "node video-pipeline/stitch/probe-reference.mjs",
+    "video:generate-fixtures": "node video-pipeline/capture/fixtures/generate-fixture-pdfs.mjs",
+    "video:capture": "tsx video-pipeline/capture/run.ts",
+    "video:cleanup": "tsx video-pipeline/capture/cleanup.ts",
+    "video:stitch-chapter": "node video-pipeline/stitch/stitch-chapter.mjs",
+    "video:stitch-tour": "node video-pipeline/stitch/stitch-tour.mjs",
+    "video:mux-narration": "node video-pipeline/stitch/mux-narration.mjs",
+    "video:verify": "node video-pipeline/verify/verify-take.mjs"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.0.2",
@@ -19,6 +27,7 @@
     "resend": "^6.9.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -26,6 +35,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "tsx": "^4.19.0",
     "typescript": "^5",
     "vitest": "^4.1.9"
   }

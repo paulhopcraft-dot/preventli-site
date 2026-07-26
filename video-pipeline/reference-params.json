@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-07-26T22:21:55.225Z",
+  "generatedFrom": [
+    "clinical-review.mp4",
+    "creating-and-sending-checks.mp4",
+    "getting-started.mp4",
+    "intro.mp4",
+    "setting-up-a-client.mp4",
+    "the-candidate-experience.mp4"
+  ],
+  "video": {
+    "codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "pixFmt": "yuv420p",
+    "frameRate": "30/1"
+  },
+  "audio": {
+    "codec": "aac",
+    "sampleRate": 48000,
+    "channels": 2
+  },
+  "perFile": [
+    {
+      "file": "clinical-review.mp4",
+      "durationSec": 57.536,
+      "video": {
+        "codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pixFmt": "yuv420p",
+        "frameRate": "30/1",
+        "bitRate": 2417933
+      },
+      "audio": {
+        "codec": "aac",
+        "sampleRate": 48000,
+        "channels": 2,
+        "bitRate": 189529
+      }
+    },
+    {
+      "file": "creating-and-sending-checks.mp4",
+      "durationSec": 40.810667,
+      "video": {
+        "codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pixFmt": "yuv420p",
+        "frameRate": "30/1",
+        "bitRate": 2555889
+      },
+      "audio": {
+        "codec": "aac",
+        "sampleRate": 48000,
+        "channels": 2,
+        "bitRate": 185341
+      }
+    },
+    {
+      "file": "getting-started.mp4",
+      "durationSec": 59.605333,
+      "video": {
+        "codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pixFmt": "yuv420p",
+        "frameRate": "30/1",
+        "bitRate": 3255296
+      },
+      "audio": {
+        "codec": "aac",
+        "sampleRate": 48000,
+        "channels": 2,
+        "bitRate": 175978
+      }
+    },
+    {
+      "file": "intro.mp4",
+      "durationSec": 22.208,
+      "video": {
+        "codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pixFmt": "yuv420p",
+        "frameRate": "30/1",
+        "bitRate": 914323
+      },
+      "audio": {
+        "codec": "aac",
+        "sampleRate": 48000,
+        "channels": 2,
+        "bitRate": 154334
+      }
+    },
+    {
+      "file": "setting-up-a-client.mp4",
+      "durationSec": 45.205333,
+      "video": {
+        "codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pixFmt": "yuv420p",
+        "frameRate": "30/1",
+        "bitRate": 2572892
+      },
+      "audio": {
+        "codec": "aac",
+        "sampleRate": 48000,
+        "channels": 2,
+        "bitRate": 187875
+      }
+    },
+    {
+      "file": "the-candidate-experience.mp4",
+      "durationSec": 27.818667,
+      "video": {
+        "codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pixFmt": "yuv420p",
+        "frameRate": "30/1",
+        "bitRate": 526379
+      },
+      "audio": {
+        "codec": "aac",
+        "sampleRate": 48000,
+        "channels": 2,
+        "bitRate": 158173
+      }
+    }
+  ]
+}
