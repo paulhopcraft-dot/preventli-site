@@ -279,7 +279,7 @@ export default function StartTrialPage() {
 
         <p className="text-center text-gray-400 text-sm mt-6">
           Already have an account?{" "}
-          <a href="https://app.preventli.ai/login" className="text-[#8DC63F] hover:underline font-medium">
+          <a href="/login" className="text-[#8DC63F] hover:underline font-medium">
             Log in
           </a>
         </p>
