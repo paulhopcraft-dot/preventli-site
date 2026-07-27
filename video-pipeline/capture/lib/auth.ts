@@ -16,12 +16,28 @@ import { AUTH_STATE_PATH } from "./recording";
  * Deterministic: waits for a specific post-login element, not a timeout.
  */
 export async function ensureAuthenticatedState(browser: Browser): Promise<string> {
-  const context = await browser.newContext({ viewport: VIEWPORT, baseURL: DEFAULT_BASE_URL });
+  const context = await browser.newContext({
+    viewport: VIEWPORT,
+    baseURL: DEFAULT_BASE_URL,
+    // See the matching note in recording.ts — same rate-limiter bypass.
+    extraHTTPHeaders: process.env.E2E_TEST_SECRET
+      ? { "x-e2e-test-secret": process.env.E2E_TEST_SECRET }
+      : undefined,
+  });
   const page = await context.newPage();
   try {
     await page.goto("/login", { waitUntil: "domcontentloaded" });
     await page.getByLabel(/email/i).fill(PARTNER.loginEmail);
-    await page.getByLabel(/password/i).fill(PARTNER.loginPassword);
+    // Not getByLabel — real a11y bug found live 2026-07-27, first run: the
+    // <label for="..."> on LoginPage.tsx's password field points at a
+    // wrapping <div>, not the <input> itself, so there is no programmatic
+    // label association at all (confirmed via DOM dump). Separately, the
+    // "Show password" toggle button's own aria-label also contains
+    // "password" and was winning a loose /password/i match. Targeting the
+    // input directly sidesteps both; the label bug itself is a real product
+    // defect (screen readers get no association either) worth its own fix,
+    // not something to patch from here.
+    await page.locator('input[type="password"]').fill(PARTNER.loginPassword);
     await page.getByRole("button", { name: /sign in/i }).click();
     // Partner workspace is the deterministic "logged in" signal — no
     // wall-clock waits. VERIFY (unproven, see docs/video-pipeline.md):

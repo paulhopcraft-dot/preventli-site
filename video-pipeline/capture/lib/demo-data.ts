@@ -71,6 +71,17 @@ export const CASTING = {
 export const NEW_CLIENT = {
   name: "Northgate Distribution Centre",
   suburb: "Somerton",
+  /**
+   * Primary contact + notification recipient. Only `name` is REQUIRED by the
+   * form, but a client with no contact email has nowhere for its approved
+   * report to be sent and the form gives no warning — the send just fails
+   * later (Paul, 2026-07-27: "you have to give a client contact for
+   * notification, that's the most important one"). Chapter 2 fills these on
+   * camera so the video teaches a working setup, not merely a valid one.
+   * Fictional, matching the example-domain convention used by the seed.
+   */
+  contactName: "Dana Whitfield",
+  contactEmail: "dana.whitfield@example-northgate.com.au",
 };
 
 /** 1920x1080 @ 30fps to match every existing chapter (see reference-params.json). */
