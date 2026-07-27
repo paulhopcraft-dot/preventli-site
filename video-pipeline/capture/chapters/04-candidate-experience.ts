@@ -166,7 +166,14 @@ export async function selectVisibleEmptyNativeSelects(page: Page): Promise<void>
   for (const select of selects) {
     if (!(await select.isVisible().catch(() => false))) continue;
     const current = await select.inputValue().catch(() => "");
-    const options = await select.locator("option").allTextContents().catch(() => []);
+    // Typed fallback: a bare `[]` in the catch infers as never[], which
+    // collapses the union and makes options.includes("0") a type error —
+    // and because tsconfig's include is "**/*.ts", that error failed the
+    // whole Vercel build for the site, not just this script.
+    const options: string[] = await select
+      .locator("option")
+      .allTextContents()
+      .catch((): string[] => []);
     if (current && !/^select/i.test(current)) continue; // already has a real value
     if (options.includes("0")) {
       await select.selectOption("0").catch(() => {});
