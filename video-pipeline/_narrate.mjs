@@ -136,6 +136,28 @@ const CHAPTERS = [
     // is padded with trailing silence rather than the video being sped up.
     segments: [10.6],
   },
+  {
+    id: "05-clinical-review",
+    // Written 2026-07-27 against the approval screen shipped in preventli #348.
+    // Deliberately does NOT claim the partner reviews clinically — GPNet's
+    // clinical team does that; the partner reads what came back and decides
+    // whether it goes to their client, with a note attached.
+    script:
+      "When the candidate submits, the check goes to the GPNet clinical team, " +
+      "and their report comes back to you for sign-off. " +
+      "It's waiting on your own workspace — you don't get chased for it. " +
+      "Open the check and you can read both documents before anything is sent: " +
+      "the candidate's questionnaire, in their own words, " +
+      "and the clinical report written against it. " +
+      "The report goes to the client contact you set up earlier — " +
+      "you can change the address here if it needs to go elsewhere. " +
+      "Add a note and it travels with the report, in the same email, " +
+      "so your advice arrives alongside the result rather than separately. " +
+      "Then confirm. Nothing reaches your client until you press that button.",
+    // 1: workspace card | 2: both document tabs | 3: recipient, note, confirm.
+    // Marks re-measured from the generated audio before the final render.
+    segments: [7.0, 21.0],
+  },
 ];
 
 function dur(file) {

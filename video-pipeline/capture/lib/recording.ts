@@ -94,6 +94,27 @@ export async function runShot(browser: Browser, chapterId: string, shot: Shot): 
   return finalPath;
 }
 
+/**
+ * Prefers real Chrome over Playwright's bundled Chromium.
+ *
+ * Bundled Chromium ships WITHOUT the PDF viewer plugin, so any embedded
+ * `<iframe src="....pdf">` renders as a blank white box. Chapter 5's whole
+ * point is that the partner can read the candidate's questionnaire and the
+ * clinical report before sending them on — filmed on Chromium, both viewers
+ * were empty even though the endpoints returned valid PDFs (verified live
+ * 2026-07-27: report.pdf 200, application/pdf, 2154 bytes, viewer still blank).
+ *
+ * Falls back to bundled Chromium when Chrome isn't installed — chapters 1-4
+ * embed no PDFs and are unaffected either way.
+ */
 export async function launchBrowser(headed: boolean): Promise<Browser> {
-  return chromium.launch({ headless: !headed });
+  try {
+    return await chromium.launch({ headless: !headed, channel: "chrome" });
+  } catch {
+    console.warn(
+      "[capture] Real Chrome not available — falling back to bundled Chromium. " +
+        "Embedded PDF viewers (chapter 5) will render blank.",
+    );
+    return chromium.launch({ headless: !headed });
+  }
 }
