@@ -205,18 +205,78 @@ export async function answerSafeChoiceButtons(page: Page): Promise<void> {
   }
 }
 
-async function logCurrentPage(page: Page): Promise<void> {
+async function getCurrentPageNumber(page: Page): Promise<number | null> {
   const text = await page.locator("body").innerText().catch(() => "");
-  const match = text.match(/Page \d+ of \d+/i);
-  if (match) console.log(`[chapter-04] ${match[0]}`);
+  const match = text.match(/Page (\d+) of \d+/i);
+  return match ? parseInt(match[1], 10) : null;
+}
+
+/**
+ * Shared page-by-page walker. Two shots below call this with different
+ * pacing: shot 1 holds long enough to actually read the first couple of
+ * pages (Paul's feedback 2026-07-27 — the original single continuous shot
+ * held every one of 9 pages at the same 1.8s beat, including ~13 near-
+ * identical Yes/No and pain-scale rows nobody needs to watch fill in). Shot
+ * 2 races through the same mechanics with short holds and only slows back
+ * down for the signature/submit beat.
+ *
+ * `stopAfterPage`: if set, returns (without clicking Next) once the walker
+ * has held on that page number — used by shot 1 to end its recording
+ * mid-form, on a page, not mid-transition.
+ */
+async function walkForm(
+  page: Page,
+  opts: { holdMsPerPage: number; finalHoldMs: number; stopAfterPage?: number },
+): Promise<void> {
+  const { holdMsPerPage, finalHoldMs, stopAfterPage } = opts;
+  const MAX_PAGES = 40; // safety cap, not an expected count
+  for (let i = 0; i < MAX_PAGES; i++) {
+    const submitted = await page.getByText(/have been submitted/i).isVisible().catch(() => false);
+    if (submitted) return;
+
+    const pageNum = await getCurrentPageNumber(page);
+    if (pageNum) console.log(`[chapter-04] Page ${pageNum}`);
+
+    await fillVisibleEmptyInputs(page);
+    await fillVisibleEmptyTextareas(page);
+    await answerSafeChoiceButtons(page);
+    await checkVisibleUncheckedCheckboxes(page);
+    await selectVisibleEmptyNativeSelects(page);
+
+    const submitBtn = page.getByRole("button", { name: /submit/i }).first();
+    const nextBtn = page.getByRole("button", { name: /^next$/i }).first();
+    const isFinalPage = await submitBtn.isVisible().catch(() => false);
+
+    if (isFinalPage) {
+      await drawSignatureIfPresent(page);
+      await page.waitForTimeout(finalHoldMs);
+      await submitBtn.click();
+      await page.getByText(/have been submitted/i).waitFor({ state: "visible", timeout: 20_000 }).catch(() => {});
+      await page.waitForTimeout(finalHoldMs);
+      return;
+    }
+
+    await page.waitForTimeout(holdMsPerPage);
+
+    if (stopAfterPage && pageNum === stopAfterPage) return; // end the recording here, still showing this page
+
+    if (await nextBtn.isVisible().catch(() => false)) {
+      await nextBtn.click();
+      await page.waitForTimeout(300);
+      continue;
+    }
+
+    console.warn("[chapter-04] No Next or Submit button found — stopping. Check the page for a validation error.");
+    return;
+  }
 }
 
 const chapter: ChapterModule = {
   chapterId: "04-candidate-experience",
   shots: [
     {
-      id: "01-full-candidate-flow",
-      title: "Candidate opens the link, walks the JD-driven form, submits",
+      id: "01-opening-pages",
+      title: "Candidate opens the link — hold on pages 1-2 long enough to read them",
       needsAuth: false, // deliberately: candidates are never logged-in partner users
       async run(page) {
         if (!existsSync(LAST_ASSESSMENT_STATE_PATH)) {
@@ -226,43 +286,25 @@ const chapter: ChapterModule = {
           );
         }
         const state = JSON.parse(readFileSync(LAST_ASSESSMENT_STATE_PATH, "utf8")) as { accessToken: string };
-
         await page.goto(`${DEFAULT_BASE_URL}/check/${state.accessToken}`, { waitUntil: "networkidle" });
-
-        const MAX_PAGES = 40; // safety cap, not an expected count
-        for (let i = 0; i < MAX_PAGES; i++) {
-          const submitted = await page.getByText(/have been submitted/i).isVisible().catch(() => false);
-          if (submitted) break;
-
-          await logCurrentPage(page);
-          await fillVisibleEmptyInputs(page);
-          await fillVisibleEmptyTextareas(page);
-          await answerSafeChoiceButtons(page);
-          await checkVisibleUncheckedCheckboxes(page);
-          await selectVisibleEmptyNativeSelects(page);
-          await drawSignatureIfPresent(page);
-          await page.waitForTimeout(1800); // hold long enough to read on camera
-
-          const submitBtn = page.getByRole("button", { name: /submit/i }).first();
-          const nextBtn = page.getByRole("button", { name: /^next$/i }).first();
-
-          if (await submitBtn.isVisible().catch(() => false)) {
-            await submitBtn.click();
-            await page
-              .getByText(/have been submitted/i)
-              .waitFor({ state: "visible", timeout: 20_000 })
-              .catch(() => {});
-            break;
-          }
-          if (await nextBtn.isVisible().catch(() => false)) {
-            await nextBtn.click();
-            continue;
-          }
-
-          console.warn("[chapter-04] No Next or Submit button found — stopping. Check the page for a validation error.");
-          break;
-        }
-        await page.waitForTimeout(1500);
+        await walkForm(page, { holdMsPerPage: 3000, finalHoldMs: 3000, stopAfterPage: 2 });
+      },
+    },
+    {
+      id: "02-fast-forward-to-signature",
+      title: "Reopen the same link (autosave resumes it), race to the end, sign and submit",
+      needsAuth: false,
+      async run(page) {
+        // Reopens the SAME token shot 1 used — the form autosaves per page
+        // (server/middleware/security.ts's publicCheckAutosaveRateLimiter,
+        // public.ts's savedResponses on GET), so this resumes wherever shot
+        // 1 left off rather than restarting blank. Either way this walker
+        // is correct: already-filled fields are skipped by the "only if
+        // empty" fillers, so a cold restart just means a few extra fast
+        // pages, not broken footage.
+        const state = JSON.parse(readFileSync(LAST_ASSESSMENT_STATE_PATH, "utf8")) as { accessToken: string };
+        await page.goto(`${DEFAULT_BASE_URL}/check/${state.accessToken}`, { waitUntil: "networkidle" });
+        await walkForm(page, { holdMsPerPage: 400, finalHoldMs: 2500 });
       },
     },
   ],

@@ -60,6 +60,11 @@ const chapter: ChapterModule = {
         // Deterministic wait: the post-create step (createdClientId set)
         // renders the JD-upload dialog with this exact copy.
         await page.getByText(/Add job description PDFs for this client now/i).waitFor({ state: "visible" });
+        // Hold on the empty dialog long enough to actually read it — this
+        // shot previously ended the instant it appeared, giving a viewer
+        // zero time to see it (Paul's feedback 2026-07-27: "I can't even
+        // see where to add the job descriptions").
+        await page.waitForTimeout(2500);
       },
     },
     {
@@ -99,8 +104,12 @@ const chapter: ChapterModule = {
         // recording visibly frames the trap for narration, WITHOUT
         // clicking it.
         await page.getByTestId("jd-title-input-0").waitFor({ state: "visible" });
+        // Hold on the 3 staged files before hovering the trap button — the
+        // previous 1200ms combined hold wasn't enough to read three rows of
+        // filenames. Bumped 2026-07-27 per the same feedback as above.
+        await page.waitForTimeout(2000);
         await page.getByTestId("jd-step-done").hover();
-        await page.waitForTimeout(1200);
+        await page.waitForTimeout(2000);
 
         // Click the real save action.
         await page.getByTestId("jd-upload-submit").click();
