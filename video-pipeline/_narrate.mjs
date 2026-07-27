@@ -77,11 +77,21 @@ const CHAPTERS = [
       "Press Upload, rather than Done — pressing Done here closes the box " +
       "without saving the files you just chose. " +
       "Load them once, and they're there for every future check.",
-    // Segment marks re-measured after this rewrite — see the transcript step in
-    // video-pipeline/_transcribe_check.py. 1: workspace ("click Add") |
-    // 2: add-client dialog (name + contact + notification email) |
-    // 3: JD upload | 4: table.
-    segments: [5.1, 22.0, 41.0],
+    // FIVE shots since 2026-07-27, after a frame check found ~2s of drift
+    // through the contact-details stretch: the voice reached "that
+    // notification email is the important one" at 13.7s while the cursor was
+    // still in the PRIMARY CONTACT email and the notification field sat
+    // visibly empty below it. Splitting the dialog in two lets the company
+    // name and the contact/notification pair each hold their own slice.
+    //
+    // Marks are the measured narration boundaries (faster-whisper transcript
+    // of this chapter's generated audio):
+    //   1 workspace, "click the Add button"        0.0 –  5.9
+    //   2 company name                             5.9 –  9.9
+    //   3 contact + notification email             9.9 – 22.2
+    //   4 JD upload                               22.2 – 40.8
+    //   5 checks table                            40.8 – end
+    segments: [5.9, 9.9, 22.2, 40.8],
   },
   {
     id: "03-creating-and-sending-checks",

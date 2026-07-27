@@ -59,11 +59,36 @@ const chapter: ChapterModule = {
         // starting state, then type per-character rather than fill()-ing in a
         // single invisible frame (Paul, 2026-07-27: "you don't even show any
         // of the entry fields").
-        await page.waitForTimeout(1800);
+        // Trimmed 2026-07-27: at 1800/55ms/1600 this shot ran 7.7s against a
+        // 4.0s narration slice ("Enter the client company name,"). Shots are
+        // never sped up, so the overrun pushed every later beat late. These
+        // holds keep the dialog readable while fitting the line.
+        await page.waitForTimeout(800);
         const nameField = page.getByTestId("field-name");
         await nameField.click();
-        await nameField.pressSequentially(NEW_CLIENT.name, { delay: 55 });
-        await page.waitForTimeout(1200);
+        await nameField.pressSequentially(NEW_CLIENT.name, { delay: 35 });
+        await page.waitForTimeout(700);
+      },
+    },
+    {
+      id: "03-contact-and-notification-email",
+      title: "Fill the primary contact and the notification email the reports go to",
+      needsAuth: true,
+      async run(page) {
+        // Split out of the name shot 2026-07-27. Verified by frame that the
+        // combined shot drifted ~2s through this stretch: at 15s the voice
+        // said "that notification email is the important one" while the
+        // cursor was still in the PRIMARY CONTACT email and the notification
+        // field sat visibly empty below it. Giving the contact fields their
+        // own shot lets them be timed to their own slice of narration.
+        //
+        // A fresh context means the dialog isn't open, so it is re-opened and
+        // the name re-entered quickly (fill, not per-character) — that part is
+        // already covered by the previous shot and doesn't need re-narrating.
+        await page.goto(`${DEFAULT_BASE_URL}/partner/clients`, { waitUntil: "networkidle" });
+        await page.getByTestId("add-client-button").click();
+        await page.getByTestId("field-name").fill(NEW_CLIENT.name);
+        await page.waitForTimeout(150);
 
         // Primary contact + notification email — Paul, 2026-07-27: showing
         // ONLY the company name is technically accurate (it's the sole
@@ -74,19 +99,26 @@ const chapter: ChapterModule = {
         const contactName = page.locator("#contactName");
         await contactName.scrollIntoViewIfNeeded();
         await contactName.click();
-        await contactName.pressSequentially(NEW_CLIENT.contactName, { delay: 45 });
-        await page.waitForTimeout(700);
+        // Lead-in deliberately brisk, hold saved for the notification field.
+        // Measured 2026-07-27: at the previous pacing the notification field
+        // wasn't reached until ~16.9s, while the narration names it at
+        // 13.7–16.5s ("that notification email is the important one") — the
+        // one line Paul specifically asked to land. Contact name/email are
+        // supporting detail and are typed faster so the money shot arrives
+        // on cue.
+        await contactName.pressSequentially(NEW_CLIENT.contactName, { delay: 25 });
+        await page.waitForTimeout(300);
 
         const contactEmail = page.locator("#contactEmail");
         await contactEmail.click();
-        await contactEmail.pressSequentially(NEW_CLIENT.contactEmail, { delay: 30 });
-        await page.waitForTimeout(1000);
+        await contactEmail.pressSequentially(NEW_CLIENT.contactEmail, { delay: 16 });
+        await page.waitForTimeout(400);
 
         const notifyEmails = page.getByTestId("field-notification-emails");
         await notifyEmails.scrollIntoViewIfNeeded();
         await notifyEmails.click();
-        await notifyEmails.pressSequentially(NEW_CLIENT.contactEmail, { delay: 30 });
-        await page.waitForTimeout(1500);
+        await notifyEmails.pressSequentially(NEW_CLIENT.contactEmail, { delay: 32 });
+        await page.waitForTimeout(2200);
 
         await page.getByTestId("submit-client").click();
         // Deterministic wait: the post-create step (createdClientId set)
@@ -100,7 +132,7 @@ const chapter: ChapterModule = {
       },
     },
     {
-      id: "03-batch-upload-two-step-trap",
+      id: "04-batch-upload-two-step-trap",
       title: "Batch-upload 3 JDs; narrate the staged-vs-saved trap; click Upload, not Done",
       needsAuth: true,
       async run(page) {
@@ -156,7 +188,7 @@ const chapter: ChapterModule = {
       },
     },
     {
-      id: "04-clients-table-risk-column",
+      id: "05-clients-table-risk-column",
       title: "Clients/checks table — confirm current Risk column, not the video's missing one",
       needsAuth: true,
       async run(page) {
