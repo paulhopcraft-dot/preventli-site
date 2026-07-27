@@ -66,8 +66,8 @@ const chapter: ChapterModule = {
   // does this in one unbroken session, not three separate page loads.
   shots: [
     {
-      id: "01-create-and-send-check",
-      title: "Select client, open New check, pick the saved JD, create, then Send to Worker",
+      id: "01-select-client-and-new-check",
+      title: "Select the client from the partner list, then start a new check",
       needsAuth: true,
       async run(page) {
         await page.goto(`${DEFAULT_BASE_URL}/partner/clients`, { waitUntil: "networkidle" });
@@ -82,13 +82,91 @@ const chapter: ChapterModule = {
         // /checks — land there before jumping to the assessment form, so
         // the org-swap has definitely committed server-side.
         await page.waitForURL(/\/checks/, { timeout: 15_000 });
+        await page.waitForTimeout(1200);
+      },
+    },
+    {
+      id: "02-fill-and-send",
+      title: "Fill the candidate details, pick the saved JD, create, then Send to Worker",
+      needsAuth: true,
+      async run(page) {
+        // Split out of the single continuous shot 2026-07-27. The whole
+        // chapter used to be one take slowed by one uniform factor, so the
+        // narration ran ~4s ahead of the picture through the middle — the
+        // voice reached "then choose the job description" while the role was
+        // still being typed. Two shots let each be timed to its own slice of
+        // narration, the same fix that cleaned up chapter 1.
+        //
+        // A fresh context restores the PRE-swap storageState, so the active
+        // org has to be re-swapped before the form will resolve this client's
+        // saved JDs. Done over the API rather than by re-walking the UI, so
+        // the recording opens straight on the form instead of repeating
+        // shot 1's navigation on camera.
+        // page.request, NOT page.evaluate — page.evaluate needs the page
+        // parked on the app origin, and that goto('/partner/clients') was
+        // being RECORDED, replaying shot 1's workspace at the head of this
+        // shot and shoving every later beat out of sync (found live
+        // 2026-07-27: frame at 14s was the workspace, not the form).
+        // page.request shares the context's cookie jar and performs no
+        // navigation, so nothing extra lands on camera.
+        const clientsRes = await page.request.get(`${DEFAULT_BASE_URL}/api/partner/clients`);
+        const clientsBody = await clientsRes.json();
+        const clientList: Array<{ id?: string; name?: string }> = Array.isArray(clientsBody)
+          ? clientsBody
+          : (clientsBody.clients ?? []);
+        const orgId = clientList.find((c) => (c.name ?? "").includes(CASTING.existingClient.name))?.id;
+        if (!orgId) throw new Error(`Could not resolve org id for ${CASTING.existingClient.name}`);
+
+        // CSRF comes from GET /api/csrf-token and goes back as the
+        // X-CSRF-Token header — it is NOT a readable cookie (found live
+        // 2026-07-27: reading document.cookie gave nothing and the swap
+        // 403'd). Mirrors client/src/lib/queryClient.ts's fetchWithCsrf.
+        const tokenRes = await page.request.get(`${DEFAULT_BASE_URL}/api/csrf-token`);
+        const tokenBody = await tokenRes.json().catch(() => null);
+        const csrf = tokenBody?.data?.csrfToken ?? tokenBody?.csrfToken;
+        const swapRes = await page.request.post(`${DEFAULT_BASE_URL}/api/partner/active-org`, {
+          headers: { "Content-Type": "application/json", ...(csrf ? { "X-CSRF-Token": csrf } : {}) },
+          data: { organizationId: orgId },
+        });
+        if (swapRes.status() >= 400) throw new Error(`active-org swap failed: HTTP ${swapRes.status()}`);
 
         await page.goto(`${DEFAULT_BASE_URL}/assessments/new?type=pre_employment`, {
           waitUntil: "networkidle",
         });
-        await page.locator("#candidateName").fill(CASTING.candidate.name);
-        await page.locator("#candidateEmail").fill(CASTING.candidate.email);
-        await page.locator("#positionTitle").fill(CASTING.candidate.role);
+        // Typing is deliberately brisker than the first cut (55ms -> 30ms,
+        // shorter holds): the three text fields ate ~8s of footage against
+        // ~4s of narration, which is what pushed everything after them out of
+        // sync. The saved-JD dropdown is where the hold belongs instead.
+        // Second rebalance (2026-07-27): even after splitting the chapter,
+        // the three text fields still ate ~10s of a 19.7s shot while the
+        // narration allots them ~6s, so "then choose the job description"
+        // still landed while the role was mid-type. Typing is faster again
+        // and the reclaimed seconds are spent on the dropdown below, which is
+        // the beat the narration actually dwells on.
+        await page.waitForTimeout(600);
+        const nameField = page.locator("#candidateName");
+        await nameField.click();
+        await nameField.pressSequentially(CASTING.candidate.name, { delay: 12 });
+        await page.waitForTimeout(200);
+
+        const emailField = page.locator("#candidateEmail");
+        await emailField.click();
+        await emailField.pressSequentially(CASTING.candidate.email, { delay: 8 });
+        await page.waitForTimeout(200);
+
+        const roleField = page.locator("#positionTitle");
+        await roleField.click();
+        await roleField.pressSequentially(CASTING.candidate.role, { delay: 12 });
+        await page.waitForTimeout(300);
+
+        // Proposed Start Date — a native <input type="date">; fill() with an
+        // ISO value is the supported way to set one in Playwright.
+        const startDate = page.locator('input[type="date"]').first();
+        if (await startDate.isVisible().catch(() => false)) {
+          await startDate.click();
+          await startDate.fill("2026-08-17");
+          await page.waitForTimeout(900);
+        }
 
         // A shadcn/Radix Select — found live 2026-07-27: a
         // role="combobox" button trigger plus a portal-rendered listbox,
@@ -100,8 +178,15 @@ const chapter: ChapterModule = {
         const savedJdSelect = page.getByTestId("saved-job-description-select");
         await savedJdSelect.waitFor({ state: "visible" });
         await savedJdSelect.click();
+        // Hold with the dropdown OPEN so the saved job descriptions are
+        // visibly listed before one is picked — the narration claims they're
+        // "right there in the dropdown", so the dropdown has to be seen open.
+        // Long hold with the list OPEN — this is where the narration dwells
+        // ("the ones you uploaded earlier are right there in the dropdown"),
+        // so it gets the seconds reclaimed from the typing above.
+        await page.waitForTimeout(4200);
         await page.getByRole("option", { name: CASTING.jobDescriptions[0].title }).click();
-        await page.waitForTimeout(1000); // frame the pairing on screen before submitting
+        await page.waitForTimeout(3000); // frame the pairing on screen before submitting
 
         const [createResponse] = await Promise.all([
           page.waitForResponse((r) => r.url().includes("/api/assessments") && r.request().method() === "POST"),

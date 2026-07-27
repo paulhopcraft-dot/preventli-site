@@ -55,7 +55,39 @@ const chapter: ChapterModule = {
         // duplicate-org side effect. The Coastline + Priya Nair + PCA-JD
         // pairing the brief cares about for role/JD coherence is used
         // in chapter 3 instead, where it's already correctly seeded.
-        await page.getByTestId("field-name").fill(NEW_CLIENT.name);
+        // Hold on the empty dialog first so the viewer sees the form's
+        // starting state, then type per-character rather than fill()-ing in a
+        // single invisible frame (Paul, 2026-07-27: "you don't even show any
+        // of the entry fields").
+        await page.waitForTimeout(1800);
+        const nameField = page.getByTestId("field-name");
+        await nameField.click();
+        await nameField.pressSequentially(NEW_CLIENT.name, { delay: 55 });
+        await page.waitForTimeout(1200);
+
+        // Primary contact + notification email — Paul, 2026-07-27: showing
+        // ONLY the company name is technically accurate (it's the sole
+        // required field) but it's bad guidance. Without a client contact
+        // email the approved report has nowhere to go, and the form does not
+        // warn about it; the send just fails later. A "normal setup" on
+        // camera therefore fills the contact and notification email too.
+        const contactName = page.locator("#contactName");
+        await contactName.scrollIntoViewIfNeeded();
+        await contactName.click();
+        await contactName.pressSequentially(NEW_CLIENT.contactName, { delay: 45 });
+        await page.waitForTimeout(700);
+
+        const contactEmail = page.locator("#contactEmail");
+        await contactEmail.click();
+        await contactEmail.pressSequentially(NEW_CLIENT.contactEmail, { delay: 30 });
+        await page.waitForTimeout(1000);
+
+        const notifyEmails = page.getByTestId("field-notification-emails");
+        await notifyEmails.scrollIntoViewIfNeeded();
+        await notifyEmails.click();
+        await notifyEmails.pressSequentially(NEW_CLIENT.contactEmail, { delay: 30 });
+        await page.waitForTimeout(1500);
+
         await page.getByTestId("submit-client").click();
         // Deterministic wait: the post-create step (createdClientId set)
         // renders the JD-upload dialog with this exact copy.

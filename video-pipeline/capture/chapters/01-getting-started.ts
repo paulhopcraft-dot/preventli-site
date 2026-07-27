@@ -29,9 +29,26 @@ const chapter: ChapterModule = {
       needsAuth: false,
       async run(page) {
         await page.goto(`${DEFAULT_BASE_URL}/login`, { waitUntil: "domcontentloaded" });
-        await page.getByLabel(/email/i).fill(PARTNER.loginEmail);
+        // Hold on the empty login form before touching it, so the viewer sees
+        // the starting state rather than a pre-filled box.
+        await page.waitForTimeout(1200);
+
+        // pressSequentially, NOT fill — found 2026-07-27 watching the cut with
+        // narration over it: fill() sets the input's value in a single frame,
+        // so the credentials simply appear and the narration ("this is where
+        // you sign in") describes typing that is never visible. Typing
+        // per-character is the whole point of this shot.
+        const emailField = page.getByLabel(/email/i);
+        await emailField.click();
+        await emailField.pressSequentially(PARTNER.loginEmail, { delay: 45 });
+        await page.waitForTimeout(500);
+
         // Not getByLabel — see the a11y-bug note in capture/lib/auth.ts.
-        await page.locator('input[type="password"]').fill(PARTNER.loginPassword);
+        const passwordField = page.locator('input[type="password"]');
+        await passwordField.click();
+        await passwordField.pressSequentially(PARTNER.loginPassword, { delay: 45 });
+        await page.waitForTimeout(800);
+
         await page.getByRole("button", { name: /sign in/i }).click();
         await page.waitForURL(/\/partner\/clients/, { timeout: 30_000 });
         // Hold a beat on the freshly-loaded workspace so the cut from
@@ -50,7 +67,39 @@ const chapter: ChapterModule = {
         await page.goto(`${DEFAULT_BASE_URL}/partner/clients`, { waitUntil: "networkidle" });
         await page.getByTestId("sidebar-all-clients").waitFor({ state: "visible" });
         await page.getByTestId("sidebar-all-clients").click();
-        await page.waitForTimeout(1000);
+        await page.waitForTimeout(1500);
+
+        // Real movement across the things the narration names, rather than a
+        // 1.8s still that then has to be stretched 4x and freeze-padded
+        // (Paul, 2026-07-27: the back half of chapter 1 was a frozen frame).
+        // Each hover is a beat the voice-over can land on: clients rail,
+        // then the risk filter, then the rows themselves.
+        const clientRail = page.getByText("Coastline Aged Care Group", { exact: false }).first();
+        if (await clientRail.isVisible().catch(() => false)) {
+          await clientRail.hover();
+          await page.waitForTimeout(1600);
+        }
+
+        const riskFilter = page.getByText(/all risk levels/i).first();
+        if (await riskFilter.isVisible().catch(() => false)) {
+          await riskFilter.hover();
+          await page.waitForTimeout(1600);
+        }
+
+        const riskSort = page.getByTestId("sort-riskLevel");
+        if (await riskSort.isVisible().catch(() => false)) {
+          await riskSort.hover();
+          await page.waitForTimeout(1400);
+        }
+
+        // Settle on the rows themselves — the "anything needing you is
+        // flagged right here" beat.
+        const firstRow = page.getByText(/ready to review/i).first();
+        if (await firstRow.isVisible().catch(() => false)) {
+          await firstRow.hover();
+          await page.waitForTimeout(2000);
+        }
+        await page.waitForTimeout(1200);
       },
     },
   ],
