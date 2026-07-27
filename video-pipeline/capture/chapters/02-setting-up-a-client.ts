@@ -104,7 +104,11 @@ const chapter: ChapterModule = {
 
         // Click the real save action.
         await page.getByTestId("jd-upload-submit").click();
-        await page.getByText(/Job descriptions uploaded/i).waitFor({ state: "visible", timeout: 15_000 });
+        // .first() — an aria-live status region echoes the same toast text,
+        // so the plain text locator matches twice (strict-mode violation,
+        // found live 2026-07-27). Confirmed the echoed toast itself reads
+        // "3 file(s)" — the batch upload is working as intended.
+        await page.getByText(/Job descriptions uploaded/i).first().waitFor({ state: "visible", timeout: 15_000 });
 
         // Only now, with the upload visibly succeeded, close the dialog.
         await page.getByTestId("jd-step-done").click();
@@ -117,7 +121,18 @@ const chapter: ChapterModule = {
       async run(page) {
         await page.goto(`${DEFAULT_BASE_URL}/partner/clients`, { waitUntil: "networkidle" });
         await page.getByTestId("sidebar-all-clients").click();
-        await page.getByText("Risk", { exact: true }).first().waitFor({ state: "visible" });
+        // Not a "Risk" text wait — found live 2026-07-27: this table's
+        // header is WORKER/TYPE/CLIENT/LAST ACTIVITY/NEXT ACTION with no
+        // literal "Risk" column at all. Risk shows as an inline pill next
+        // to the worker's name, but only once a check has a computed risk
+        // level — every row in a freshly seeded tenant is still "Waiting
+        // on worker", before that exists. Waiting on a column header that
+        // is always present instead.
+        // Case-insensitive, not exact: the header is CSS `uppercase`
+        // (visually "NEXT ACTION") but the DOM text content is "Next
+        // action" — an exact-match locator against the rendered casing
+        // never matches. Found live 2026-07-27.
+        await page.getByText(/next action/i).waitFor({ state: "visible" });
         await page.waitForTimeout(1500);
       },
     },

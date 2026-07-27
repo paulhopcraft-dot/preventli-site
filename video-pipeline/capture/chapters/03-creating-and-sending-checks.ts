@@ -52,30 +52,37 @@ export const LAST_ASSESSMENT_STATE_PATH = path.join(
  */
 const chapter: ChapterModule = {
   chapterId: "03-creating-and-sending-checks",
+  // ONE shot, not three. Found live 2026-07-27: each shot in this harness
+  // gets a brand-new browser context restored from the pre-login
+  // storageState snapshot (capture/lib/recording.ts) — so the server-side
+  // "active client" swap that clicking "new-pre-employment-check-button"
+  // triggers (swapAndNavigate() in PartnerWorkspace.tsx) does NOT carry
+  // over to a later shot's fresh context. Splitting this chapter into
+  // separately-runnable shots was never viable once that button existed;
+  // the original 3-shot split (and its "if not already filled" fallback
+  // in what was shot 03) both silently assumed continuation that the
+  // harness's per-shot-context design doesn't provide. One continuous
+  // shot is also the more honest capture of the real thing: a partner
+  // does this in one unbroken session, not three separate page loads.
   shots: [
     {
-      id: "01-select-client-and-open-new-check",
-      title: "Select Coastline Aged Care Group, open New -> Send a check",
+      id: "01-create-and-send-check",
+      title: "Select client, open New check, pick the saved JD, create, then Send to Worker",
       needsAuth: true,
       async run(page) {
         await page.goto(`${DEFAULT_BASE_URL}/partner/clients`, { waitUntil: "networkidle" });
         await page.getByText(CASTING.existingClient.name, { exact: false }).first().click();
-        await page.getByTestId("new-action-button").waitFor({ state: "visible" });
-        await page.getByTestId("new-action-button").click();
-        await page.getByTestId("new-action-check").click();
-        // swapAndNavigate() (PartnerWorkspace.tsx) swaps the active org
-        // server-side then routes to /checks — land there before jumping
-        // straight to the assessment form, so the org-swap has definitely
-        // committed server-side (NewAssessmentPage has no orgId of its own
-        // in the URL; it trusts the swapped session).
+        // Single button, not a "New" -> "Send a check" two-step menu — that
+        // assumed shape came from the pre-existing brief and was never
+        // click-verified. Found live 2026-07-27: one button,
+        // data-testid="new-pre-employment-check-button".
+        await page.getByTestId("new-pre-employment-check-button").waitFor({ state: "visible" });
+        await page.getByTestId("new-pre-employment-check-button").click();
+        // swapAndNavigate() swaps the active org server-side then routes to
+        // /checks — land there before jumping to the assessment form, so
+        // the org-swap has definitely committed server-side.
         await page.waitForURL(/\/checks/, { timeout: 15_000 });
-      },
-    },
-    {
-      id: "02-new-check-form-with-saved-jd",
-      title: "Fill candidate details; pick the saved PCA job description",
-      needsAuth: true,
-      async run(page) {
+
         await page.goto(`${DEFAULT_BASE_URL}/assessments/new?type=pre_employment`, {
           waitUntil: "networkidle",
         });
@@ -83,48 +90,35 @@ const chapter: ChapterModule = {
         await page.locator("#candidateEmail").fill(CASTING.candidate.email);
         await page.locator("#positionTitle").fill(CASTING.candidate.role);
 
+        // A shadcn/Radix Select — found live 2026-07-27: a
+        // role="combobox" button trigger plus a portal-rendered listbox,
+        // with a visually-hidden native <select> alongside it purely for
+        // form semantics (that hidden select is what a plain text-content
+        // match was actually resolving to, and neither .click() on an
+        // <option> nor .selectOption() on the visible button works).
+        // Correct pattern: open the trigger, click the rendered option.
         const savedJdSelect = page.getByTestId("saved-job-description-select");
         await savedJdSelect.waitFor({ state: "visible" });
         await savedJdSelect.click();
-        await page
-          .getByText(CASTING.jobDescriptions[0].title, { exact: false })
-          .first()
-          .click();
+        await page.getByRole("option", { name: CASTING.jobDescriptions[0].title }).click();
         await page.waitForTimeout(1000); // frame the pairing on screen before submitting
-      },
-    },
-    {
-      id: "03-create-then-two-step-send",
-      title: '"Create Assessment" only creates; "Send to Worker" is the real send',
-      needsAuth: true,
-      async run(page) {
-        // Continues shot 02's state if run as part of a full chapter take;
-        // re-fill from scratch if run standalone.
-        const nameField = page.locator("#candidateName");
-        if (!(await nameField.inputValue().catch(() => ""))) {
-          await page.goto(`${DEFAULT_BASE_URL}/assessments/new?type=pre_employment`, {
-            waitUntil: "networkidle",
-          });
-          await page.locator("#candidateName").fill(CASTING.candidate.name);
-          await page.locator("#candidateEmail").fill(CASTING.candidate.email);
-          await page.locator("#positionTitle").fill(CASTING.candidate.role);
-          const savedJdSelect = page.getByTestId("saved-job-description-select");
-          await savedJdSelect.click();
-          await page.getByText(CASTING.jobDescriptions[0].title, { exact: false }).first().click();
-        }
 
         const [createResponse] = await Promise.all([
           page.waitForResponse((r) => r.url().includes("/api/assessments") && r.request().method() === "POST"),
           page.getByRole("button", { name: /create assessment/i }).click(),
         ]);
         const created = await createResponse.json().catch(() => null);
-        if (created?.accessToken) {
+        // Nested under .assessment, not top-level — found live 2026-07-27:
+        // the real response shape is { assessment: {...accessToken...},
+        // worker: {...} }, not { accessToken, ... } directly.
+        const accessToken = created?.assessment?.accessToken;
+        if (accessToken) {
           mkdirSync(path.dirname(LAST_ASSESSMENT_STATE_PATH), { recursive: true });
           writeFileSync(
             LAST_ASSESSMENT_STATE_PATH,
             JSON.stringify(
               {
-                accessToken: created.accessToken,
+                accessToken,
                 candidateName: CASTING.candidate.name,
                 capturedAt: new Date().toISOString(),
               },

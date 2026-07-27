@@ -30,7 +30,8 @@ const chapter: ChapterModule = {
       async run(page) {
         await page.goto(`${DEFAULT_BASE_URL}/login`, { waitUntil: "domcontentloaded" });
         await page.getByLabel(/email/i).fill(PARTNER.loginEmail);
-        await page.getByLabel(/password/i).fill(PARTNER.loginPassword);
+        // Not getByLabel — see the a11y-bug note in capture/lib/auth.ts.
+        await page.locator('input[type="password"]').fill(PARTNER.loginPassword);
         await page.getByRole("button", { name: /sign in/i }).click();
         await page.waitForURL(/\/partner\/clients/, { timeout: 30_000 });
         // Hold a beat on the freshly-loaded workspace so the cut from

@@ -40,6 +40,16 @@ export async function runShot(browser: Browser, chapterId: string, shot: Shot): 
   const contextOptions: Parameters<Browser["newContext"]>[0] = {
     viewport: VIEWPORT,
     recordVideo: { dir: rawDir, size: VIEWPORT },
+    // A capture session hits the app's API far more than a real user does
+    // (every shot, every retry) and trips the general 200-req/15min rate
+    // limiter (server/middleware/security.ts) partway through a session —
+    // found live 2026-07-27. The server already has a sanctioned E2E
+    // bypass (isE2ETestRequest) gated on this header; only takes effect if
+    // E2E_TEST_SECRET is set in the environment running this script, and
+    // has zero effect on production (nothing sets that var there).
+    extraHTTPHeaders: process.env.E2E_TEST_SECRET
+      ? { "x-e2e-test-secret": process.env.E2E_TEST_SECRET }
+      : undefined,
   };
   if (shot.needsAuth) {
     if (!existsSync(AUTH_STATE_PATH)) {

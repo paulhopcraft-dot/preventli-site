@@ -46,10 +46,16 @@ import { LAST_ASSESSMENT_STATE_PATH } from "./03-creating-and-sending-checks";
  */
 const chapter: ChapterModule = {
   chapterId: "04-candidate-experience",
+  // ONE shot, not three — same architectural fix as chapter 3. Found live
+  // 2026-07-27: each shot gets its own fresh, unnavigated browser context
+  // (capture/lib/recording.ts), so shot 02 as originally written opened on
+  // a blank page and immediately waited for "Step 2 of 8", which could
+  // never appear. All three original shots assumed continuation the
+  // harness never provided.
   shots: [
     {
-      id: "01-opens-link-and-identity-page",
-      title: "Candidate opens the link (unauthenticated) — Step 1 of 8",
+      id: "01-full-candidate-flow",
+      title: "Candidate opens the link, fills all 8 steps, submits",
       needsAuth: false, // deliberately: candidates are never logged-in partner users
       async run(page) {
         if (!existsSync(LAST_ASSESSMENT_STATE_PATH)) {
@@ -73,36 +79,21 @@ const chapter: ChapterModule = {
         await page.locator("#woman").check();
         await page.waitForTimeout(1000);
         await page.getByRole("button", { name: /^next$/i }).click();
-      },
-    },
-    {
-      id: "02-through-the-substantive-middle",
-      title: "Steps 2-7 — Work History through Family & Vaccination (fixes defect #6)",
-      needsAuth: false,
-      async run(page) {
-        // Continues shot 01's state if chained; requires having already
-        // reached step 2. Standalone re-run: re-open the link and redo
-        // shot 01's step-1 fill first (see docs/video-pipeline.md).
+
         // UNVERIFIED ASSUMPTION (flagged, not silently relied on): steps
         // 2-7 have no required-field validation — confirmed by reading
         // `validateCurrentStep`'s switch statement, which only has a
         // `case 1` and a comment "// Add validation for other steps as
-        // needed" for the rest. Not click-verified live. If a live run
-        // finds a step DOES block "Next", the fix is in that switch case
-        // in client/src/pages/PreEmploymentForm.tsx, not in this script.
+        // needed" for the rest. If a live run finds a step DOES block
+        // "Next", the fix is in that switch case in
+        // client/src/pages/PreEmploymentForm.tsx, not in this script.
         for (let step = 2; step <= 7; step++) {
           await page.getByText(new RegExp(`Step ${step} of 8`, "i")).waitFor({ state: "visible", timeout: 10_000 });
           // Hold on each step long enough to read on camera.
           await page.waitForTimeout(2500);
           await page.getByRole("button", { name: /^next$/i }).click();
         }
-      },
-    },
-    {
-      id: "03-review-and-submit",
-      title: "Step 8 — Lifestyle & Review, submit, confirmation",
-      needsAuth: false,
-      async run(page) {
+
         await page.getByText(/Step 8 of 8/i).waitFor({ state: "visible", timeout: 10_000 });
         await page.waitForTimeout(2000);
         await page.getByRole("button", { name: /submit assessment/i }).click();
