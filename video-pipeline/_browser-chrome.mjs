@@ -45,6 +45,12 @@ function findFont() {
   ].find((c) => existsSync(c));
 }
 
+const inDur = parseFloat(
+  execFileSync("ffprobe", [
+    "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", inFile,
+  ]).toString().trim(),
+);
+
 const font = findFont();
 if (!font) {
   console.error("No usable system font found for the address bar text.");
@@ -55,9 +61,19 @@ const fontEsc = font.replace(/:/g, "\\:");
 // Page footage sits below the bar; scale it to fill the remaining height.
 const pageH = H - BAR_H;
 const filters = [
-  `[0:v]scale=${W}:${pageH}:force_original_aspect_ratio=decrease,pad=${W}:${pageH}:(ow-iw)/2:(oh-ih)/2:color=0xF7F8FA[page]`,
+  // setpts=PTS-STARTPTS + fps: the narrated input comes out of a concat of
+  // per-shot setpts slowdowns, and its timestamps do NOT start at zero on a
+  // uniform clock. drawtext's `enable=between(t,...)` reads that same clock,
+  // so without normalising, the typing animation froze partway — the bar sat
+  // on "preventli.ai/l" for the whole video (found live 2026-07-27 by
+  // reading frames at 3s and 18s).
+  `[0:v]setpts=PTS-STARTPTS,fps=30,scale=${W}:${pageH}:force_original_aspect_ratio=decrease,pad=${W}:${pageH}:(ow-iw)/2:(oh-ih)/2:color=0xF7F8FA[page]`,
   // Bar background + a rounded-ish "URL field" plate.
-  `color=c=0xE9EDF2:s=${W}x${BAR_H}:d=1[barbg]`,
+  // d MUST span the whole clip: with the original d=1 the colour source was a
+  // one-second clip, so vstack held its final frame for the rest of the video
+  // and the address bar froze forever on whatever had been typed at ~0.96s —
+  // "preventli.ai/l" (found live 2026-07-27, frames at 3s and 18s identical).
+  `color=c=0xE9EDF2:s=${W}x${BAR_H}:d=${(inDur + 1).toFixed(2)}:r=30[barbg]`,
   `[barbg]drawbox=x=150:y=14:w=${W - 320}:h=36:color=0xFFFFFF@1:t=fill,` +
     `drawbox=x=150:y=14:w=${W - 320}:h=36:color=0xD3D9E0@1:t=2[barplate]`,
 ];
