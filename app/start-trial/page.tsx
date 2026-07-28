@@ -10,10 +10,11 @@ import {
   type OrgKind,
   type TrialOrgFields,
 } from "@/lib/trial-signup";
+import { checkPasswordRules, validatePassword } from "@/lib/password-policy";
+import { readSignupErrorLines, SIGNUP_FALLBACK_ERROR } from "@/lib/signup-error";
 
 const APP_SIGNUP_URL = "https://app.preventli.ai/api/public/signup";
 const APP_GOOGLE_OAUTH_URL = "https://app.preventli.ai/api/auth/google";
-const APP_URL = "https://app.preventli.ai";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
@@ -29,30 +30,38 @@ export default function StartTrialPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [state, setState] = useState<FormState>("idle");
-  const [error, setError] = useState("");
+  // One line per reason. The signup API answers a 400 with a `details` array
+  // naming every unmet requirement, and all of them get shown — rendering only
+  // the top-level `message` is what made every failure read "Bad Request".
+  const [errorLines, setErrorLines] = useState<string[]>([]);
 
   const orgFields: TrialOrgFields = { company, orgKind, employeeCount };
   const orgFieldsValid = isTrialOrgFieldsValid(orgFields);
   const googleHref = buildGoogleSignupUrl(APP_GOOGLE_OAUTH_URL, orgFields);
+  const passwordChecks = checkPasswordRules(password);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setError("");
+    setErrorLines([]);
 
     if (!orgFieldsValid) {
-      setError("Please fill in your company details above first.");
+      setErrorLines(["Please fill in your company details above first."]);
       return;
     }
     if (!name.trim()) {
-      setError("Please fill in all fields.");
+      setErrorLines(["Please fill in all fields."]);
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("Please enter a valid work email.");
+      setErrorLines(["Please enter a valid work email."]);
       return;
     }
-    if (password.length < 8) {
-      setError("Password must be at least 8 characters.");
+    // Same five rules the server enforces (lib/password-policy.ts mirrors the
+    // app's shared/passwordPolicy.ts). Checked here so a password that can't
+    // succeed never costs the user a round trip.
+    const passwordCheck = validatePassword(password);
+    if (!passwordCheck.valid) {
+      setErrorLines(passwordCheck.errors);
       return;
     }
 
@@ -73,16 +82,16 @@ export default function StartTrialPage() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => null);
-        throw new Error(data?.error || "Signup failed");
+        setState("error");
+        setErrorLines(readSignupErrorLines(data));
+        return;
       }
 
       setState("success");
-      window.location.href = APP_URL;
-    } catch (err) {
+    } catch {
+      // Network/CORS failure — no response body to explain anything.
       setState("error");
-      setError(
-        err instanceof Error ? err.message : "Something went wrong. Please try again."
-      );
+      setErrorLines([SIGNUP_FALLBACK_ERROR]);
     }
   }
 
@@ -111,10 +120,18 @@ export default function StartTrialPage() {
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </div>
+              {/* The API returns 202, not a session: the account exists but is
+                  unverified until the emailed link is clicked. Sending the
+                  browser to app.preventli.ai here just landed people on a login
+                  screen they had no password-verified account for yet. */}
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                You&apos;re in
+                Check your email
               </h3>
-              <p className="text-gray-500 text-sm">Taking you to Preventli now…</p>
+              <p className="text-gray-500 text-sm">
+                We&apos;ve sent a confirmation link to{" "}
+                <span className="font-medium text-[#0A1628]">{email}</span>. Click it to
+                activate your account and start your trial.
+              </p>
             </div>
           ) : (
             <>
@@ -248,14 +265,44 @@ export default function StartTrialPage() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="At least 8 characters"
+                    placeholder="Create a password"
+                    aria-describedby="trial-password-requirements"
                     className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#8DC63F]"
                   />
+                  {/* Shown from the start, not only after a failed submit —
+                      these are the exact rules the server enforces. */}
+                  <ul
+                    id="trial-password-requirements"
+                    className="mt-2.5 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1"
+                  >
+                    {passwordChecks.map(({ rule, met }) => (
+                      <li
+                        key={rule.id}
+                        className={`flex items-center gap-1.5 text-xs ${
+                          met ? "text-[#5A9216]" : "text-gray-400"
+                        }`}
+                      >
+                        <RequirementIcon met={met} />
+                        <span>{rule.label}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {(error || state === "error") && (
-                  <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-red-600 text-sm">
-                    {error || "Something went wrong. Please try again."}
+                {(errorLines.length > 0 || state === "error") && (
+                  <div
+                    role="alert"
+                    className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-red-600 text-sm"
+                  >
+                    {errorLines.length > 1 ? (
+                      <ul className="list-disc pl-4 space-y-1">
+                        {errorLines.map((line) => (
+                          <li key={line}>{line}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      errorLines[0] || SIGNUP_FALLBACK_ERROR
+                    )}
                   </div>
                 )}
 
@@ -285,6 +332,28 @@ export default function StartTrialPage() {
         </p>
       </div>
     </main>
+  );
+}
+
+/** Tick once a password rule is satisfied, empty circle until then. */
+function RequirementIcon({ met }: { met: boolean }) {
+  return (
+    <svg
+      width="13"
+      height="13"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="3"
+      aria-hidden="true"
+      className="shrink-0"
+    >
+      {met ? (
+        <polyline points="20 6 9 17 4 12" strokeLinecap="round" strokeLinejoin="round" />
+      ) : (
+        <circle cx="12" cy="12" r="8" strokeWidth="2" />
+      )}
+    </svg>
   );
 }
 
