@@ -29,7 +29,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-bold text-[#0A1628] mb-3">1. About This Policy</h2>
             <p>
-              Preventli Pty Ltd (ABN to be inserted) (<strong>&quot;Preventli&quot;</strong>, <strong>&quot;we&quot;</strong>,{" "}
+              Preventli Pty Ltd (<strong>&quot;Preventli&quot;</strong>, <strong>&quot;we&quot;</strong>,{" "}
               <strong>&quot;us&quot;</strong>, <strong>&quot;our&quot;</strong>) is an Australian company that provides
               WorkCover case management, AI-powered return-to-work planning, and pre-employment health
               assessment software to Australian businesses.
