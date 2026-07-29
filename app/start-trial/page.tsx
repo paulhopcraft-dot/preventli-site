@@ -29,6 +29,7 @@ export default function StartTrialPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [state, setState] = useState<FormState>("idle");
   // One line per reason. The signup API answers a 400 with a `details` array
   // naming every unmet requirement, and all of them get shown — rendering only
@@ -62,6 +63,10 @@ export default function StartTrialPage() {
     const passwordCheck = validatePassword(password);
     if (!passwordCheck.valid) {
       setErrorLines(passwordCheck.errors);
+      return;
+    }
+    if (password !== confirmPassword) {
+      setErrorLines(["Passwords don't match."]);
       return;
     }
 
@@ -287,6 +292,22 @@ export default function StartTrialPage() {
                       </li>
                     ))}
                   </ul>
+                </div>
+                <div>
+                  <label htmlFor="trial-confirm-password" className="block text-sm font-semibold text-gray-700 mb-1.5">
+                    Confirm password
+                  </label>
+                  <input
+                    id="trial-confirm-password"
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder="Re-enter your password"
+                    className="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 bg-white transition-colors focus:outline-none focus:border-[#8DC63F]"
+                  />
+                  {confirmPassword.length > 0 && confirmPassword !== password && (
+                    <p className="mt-1.5 text-xs text-red-600">Passwords don&apos;t match.</p>
+                  )}
                 </div>
 
                 {(errorLines.length > 0 || state === "error") && (
