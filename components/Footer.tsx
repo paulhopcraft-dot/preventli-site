@@ -111,8 +111,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © {currentYear} Preventli. All rights reserved. ABN: XX XXX XXX
-            XXX
+            © {currentYear} Preventli. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link

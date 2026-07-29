@@ -30,7 +30,7 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold text-[#0A1628] mb-3">1. About These Terms</h2>
             <p>
               These Terms of Service (<strong>&quot;Terms&quot;</strong>) form a legally binding agreement between
-              Preventli Pty Ltd (ABN to be inserted) (<strong>&quot;Preventli&quot;</strong>,{" "}
+              Preventli Pty Ltd (<strong>&quot;Preventli&quot;</strong>,{" "}
               <strong>&quot;we&quot;</strong>, <strong>&quot;us&quot;</strong>, <strong>&quot;our&quot;</strong>) and the
               organisation or individual (<strong>&quot;Customer&quot;</strong>, <strong>&quot;you&quot;</strong>,{" "}
               <strong>&quot;your&quot;</strong>) accessing or using the Preventli platform and associated services.
