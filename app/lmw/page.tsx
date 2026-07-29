@@ -11,23 +11,6 @@ export const metadata: Metadata = {
   },
 };
 
-const BROCHURES = [
-  {
-    slug: "pre-employment",
-    title: "Pre-Employment Screening",
-    description:
-      "What Preventli's pre-employment product covers, built for IWN water authorities.",
-    file: "/lmw/preventli-iwn-pre-employment-brochure.pdf",
-  },
-  {
-    slug: "full-services",
-    title: "Preventli for IWN",
-    description:
-      "Pre-employment, exit checks, and hazard & incident management — the full picture for IWN.",
-    file: "/lmw/preventli-iwn-services-brochure.pdf",
-  },
-];
-
 export default function LMWIWNPage() {
   return (
     <main className="bg-[#0A1628] min-h-screen">
@@ -45,9 +28,8 @@ export default function LMWIWNPage() {
             already proven
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            The case study, and the two brochures covering pre-employment
-            screening and the full IWN picture — everything from today&apos;s
-            email, in one place.
+            The case study — what Lower Murray Water has already proven,
+            in one place.
           </p>
         </div>
       </section>
