@@ -41,8 +41,8 @@ type Cell = string | boolean;
 
 const featureRows: { label: string; values: [Cell, Cell, Cell] }[] = [
   { label: "Users", values: ["1", "3", "Up to 10"] },
-  { label: "Clinical checks", values: ["$49 / check", "3 / month", "10 / month"] },
-  { label: "Health & wellbeing checks", values: ["$49 / check", "5 / month", "20 / month"] },
+  { label: "Clinical checks", values: ["$49 / check", "$49 / check", "$49 / check"] },
+  { label: "Health & wellbeing checks", values: ["$49 / check", "$49 / check", "$49 / check"] },
   { label: "Active cases", values: [false, "Up to 5", "Up to 20"] },
   { label: "Preventli Advisor — Alex", values: [true, true, true] },
   { label: "RTW plans & document management", values: [false, true, true] },
@@ -326,9 +326,9 @@ export default function Pricing() {
 
         {/* Fine print */}
         <p className="text-center text-gray-400 text-sm mt-12 max-w-3xl mx-auto">
-          Pay as you go checks are billed individually as you run them; Starter and Professional include a set
-          number each month, with additional checks billed the same way once you&apos;re over your plan.
-          All checks $49 each. Clinical reports $125. Medico-legal reports and IMEs $145 each.
+          Every check is $49, on every plan — each one is clinically reviewed. Checks are billed
+          individually as you run them; your monthly plan covers the platform features, not the checks.
+          Clinical reports $125. Medico-legal reports and IMEs $145 each.
           Prices in AUD and exclude GST.{" "}
           <a href="#contact" className="text-[#8DC63F] hover:underline">
             Chat with us
