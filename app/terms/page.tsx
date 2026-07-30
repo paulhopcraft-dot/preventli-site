@@ -30,7 +30,7 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold text-[#0A1628] mb-3">1. About These Terms</h2>
             <p>
               These Terms of Service (<strong>&quot;Terms&quot;</strong>) form a legally binding agreement between
-              Preventli Pty Ltd (<strong>&quot;Preventli&quot;</strong>,{" "}
+              Preventli Pty Ltd (ABN 86 697 220 634) (<strong>&quot;Preventli&quot;</strong>,{" "}
               <strong>&quot;we&quot;</strong>, <strong>&quot;us&quot;</strong>, <strong>&quot;our&quot;</strong>) and the
               organisation or individual (<strong>&quot;Customer&quot;</strong>, <strong>&quot;you&quot;</strong>,{" "}
               <strong>&quot;your&quot;</strong>) accessing or using the Preventli platform and associated services.
@@ -361,6 +361,7 @@ export default function TermsPage() {
             <p>For any questions about these Terms:</p>
             <div className="mt-3 bg-white border border-gray-200 rounded-xl p-6">
               <p className="font-semibold text-[#0A1628]">Preventli Pty Ltd</p>
+              <p className="text-sm text-gray-500">ABN 86 697 220 634</p>
               <p className="mt-1">
                 Email:{" "}
                 <a href="mailto:legal@preventli.ai" className="text-[#00E676] underline">
