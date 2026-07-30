@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { WELCOME_FAQ } from "@/lib/welcome/faq";
+import type { FaqItem } from "@/lib/welcome/faq";
 
-export default function FaqAccordion() {
+export default function FaqAccordion({ items }: { items: FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -19,7 +19,7 @@ export default function FaqAccordion() {
         </div>
 
         <div className="space-y-3">
-          {WELCOME_FAQ.map((item, i) => {
+          {items.map((item, i) => {
             const isOpen = openIndex === i;
             return (
               <div

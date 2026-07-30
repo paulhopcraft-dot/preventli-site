@@ -1,4 +1,4 @@
-// Data for the workflow map — the centerpiece of the partner onboarding hub.
+// Data for the workflow map — the centerpiece of the onboarding hubs.
 //
 // One group == one chapter video == one clickable box. This 1:1 mapping is
 // deliberate: an earlier version exposed all 14 individual stages as separate
@@ -8,8 +8,14 @@
 // group as plain, non-interactive labels — the group is the only click target.
 //
 // `row`/`col` describe the box's position in the desktop grid (see
-// components/welcome/WorkflowMap.tsx): three boxes across the top row, then
-// the flow drops down-left into a second row of two.
+// components/welcome/WorkflowMap.tsx): boxes across the top row, then
+// the flow drops down-left into a second row.
+//
+// The map is audience-parameterised: /partner-onboarding renders PARTNER_MAP
+// (this file); /employer-onboarding renders EMPLOYER_MAP
+// (lib/welcome/employer.ts). Connector arrows and the elbow path are
+// position-coupled to the groups, so they live in the same per-audience
+// config rather than the component.
 
 export type Actor = "partner" | "candidate" | "gpnet" | "automatic";
 
@@ -27,10 +33,28 @@ export type WorkflowGroup = {
   /** Drives the box's border/fill colour and its actor chip. */
   actor: Actor;
   stages: WorkflowStage[];
-  /** Desktop grid row (0 = top row of three, 1 = second row of two). */
+  /** Desktop grid row (0 = top row, 1 = second row). */
   row: 0 | 1;
   /** Desktop grid column within the row (0 = left, 1 = center, 2 = right). */
   col: 0 | 1 | 2;
+};
+
+export type RowArrowSpec = {
+  id: string;
+  gridColumn: string;
+  gridRow: string;
+};
+
+export type WorkflowMapConfig = {
+  groups: WorkflowGroup[];
+  /** Legend + actor chips — audience-specific ("You (the partner)" vs "You (the employer)"). */
+  actorLabels: Record<Actor, string>;
+  /** The "N stages, N short videos…" line under the section heading. */
+  subheading: string;
+  /** Straight same-row connectors between adjacent boxes. */
+  rowArrows: RowArrowSpec[];
+  /** SVG path for the down-left elbow from the top row into the second row. */
+  elbowPath: string;
 };
 
 export const ACTOR_LABEL: Record<Actor, string> = {
@@ -121,3 +145,19 @@ export const WORKFLOW_GROUPS: WorkflowGroup[] = [
     ],
   },
 ];
+
+export const PARTNER_MAP: WorkflowMapConfig = {
+  groups: WORKFLOW_GROUPS,
+  actorLabels: ACTOR_LABEL,
+  subheading:
+    "Five stages, five short videos. Click a stage to watch it, or take the full tour from start to finish.",
+  rowArrows: [
+    { id: "ra-r0-a", gridColumn: "2 / 3", gridRow: "1 / 2" },
+    { id: "ra-r0-b", gridColumn: "4 / 5", gridRow: "1 / 2" },
+    { id: "ra-r1-a", gridColumn: "2 / 3", gridRow: "3 / 4" },
+  ],
+  // The flow leaves the top-right box and returns to the left of the second
+  // row. x values are percentages across the full grid width (roughly the
+  // 16 / 50 / 84 centers of the three box columns).
+  elbowPath: "M 84 0 L 84 50 L 16 50 L 16 100",
+};

@@ -1,6 +1,6 @@
 import HeroIntroVideo from "./HeroIntroVideo";
 
-export default function WelcomeHero() {
+export default function WelcomeHero({ workspaceLine }: { workspaceLine: string }) {
   return (
     <section className="relative overflow-hidden bg-[#0A1628] pt-20 pb-16 sm:pt-24 sm:pb-20">
       <div className="absolute inset-0 hero-grid" />
@@ -22,7 +22,7 @@ export default function WelcomeHero() {
           Welcome to <span className="text-[#00E676]">Preventli</span>
         </h1>
         <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto mb-2">
-          This is your partner workspace.
+          {workspaceLine}
         </p>
         <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto mb-10">
           Here&apos;s everything you need to run pre-employment and injury-prevention checks

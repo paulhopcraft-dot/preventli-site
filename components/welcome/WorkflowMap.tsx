@@ -3,14 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import {
   ACTOR_COLOR,
-  ACTOR_LABEL,
-  WORKFLOW_GROUPS,
   type Actor,
   type WorkflowGroup,
+  type WorkflowMapConfig,
 } from "@/lib/welcome/workflow";
-import { CHAPTERS, getChapter } from "@/lib/welcome/chapters";
+import type { Chapter } from "@/lib/welcome/chapters";
 import { getWatchedChapters, markChapterWatched } from "@/lib/welcome/watched";
 import VideoLightbox from "./VideoLightbox";
+
+type WorkflowMapProps = {
+  /** Audience-specific map (PARTNER_MAP or EMPLOYER_MAP). */
+  config: WorkflowMapConfig;
+  /** The chapter list the map's boxes and the full tour play through. */
+  chapters: Chapter[];
+};
 
 function hexToRgba(hex: string, alpha: number): string {
   const clean = hex.replace("#", "");
@@ -25,6 +31,8 @@ function hexToRgba(hex: string, alpha: number): string {
 //
 // 5 grid-column tracks: box | gutter | box | gutter | box
 // 3 grid-row tracks: top row of boxes | elbow connector | second row of boxes
+// Which cells hold arrows (and the elbow's path) is audience-specific and
+// comes from the config.
 // ---------------------------------------------------------------------
 const COL_TRACK: Record<0 | 1 | 2, string> = { 0: "1 / 2", 1: "3 / 4", 2: "5 / 6" };
 const FULL_TRACK = "1 / 6";
@@ -34,20 +42,7 @@ const ELBOW_ROW = "2 / 3";
 const GRID_TEMPLATE_ROWS = "auto 84px auto";
 const GRID_TEMPLATE_COLUMNS = "1fr 56px 1fr 56px 1fr";
 
-// Straight, same-row connectors between adjacent boxes. Column tracks 2 and 4
-// are the gutters either side of the middle box.
-const ROW_ARROWS = [
-  { id: "ra-r0-a", gridColumn: "2 / 3", gridRow: ROW_TRACK[0] },
-  { id: "ra-r0-b", gridColumn: "4 / 5", gridRow: ROW_TRACK[0] },
-  { id: "ra-r1-a", gridColumn: "2 / 3", gridRow: ROW_TRACK[1] },
-];
-
-// The single down-left elbow: the flow leaves the top-right box and returns to
-// the left of the second row. x values are percentages across the full grid
-// width (roughly the 16 / 50 / 84 centers of the three box columns).
-const ELBOW_PATH = "M 84 0 L 84 50 L 16 50 L 16 100";
-
-export default function WorkflowMap() {
+export default function WorkflowMap({ config, chapters }: WorkflowMapProps) {
   const [watchedChapters, setWatchedChapters] = useState<Set<string>>(new Set());
   const [activeChapterId, setActiveChapterId] = useState<string | null>(null);
   const [isTour, setIsTour] = useState(false);
@@ -93,21 +88,21 @@ export default function WorkflowMap() {
     setActiveChapterId((current) => {
       if (!current) return current;
       setWatchedChapters(markChapterWatched(current));
-      const idx = CHAPTERS.findIndex((c) => c.id === current);
-      if (idx === -1 || idx >= CHAPTERS.length - 1) {
+      const idx = chapters.findIndex((c) => c.id === current);
+      if (idx === -1 || idx >= chapters.length - 1) {
         setIsTour(false);
         return null;
       }
-      return CHAPTERS[idx + 1].id;
+      return chapters[idx + 1].id;
     });
   }
 
   function goToPrevChapter() {
     setActiveChapterId((current) => {
       if (!current) return current;
-      const idx = CHAPTERS.findIndex((c) => c.id === current);
+      const idx = chapters.findIndex((c) => c.id === current);
       if (idx <= 0) return current;
-      return CHAPTERS[idx - 1].id;
+      return chapters[idx - 1].id;
     });
   }
 
@@ -116,9 +111,11 @@ export default function WorkflowMap() {
     setActiveChapterId(group.chapterId);
   }
 
-  const activeChapter = activeChapterId ? getChapter(activeChapterId) : undefined;
+  const activeChapter = activeChapterId
+    ? chapters.find((c) => c.id === activeChapterId)
+    : undefined;
   const activeChapterIndex = activeChapter
-    ? CHAPTERS.findIndex((c) => c.id === activeChapter.id)
+    ? chapters.findIndex((c) => c.id === activeChapter.id)
     : -1;
 
   return (
@@ -131,22 +128,19 @@ export default function WorkflowMap() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">
             How a check moves end to end
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Five stages, five short videos. Click a stage to watch it, or take the full tour from
-            start to finish.
-          </p>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">{config.subheading}</p>
         </div>
 
         {/* Legend */}
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-12">
-          {(Object.keys(ACTOR_LABEL) as Actor[]).map((actor) => (
+          {(Object.keys(config.actorLabels) as Actor[]).map((actor) => (
             <div key={actor} className="flex items-center gap-2">
               <span
                 className="w-3 h-3 rounded-[3px] shrink-0"
                 style={{ backgroundColor: ACTOR_COLOR[actor] }}
               />
               <span className="text-gray-300 text-xs sm:text-sm font-medium">
-                {ACTOR_LABEL[actor]}
+                {config.actorLabels[actor]}
               </span>
             </div>
           ))}
@@ -154,8 +148,8 @@ export default function WorkflowMap() {
 
         {/* Map — the centrepiece, comes before the tour button */}
         <div ref={containerRef} className="relative mb-10">
-          <DesktopFlowchart watchedChapters={watchedChapters} onOpenGroup={openGroup} />
-          <MobileStack watchedChapters={watchedChapters} onOpenGroup={openGroup} />
+          <DesktopFlowchart config={config} watchedChapters={watchedChapters} onOpenGroup={openGroup} />
+          <MobileStack config={config} watchedChapters={watchedChapters} onOpenGroup={openGroup} />
         </div>
 
         {/* Take the full tour */}
@@ -164,7 +158,7 @@ export default function WorkflowMap() {
             type="button"
             onClick={() => {
               setIsTour(true);
-              setActiveChapterId(CHAPTERS[0].id);
+              setActiveChapterId(chapters[0].id);
             }}
             className="inline-flex items-center gap-2 bg-[#00E676] text-[#0A1628] px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#00C060] transition-all hover:scale-105 shadow-lg shadow-[#00E676]/20"
           >
@@ -180,7 +174,7 @@ export default function WorkflowMap() {
         <VideoLightbox
           chapter={activeChapter}
           chapterNumber={activeChapterIndex + 1}
-          totalChapters={CHAPTERS.length}
+          totalChapters={chapters.length}
           isTour={isTour}
           onClose={closeLightbox}
           onNextChapter={goToNextChapter}
@@ -192,14 +186,16 @@ export default function WorkflowMap() {
 }
 
 // ---------------------------------------------------------------------
-// Desktop — three boxes across, then the flow returns to a row of two
+// Desktop — boxes across the top, then the flow returns to a second row
 // (>= sm / 640px)
 // ---------------------------------------------------------------------
 
 function DesktopFlowchart({
+  config,
   watchedChapters,
   onOpenGroup,
 }: {
+  config: WorkflowMapConfig;
   watchedChapters: Set<string>;
   onOpenGroup: (group: WorkflowGroup) => void;
 }) {
@@ -228,17 +224,19 @@ function DesktopFlowchart({
         </defs>
       </svg>
 
-      {WORKFLOW_GROUPS.map((group, i) => (
+      {config.groups.map((group, i) => (
         <GroupBox
           key={group.id}
           group={group}
+          groupCount={config.groups.length}
+          actorLabels={config.actorLabels}
           stageNumber={i + 1}
           watched={watchedChapters.has(group.chapterId)}
           onClick={() => onOpenGroup(group)}
         />
       ))}
 
-      {ROW_ARROWS.map((arrow) => (
+      {config.rowArrows.map((arrow) => (
         <div
           key={arrow.id}
           data-wf-reveal
@@ -279,14 +277,14 @@ function DesktopFlowchart({
       >
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full block">
           <path
-            d={ELBOW_PATH}
+            d={config.elbowPath}
             fill="none"
             stroke="rgba(255,255,255,0.18)"
             strokeWidth="2"
             markerEnd="url(#wf-arrow-white)"
           />
           <path
-            d={ELBOW_PATH}
+            d={config.elbowPath}
             className="wf-flow-line"
             fill="none"
             stroke="#00E676"
@@ -302,11 +300,15 @@ function DesktopFlowchart({
 
 function GroupBox({
   group,
+  groupCount,
+  actorLabels,
   stageNumber,
   watched,
   onClick,
 }: {
   group: WorkflowGroup;
+  groupCount: number;
+  actorLabels: Record<Actor, string>;
   stageNumber: number;
   watched: boolean;
   onClick: () => void;
@@ -318,7 +320,7 @@ function GroupBox({
       type="button"
       onClick={onClick}
       data-wf-reveal
-      aria-label={`Stage ${stageNumber} of ${WORKFLOW_GROUPS.length}: ${group.title} — watch the video`}
+      aria-label={`Stage ${stageNumber} of ${groupCount}: ${group.title} — watch the video`}
       className="wf-node group relative hidden sm:flex flex-col text-left rounded-2xl border px-5 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#00E676] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E676]"
       style={{
         gridColumn: COL_TRACK[group.col],
@@ -336,7 +338,13 @@ function GroupBox({
         (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
       }}
     >
-      <GroupBoxBody group={group} stageNumber={stageNumber} watched={watched} color={color} />
+      <GroupBoxBody
+        group={group}
+        actorLabels={actorLabels}
+        stageNumber={stageNumber}
+        watched={watched}
+        color={color}
+      />
     </button>
   );
 }
@@ -345,11 +353,13 @@ function GroupBox({
 // never drift apart in content.
 function GroupBoxBody({
   group,
+  actorLabels,
   stageNumber,
   watched,
   color,
 }: {
   group: WorkflowGroup;
+  actorLabels: Record<Actor, string>;
   stageNumber: number;
   watched: boolean;
   color: string;
@@ -368,7 +378,7 @@ function GroupBoxBody({
             className="text-[10px] uppercase tracking-wide font-semibold truncate"
             style={{ color }}
           >
-            {ACTOR_LABEL[group.actor]}
+            {actorLabels[group.actor]}
           </span>
         </div>
         {watched && <WatchedBadge />}
@@ -418,15 +428,17 @@ function GroupBoxBody({
 // ---------------------------------------------------------------------
 
 function MobileStack({
+  config,
   watchedChapters,
   onOpenGroup,
 }: {
+  config: WorkflowMapConfig;
   watchedChapters: Set<string>;
   onOpenGroup: (group: WorkflowGroup) => void;
 }) {
   return (
     <div className="sm:hidden flex flex-col">
-      {WORKFLOW_GROUPS.map((group, i) => (
+      {config.groups.map((group, i) => (
         <div key={group.id}>
           {i > 0 && (
             <div
@@ -441,7 +453,7 @@ function MobileStack({
             type="button"
             onClick={() => onOpenGroup(group)}
             data-wf-reveal
-            aria-label={`Stage ${i + 1} of ${WORKFLOW_GROUPS.length}: ${group.title} — watch the video`}
+            aria-label={`Stage ${i + 1} of ${config.groups.length}: ${group.title} — watch the video`}
             className="wf-node group relative flex flex-col text-left rounded-2xl border px-5 py-4 w-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E676]"
             style={{
               backgroundColor: hexToRgba(ACTOR_COLOR[group.actor], 0.12),
@@ -450,6 +462,7 @@ function MobileStack({
           >
             <GroupBoxBody
               group={group}
+              actorLabels={config.actorLabels}
               stageNumber={i + 1}
               watched={watchedChapters.has(group.chapterId)}
               color={ACTOR_COLOR[group.actor]}
