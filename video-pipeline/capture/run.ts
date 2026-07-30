@@ -63,7 +63,7 @@ async function main() {
   const shotFilterIdx = args.indexOf("--shot");
   const shotFilter = shotFilterIdx >= 0 ? args[shotFilterIdx + 1] : undefined;
 
-  if (!target || (target !== "all" && !CHAPTER_IDS.includes(target as any))) {
+  if (!target || (target !== "all" && !(CHAPTER_IDS as readonly string[]).includes(target))) {
     console.error(`Usage: npx tsx video-pipeline/capture/run.ts <${CHAPTER_IDS.join("|")}|all> [--shot <id>] [--headed]`);
     process.exit(1);
   }
