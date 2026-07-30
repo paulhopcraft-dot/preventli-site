@@ -9,6 +9,14 @@ export interface Shot {
   title: string;
   /** If true, the context is created with the saved partner storageState (already logged in, no login screen recorded). */
   needsAuth: boolean;
+  /**
+   * Optional override for WHICH saved storageState a needsAuth shot loads.
+   * Defaults to AUTH_STATE_PATH (the partner state, unchanged behaviour for
+   * the five partner chapters). The employer chapters point this at the
+   * per-account states written by employer-auth.ts — run.ts establishes
+   * those before any shot that needs them.
+   */
+  storageStatePath?: string;
   run: (page: Page) => Promise<void>;
 }
 
@@ -52,13 +60,14 @@ export async function runShot(browser: Browser, chapterId: string, shot: Shot): 
       : undefined,
   };
   if (shot.needsAuth) {
-    if (!existsSync(AUTH_STATE_PATH)) {
+    const statePath = shot.storageStatePath ?? AUTH_STATE_PATH;
+    if (!existsSync(statePath)) {
       throw new Error(
-        `Shot "${shot.id}" needs an authenticated session but ${AUTH_STATE_PATH} does not exist. ` +
+        `Shot "${shot.id}" needs an authenticated session but ${statePath} does not exist. ` +
           `Run the auth setup first (capture/run.ts does this automatically before any needsAuth shot).`,
       );
     }
-    contextOptions.storageState = AUTH_STATE_PATH;
+    contextOptions.storageState = statePath;
   }
 
   const context: BrowserContext = await browser.newContext(contextOptions);
