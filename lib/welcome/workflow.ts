@@ -1,33 +1,36 @@
-// Data for the animated workflow map — the centerpiece of the partner
-// onboarding hub. Each node is one clickable stage in the end-to-end
-// process; nodes are grouped by which actor performs that stage.
+// Data for the workflow map — the centerpiece of the partner onboarding hub.
 //
-// `row`/`col` describe the node's position in the desktop flowchart grid
-// (see components/welcome/WorkflowMap.tsx): row is 0-indexed top-to-bottom,
-// col is 0 (left) / 1 (center) / 2 (right) within a 3-column row. `wide`
-// centers a single node across the middle column plus its gutters — used
-// for the final "Client notified" row, which is the end of the flow.
+// One group == one chapter video == one clickable box. This 1:1 mapping is
+// deliberate: an earlier version exposed all 14 individual stages as separate
+// click targets, but several stages share a single chapter video, so clicking
+// a second stage in the same row replayed the video the user had just
+// watched. Testers read that as broken. Stages are now shown *inside* their
+// group as plain, non-interactive labels — the group is the only click target.
+//
+// `row`/`col` describe the box's position in the desktop grid (see
+// components/welcome/WorkflowMap.tsx): three boxes across the top row, then
+// the flow drops down-left into a second row of two.
 
 export type Actor = "partner" | "candidate" | "gpnet" | "automatic";
 
-export type WorkflowNode = {
-  id: string;
+export type WorkflowStage = {
   label: string;
-  detail: string;
   actor: Actor;
-  /** Chapter video (see chapters.ts) this node's lightbox plays. */
+};
+
+export type WorkflowGroup = {
+  id: string;
+  /** Chapter video (see chapters.ts) this box's lightbox plays. */
   chapterId: string;
-  /**
-   * TODO(video): seconds into the chapter this stage starts at, once real
-   * files support deep-linking. Purely a hint for later — unused today.
-   */
-  startTimeHint?: number;
-  /** Desktop flowchart row (0-indexed, top to bottom). */
-  row: number;
-  /** Desktop flowchart column within the row (0 = left, 1 = center, 2 = right). */
+  title: string;
+  summary: string;
+  /** Drives the box's border/fill colour and its actor chip. */
+  actor: Actor;
+  stages: WorkflowStage[];
+  /** Desktop grid row (0 = top row of three, 1 = second row of two). */
+  row: 0 | 1;
+  /** Desktop grid column within the row (0 = left, 1 = center, 2 = right). */
   col: 0 | 1 | 2;
-  /** Centers the node across the middle column plus its gutters. */
-  wide?: boolean;
 };
 
 export const ACTOR_LABEL: Record<Actor, string> = {
@@ -38,7 +41,7 @@ export const ACTOR_LABEL: Record<Actor, string> = {
 };
 
 // Tailwind-friendly color tokens per actor, used consistently across the
-// legend, node fills/borders, and connectors. Kept visibly distinct from the
+// legend, box fills/borders, and connectors. Kept visibly distinct from the
 // spring-green brand accent (#00E676), which is reserved for hover/pulse.
 export const ACTOR_COLOR: Record<Actor, string> = {
   partner: "#00BCD4", // teal
@@ -47,30 +50,74 @@ export const ACTOR_COLOR: Record<Actor, string> = {
   automatic: "#8B98A8", // gray
 };
 
-export const WORKFLOW_NODES: WorkflowNode[] = [
-  // Row 1 — partner: account + workspace
-  { id: "sign-up", label: "Sign up + verify", detail: "Form, then email link", actor: "partner", chapterId: "getting-started", startTimeHint: 0, row: 0, col: 0 },
-  { id: "log-in", label: "Log in", detail: "preventli.ai/login", actor: "partner", chapterId: "getting-started", startTimeHint: 25, row: 0, col: 1 },
-  { id: "dashboard", label: "Partner workspace", detail: "All clients, one view", actor: "partner", chapterId: "getting-started", startTimeHint: 55, row: 0, col: 2 },
-
-  // Row 2 — partner: set up a client
-  { id: "add-client", label: "Add a client", detail: "Company + contact details", actor: "partner", chapterId: "setting-up-a-client", startTimeHint: 0, row: 1, col: 0 },
-  { id: "upload-jd", label: "Upload job descriptions", detail: "Saved to their JD library", actor: "partner", chapterId: "setting-up-a-client", startTimeHint: 20, row: 1, col: 1 },
-
-  // Row 3 — partner: create + send the check
-  { id: "create-check", label: "Create the check", detail: "Candidate + role + JD", actor: "partner", chapterId: "creating-and-sending-checks", startTimeHint: 0, row: 2, col: 0 },
-  { id: "send-check", label: "Send to candidate", detail: "Secure link, straight away", actor: "partner", chapterId: "creating-and-sending-checks", startTimeHint: 20, row: 2, col: 1 },
-
-  // Row 4 — candidate experience (+ automatic reminders branch)
-  { id: "opens-link", label: "Opens the link", detail: "On their phone, no app", actor: "candidate", chapterId: "the-candidate-experience", startTimeHint: 0, row: 3, col: 0 },
-  { id: "completes-signs", label: "Completes + e-signs", detail: "Autosaves as they go", actor: "candidate", chapterId: "the-candidate-experience", startTimeHint: 20, row: 3, col: 1 },
-  { id: "reminders", label: "Automatic reminders", detail: "Up to 3, then escalate", actor: "automatic", chapterId: "the-candidate-experience", startTimeHint: 45, row: 3, col: 2 },
-
-  // Row 5 — GPNet clinical review
-  { id: "report-drafted", label: "Report drafted", detail: "Built from responses", actor: "gpnet", chapterId: "clinical-review", startTimeHint: 0, row: 4, col: 0 },
-  { id: "clinical-review", label: "GPNet clinical review", detail: "Checked before release", actor: "gpnet", chapterId: "clinical-review", startTimeHint: 20, row: 4, col: 1 },
-  { id: "approved", label: "Approved", detail: "Case record created", actor: "gpnet", chapterId: "clinical-review", startTimeHint: 45, row: 4, col: 2 },
-
-  // Row 6 — outcome, end of the flow
-  { id: "client-notified", label: "Client notified", detail: "Fitness-for-role outcome emailed", actor: "gpnet", chapterId: "clinical-review", startTimeHint: 65, row: 5, col: 1, wide: true },
+export const WORKFLOW_GROUPS: WorkflowGroup[] = [
+  {
+    id: "get-set-up",
+    chapterId: "getting-started",
+    title: "Get set up",
+    summary: "Sign up, verify your email, and find your way around your workspace.",
+    actor: "partner",
+    row: 0,
+    col: 0,
+    stages: [
+      { label: "Sign up + verify", actor: "partner" },
+      { label: "Log in", actor: "partner" },
+      { label: "Partner workspace", actor: "partner" },
+    ],
+  },
+  {
+    id: "add-your-client",
+    chapterId: "setting-up-a-client",
+    title: "Add your client",
+    summary: "Company details, then the job descriptions you'll be checking against.",
+    actor: "partner",
+    row: 0,
+    col: 1,
+    stages: [
+      { label: "Add a client", actor: "partner" },
+      { label: "Upload job descriptions", actor: "partner" },
+    ],
+  },
+  {
+    id: "create-and-send",
+    chapterId: "creating-and-sending-checks",
+    title: "Create and send the check",
+    summary: "Candidate, role and JD — the secure link goes out straight away.",
+    actor: "partner",
+    row: 0,
+    col: 2,
+    stages: [
+      { label: "Create the check", actor: "partner" },
+      { label: "Send to candidate", actor: "partner" },
+    ],
+  },
+  {
+    id: "candidate-completes",
+    chapterId: "the-candidate-experience",
+    title: "The candidate completes it",
+    summary: "On their phone, no app. It autosaves, and reminders chase them if they stall.",
+    actor: "candidate",
+    row: 1,
+    col: 0,
+    stages: [
+      { label: "Opens the link", actor: "candidate" },
+      { label: "Completes + e-signs", actor: "candidate" },
+      { label: "Automatic reminders", actor: "automatic" },
+    ],
+  },
+  {
+    id: "reviewed-and-notified",
+    chapterId: "clinical-review",
+    title: "Reviewed, approved, client notified",
+    summary: "GPNet clinicians check every report before anything reaches your client.",
+    actor: "gpnet",
+    row: 1,
+    col: 1,
+    stages: [
+      { label: "Report drafted", actor: "gpnet" },
+      { label: "Clinical review", actor: "gpnet" },
+      { label: "Approved", actor: "gpnet" },
+      { label: "Client notified", actor: "gpnet" },
+    ],
+  },
 ];
