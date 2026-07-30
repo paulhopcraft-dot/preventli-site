@@ -29,7 +29,8 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-bold text-[#0A1628] mb-3">1. About This Policy</h2>
             <p>
-              Preventli Pty Ltd (<strong>&quot;Preventli&quot;</strong>, <strong>&quot;we&quot;</strong>,{" "}
+              Preventli Pty Ltd (ABN 86 697 220 634) (<strong>&quot;Preventli&quot;</strong>,{" "}
+              <strong>&quot;we&quot;</strong>,{" "}
               <strong>&quot;us&quot;</strong>, <strong>&quot;our&quot;</strong>) is an Australian company that provides
               WorkCover case management, AI-powered return-to-work planning, and pre-employment health
               assessment software to Australian businesses.
@@ -309,6 +310,7 @@ export default function PrivacyPage() {
             </p>
             <div className="mt-3 bg-white border border-gray-200 rounded-xl p-6">
               <p className="font-semibold text-[#0A1628]">Preventli Pty Ltd</p>
+              <p className="text-sm text-gray-500">ABN 86 697 220 634</p>
               <p className="mt-1">
                 Email:{" "}
                 <a href="mailto:privacy@preventli.ai" className="text-[#00E676] underline">
