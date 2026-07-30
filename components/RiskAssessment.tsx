@@ -874,7 +874,7 @@ export default function RiskAssessment() {
                       </li>
                       <li>
                         Consider engaging a wellbeing consultant or accessing
-                        Preventli's platform for structured support.
+                        Preventli&apos;s platform for structured support.
                       </li>
                       <li>
                         Set measurable goals and review progress quarterly.
@@ -890,7 +890,7 @@ export default function RiskAssessment() {
                 Want expert help?
               </h4>
               <p className="text-gray-700 text-sm mb-4">
-                Preventli's platform streamlines risk assessment,
+                Preventli&apos;s platform streamlines risk assessment,
                 provides real-time alerts, and connects you with WHS consultants
                 and telehealth doctors for immediate support.
               </p>

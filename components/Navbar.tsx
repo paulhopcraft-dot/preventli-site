@@ -70,6 +70,7 @@ export default function Navbar() {
             >
               Book a Demo
             </a>
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- deliberate full-page anchor: the navLinks hash links above are plain <a> too and escape this rule only because their href is a variable, so converting just this one would make it the nav's lone client-side link */}
             <a
               href="/#calculator"
               className="text-sm text-gray-300 hover:text-white transition-colors font-medium"
@@ -141,6 +142,7 @@ export default function Navbar() {
             >
               Login
             </a>
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- see the desktop link above */}
             <a
               href="/#calculator"
               onClick={() => setMenuOpen(false)}
