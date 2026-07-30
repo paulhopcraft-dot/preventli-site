@@ -1,9 +1,10 @@
-name: Test
+name: CI
 
 # Until this existed, the only PR checks were the two Vercel deploys — which
-# build the site but never run vitest. A broken `main` was therefore invisible
-# to CI: /lmw shipped without its security-headers rule and the failing test
-# (lib/security-headers.test.ts) went unnoticed until someone ran it locally.
+# build the site but never run vitest or eslint. A broken `main` was therefore
+# invisible to CI: /lmw shipped without its security-headers rule and the
+# failing test (lib/security-headers.test.ts) went unnoticed until someone ran
+# it locally.
 #
 # Runs on PRs, and on pushes to main so a merge result is verified even when it
 # lands without a PR.
@@ -21,20 +22,48 @@ permissions:
   contents: read
 
 jobs:
-  vitest:
-    name: vitest
+  # Three separate jobs rather than sequential steps in one: a lint failure
+  # shouldn't hide a test failure, and each reports its own check.
+  lint:
+    name: lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           # 22.x is Vercel's default for this project, so CI and the deploy
           # build agree on the runtime.
           node-version: 22.x
           cache: npm
-
       - run: npm ci
+      # Errors fail the job; the repo's 6 pre-existing warnings do not.
+      - run: npm run lint
 
+  test:
+    name: vitest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.x
+          cache: npm
+      - run: npm ci
       # The suite is pure unit tests — no env vars, no secrets, no `next build`.
       - run: npm test
+
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.x
+          cache: npm
+      - run: npm ci
+      # `next build` completes with no env vars set: every runtime secret
+      # (Supabase, Resend, OpenRouter, ADMIN_PASSWORD) is read inside request
+      # handlers, not at module scope. Keep it that way, or this job will need
+      # secrets wired in.
+      - run: npm run build
