@@ -14,7 +14,7 @@
       ]
     },
     {
-      "source": "/:page(admin|demo|lmw|partner-onboarding|premium-calculator|privacy|signup|start-trial|terms|robots.txt|sitemap.xml)",
+      "source": "/:page(admin|demo|employer-onboarding|lmw|partner-onboarding|premium-calculator|privacy|signup|start-trial|terms|robots.txt|sitemap.xml)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "DENY" },
