@@ -138,27 +138,29 @@ export default function Pricing() {
                       tier.popular ? "bg-[#8DC63F]/5 border-t-4 border-[#8DC63F]" : ""
                     }`}
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-lg font-bold text-[#0A1628]">{tier.name}</span>
-                      {tier.popular && (
-                        <span className="bg-[#8DC63F] text-[#0A1628] text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide leading-none">
-                          POPULAR
-                        </span>
-                      )}
+                    <div className="flex flex-col h-full">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-lg font-bold text-[#0A1628]">{tier.name}</span>
+                        {tier.popular && (
+                          <span className="bg-[#8DC63F] text-[#0A1628] text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide leading-none">
+                            POPULAR
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-gray-500 text-xs font-normal leading-snug mb-3">
+                        {tier.description}
+                      </p>
+                      <div className="flex items-end gap-1 mb-4">
+                        <span className="text-3xl font-bold text-[#0A1628]">{tier.price}</span>
+                        <span className="text-gray-400 mb-0.5 text-sm font-normal">{tier.priceSuffix}</span>
+                      </div>
+                      <a
+                        href={tier.ctaHref}
+                        className={`mt-auto block w-full text-center py-2.5 px-4 rounded-xl font-semibold text-sm transition-all ${tier.ctaClass}`}
+                      >
+                        {tier.cta}
+                      </a>
                     </div>
-                    <p className="text-gray-500 text-xs font-normal leading-snug mb-3">
-                      {tier.description}
-                    </p>
-                    <div className="flex items-end gap-1 mb-4">
-                      <span className="text-3xl font-bold text-[#0A1628]">{tier.price}</span>
-                      <span className="text-gray-400 mb-0.5 text-sm font-normal">{tier.priceSuffix}</span>
-                    </div>
-                    <a
-                      href={tier.ctaHref}
-                      className={`block w-full text-center py-2.5 px-4 rounded-xl font-semibold text-sm transition-all ${tier.ctaClass}`}
-                    >
-                      {tier.cta}
-                    </a>
                   </th>
                 ))}
               </tr>
