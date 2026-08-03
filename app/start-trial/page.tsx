@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import {
   EMPLOYEE_COUNT_OPTIONS,
   isTrialOrgFieldsValid,
   buildGoogleSignupUrl,
+  isPricingTier,
   type EmployeeCountBand,
   type OrgKind,
   type TrialOrgFields,
@@ -18,7 +20,25 @@ const APP_GOOGLE_OAUTH_URL = "https://app.preventli.ai/api/auth/google";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
+// useSearchParams() requires a Suspense boundary in the App Router (Next.js
+// bails out of static rendering otherwise) — the actual page logic lives in
+// StartTrialForm below; this default export just supplies that boundary.
 export default function StartTrialPage() {
+  return (
+    <Suspense fallback={null}>
+      <StartTrialForm />
+    </Suspense>
+  );
+}
+
+function StartTrialForm() {
+  // Which pricing-tier CTA sent the prospect here (?tier=payg|starter|professional
+  // on the link from components/Pricing.tsx). Absent = the generic "Start Free
+  // Trial" banner — no Stripe step of any kind follows signup in that case.
+  const searchParams = useSearchParams();
+  const tierParam = searchParams.get("tier");
+  const tier = isPricingTier(tierParam) ? tierParam : undefined;
+
   // Shared org fields — required before either signup path (Google or
   // email/password) can proceed.
   const [company, setCompany] = useState("");
@@ -38,8 +58,23 @@ export default function StartTrialPage() {
 
   const orgFields: TrialOrgFields = { company, orgKind, employeeCount };
   const orgFieldsValid = isTrialOrgFieldsValid(orgFields);
-  const googleHref = buildGoogleSignupUrl(APP_GOOGLE_OAUTH_URL, orgFields);
+  const googleHref = buildGoogleSignupUrl(APP_GOOGLE_OAUTH_URL, orgFields, tier);
   const passwordChecks = checkPasswordRules(password);
+
+  const tierCopy: Record<"payg" | "starter" | "professional", { heading: string; sub: string }> = {
+    payg: {
+      heading: "Get started — Pay as you go",
+      sub: "No monthly fee. After you verify your email, add a card once (nothing is charged now) — you're only billed $49 when a check's report is completed.",
+    },
+    starter: {
+      heading: "Subscribe to Starter — $595/mo",
+      sub: "After you verify your email, you'll set up your monthly subscription. Cancel any time.",
+    },
+    professional: {
+      heading: "Subscribe to Professional — $1,199/mo",
+      sub: "After you verify your email, you'll set up your monthly subscription. Cancel any time.",
+    },
+  };
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -82,6 +117,7 @@ export default function StartTrialPage() {
           password,
           employeeCount,
           kind: orgKind,
+          tier,
         }),
       });
 
@@ -110,10 +146,12 @@ export default function StartTrialPage() {
             </span>
           </Link>
           <h1 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-2">
-            Start your 14-day free trial
+            {tier ? tierCopy[tier].heading : "Start your 14-day free trial"}
           </h1>
           <p className="text-gray-500 text-sm">
-            No credit card. Full system access for 14 days, plus 1 free report of each check type.
+            {tier
+              ? tierCopy[tier].sub
+              : "No credit card. Full system access for 14 days, plus 1 free report of each check type."}
           </p>
         </div>
 
