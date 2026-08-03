@@ -23,6 +23,17 @@ export const EMPLOYEE_COUNT_OPTIONS: { value: EmployeeCountBand; label: string }
 
 export type OrgKind = "employer" | "partner";
 
+/** Which pricing-tier CTA the prospect clicked, carried as a URL query param
+ * (?tier=payg|starter|professional) onto /start-trial. Absent = the generic
+ * "Start Free Trial" banner — see server/services/signupService.ts (app repo)
+ * for why that distinction matters: only an explicit tier triggers any Stripe
+ * step after signup. */
+export type PricingTier = "payg" | "starter" | "professional";
+
+export function isPricingTier(value: string | null): value is PricingTier {
+  return value === "payg" || value === "starter" || value === "professional";
+}
+
 export interface TrialOrgFields {
   company: string;
   orgKind: OrgKind | "";
@@ -47,7 +58,7 @@ export function isTrialOrgFieldsValid(fields: TrialOrgFields): boolean {
  * accidentally link to an incomplete signup — render a disabled control
  * instead of an <a> when this returns null.
  */
-export function buildGoogleSignupUrl(baseUrl: string, fields: TrialOrgFields): string | null {
+export function buildGoogleSignupUrl(baseUrl: string, fields: TrialOrgFields, tier?: PricingTier): string | null {
   if (!isTrialOrgFieldsValid(fields)) return null;
 
   const params = new URLSearchParams({
@@ -55,6 +66,7 @@ export function buildGoogleSignupUrl(baseUrl: string, fields: TrialOrgFields): s
     employeeCount: fields.employeeCount,
     kind: fields.orgKind,
   });
+  if (tier) params.set("tier", tier);
 
   return `${baseUrl}?${params.toString()}`;
 }

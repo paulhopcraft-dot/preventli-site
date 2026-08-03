@@ -6,6 +6,7 @@ import { describe, it, expect } from "vitest";
 import {
   isTrialOrgFieldsValid,
   buildGoogleSignupUrl,
+  isPricingTier,
   type TrialOrgFields,
 } from "./trial-signup";
 
@@ -83,5 +84,32 @@ describe("buildGoogleSignupUrl", () => {
     });
     const parsed = new URL(url!);
     expect(parsed.searchParams.get("company")).toBe("Acme & Sons Pty Ltd");
+  });
+
+  it("carries a tier param when one is passed", () => {
+    const url = buildGoogleSignupUrl(base, baseEmployerFields, "professional");
+    const parsed = new URL(url!);
+    expect(parsed.searchParams.get("tier")).toBe("professional");
+  });
+
+  it("omits the tier param entirely for the generic trial banner (no tier passed)", () => {
+    const url = buildGoogleSignupUrl(base, baseEmployerFields);
+    const parsed = new URL(url!);
+    expect(parsed.searchParams.has("tier")).toBe(false);
+  });
+});
+
+describe("isPricingTier", () => {
+  it("accepts exactly the three real tiers", () => {
+    expect(isPricingTier("payg")).toBe(true);
+    expect(isPricingTier("starter")).toBe(true);
+    expect(isPricingTier("professional")).toBe(true);
+  });
+
+  it("rejects null, empty, and anything else — including a tier-shaped typo", () => {
+    expect(isPricingTier(null)).toBe(false);
+    expect(isPricingTier("")).toBe(false);
+    expect(isPricingTier("enterprise")).toBe(false);
+    expect(isPricingTier("Professional")).toBe(false); // case-sensitive, matches the URL param exactly
   });
 });
