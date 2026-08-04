@@ -173,7 +173,12 @@ function StartTrialForm() {
               <p className="text-gray-500 text-sm">
                 We&apos;ve sent a confirmation link to{" "}
                 <span className="font-medium text-[#0A1628]">{email}</span>. Click it to
-                activate your account and start your trial.
+                activate your account
+                {tier === "starter" || tier === "professional"
+                  ? " and set up your subscription."
+                  : tier === "payg"
+                    ? " and add your card."
+                    : " and start your trial."}
               </p>
             </div>
           ) : (
@@ -370,7 +375,13 @@ function StartTrialForm() {
                   disabled={state === "loading"}
                   className="w-full bg-[#8DC63F] text-[#0A1628] py-4 px-6 rounded-xl font-bold text-sm hover:bg-[#00C060] transition-all disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {state === "loading" ? "Creating your account…" : "Start 14-day free trial"}
+                  {state === "loading"
+                    ? "Creating your account…"
+                    : tier === "starter" || tier === "professional"
+                      ? "Continue to subscription"
+                      : tier === "payg"
+                        ? "Continue to add card"
+                        : "Start 14-day free trial"}
                 </button>
 
                 <p className="text-gray-400 text-xs text-center">
