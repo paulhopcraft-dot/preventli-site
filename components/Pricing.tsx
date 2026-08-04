@@ -134,7 +134,16 @@ export default function Pricing() {
                 {tiers.map((tier, i) => (
                   <th
                     key={i}
-                    className={`w-[24%] p-6 text-left align-top ${
+                    // h-px (not h-full's usual omission): a <th>'s rendered
+                    // height comes from its row's tallest cell, which isn't
+                    // known until AFTER layout — a percentage height on a
+                    // descendant can't reliably resolve against that. Giving
+                    // the cell itself an explicit (if tiny) height makes it a
+                    // definite containing block, so the inner flex column's
+                    // h-full actually fills the real row height instead of
+                    // collapsing to its own content — this is what was
+                    // pinning Starter's button above the other two columns'.
+                    className={`w-[24%] h-px p-6 text-left align-top ${
                       tier.popular ? "bg-[#8DC63F]/5 border-t-4 border-[#8DC63F]" : ""
                     }`}
                   >
